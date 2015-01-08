@@ -1,0 +1,5 @@
+Library.AtCave:                             Passive libBase.so libGeoBase.so libParBase.so libGeom.so libCint.so libCore.so
+Library.AtGeoCave:                          Passive libBase.so libGeoBase.so libParBase.so libGeom.so libCint.so libCore.so
+Library.AtMagnet:                           Passive libBase.so libGeoBase.so libParBase.so libGeom.so libCint.so libCore.so
+Library.AtPassiveContFact:                  Passive libBase.so libGeoBase.so libParBase.so libGeom.so libCint.so libCore.so
+Library.AtPipe:                             Passive libBase.so libGeoBase.so libParBase.so libGeom.so libCint.so libCore.so

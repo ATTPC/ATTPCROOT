@@ -1,0 +1,2 @@
+Library.Pythia6Generator:                   AtGen libBase.so libAtData.so libpythia8.so libPythia6.so
+Library.Pythia8Generator:                   AtGen libBase.so libAtData.so libpythia8.so libPythia6.so
