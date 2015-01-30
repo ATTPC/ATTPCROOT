@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/daq/fair_install/ATTPCROOT
-BuildDirectory: /home/daq/fair_install/ATTPCROOT/build
+SourceDirectory: /home/daq/fair_install_2015/ATTPCROOT
+BuildDirectory: /home/daq/fair_install_2015/ATTPCROOT/build
 
 # Where to place the cost data store
 CostDataFile: 
@@ -33,7 +33,7 @@ ScpCommand: /usr/bin/scp
 NightlyStartTime: 00:00:00 CEST
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/home/daq/fair_install/ATTPCROOT"
+ConfigureCommand: "/usr/bin/cmake" "/home/daq/fair_install_2015/ATTPCROOT"
 MakeCommand: /usr/bin/gmake -i
 DefaultCTestConfigurationType: Release
 
@@ -53,9 +53,9 @@ GITUpdateOptions:
 GITUpdateCustom: 
 
 # Generic update command
-UpdateCommand: 
+UpdateCommand: /usr/bin/git
 UpdateOptions: 
-UpdateType: 
+UpdateType: git
 
 # Compiler info
 Compiler: /usr/bin/c++

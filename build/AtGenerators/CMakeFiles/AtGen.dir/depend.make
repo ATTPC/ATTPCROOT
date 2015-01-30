@@ -3,9 +3,9 @@
 
 AtGenerators/CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o: ../AtGenerators/Pythia6Generator.h
 AtGenerators/CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o: ../AtGenerators/Pythia8Generator.h
+AtGenerators/CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o: /home/daq/fair_install/FairRootInst/include/FairGenerator.h
 AtGenerators/CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o: AtGenerators/G__AtGenDict.cxx
 AtGenerators/CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o: AtGenerators/G__AtGenDict.h
-AtGenerators/CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o: /home/daq/fair_install/FairRootInst/include/FairGenerator.h
 AtGenerators/CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/Pythia8/Analysis.h
 AtGenerators/CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/Pythia8/Basics.h
 AtGenerators/CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/Pythia8/BeamParticle.h
@@ -98,10 +98,10 @@ AtGenerators/CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o: /usr/local/fairsoft/fairso
 AtGenerators/CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/snprintf.h
 AtGenerators/CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/strlcpy.h
 
-AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o: ../AtGenerators/Pythia6Generator.cxx
-AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o: ../AtGenerators/Pythia6Generator.h
 AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o: /home/daq/fair_install/FairRootInst/include/FairGenerator.h
 AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o: /home/daq/fair_install/FairRootInst/include/FairPrimaryGenerator.h
+AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o: ../AtGenerators/Pythia6Generator.cxx
+AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o: ../AtGenerators/Pythia6Generator.h
 AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/DllImport.h
 AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/RConfig.h
 AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/RVersion.h
@@ -139,10 +139,10 @@ AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o: /usr/local/fairsoft/fa
 AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/snprintf.h
 AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/strlcpy.h
 
-AtGenerators/CMakeFiles/AtGen.dir/Pythia8Generator.cxx.o: ../AtGenerators/Pythia8Generator.cxx
-AtGenerators/CMakeFiles/AtGen.dir/Pythia8Generator.cxx.o: ../AtGenerators/Pythia8Generator.h
 AtGenerators/CMakeFiles/AtGen.dir/Pythia8Generator.cxx.o: /home/daq/fair_install/FairRootInst/include/FairGenerator.h
 AtGenerators/CMakeFiles/AtGen.dir/Pythia8Generator.cxx.o: /home/daq/fair_install/FairRootInst/include/FairPrimaryGenerator.h
+AtGenerators/CMakeFiles/AtGen.dir/Pythia8Generator.cxx.o: ../AtGenerators/Pythia8Generator.cxx
+AtGenerators/CMakeFiles/AtGen.dir/Pythia8Generator.cxx.o: ../AtGenerators/Pythia8Generator.h
 AtGenerators/CMakeFiles/AtGen.dir/Pythia8Generator.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/Pythia8/Analysis.h
 AtGenerators/CMakeFiles/AtGen.dir/Pythia8Generator.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/Pythia8/Basics.h
 AtGenerators/CMakeFiles/AtGen.dir/Pythia8Generator.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/Pythia8/BeamParticle.h

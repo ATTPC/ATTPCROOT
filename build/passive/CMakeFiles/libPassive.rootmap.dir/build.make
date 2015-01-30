@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daq/fair_install/ATTPCROOT
+CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daq/fair_install/ATTPCROOT/build
+CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT/build
 
 # Utility rule file for libPassive.rootmap.
 
@@ -53,9 +53,9 @@ passive/CMakeFiles/libPassive.rootmap: lib/libPassive.rootmap
 lib/libPassive.rootmap: ../passive/PassiveLinkDef.h
 lib/libPassive.rootmap: ../passive/PassiveLinkDef.h
 lib/libPassive.rootmap: /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install/ATTPCROOT/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../lib/libPassive.rootmap"
-	cd /home/daq/fair_install/ATTPCROOT/build/passive && /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap -o /home/daq/fair_install/ATTPCROOT/build/lib/libPassive.rootmap -l Passive -d libBase.so libGeoBase.so libParBase.so libGeom.so libCint.so libCore.so -c PassiveLinkDef.h /home/daq/fair_install/ATTPCROOT/passive/PassiveLinkDef.h
+	cd /home/daq/fair_install_2015/ATTPCROOT/build/passive && /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap -o /home/daq/fair_install_2015/ATTPCROOT/build/lib/libPassive.rootmap -l Passive -d libBase.so libGeoBase.so libParBase.so libGeom.so libCint.so libCore.so -c PassiveLinkDef.h /home/daq/fair_install_2015/ATTPCROOT/passive/PassiveLinkDef.h
 
 libPassive.rootmap: passive/CMakeFiles/libPassive.rootmap
 libPassive.rootmap: lib/libPassive.rootmap
@@ -67,10 +67,10 @@ passive/CMakeFiles/libPassive.rootmap.dir/build: libPassive.rootmap
 .PHONY : passive/CMakeFiles/libPassive.rootmap.dir/build
 
 passive/CMakeFiles/libPassive.rootmap.dir/clean:
-	cd /home/daq/fair_install/ATTPCROOT/build/passive && $(CMAKE_COMMAND) -P CMakeFiles/libPassive.rootmap.dir/cmake_clean.cmake
+	cd /home/daq/fair_install_2015/ATTPCROOT/build/passive && $(CMAKE_COMMAND) -P CMakeFiles/libPassive.rootmap.dir/cmake_clean.cmake
 .PHONY : passive/CMakeFiles/libPassive.rootmap.dir/clean
 
 passive/CMakeFiles/libPassive.rootmap.dir/depend:
-	cd /home/daq/fair_install/ATTPCROOT/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install/ATTPCROOT /home/daq/fair_install/ATTPCROOT/passive /home/daq/fair_install/ATTPCROOT/build /home/daq/fair_install/ATTPCROOT/build/passive /home/daq/fair_install/ATTPCROOT/build/passive/CMakeFiles/libPassive.rootmap.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/daq/fair_install_2015/ATTPCROOT/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT /home/daq/fair_install_2015/ATTPCROOT/passive /home/daq/fair_install_2015/ATTPCROOT/build /home/daq/fair_install_2015/ATTPCROOT/build/passive /home/daq/fair_install_2015/ATTPCROOT/build/passive/CMakeFiles/libPassive.rootmap.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : passive/CMakeFiles/libPassive.rootmap.dir/depend
 

@@ -147,6 +147,8 @@ TGeoVolume* create_detector()
 
   return det_plane_vol;*/
 
+  return drift_volume;
+
 }
 
 void position_detector()

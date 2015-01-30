@@ -1,6 +1,8 @@
 void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
 {
     
+  TString dir = getenv("VMCWORKDIR");
+
   // Output file name
   TString outFile ="test.root";
     
@@ -29,14 +31,16 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
   cave->SetGeometryFileName("cave.geo");
   run->AddModule(cave);
 
-  FairModule* magnet = new AtMagnet("Magnet");
+ /* FairModule* magnet = new AtMagnet("Magnet");
   run->AddModule(magnet);
 
   FairModule* pipe = new AtPipe("Pipe");
-  run->AddModule(pipe);
+  run->AddModule(pipe);*/
     
-  FairDetector* NewDet = new AtTpc("TestDetector", kTRUE);
-  run->AddModule(NewDet);
+  FairDetector* ATTPC = new AtTpc("ATTPC", kTRUE);
+  ATTPC->SetGeometryFileName("ATTPC_v1.0.root"); 
+  //ATTPC->SetModifyGeometry(kTRUE);
+  run->AddModule(ATTPC);
 
  // ------------------------------------------------------------------------
 

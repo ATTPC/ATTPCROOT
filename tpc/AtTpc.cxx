@@ -146,7 +146,7 @@ void AtTpc::Reset()
   fAtTpcPointCollection->Clear();
 }
 
-void AtTpc::ConstructGeometry()
+/*void AtTpc::ConstructGeometry()
 {
     
     TGeoVolume *top=gGeoManager->GetTopVolume();
@@ -205,10 +205,29 @@ void AtTpc::ConstructGeometry()
     det3->SetLineColor(kGreen);
     
     
-    
-    
-    
-    
+}*/
+
+void AtTpc::ConstructGeometry()
+{
+  TString fileName=GetGeometryFileName();
+  if (fileName.EndsWith(".geo")) {
+    LOG(INFO)<<"Constructing ATTPC geometry from ASCII file "<<fileName<<FairLogger::endl;
+    //ConstructASCIIGeometry();
+  } else if (fileName.EndsWith(".root")) {
+    LOG(INFO)<<"Constructing ATTPC geometry from ROOT file "<<fileName<<FairLogger::endl;
+    ConstructRootGeometry();
+  } else {
+    std::cout << "Geometry format not supported." << std::endl;
+  }
+}
+
+Bool_t AtTpc::CheckIfSensitive(std::string name)
+{
+  TString tsname = name;
+  if (tsname.Contains("drift_volume")) {
+    return kTRUE;
+  }
+  return kFALSE;
 }
 
 AtTpcPoint* AtTpc::AddHit(Int_t trackID, Int_t detID,

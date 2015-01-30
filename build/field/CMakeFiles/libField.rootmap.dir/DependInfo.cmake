@@ -14,8 +14,9 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/home/daq/fair_install/FairRootInst/include"
   "/usr/local/fairsoft/fairsoft_jul14p3-install/include/root"
+  "/home/daq/fair_install/FairRootInst/include"
+  "/usr/local/fairsoft/fairsoft_jul14p3-install/include"
   "../field"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

@@ -135,6 +135,7 @@ TGeoVolume* create_detector()
 
   TGeoVolume *drift_volume = gGeoManager->MakeTube("drift_volume", gas,  0, tpc_diameter/2, drift_length/2);
   gGeoMan->GetVolume(geoVersion)->AddNode(drift_volume,1, new TGeoTranslation(0,0,0));
+  drift_volume->SetTransparency(70);
 
   // Single detector_layer
  /* TGeoBBox* det_plane = new TGeoBBox("", Module_Size_X/2., Module_Size_Y/2., Module_Size_Z/2.);

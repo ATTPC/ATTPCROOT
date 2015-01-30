@@ -1,11 +1,13 @@
 void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
 {
     
+  TString dir = getenv("VMCWORKDIR");
+
   // Output file name
-  TString outFile ="test.root";
+  TString outFile ="attpcsim.root";
     
   // Parameter file name
-  TString parFile="params.root";
+  TString parFile="attpcpar.root";
   
   // -----   Timer   --------------------------------------------------------
   TStopwatch timer;
@@ -35,8 +37,10 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
   FairModule* pipe = new AtPipe("Pipe");
   run->AddModule(pipe);*/
     
-  FairDetector* NewDet = new AtTpc("TestDetector", kTRUE);
-  run->AddModule(NewDet);
+  FairDetector* ATTPC = new AtTpc("ATTPC", kTRUE);
+  ATTPC->SetGeometryFileName("ATTPC_v1.0.root"); 
+  //ATTPC->SetModifyGeometry(kTRUE);
+  run->AddModule(ATTPC);
 
  // ------------------------------------------------------------------------
 

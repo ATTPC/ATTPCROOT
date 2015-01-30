@@ -1,4 +1,4 @@
-# Install script for directory: /home/daq/fair_install/ATTPCROOT/AtGenerators
+# Install script for directory: /home/daq/fair_install_2015/ATTPCROOT/AtGenerators
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,13 +34,13 @@ ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
-    "/home/daq/fair_install/ATTPCROOT/AtGenerators/Pythia6Generator.h"
-    "/home/daq/fair_install/ATTPCROOT/AtGenerators/Pythia8Generator.h"
+    "/home/daq/fair_install_2015/ATTPCROOT/AtGenerators/Pythia6Generator.h"
+    "/home/daq/fair_install_2015/ATTPCROOT/AtGenerators/Pythia8Generator.h"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE FILE FILES "/home/daq/fair_install/ATTPCROOT/build/lib/libAtGen.rootmap")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE FILE FILES "/home/daq/fair_install_2015/ATTPCROOT/build/lib/libAtGen.rootmap")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -57,9 +57,9 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
     ENDIF()
   ENDFOREACH()
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES
-    "/home/daq/fair_install/ATTPCROOT/build/lib/libAtGen.so.0.0.0"
-    "/home/daq/fair_install/ATTPCROOT/build/lib/libAtGen.so.0"
-    "/home/daq/fair_install/ATTPCROOT/build/lib/libAtGen.so"
+    "/home/daq/fair_install_2015/ATTPCROOT/build/lib/libAtGen.so.0.0.0"
+    "/home/daq/fair_install_2015/ATTPCROOT/build/lib/libAtGen.so.0"
+    "/home/daq/fair_install_2015/ATTPCROOT/build/lib/libAtGen.so"
     )
   FOREACH(file
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libAtGen.so.0.0.0"

@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daq/fair_install/ATTPCROOT
+CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daq/fair_install/ATTPCROOT/build
+CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT/build
 
 # Utility rule file for ContinuousBuild.
 
@@ -64,6 +64,6 @@ CMakeFiles/ContinuousBuild.dir/clean:
 .PHONY : CMakeFiles/ContinuousBuild.dir/clean
 
 CMakeFiles/ContinuousBuild.dir/depend:
-	cd /home/daq/fair_install/ATTPCROOT/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install/ATTPCROOT /home/daq/fair_install/ATTPCROOT /home/daq/fair_install/ATTPCROOT/build /home/daq/fair_install/ATTPCROOT/build /home/daq/fair_install/ATTPCROOT/build/CMakeFiles/ContinuousBuild.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/daq/fair_install_2015/ATTPCROOT/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT /home/daq/fair_install_2015/ATTPCROOT /home/daq/fair_install_2015/ATTPCROOT/build /home/daq/fair_install_2015/ATTPCROOT/build /home/daq/fair_install_2015/ATTPCROOT/build/CMakeFiles/ContinuousBuild.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/ContinuousBuild.dir/depend
 
