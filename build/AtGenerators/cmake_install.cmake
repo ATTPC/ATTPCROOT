@@ -36,6 +36,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
     "/home/daq/fair_install_2015/ATTPCROOT/AtGenerators/Pythia6Generator.h"
     "/home/daq/fair_install_2015/ATTPCROOT/AtGenerators/Pythia8Generator.h"
+    "/home/daq/fair_install_2015/ATTPCROOT/AtGenerators/ATTPCIonGenerator.h"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

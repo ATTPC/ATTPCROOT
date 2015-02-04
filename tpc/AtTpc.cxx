@@ -223,8 +223,10 @@ void AtTpc::ConstructGeometry()
 
 Bool_t AtTpc::CheckIfSensitive(std::string name)
 {
+  
   TString tsname = name;
   if (tsname.Contains("drift_volume")) {
+    LOG(INFO)<<" ATTPC geometry: Sensitive volume found: "<<tsname<<FairLogger::endl;
     return kTRUE;
   }
   return kFALSE;

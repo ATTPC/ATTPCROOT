@@ -18,6 +18,5 @@
 
 #pragma link C++ class  Pythia6Generator+;
 #pragma link C++ class  Pythia8Generator+;
-#pragma link C++ class  ATTPCIonGenerator+;
 
 #endif

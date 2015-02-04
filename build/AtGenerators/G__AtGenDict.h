@@ -33,6 +33,7 @@ extern void G__set_cpp_environmentG__AtGenDict();
 #include "TMemberInspector.h"
 #include "Pythia6Generator.h"
 #include "Pythia8Generator.h"
+#include "ATTPCIonGenerator.h"
 #include <algorithm>
 namespace std { }
 using namespace std;
@@ -159,5 +160,7 @@ extern G__linked_taginfo G__G__AtGenDictLN_vectorlEPythia8cLcLProcessContainermU
 extern G__linked_taginfo G__G__AtGenDictLN_reverse_iteratorlEvectorlEPythia8cLcLProcessContainermUcOallocatorlEPythia8cLcLProcessContainermUgRsPgRcLcLiteratorgR;
 extern G__linked_taginfo G__G__AtGenDictLN_Pythia8cLcLPythia;
 extern G__linked_taginfo G__G__AtGenDictLN_Pythia8Generator;
+extern G__linked_taginfo G__G__AtGenDictLN_FairIon;
+extern G__linked_taginfo G__G__AtGenDictLN_ATTPCIonGenerator;
 
 /* STUB derived class for protected member access */

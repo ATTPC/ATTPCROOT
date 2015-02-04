@@ -2,6 +2,7 @@ FILE(REMOVE_RECURSE
   "G__AtGenDict.cxx"
   "CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o"
   "CMakeFiles/AtGen.dir/Pythia8Generator.cxx.o"
+  "CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.o"
   "CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o"
   "../lib/libAtGen.pdb"
   "../lib/libAtGen.so"

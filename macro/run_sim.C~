@@ -4,10 +4,10 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
   TString dir = getenv("VMCWORKDIR");
 
   // Output file name
-  TString outFile ="test.root";
+  TString outFile ="attpcsim.root";
     
   // Parameter file name
-  TString parFile="params.root";
+  TString parFile="attpcpar.root";
   
   // -----   Timer   --------------------------------------------------------
   TStopwatch timer;
@@ -61,7 +61,7 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
   
 
     // Pythia8
-    Pythia8Generator* P8gen = new Pythia8Generator();
+    /*Pythia8Generator* P8gen = new Pythia8Generator();
     P8gen->UseRandom3(); //# TRandom1 or TRandom3 ?
     P8gen->SetParameters("SoftQCD:inelastic = on");
     P8gen->SetParameters("PhotonCollision:gmgm2mumu = on");
@@ -77,7 +77,19 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
     boxGen->SetPhiRange(0., 360.); // Azimuth angle range [degree]
     boxGen->SetThetaRange(0., 90.); // Polar angle in lab system range [degree]
     boxGen->SetXYZ(0., 0., 0.); // cm
-    primGen->AddGenerator(boxGen);
+    primGen->AddGenerator(boxGen);*/
+
+              /*    Int_t z = 18;  // Atomic number
+	          Int_t a = 34; // Mass number
+	          Int_t q = 0;   // Charge State
+	          Int_t m = 1;   // Multiplicity
+	          Double_t px = 0.05/a;  // X-Momentum / per nucleon!!!!!!
+	          Double_t py = 0.05/a;  // Y-Momentum / per nucleon!!!!!!
+	          Double_t pz = 4./a;  // Z-Momentum / per nucleon!!!!!!
+	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator(z,a,q,m,px,py,pz);
+	          ionGen->SetSpotRadius(1,1,0);
+	          // add the ion generator
+	          primGen->AddGenerator(ionGen);*/
   
     
     run->SetGenerator(primGen);

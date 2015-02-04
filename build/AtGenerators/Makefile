@@ -180,6 +180,30 @@ libAtGen.rootmap/fast:
 	cd /home/daq/fair_install_2015/ATTPCROOT/build && $(MAKE) -f AtGenerators/CMakeFiles/libAtGen.rootmap.dir/build.make AtGenerators/CMakeFiles/libAtGen.rootmap.dir/build
 .PHONY : libAtGen.rootmap/fast
 
+ATTPCIonGenerator.o: ATTPCIonGenerator.cxx.o
+.PHONY : ATTPCIonGenerator.o
+
+# target to build an object file
+ATTPCIonGenerator.cxx.o:
+	cd /home/daq/fair_install_2015/ATTPCROOT/build && $(MAKE) -f AtGenerators/CMakeFiles/AtGen.dir/build.make AtGenerators/CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.o
+.PHONY : ATTPCIonGenerator.cxx.o
+
+ATTPCIonGenerator.i: ATTPCIonGenerator.cxx.i
+.PHONY : ATTPCIonGenerator.i
+
+# target to preprocess a source file
+ATTPCIonGenerator.cxx.i:
+	cd /home/daq/fair_install_2015/ATTPCROOT/build && $(MAKE) -f AtGenerators/CMakeFiles/AtGen.dir/build.make AtGenerators/CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.i
+.PHONY : ATTPCIonGenerator.cxx.i
+
+ATTPCIonGenerator.s: ATTPCIonGenerator.cxx.s
+.PHONY : ATTPCIonGenerator.s
+
+# target to generate assembly for a file
+ATTPCIonGenerator.cxx.s:
+	cd /home/daq/fair_install_2015/ATTPCROOT/build && $(MAKE) -f AtGenerators/CMakeFiles/AtGen.dir/build.make AtGenerators/CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.s
+.PHONY : ATTPCIonGenerator.cxx.s
+
 G__AtGenDict.o: G__AtGenDict.cxx.o
 .PHONY : G__AtGenDict.o
 
@@ -267,6 +291,9 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... ATTPCIonGenerator.o"
+	@echo "... ATTPCIonGenerator.i"
+	@echo "... ATTPCIonGenerator.s"
 	@echo "... G__AtGenDict.o"
 	@echo "... G__AtGenDict.i"
 	@echo "... G__AtGenDict.s"

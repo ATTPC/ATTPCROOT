@@ -29,7 +29,7 @@ const TString FileName1 = geoVersion + "_geomanager.root";
 
 // Names of the different used materials which are used to build the modules
 // The materials are defined in the global media.geo file 
-const TString MediumGas     = "isobutan";
+const TString MediumGas     = "heco2";
 const TString CylinderVolumeMedium         = "steel";
 
 // Distance of the center of the first detector layer [cm];
@@ -117,7 +117,7 @@ void create_materials_from_media_file()
   FairGeoMedia* geoMedia = geoFace->getMedia();
   FairGeoBuilder* geoBuild = geoLoad->getGeoBuilder();
 
-  FairGeoMedium* isobutan              = geoMedia->getMedium("isobutan");
+  FairGeoMedium* isobutan              = geoMedia->getMedium("heco2");
   FairGeoMedium* steel          = geoMedia->getMedium("steel");
 
   // include check if all media are found
