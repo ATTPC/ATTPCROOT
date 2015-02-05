@@ -80,14 +80,15 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 {
   /** This method is called from the MC stepping */
 
+/*
   //Set parameters at entrance of volume. Reset ELoss.
-  if ( gMC->IsTrackEntering() ) {
+   if ( gMC->IsTrackEntering() ) {
     fELoss  = 0.;
     fTime   = gMC->TrackTime() * 1.0e09;
     fLength = gMC->TrackLength();
     gMC->TrackPosition(fPos);
     gMC->TrackMomentum(fMom);
-  }
+   }
 
   // Sum energy loss for all steps in the active volume
   fELoss += gMC->Edep();
@@ -106,7 +107,45 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
     // Increment number of AtTpc det points in TParticle
     AtStack* stack = (AtStack*) gMC->GetStack();
     stack->AddPoint(kAtTpc);
-  }
+  }*/
+
+
+     //Set parameters at entrance of volume. Reset ELoss.
+//  if ( gMC->IsTrackEntering() ) {
+
+    if (!(gMC -> IsTrackInside()))
+      return kFALSE;
+
+    fELoss  = gMC -> Edep();
+
+    if (fELoss == 0)
+      return kFALSE;
+
+//    fELoss  = 0;
+    fTime   = gMC->TrackTime() * 1.0e09;
+    fLength = gMC->TrackLength();
+    gMC->TrackPosition(fPos);
+    gMC->TrackMomentum(fMom);
+//  }
+
+  // Sum energy loss for all steps in the active volume
+//  fELoss += gMC->Edep();
+
+  // Create STMCPoint at exit of active volume
+//  if ( gMC->IsTrackExiting()    ||
+//       gMC->IsTrackStop()       ||
+//       gMC->IsTrackDisappeared()   ) {
+    fTrackID  = gMC->GetStack()->GetCurrentTrackNumber();
+    fVolumeID = vol->getMCid();
+//    if (fELoss == 0. ) { return kFALSE; }
+    AddHit(fTrackID, fVolumeID, TVector3(fPos.X(),  fPos.Y(),  fPos.Z()),
+           TVector3(fMom.Px(), fMom.Py(), fMom.Pz()), fTime, fLength,
+           fELoss);
+
+     // Increment number of AtTpc det points in TParticle
+    AtStack* stack = (AtStack*) gMC->GetStack();
+    stack->AddPoint(kAtTpc);
+   
 
   return kTRUE;
 }

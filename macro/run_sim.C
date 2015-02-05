@@ -38,7 +38,7 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
   run->AddModule(pipe);*/
     
   FairDetector* ATTPC = new AtTpc("ATTPC", kTRUE);
-  ATTPC->SetGeometryFileName("ATTPC_v1.0.root"); 
+  ATTPC->SetGeometryFileName("ATTPC_v1.1.root"); 
   //ATTPC->SetModifyGeometry(kTRUE);
   run->AddModule(ATTPC);
 
@@ -61,7 +61,7 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
   
 
     // Pythia8
-    /*Pythia8Generator* P8gen = new Pythia8Generator();
+    Pythia8Generator* P8gen = new Pythia8Generator();
     P8gen->UseRandom3(); //# TRandom1 or TRandom3 ?
     P8gen->SetParameters("SoftQCD:inelastic = on");
     P8gen->SetParameters("PhotonCollision:gmgm2mumu = on");
@@ -72,12 +72,19 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
 
  
     // Add a box generator also to the run
-    FairBoxGenerator* boxGen = new FairBoxGenerator(13, 5); // 13 = muon; 1 = multipl.
+   /* FairBoxGenerator* boxGen = new FairBoxGenerator(13, 5); // 13 = muon; 1 = multipl.
     boxGen->SetPRange(20,25); // GeV/c
     boxGen->SetPhiRange(0., 360.); // Azimuth angle range [degree]
     boxGen->SetThetaRange(0., 90.); // Polar angle in lab system range [degree]
     boxGen->SetXYZ(0., 0., 0.); // cm
     primGen->AddGenerator(boxGen);*/
+
+      // Box Generator
+  FairBoxGenerator* boxGen = new FairBoxGenerator(2212, 10); // 13 = muon; 1 = multipl.
+  boxGen->SetPRange(2., 2.); // GeV/c //setPRange vs setPtRange
+  boxGen->SetPhiRange(0, 360); // Azimuth angle range [degree]
+  boxGen->SetThetaRange(3, 10); // Polar angle in lab system range [degree]
+  boxGen->SetCosTheta();//uniform generation on all the solid angle(default)
 
                   Int_t z = 18;  // Atomic number
 	          Int_t a = 34; // Mass number
@@ -91,8 +98,8 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
 	          // add the ion generator
 	          primGen->AddGenerator(ionGen);
  
-    
     run->SetGenerator(primGen);
+    
 // ------------------------------------------------------------------------
  
   //---Store the visualiztion info of the tracks, this make the output file very large!!

@@ -23,13 +23,13 @@
 #include <iostream>
 
 // Name of geometry version and output file
-const TString geoVersion = "ATTPC_v1.0";
+const TString geoVersion = "ATTPC_v1.1";
 const TString FileName = geoVersion + ".root";
 const TString FileName1 = geoVersion + "_geomanager.root";
 
 // Names of the different used materials which are used to build the modules
 // The materials are defined in the global media.geo file 
-const TString MediumGas     = "heco2";
+const TString MediumGas     = "isobutan";
 const TString CylinderVolumeMedium         = "steel";
 
 // Distance of the center of the first detector layer [cm];
@@ -78,13 +78,13 @@ void ATTPC_v1_0() {
   
   gModules = create_detector();
 
-  position_detector();
+  //position_detector();
  
   cout<<"Voxelizing."<<endl;
   top->Voxelize("");
   gGeoMan->CloseGeometry();
 
-  add_alignable_volumes();
+  //add_alignable_volumes();
 
   gGeoMan->CheckOverlaps(0.001);
   gGeoMan->PrintOverlaps();
@@ -117,13 +117,15 @@ void create_materials_from_media_file()
   FairGeoMedia* geoMedia = geoFace->getMedia();
   FairGeoBuilder* geoBuild = geoLoad->getGeoBuilder();
 
-  FairGeoMedium* isobutan              = geoMedia->getMedium("heco2");
+  FairGeoMedium* isobutan              = geoMedia->getMedium("isobutan");
   FairGeoMedium* steel          = geoMedia->getMedium("steel");
+  FairGeoMedium* heco2          = geoMedia->getMedium("heco2");
 
   // include check if all media are found
 
   geoBuild->createMedium(isobutan);
   geoBuild->createMedium(steel);
+   geoBuild->createMedium(heco2);
 }
 
 TGeoVolume* create_detector()
@@ -133,7 +135,8 @@ TGeoVolume* create_detector()
   TGeoMedium* OuterCylinder   = gGeoMan->GetMedium(CylinderVolumeMedium);
   TGeoMedium* gas   = gGeoMan->GetMedium(MediumGas);
 
-  TGeoVolume *drift_volume = gGeoManager->MakeTube("drift_volume", gas,  0, tpc_diameter/2, drift_length/2);
+  TGeoVolume *drift_volume = gGeoManager->MakeTube("drift_volume", gas,0, tpc_diameter/2, drift_length/2);
+  //TGeoVolume *drift_volume = gGeoManager->MakeBox("drift_volume", gas,  100./2, 100./2, 100./2);
   gGeoMan->GetVolume(geoVersion)->AddNode(drift_volume,1, new TGeoTranslation(0,0,0));
   drift_volume->SetTransparency(80);
 
