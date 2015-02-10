@@ -1,4 +1,4 @@
-# Install script for directory: /home/daq/fair_install_2015/ATTPCROOT/passive
+# Install script for directory: /home/daq/fair_install_2015/ATTPCROOT_Feb/passive
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,16 +34,16 @@ ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
-    "/home/daq/fair_install_2015/ATTPCROOT/passive/AtCave.h"
-    "/home/daq/fair_install_2015/ATTPCROOT/passive/AtPipe.h"
-    "/home/daq/fair_install_2015/ATTPCROOT/passive/AtGeoCave.h"
-    "/home/daq/fair_install_2015/ATTPCROOT/passive/AtMagnet.h"
-    "/home/daq/fair_install_2015/ATTPCROOT/passive/AtPassiveContFact.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_Feb/passive/AtCave.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_Feb/passive/AtPipe.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_Feb/passive/AtGeoCave.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_Feb/passive/AtMagnet.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_Feb/passive/AtPassiveContFact.h"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE FILE FILES "/home/daq/fair_install_2015/ATTPCROOT/build/lib/libPassive.rootmap")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE FILE FILES "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libPassive.rootmap")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -60,9 +60,9 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
     ENDIF()
   ENDFOREACH()
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES
-    "/home/daq/fair_install_2015/ATTPCROOT/build/lib/libPassive.so.0.0.0"
-    "/home/daq/fair_install_2015/ATTPCROOT/build/lib/libPassive.so.0"
-    "/home/daq/fair_install_2015/ATTPCROOT/build/lib/libPassive.so"
+    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libPassive.so.0.0.0"
+    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libPassive.so.0"
+    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libPassive.so"
     )
   FOREACH(file
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libPassive.so.0.0.0"

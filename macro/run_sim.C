@@ -61,14 +61,14 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
   
 
     // Pythia8
-    Pythia8Generator* P8gen = new Pythia8Generator();
+   /* Pythia8Generator* P8gen = new Pythia8Generator();
     P8gen->UseRandom3(); //# TRandom1 or TRandom3 ?
     P8gen->SetParameters("SoftQCD:inelastic = on");
     P8gen->SetParameters("PhotonCollision:gmgm2mumu = on");
     P8gen->SetParameters("PromptPhoton:all = on");
     P8gen->SetParameters("WeakBosonExchange:all = on");
     P8gen->SetMom(40);  //# beam momentum in GeV
-    primGen->AddGenerator(P8gen);
+    primGen->AddGenerator(P8gen);*/
 
  
     // Add a box generator also to the run
@@ -80,11 +80,11 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
     primGen->AddGenerator(boxGen);*/
 
       // Box Generator
-  FairBoxGenerator* boxGen = new FairBoxGenerator(2212, 10); // 13 = muon; 1 = multipl.
+ /* FairBoxGenerator* boxGen = new FairBoxGenerator(2212, 10); // 13 = muon; 1 = multipl.
   boxGen->SetPRange(2., 2.); // GeV/c //setPRange vs setPtRange
   boxGen->SetPhiRange(0, 360); // Azimuth angle range [degree]
   boxGen->SetThetaRange(3, 10); // Polar angle in lab system range [degree]
-  boxGen->SetCosTheta();//uniform generation on all the solid angle(default)
+  boxGen->SetCosTheta();//uniform generation on all the solid angle(default)*/
 
                   Int_t z = 18;  // Atomic number
 	          Int_t a = 34; // Mass number

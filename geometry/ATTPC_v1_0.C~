@@ -37,8 +37,8 @@ const Float_t First_Z_Position = 10;
 const Float_t Z_Distance = 10; 
 
 // Silicon box for both module types
-const Float_t tpc_diameter = 500.;
-const Float_t drift_length = 1200.;
+const Float_t tpc_diameter = 50.;
+const Float_t drift_length = 120.;
 
 
 // some global variables
@@ -135,9 +135,9 @@ TGeoVolume* create_detector()
   TGeoMedium* OuterCylinder   = gGeoMan->GetMedium(CylinderVolumeMedium);
   TGeoMedium* gas   = gGeoMan->GetMedium(MediumGas);
 
-  TGeoVolume *drift_volume = gGeoManager->MakeTube("drift_volume", gas,tpc_diameter/4, tpc_diameter/2, drift_length/2);
+  TGeoVolume *drift_volume = gGeoManager->MakeTube("drift_volume", gas,0, tpc_diameter/2, drift_length/2);
   //TGeoVolume *drift_volume = gGeoManager->MakeBox("drift_volume", gas,  100./2, 100./2, 100./2);
-  gGeoMan->GetVolume(geoVersion)->AddNode(drift_volume,1, new TGeoTranslation(0,0,0));
+  gGeoMan->GetVolume(geoVersion)->AddNode(drift_volume,1, new TGeoTranslation(0,0,drift_length/2));
   drift_volume->SetTransparency(80);
 
   // Single detector_layer

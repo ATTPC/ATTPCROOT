@@ -1,10 +1,10 @@
 export Linux_Flavour_="Fedora release 20 (Heisenbug)"
 export System_="x86_64"
-source /home/daq/fair_install_2015/ATTPCROOT/build/check_system.sh                               
+source /home/daq/fair_install_2015/ATTPCROOT_Feb/build/check_system.sh                               
 if [ "$same_system" == "1" ]; then 
   export SIMPATH="/usr/local/fairsoft/fairsoft_jul14p3-install/"
   export ROOTSYS="/usr/local/fairsoft/fairsoft_jul14p3-install"
-  export FAIRROOTPATH="/home/daq/fair_install/FairRootInst/"
+  export FAIRROOTPATH="/home/daq/fair_install_2015/FairRootInst/"
   if (true); then
     export GEANT4_LIBRARY_DIR="/usr/local/fairsoft/fairsoft_jul14p3-install/lib"
     export GEANT4_INCLUDE_DIR="/usr/local/fairsoft/fairsoft_jul14p3-install/include/Geant4:/usr/local/fairsoft/fairsoft_jul14p3-install//transport/geant4/source/interfaces/common/include:/usr/local/fairsoft/fairsoft_jul14p3-install//transport/geant4/physics_lists/hadronic/Packaging/include:/usr/local/fairsoft/fairsoft_jul14p3-install//transport/geant4/physics_lists/hadronic/QGSP/include"
@@ -38,10 +38,10 @@ if [ "$same_system" == "1" ]; then
   export ROOT_LIBRARY_DIR="/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root"
   export ROOT_LIBRARIES="-L/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root -lGui -lCore -lCint -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -pthread -lm -ldl -rdynamic"
   export ROOT_INCLUDE_DIR="/usr/local/fairsoft/fairsoft_jul14p3-install/include/root"
-  export VMCWORKDIR="/home/daq/fair_install_2015/ATTPCROOT"
-  export FAIRLIBDIR="/home/daq/fair_install_2015/ATTPCROOT/build/lib"
-  export PYTHONPATH="/home/daq/fair_install_2015/ATTPCROOT/python:/usr/local/fairsoft/fairsoft_jul14p3-install//lib:/usr/local/fairsoft/fairsoft_jul14p3-install//lib/root:/usr/local/fairsoft/fairsoft_jul14p3-install//lib/Geant4:/usr/local/fairsoft/fairsoft_jul14p3-install//lib/g4py"
+  export VMCWORKDIR="/home/daq/fair_install_2015/ATTPCROOT_Feb"
+  export FAIRLIBDIR="/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib"
+  export PYTHONPATH="/home/daq/fair_install_2015/ATTPCROOT_Feb/python:/usr/local/fairsoft/fairsoft_jul14p3-install//lib:/usr/local/fairsoft/fairsoft_jul14p3-install//lib/root:/usr/local/fairsoft/fairsoft_jul14p3-install//lib/Geant4:/usr/local/fairsoft/fairsoft_jul14p3-install//lib/g4py"
   export DYLD_LIBRARY_PATH=""
-  export LD_LIBRARY_PATH="/home/daq/fair_install_2015/ATTPCROOT/build/lib:/home/daq/fair_install/FairRootInst/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root"
+  export LD_LIBRARY_PATH="/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib:/home/daq/fair_install_2015/FairRootInst/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root"
   export PATH="/usr/local/fairsoft/fairsoft_jul14p3-install/bin:/usr/local/go4-4.5.4/bin:/usr/local/Trolltech/Qt-4.8.4/bin:/usr/local/root_v5.34.18/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/home/daq/.local/bin:/home/daq/bin"
 fi

@@ -29,7 +29,7 @@ const TString FileName1 = geoVersion + "_geomanager.root";
 
 // Names of the different used materials which are used to build the modules
 // The materials are defined in the global media.geo file 
-const TString MediumGas     = "isobutan";
+const TString MediumGas     = "heco2";
 const TString CylinderVolumeMedium         = "steel";
 
 // Distance of the center of the first detector layer [cm];
@@ -37,8 +37,8 @@ const Float_t First_Z_Position = 10;
 const Float_t Z_Distance = 10; 
 
 // Silicon box for both module types
-const Float_t tpc_diameter = 500.;
-const Float_t drift_length = 1200.;
+const Float_t tpc_diameter = 50.;
+const Float_t drift_length = 120.;
 
 
 // some global variables
@@ -137,7 +137,7 @@ TGeoVolume* create_detector()
 
   TGeoVolume *drift_volume = gGeoManager->MakeTube("drift_volume", gas,0, tpc_diameter/2, drift_length/2);
   //TGeoVolume *drift_volume = gGeoManager->MakeBox("drift_volume", gas,  100./2, 100./2, 100./2);
-  gGeoMan->GetVolume(geoVersion)->AddNode(drift_volume,1, new TGeoTranslation(0,0,0));
+  gGeoMan->GetVolume(geoVersion)->AddNode(drift_volume,1, new TGeoTranslation(0,0,drift_length/2));
   drift_volume->SetTransparency(80);
 
   // Single detector_layer

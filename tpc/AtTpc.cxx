@@ -113,10 +113,12 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
      //Set parameters at entrance of volume. Reset ELoss.
 //  if ( gMC->IsTrackEntering() ) {
 
-    if (!(gMC -> IsTrackInside()))
+
+//=========================================================================//
+ /*  if (!(gMC -> IsTrackInside()))
       return kFALSE;
 
-    fELoss  = gMC -> Edep();
+    fELoss = gMC -> Edep();
 
     if (fELoss == 0)
       return kFALSE;
@@ -145,9 +147,106 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
      // Increment number of AtTpc det points in TParticle
     AtStack* stack = (AtStack*) gMC->GetStack();
     stack->AddPoint(kAtTpc);
+    Print();
    
 
-  return kTRUE;
+  return kTRUE;*/
+//============================================================================//
+
+   if (gMC->IsTrackEntering())
+    {
+        fELoss = 0.;
+        fTime = gMC->TrackTime() * 1.0e09;
+        fLength = gMC->TrackLength();
+        gMC->TrackPosition(fPosIn);
+        gMC->TrackMomentum(fMomIn);
+       // LOG(INFO) << "ATTPC: Position of the first hit" << FairLogger::endl;
+    }
+
+    // Sum energy loss for all steps in the active volume
+    fELoss += gMC->Edep();
+    fTime = gMC->TrackTime() * 1.0e09;
+    fLength = gMC->TrackLength();
+    gMC->TrackPosition(fPosIn);
+    gMC->TrackMomentum(fMomIn);
+    fTrackID  = gMC->GetStack()->GetCurrentTrackNumber();
+    fVolumeID = vol->getMCid();
+
+    // Set additional parameters at exit of active volume. Create R3BTraPoint.
+    if (gMC->IsTrackExiting() || gMC->IsTrackStop() || gMC->IsTrackDisappeared())
+      {
+	
+        fTrackID = gMC->GetStack()->GetCurrentTrackNumber();
+        fVolumeID = vol->getMCid();
+        fDetCopyID = vol->getCopyNo(); 
+        gMC->TrackPosition(fPosOut);
+        gMC->TrackMomentum(fMomOut);
+//        if (fELoss == 0.)
+//            return kFALSE;
+
+      if (gMC->IsTrackExiting())
+        {
+		//LOG(INFO) << "ATTPC: Position of the first hit" << FairLogger::endl;
+            const Double_t* oldpos;
+            const Double_t* olddirection;
+            Double_t newpos[3];
+            Double_t newdirection[3];
+            Double_t safety;
+
+            gGeoManager->FindNode(fPosOut.X(), fPosOut.Y(), fPosOut.Z());
+            oldpos = gGeoManager->GetCurrentPoint();
+            olddirection = gGeoManager->GetCurrentDirection();
+
+            for (Int_t i = 0; i < 3; i++)
+            {
+                newdirection[i] = -1 * olddirection[i];
+            }
+
+            gGeoManager->SetCurrentDirection(newdirection);
+            //   TGeoNode *bla = gGeoManager->FindNextBoundary(2);
+            safety = gGeoManager->GetSafeDistance();
+
+            gGeoManager->SetCurrentDirection(-newdirection[0], -newdirection[1], -newdirection[2]);
+
+            for (Int_t i = 0; i < 3; i++)
+            {
+                newpos[i] = oldpos[i] - (3 * safety * olddirection[i]);
+            }
+
+            fPosOut.SetX(newpos[0]);
+            fPosOut.SetY(newpos[1]);
+            fPosOut.SetZ(newpos[2]);
+         }
+
+	}// if track 
+
+		AddHit(fTrackID,
+		       fVolumeID,
+		       fDetCopyID, 
+		       TVector3(fPosIn.X(), fPosIn.Y(), fPosIn.Z()),
+		       TVector3(fPosOut.X(), fPosOut.Y(), fPosOut.Z()),
+		       TVector3(fMomIn.Px(), fMomIn.Py(), fMomIn.Pz()),
+		       TVector3(fMomOut.Px(), fMomOut.Py(), fMomOut.Pz()),
+		       fTime,
+		       fLength,
+		       fELoss);
+
+		 
+
+		
+
+		// Increment number of AtTpc det points in TParticle
+	    	AtStack* stack = (AtStack*) gMC->GetStack();
+	    	stack->AddPoint(kAtTpc);
+
+		//Print();
+
+       // ResetParameters();
+         // Reset();
+    
+
+    return kTRUE;
+
 }
 
 void AtTpc::EndOfEvent()
@@ -183,6 +282,12 @@ TClonesArray* AtTpc::GetCollection(Int_t iColl) const
 void AtTpc::Reset()
 {
   fAtTpcPointCollection->Clear();
+}
+
+void AtTpc::Print(Option_t* option) const
+{
+    Int_t nHits = fAtTpcPointCollection->GetEntriesFast();
+    LOG(INFO) << "ATTPC: " << nHits << " points registered in this event" << FairLogger::endl;
 }
 
 /*void AtTpc::ConstructGeometry()
@@ -280,6 +385,35 @@ AtTpcPoint* AtTpc::AddHit(Int_t trackID, Int_t detID,
   Int_t size = clref.GetEntriesFast();
   return new(clref[size]) AtTpcPoint(trackID, detID, pos, mom,
          time, length, eLoss);
+}
+
+// -----   Private method AddHit   --------------------------------------------
+AtTpcPoint* AtTpc::AddHit(Int_t trackID,
+                            Int_t detID,
+                            Int_t detCopyID, // added by Marc
+                            TVector3 posIn,
+                            TVector3 posOut,
+                            TVector3 momIn,
+                            TVector3 momOut,
+                            Double_t time,
+                            Double_t length,
+                            Double_t eLoss)
+{
+    TClonesArray& clref = *fAtTpcPointCollection;
+    Int_t size = clref.GetEntriesFast();
+    if (fVerboseLevel > 1)
+        LOG(INFO) << "ATTPC: Adding Point at (" << posIn.X() << ", " << posIn.Y() << ", " << posIn.Z() << ") cm,  detector " << detID << ", track " << trackID
+                  << ", energy loss " << eLoss * 1e06 << " keV" << FairLogger::endl;
+    return new (clref[size]) AtTpcPoint(trackID,
+                                         detID,
+                                         detCopyID,
+                                         posIn,
+                                         posOut, // detCopyID added by Marc
+                                         momIn,
+                                         momOut,
+                                         time,
+                                         length,
+                                         eLoss);
 }
 
 ClassImp(AtTpc)

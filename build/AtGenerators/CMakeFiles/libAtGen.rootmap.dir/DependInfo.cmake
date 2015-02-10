@@ -17,7 +17,7 @@ SET(CMAKE_C_TARGET_INCLUDE_PATH
   "/usr/local/fairsoft/fairsoft_jul14p3-install/include/root"
   "/usr/local/fairsoft/fairsoft_jul14p3-install/include/Pythia8"
   "/usr/local/fairsoft/fairsoft_jul14p3-install/include"
-  "/home/daq/fair_install/FairRootInst/include"
+  "/home/daq/fair_install_2015/FairRootInst/include"
   "../AtGenerators"
   "../generators"
   )
