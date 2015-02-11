@@ -31,6 +31,7 @@ const TString FileName1 = geoVersion + "_geomanager.root";
 // The materials are defined in the global media.geo file 
 const TString MediumGas     = "heco2";
 const TString CylinderVolumeMedium         = "steel";
+const TString MediumVacuum = "vacuum4";
 
 // Distance of the center of the first detector layer [cm];
 const Float_t First_Z_Position = 10; 
@@ -71,10 +72,10 @@ void ATTPC_v1_0() {
   TGeoVolume* top = new TGeoVolumeAssembly("TOP");
   gGeoMan->SetTopVolume(top);
  
-  TGeoMedium* gas   = gGeoMan->GetMedium(MediumGas);
-  TGeoVolume* tpc = new TGeoVolumeAssembly(geoVersion);
-  tpc -> SetMedium(gas);
-  top->AddNode(tpc, 1);
+  TGeoMedium* gas   = gGeoMan->GetMedium(MediumVacuum);
+  TGeoVolume* tpcvac = new TGeoVolumeAssembly(geoVersion);
+  tpcvac -> SetMedium(gas);
+  top->AddNode(tpcvac, 1);
   
   gModules = create_detector();
 
@@ -120,12 +121,14 @@ void create_materials_from_media_file()
   FairGeoMedium* isobutan              = geoMedia->getMedium("isobutan");
   FairGeoMedium* steel          = geoMedia->getMedium("steel");
   FairGeoMedium* heco2          = geoMedia->getMedium("heco2");
+  FairGeoMedium* vacuum4          = geoMedia->getMedium("vacuum4");
 
   // include check if all media are found
 
   geoBuild->createMedium(isobutan);
   geoBuild->createMedium(steel);
    geoBuild->createMedium(heco2);
+   geoBuild->createMedium(vacuum4);
 }
 
 TGeoVolume* create_detector()
@@ -137,7 +140,7 @@ TGeoVolume* create_detector()
 
   TGeoVolume *drift_volume = gGeoManager->MakeTube("drift_volume", gas,0, tpc_diameter/2, drift_length/2);
   //TGeoVolume *drift_volume = gGeoManager->MakeBox("drift_volume", gas,  100./2, 100./2, 100./2);
-  gGeoMan->GetVolume(geoVersion)->AddNode(drift_volume,1, new TGeoTranslation(0,0,drift_length/2));
+  gGeoMan->GetVolume(geoVersion)->AddNode(drift_volume,1, new TGeoTranslation(0,0,drift_length/2+10.0));
   drift_volume->SetTransparency(80);
 
   // Single detector_layer

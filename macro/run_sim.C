@@ -31,11 +31,11 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
   cave->SetGeometryFileName("cave.geo");
   run->AddModule(cave);
 
- /* FairModule* magnet = new AtMagnet("Magnet");
-  run->AddModule(magnet);
+  //FairModule* magnet = new AtMagnet("Magnet");
+  //run->AddModule(magnet);
 
   FairModule* pipe = new AtPipe("Pipe");
-  run->AddModule(pipe);*/
+  run->AddModule(pipe);
     
   FairDetector* ATTPC = new AtTpc("ATTPC", kTRUE);
   ATTPC->SetGeometryFileName("ATTPC_v1.1.root"); 
@@ -48,8 +48,8 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
     // -----   Magnetic field   -------------------------------------------
     // Constant Field
     AtConstField  *fMagField = new AtConstField();
-    fMagField->SetField(0., 20. ,0. ); // values are in kG
-    fMagField->SetFieldRegion(-200, 200,-200, 200, -200, 200); // values are in cm
+    fMagField->SetField(0., 0. ,20. ); // values are in kG
+    fMagField->SetFieldRegion(-50, 50,-50, 50, 10,130); // values are in cm
                           //  (xmin,xmax,ymin,ymax,zmin,zmax)
     run->SetField(fMagField);
     // --------------------------------------------------------------------
@@ -61,7 +61,7 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
   
 
     // Pythia8
-   /* Pythia8Generator* P8gen = new Pythia8Generator();
+    /*Pythia8Generator* P8gen = new Pythia8Generator();
     P8gen->UseRandom3(); //# TRandom1 or TRandom3 ?
     P8gen->SetParameters("SoftQCD:inelastic = on");
     P8gen->SetParameters("PhotonCollision:gmgm2mumu = on");
@@ -86,17 +86,30 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
   boxGen->SetThetaRange(3, 10); // Polar angle in lab system range [degree]
   boxGen->SetCosTheta();//uniform generation on all the solid angle(default)*/
 
-                  Int_t z = 18;  // Atomic number
+                /*  Int_t z = 18;  // Atomic number
 	          Int_t a = 34; // Mass number
 	          Int_t q = 0;   // Charge State
 	          Int_t m = 1;   // Multiplicity
-	          Double_t px = 0.05/a;  // X-Momentum / per nucleon!!!!!!
-	          Double_t py = 0.05/a;  // Y-Momentum / per nucleon!!!!!!
+	          Double_t px = 0.01/a;  // X-Momentum / per nucleon!!!!!!
+	          Double_t py = 0.01/a;  // Y-Momentum / per nucleon!!!!!!
 	          Double_t pz = 4./a;  // Z-Momentum / per nucleon!!!!!!
 	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator(z,a,q,m,px,py,pz);
 	          ionGen->SetSpotRadius(1,1,0);
 	          // add the ion generator
+	          primGen->AddGenerator(ionGen);*/
+
+		  Int_t z = 2;  // Atomic number
+	          Int_t a = 4; // Mass number
+	          Int_t q = 0;   // Charge State
+	          Int_t m = 1;   // Multiplicity
+	          Double_t px = 0.01/a;  // X-Momentum / per nucleon!!!!!!
+	          Double_t py = 0.01/a;  // Y-Momentum / per nucleon!!!!!!
+	          Double_t pz = 0.300/a;  // Z-Momentum / per nucleon!!!!!!
+	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator(z,a,q,m,px,py,pz);
+	          ionGen->SetSpotRadius(1,1,0);
+	          // add the ion generator
 	          primGen->AddGenerator(ionGen);
+  
  
     run->SetGenerator(primGen);
     

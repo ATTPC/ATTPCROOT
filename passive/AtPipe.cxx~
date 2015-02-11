@@ -65,7 +65,7 @@ void AtPipe::ConstructGeometry()
     // --Now create the same but diameter less by Thikness and vacuum instead of Carbon
     TGeoPcon* Vshape = new TGeoPcon(0., 360., nSects);
     for (Int_t iSect = 0; iSect < nSects; iSect++) {
-        Vshape->DefineSection(iSect, z[iSect],0, r[iSect]);
+        Vshape->DefineSection(iSect, z[iSect],r[iSect] , r[iSect]);
     }
     
     // ---> Volume
