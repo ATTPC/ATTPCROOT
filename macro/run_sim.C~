@@ -21,6 +21,8 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
   FairRuntimeDb* rtdb = run->GetRuntimeDb();
   // ------------------------------------------------------------------------
   
+  //run->SetUserConfig("g4Config.C");
+
   // -----   Create media   -------------------------------------------------
   run->SetMaterials("media.geo");       // Materials
   // ------------------------------------------------------------------------
@@ -104,7 +106,7 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
 	          Int_t m = 1;   // Multiplicity
 	          Double_t px = 0.01/a;  // X-Momentum / per nucleon!!!!!!
 	          Double_t py = 0.01/a;  // Y-Momentum / per nucleon!!!!!!
-	          Double_t pz = 0.490/a;  // Z-Momentum / per nucleon!!!!!!
+	          Double_t pz = 0.300/a;  // Z-Momentum / per nucleon!!!!!!
 	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator(z,a,q,m,px,py,pz);
 	          ionGen->SetSpotRadius(1,1,0);
 	          // add the ion generator

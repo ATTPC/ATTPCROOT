@@ -69,7 +69,7 @@ void AtPipe::ConstructGeometry()
     }
     
     // ---> Volume
-    TGeoVolume* Vpipe = new TGeoVolume("AtPipe", shape, Vacuum);
+    TGeoVolume* Vpipe = new TGeoVolume("AtPipe", Vshape, Vacuum);
     
     top->AddNode(pipe, 1);
     top->AddNode(Vpipe, 1);

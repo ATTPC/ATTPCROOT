@@ -21,6 +21,7 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
   FairRuntimeDb* rtdb = run->GetRuntimeDb();
   // ------------------------------------------------------------------------
   
+
   // -----   Create media   -------------------------------------------------
   run->SetMaterials("media.geo");       // Materials
   // ------------------------------------------------------------------------

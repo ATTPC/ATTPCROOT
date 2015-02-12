@@ -178,7 +178,9 @@ add_subdirectory (AtData)
 add_subdirectory (AtGenerators)
 add_subdirectory (tpc)
 add_subdirectory (passive)
-add_subdirectory (field)  
+add_subdirectory (field) 
+add_subdirectory (mcstack) 
+add_subdirectory (plists)
 
 WRITE_CONFIG_FILE(config.sh)
  

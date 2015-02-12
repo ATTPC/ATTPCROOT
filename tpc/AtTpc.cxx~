@@ -153,7 +153,7 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
   return kTRUE;*/
 //============================================================================//
 
- /*  if (gMC->IsTrackEntering())
+   if (gMC->IsTrackEntering())
     {
         fELoss = 0.;
         fTime = gMC->TrackTime() * 1.0e09;
@@ -245,7 +245,7 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
          // Reset();
     
 
-    return kTRUE;*/
+    return kTRUE;
 
 }
 

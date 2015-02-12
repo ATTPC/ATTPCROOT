@@ -17,7 +17,9 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/2.8.12.2/CMakeSystem.cmake"
   "../cmake/modules/FindPythia6.cmake"
   "../field/CMakeLists.txt"
+  "../mcstack/CMakeLists.txt"
   "../passive/CMakeLists.txt"
+  "../plists/CMakeLists.txt"
   "../tpc/CMakeLists.txt"
   "/home/daq/fair_install_2015/FairRootInst//share/fairbase/cmake/checks/cxx11-test-__func__.cpp"
   "/home/daq/fair_install_2015/FairRootInst//share/fairbase/cmake/checks/cxx11-test-auto.cpp"
@@ -110,6 +112,8 @@ SET(CMAKE_MAKEFILE_PRODUCTS
   "tpc/CMakeFiles/CMakeDirectoryInformation.cmake"
   "passive/CMakeFiles/CMakeDirectoryInformation.cmake"
   "field/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "mcstack/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "plists/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -153,4 +157,7 @@ SET(CMAKE_DEPEND_INFO_FILES
   "passive/CMakeFiles/libPassive.rootmap.dir/DependInfo.cmake"
   "field/CMakeFiles/Field.dir/DependInfo.cmake"
   "field/CMakeFiles/libField.rootmap.dir/DependInfo.cmake"
+  "mcstack/CMakeFiles/MCStack.dir/DependInfo.cmake"
+  "mcstack/CMakeFiles/libMCStack.rootmap.dir/DependInfo.cmake"
+  "plists/CMakeFiles/AtTpcPlist.dir/DependInfo.cmake"
   )

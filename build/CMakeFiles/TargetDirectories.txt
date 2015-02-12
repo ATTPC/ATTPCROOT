@@ -1,6 +1,7 @@
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData/CMakeFiles/AtData.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators/CMakeFiles/AtGen.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/tpc/CMakeFiles/AtTpc.dir
+/home/daq/fair_install_2015/ATTPCROOT_Feb/build/plists/CMakeFiles/AtTpcPlist.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles/Continuous.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles/ContinuousBuild.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles/ContinuousConfigure.dir
@@ -20,6 +21,7 @@
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles/ExperimentalTest.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles/ExperimentalUpdate.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/field/CMakeFiles/Field.dir
+/home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack/CMakeFiles/MCStack.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles/Nightly.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles/NightlyBuild.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles/NightlyConfigure.dir
@@ -35,5 +37,6 @@
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators/CMakeFiles/libAtGen.rootmap.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/tpc/CMakeFiles/libAtTpc.rootmap.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/field/CMakeFiles/libField.rootmap.dir
+/home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack/CMakeFiles/libMCStack.rootmap.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/passive/CMakeFiles/libPassive.rootmap.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles/svnheader.dir

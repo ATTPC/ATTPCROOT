@@ -27,6 +27,9 @@ AtData_LIB_DEPENDS:STATIC=general;Base;general;EG;general;Physics;general;Cint;g
 AtGen_LIB_DEPENDS:STATIC=general;Base;general;AtData;general;pythia8;general;Pythia6;
 
 //Dependencies for the target
+AtTpcPlist_LIB_DEPENDS:STATIC=general;-L/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root -lGui -lCore -lCint -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -pthread -lm -ldl -rdynamic;
+
+//Dependencies for the target
 AtTpc_LIB_DEPENDS:STATIC=general;Base;
 
 //Build the testing tree.
@@ -391,22 +394,25 @@ HGCOMMAND:FILEPATH=HGCOMMAND-NOTFOUND
 IWYU_BINARY:FILEPATH=IWYU_BINARY-NOTFOUND
 
 //Path to a program.
-Java_JAR_EXECUTABLE:FILEPATH=Java_JAR_EXECUTABLE-NOTFOUND
+Java_JAR_EXECUTABLE:FILEPATH=/bin/jar
 
 //Path to a program.
-Java_JAVAC_EXECUTABLE:FILEPATH=Java_JAVAC_EXECUTABLE-NOTFOUND
+Java_JAVAC_EXECUTABLE:FILEPATH=/bin/javac
 
 //Path to a program.
-Java_JAVADOC_EXECUTABLE:FILEPATH=Java_JAVADOC_EXECUTABLE-NOTFOUND
+Java_JAVADOC_EXECUTABLE:FILEPATH=/bin/javadoc
 
 //Path to a program.
-Java_JAVAH_EXECUTABLE:FILEPATH=Java_JAVAH_EXECUTABLE-NOTFOUND
+Java_JAVAH_EXECUTABLE:FILEPATH=/bin/javah
 
 //Path to a program.
 Java_JAVA_EXECUTABLE:FILEPATH=/bin/java
 
 //Command to build the project
 MAKECOMMAND:STRING=/usr/bin/gmake -i
+
+//Dependencies for the target
+MCStack_LIB_DEPENDS:STATIC=general;Base;general;FairTools;
 
 //Path to the memory checking command, used for memory error detection.
 MEMORYCHECK_COMMAND:FILEPATH=MEMORYCHECK_COMMAND-NOTFOUND
@@ -584,7 +590,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=6
+CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=8
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -687,6 +693,8 @@ CVSCOMMAND-ADVANCED:INTERNAL=1
 CVS_UPDATE_OPTIONS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: DART_TESTING_TIMEOUT
 DART_TESTING_TIMEOUT-ADVANCED:INTERNAL=1
+//Details about finding Java
+FIND_PACKAGE_MESSAGE_DETAILS_Java:INTERNAL=[/bin/java][/bin/jar][/bin/javac][/bin/javah][/bin/javadoc][v1.7.0.75()]
 //Details about finding Perl
 FIND_PACKAGE_MESSAGE_DETAILS_Perl:INTERNAL=[/usr/bin/perl][v5.18.2()]
 //ADVANCED property for variable: GITCOMMAND

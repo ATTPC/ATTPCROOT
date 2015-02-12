@@ -390,7 +390,7 @@ AtTpcPoint* AtTpc::AddHit(Int_t trackID, Int_t detID,
 // -----   Private method AddHit   --------------------------------------------
 AtTpcPoint* AtTpc::AddHit(Int_t trackID,
                             Int_t detID,
-                            Int_t detCopyID, // added by Marc
+                            Int_t detCopyID, 
                             TVector3 posIn,
                             TVector3 posOut,
                             TVector3 momIn,
@@ -408,7 +408,7 @@ AtTpcPoint* AtTpc::AddHit(Int_t trackID,
                                          detID,
                                          detCopyID,
                                          posIn,
-                                         posOut, // detCopyID added by Marc
+                                         posOut, 
                                          momIn,
                                          momOut,
                                          time,

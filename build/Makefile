@@ -659,6 +659,45 @@ libField.rootmap/fast:
 	$(MAKE) -f field/CMakeFiles/libField.rootmap.dir/build.make field/CMakeFiles/libField.rootmap.dir/build
 .PHONY : libField.rootmap/fast
 
+#=============================================================================
+# Target rules for targets named MCStack
+
+# Build rule for target.
+MCStack: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 MCStack
+.PHONY : MCStack
+
+# fast build rule for target.
+MCStack/fast:
+	$(MAKE) -f mcstack/CMakeFiles/MCStack.dir/build.make mcstack/CMakeFiles/MCStack.dir/build
+.PHONY : MCStack/fast
+
+#=============================================================================
+# Target rules for targets named libMCStack.rootmap
+
+# Build rule for target.
+libMCStack.rootmap: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 libMCStack.rootmap
+.PHONY : libMCStack.rootmap
+
+# fast build rule for target.
+libMCStack.rootmap/fast:
+	$(MAKE) -f mcstack/CMakeFiles/libMCStack.rootmap.dir/build.make mcstack/CMakeFiles/libMCStack.rootmap.dir/build
+.PHONY : libMCStack.rootmap/fast
+
+#=============================================================================
+# Target rules for targets named AtTpcPlist
+
+# Build rule for target.
+AtTpcPlist: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 AtTpcPlist
+.PHONY : AtTpcPlist
+
+# fast build rule for target.
+AtTpcPlist/fast:
+	$(MAKE) -f plists/CMakeFiles/AtTpcPlist.dir/build.make plists/CMakeFiles/AtTpcPlist.dir/build
+.PHONY : AtTpcPlist/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -711,6 +750,9 @@ help:
 	@echo "... libPassive.rootmap"
 	@echo "... Field"
 	@echo "... libField.rootmap"
+	@echo "... MCStack"
+	@echo "... libMCStack.rootmap"
+	@echo "... AtTpcPlist"
 .PHONY : help
 
 

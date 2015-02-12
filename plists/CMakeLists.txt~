@@ -1,0 +1,69 @@
+# Create a library called "libPlist" which includes the source files
+# given in # the array . # The extension is already found.  Any number of
+# sources could be listed here.
+
+set(INCLUDE_DIRECTORIES
+${ROOT_INCLUDE_DIR} 
+#put here all directories where header files are located
+${BASE_INCLUDE_DIRECTORIES}
+${CMAKE_SOURCE_DIR}/passive
+${CMAKE_SOURCE_DIR}/mcstack
+${CMAKE_SOURCE_DIR}/plists
+#${GEANT4_INCLUDE_DIR}
+#${CLHEP_INCLUDE_DIR}
+#${GEANT4VMC_INCLUDE_DIR}
+)
+
+include_directories( ${INCLUDE_DIRECTORIES})
+
+set(LINK_DIRECTORIES
+${ROOT_LIBRARY_DIR}
+${FAIRROOT_LIBRARY_DIR}
+) 
+
+set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O2")
+set(CMAKE_CXX_FLAGS_RELEASE        "-O2")
+set(CMAKE_CXX_FLAGS_DEBUG          "-g -O2 -fno-reorder-blocks -fno-schedule-insns -fno-inline")
+set(CMAKE_CXX_FLAGS_DEBUG          "-g")
+
+link_directories( ${LINK_DIRECTORIES})
+
+set(AtTpcPLIST_SRCS
+G4EmHadronBuilder.cxx
+G4EmMuonBuilder.cxx
+G4EmQEDBuilder.cxx
+G4LowEnergyQEDBuilder.cxx
+G4PenelopeQEDBuilder.cxx
+G4StepLimiterBuilder.cxx
+G4StepLimiterMessenger.cxx
+G4StepLimiterPerRegion.cxx
+#EmBinaryCascadeBuilder.cxx
+#EmGammaNucleusBuilder.cxx
+#EmHadronElasticBuilder.cxx
+#EmIonBinaryCascadeBuilder.cxx
+AtTpcDecaysBuilder.cxx
+AtTpcParticlesBuilder.cxx
+AtTpcPhysicsList.cxx
+AtTpcPhysicsListMessenger.cxx
+AtTpcRunConfiguration.cxx  
+)
+
+# fill list of header files from list of source files
+# by exchanging the file extension
+CHANGE_FILE_EXTENSION(*.cxx *.h AtTpcPLIST_HEADERS "${AtTpcPLIST_SRCS}")
+
+set(AtTpcPLIST_DICT_HEADERS AtTpcRunConfiguration.h)
+set(AtTpcPLIST_LINKDEF PlistLinkDef.h)
+set(AtTpcPLIST_DICTIONARY ${CMAKE_CURRENT_BINARY_DIR}/AtTpcPlistDict.cxx)
+
+ROOT_GENERATE_DICTIONARY("${AtTpcPLIST_DICT_HEADERS}" "${AtTpcPLIST_LINKDEF}" "${AtTpcPLIST_DICTIONARY}" "${INCLUDE_DIRECTORIES}")
+
+set(AtTpcPLIST_SRCS ${AtTpcPLIST_SRCS} ${AtTpcPLIST_DICTIONARY})
+
+add_library(AtTpcPlist SHARED ${AtTpcPLIST_SRCS})
+target_link_libraries(AtTpcPlist ${ROOT_LIBRARIES})
+set_target_properties(AtTpcPlist PROPERTIES 
+${FAIRROOT_LIBRARY_PROPERTIES})
+
+################ install ###################
+install(TARGETS AtTpcPlist DESTINATION ${CMAKE_BINARY_DIR}/lib)
