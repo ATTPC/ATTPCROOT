@@ -32,8 +32,8 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
   cave->SetGeometryFileName("cave.geo");
   run->AddModule(cave);
 
-  //FairModule* magnet = new AtMagnet("Magnet");
-  //run->AddModule(magnet);
+  FairModule* magnet = new AtMagnet("Magnet");
+  run->AddModule(magnet);
 
   FairModule* pipe = new AtPipe("Pipe");
   run->AddModule(pipe);
