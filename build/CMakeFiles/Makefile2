@@ -1017,7 +1017,7 @@ clean: AtData/CMakeFiles/AtData.dir/clean
 AtData/CMakeFiles/libAtData.rootmap.dir/all:
 	$(MAKE) -f AtData/CMakeFiles/libAtData.rootmap.dir/build.make AtData/CMakeFiles/libAtData.rootmap.dir/depend
 	$(MAKE) -f AtData/CMakeFiles/libAtData.rootmap.dir/build.make AtData/CMakeFiles/libAtData.rootmap.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  48
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  51
 	@echo "Built target libAtData.rootmap"
 .PHONY : AtData/CMakeFiles/libAtData.rootmap.dir/all
 
@@ -1104,7 +1104,7 @@ clean: AtGenerators/CMakeFiles/AtGen.dir/clean
 AtGenerators/CMakeFiles/libAtGen.rootmap.dir/all:
 	$(MAKE) -f AtGenerators/CMakeFiles/libAtGen.rootmap.dir/build.make AtGenerators/CMakeFiles/libAtGen.rootmap.dir/depend
 	$(MAKE) -f AtGenerators/CMakeFiles/libAtGen.rootmap.dir/build.make AtGenerators/CMakeFiles/libAtGen.rootmap.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  49
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  52
 	@echo "Built target libAtGen.rootmap"
 .PHONY : AtGenerators/CMakeFiles/libAtGen.rootmap.dir/all
 
@@ -1191,7 +1191,7 @@ clean: tpc/CMakeFiles/AtTpc.dir/clean
 tpc/CMakeFiles/libAtTpc.rootmap.dir/all:
 	$(MAKE) -f tpc/CMakeFiles/libAtTpc.rootmap.dir/build.make tpc/CMakeFiles/libAtTpc.rootmap.dir/depend
 	$(MAKE) -f tpc/CMakeFiles/libAtTpc.rootmap.dir/build.make tpc/CMakeFiles/libAtTpc.rootmap.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  50
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  53
 	@echo "Built target libAtTpc.rootmap"
 .PHONY : tpc/CMakeFiles/libAtTpc.rootmap.dir/all
 
@@ -1243,7 +1243,7 @@ passive/preinstall:
 passive/CMakeFiles/Passive.dir/all:
 	$(MAKE) -f passive/CMakeFiles/Passive.dir/build.make passive/CMakeFiles/Passive.dir/depend
 	$(MAKE) -f passive/CMakeFiles/Passive.dir/build.make passive/CMakeFiles/Passive.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  41 42 43 44 45 46 47
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  44 45 46 47 48 49 50
 	@echo "Built target Passive"
 .PHONY : passive/CMakeFiles/Passive.dir/all
 
@@ -1278,7 +1278,7 @@ clean: passive/CMakeFiles/Passive.dir/clean
 passive/CMakeFiles/libPassive.rootmap.dir/all:
 	$(MAKE) -f passive/CMakeFiles/libPassive.rootmap.dir/build.make passive/CMakeFiles/libPassive.rootmap.dir/depend
 	$(MAKE) -f passive/CMakeFiles/libPassive.rootmap.dir/build.make passive/CMakeFiles/libPassive.rootmap.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  53
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  57
 	@echo "Built target libPassive.rootmap"
 .PHONY : passive/CMakeFiles/libPassive.rootmap.dir/all
 
@@ -1330,7 +1330,7 @@ field/preinstall:
 field/CMakeFiles/Field.dir/all:
 	$(MAKE) -f field/CMakeFiles/Field.dir/build.make field/CMakeFiles/Field.dir/depend
 	$(MAKE) -f field/CMakeFiles/Field.dir/build.make field/CMakeFiles/Field.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  32 33 34 35 36
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  35 36 37 38 39
 	@echo "Built target Field"
 .PHONY : field/CMakeFiles/Field.dir/all
 
@@ -1365,7 +1365,7 @@ clean: field/CMakeFiles/Field.dir/clean
 field/CMakeFiles/libField.rootmap.dir/all:
 	$(MAKE) -f field/CMakeFiles/libField.rootmap.dir/build.make field/CMakeFiles/libField.rootmap.dir/depend
 	$(MAKE) -f field/CMakeFiles/libField.rootmap.dir/build.make field/CMakeFiles/libField.rootmap.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  51
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  55
 	@echo "Built target libField.rootmap"
 .PHONY : field/CMakeFiles/libField.rootmap.dir/all
 
@@ -1417,7 +1417,7 @@ mcstack/preinstall:
 mcstack/CMakeFiles/MCStack.dir/all:
 	$(MAKE) -f mcstack/CMakeFiles/MCStack.dir/build.make mcstack/CMakeFiles/MCStack.dir/depend
 	$(MAKE) -f mcstack/CMakeFiles/MCStack.dir/build.make mcstack/CMakeFiles/MCStack.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  37 38 39 40
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  40 41 42 43
 	@echo "Built target MCStack"
 .PHONY : mcstack/CMakeFiles/MCStack.dir/all
 
@@ -1452,7 +1452,7 @@ clean: mcstack/CMakeFiles/MCStack.dir/clean
 mcstack/CMakeFiles/libMCStack.rootmap.dir/all:
 	$(MAKE) -f mcstack/CMakeFiles/libMCStack.rootmap.dir/build.make mcstack/CMakeFiles/libMCStack.rootmap.dir/depend
 	$(MAKE) -f mcstack/CMakeFiles/libMCStack.rootmap.dir/build.make mcstack/CMakeFiles/libMCStack.rootmap.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  52
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  56
 	@echo "Built target libMCStack.rootmap"
 .PHONY : mcstack/CMakeFiles/libMCStack.rootmap.dir/all
 
@@ -1502,7 +1502,7 @@ plists/preinstall:
 plists/CMakeFiles/AtTpcPlist.dir/all:
 	$(MAKE) -f plists/CMakeFiles/AtTpcPlist.dir/build.make plists/CMakeFiles/AtTpcPlist.dir/depend
 	$(MAKE) -f plists/CMakeFiles/AtTpcPlist.dir/build.make plists/CMakeFiles/AtTpcPlist.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  17 18 19 20 21 22 23 24 25 26 27 28 29 30 31
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  20 21 22 23 24 25 26 27 28 29 30 31 32 33 34
 	@echo "Built target AtTpcPlist"
 .PHONY : plists/CMakeFiles/AtTpcPlist.dir/all
 
@@ -1528,6 +1528,93 @@ plists/CMakeFiles/AtTpcPlist.dir/clean:
 
 # clean rule for target.
 clean: plists/CMakeFiles/AtTpcPlist.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory AtMap
+
+# Convenience name for "all" pass in the directory.
+AtMap/all: AtMap/CMakeFiles/AtTpcMap.dir/all
+AtMap/all: AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/all
+.PHONY : AtMap/all
+
+# Convenience name for "clean" pass in the directory.
+AtMap/clean: AtMap/CMakeFiles/AtTpcMap.dir/clean
+AtMap/clean: AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/clean
+.PHONY : AtMap/clean
+
+# Convenience name for "preinstall" pass in the directory.
+AtMap/preinstall:
+.PHONY : AtMap/preinstall
+
+#=============================================================================
+# Target rules for target AtMap/CMakeFiles/AtTpcMap.dir
+
+# All Build rule for target.
+AtMap/CMakeFiles/AtTpcMap.dir/all:
+	$(MAKE) -f AtMap/CMakeFiles/AtTpcMap.dir/build.make AtMap/CMakeFiles/AtTpcMap.dir/depend
+	$(MAKE) -f AtMap/CMakeFiles/AtTpcMap.dir/build.make AtMap/CMakeFiles/AtTpcMap.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  17 18 19
+	@echo "Built target AtTpcMap"
+.PHONY : AtMap/CMakeFiles/AtTpcMap.dir/all
+
+# Include target in all.
+all: AtMap/CMakeFiles/AtTpcMap.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+AtMap/CMakeFiles/AtTpcMap.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 AtMap/CMakeFiles/AtTpcMap.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles 0
+.PHONY : AtMap/CMakeFiles/AtTpcMap.dir/rule
+
+# Convenience name for target.
+AtTpcMap: AtMap/CMakeFiles/AtTpcMap.dir/rule
+.PHONY : AtTpcMap
+
+# clean rule for target.
+AtMap/CMakeFiles/AtTpcMap.dir/clean:
+	$(MAKE) -f AtMap/CMakeFiles/AtTpcMap.dir/build.make AtMap/CMakeFiles/AtTpcMap.dir/clean
+.PHONY : AtMap/CMakeFiles/AtTpcMap.dir/clean
+
+# clean rule for target.
+clean: AtMap/CMakeFiles/AtTpcMap.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target AtMap/CMakeFiles/libAtTpcMap.rootmap.dir
+
+# All Build rule for target.
+AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/all:
+	$(MAKE) -f AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/build.make AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/depend
+	$(MAKE) -f AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/build.make AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles  54
+	@echo "Built target libAtTpcMap.rootmap"
+.PHONY : AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/all
+
+# Include target in all.
+all: AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles 0
+.PHONY : AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/rule
+
+# Convenience name for target.
+libAtTpcMap.rootmap: AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/rule
+.PHONY : libAtTpcMap.rootmap
+
+# clean rule for target.
+AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/clean:
+	$(MAKE) -f AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/build.make AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/clean
+.PHONY : AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/clean
+
+# clean rule for target.
+clean: AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/clean
 .PHONY : clean
 
 #=============================================================================

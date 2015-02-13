@@ -698,6 +698,32 @@ AtTpcPlist/fast:
 	$(MAKE) -f plists/CMakeFiles/AtTpcPlist.dir/build.make plists/CMakeFiles/AtTpcPlist.dir/build
 .PHONY : AtTpcPlist/fast
 
+#=============================================================================
+# Target rules for targets named AtTpcMap
+
+# Build rule for target.
+AtTpcMap: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 AtTpcMap
+.PHONY : AtTpcMap
+
+# fast build rule for target.
+AtTpcMap/fast:
+	$(MAKE) -f AtMap/CMakeFiles/AtTpcMap.dir/build.make AtMap/CMakeFiles/AtTpcMap.dir/build
+.PHONY : AtTpcMap/fast
+
+#=============================================================================
+# Target rules for targets named libAtTpcMap.rootmap
+
+# Build rule for target.
+libAtTpcMap.rootmap: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 libAtTpcMap.rootmap
+.PHONY : libAtTpcMap.rootmap
+
+# fast build rule for target.
+libAtTpcMap.rootmap/fast:
+	$(MAKE) -f AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/build.make AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/build
+.PHONY : libAtTpcMap.rootmap/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -753,6 +779,8 @@ help:
 	@echo "... MCStack"
 	@echo "... libMCStack.rootmap"
 	@echo "... AtTpcPlist"
+	@echo "... AtTpcMap"
+	@echo "... libAtTpcMap.rootmap"
 .PHONY : help
 
 

@@ -27,6 +27,9 @@ AtData_LIB_DEPENDS:STATIC=general;Base;general;EG;general;Physics;general;Cint;g
 AtGen_LIB_DEPENDS:STATIC=general;Base;general;AtData;general;pythia8;general;Pythia6;
 
 //Dependencies for the target
+AtTpcMap_LIB_DEPENDS:STATIC=general;Base;
+
+//Dependencies for the target
 AtTpcPlist_LIB_DEPENDS:STATIC=general;-L/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root -lGui -lCore -lCint -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -pthread -lm -ldl -rdynamic;
 
 //Dependencies for the target
@@ -590,7 +593,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=8
+CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=9
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
