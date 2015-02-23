@@ -1,3 +1,4 @@
+/home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco/CMakeFiles/ATTPCReco.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData/CMakeFiles/AtData.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators/CMakeFiles/AtGen.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/tpc/CMakeFiles/AtTpc.dir
@@ -34,6 +35,7 @@
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles/NightlyTest.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles/NightlyUpdate.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/passive/CMakeFiles/Passive.dir
+/home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco/CMakeFiles/libATTPCReco.rootmap.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData/CMakeFiles/libAtData.rootmap.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators/CMakeFiles/libAtGen.rootmap.dir
 /home/daq/fair_install_2015/ATTPCROOT_Feb/build/tpc/CMakeFiles/libAtTpc.rootmap.dir

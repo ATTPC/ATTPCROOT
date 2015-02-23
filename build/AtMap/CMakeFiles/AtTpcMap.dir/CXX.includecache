@@ -33,6 +33,12 @@ TROOT.h
 /home/daq/fair_install_2015/ATTPCROOT_Feb/AtMap/TROOT.h
 TStyle.h
 /home/daq/fair_install_2015/ATTPCROOT_Feb/AtMap/TStyle.h
+map
+-
+TDOMParser.h
+/home/daq/fair_install_2015/ATTPCROOT_Feb/AtMap/TDOMParser.h
+TXMLNode.h
+/home/daq/fair_install_2015/ATTPCROOT_Feb/AtMap/TXMLNode.h
 
 /usr/local/fairsoft/fairsoft_jul14p3-install/include/boost/aligned_storage.hpp
 cstddef
@@ -6848,6 +6854,12 @@ TIterator.h
 TString.h
 /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TString.h
 
+/usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDOMParser.h
+TXMLParser.h
+/usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TXMLParser.h
+TXMLDocument.h
+/usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TXMLDocument.h
+
 /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDatime.h
 Rtypes.h
 /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/Rtypes.h
@@ -7119,6 +7131,26 @@ TAttMarker.h
 /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TAttMarker.h
 GuiTypes.h
 /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/GuiTypes.h
+
+/usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TXMLDocument.h
+TObject.h
+/usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TObject.h
+TString.h
+/usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TString.h
+
+/usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TXMLNode.h
+TObject.h
+/usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TObject.h
+TString.h
+/usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TString.h
+
+/usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TXMLParser.h
+TQObject.h
+/usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TQObject.h
+TObject.h
+/usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TObject.h
+TString.h
+/usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TString.h
 
 /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/snprintf.h
 RConfig.h

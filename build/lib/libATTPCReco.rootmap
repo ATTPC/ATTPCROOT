@@ -1,0 +1,4 @@
+Library.GETDecoder:                         ATTPCReco libXMLParser.so
+Library.GETFrame:                           ATTPCReco libXMLParser.so
+Library.GETMath:                            ATTPCReco libXMLParser.so
+Library.GETPlot:                            ATTPCReco libXMLParser.so

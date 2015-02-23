@@ -724,6 +724,32 @@ libAtTpcMap.rootmap/fast:
 	$(MAKE) -f AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/build.make AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/build
 .PHONY : libAtTpcMap.rootmap/fast
 
+#=============================================================================
+# Target rules for targets named ATTPCReco
+
+# Build rule for target.
+ATTPCReco: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ATTPCReco
+.PHONY : ATTPCReco
+
+# fast build rule for target.
+ATTPCReco/fast:
+	$(MAKE) -f reco/CMakeFiles/ATTPCReco.dir/build.make reco/CMakeFiles/ATTPCReco.dir/build
+.PHONY : ATTPCReco/fast
+
+#=============================================================================
+# Target rules for targets named libATTPCReco.rootmap
+
+# Build rule for target.
+libATTPCReco.rootmap: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 libATTPCReco.rootmap
+.PHONY : libATTPCReco.rootmap
+
+# fast build rule for target.
+libATTPCReco.rootmap/fast:
+	$(MAKE) -f reco/CMakeFiles/libATTPCReco.rootmap.dir/build.make reco/CMakeFiles/libATTPCReco.rootmap.dir/build
+.PHONY : libATTPCReco.rootmap/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -781,6 +807,8 @@ help:
 	@echo "... AtTpcPlist"
 	@echo "... AtTpcMap"
 	@echo "... libAtTpcMap.rootmap"
+	@echo "... ATTPCReco"
+	@echo "... libATTPCReco.rootmap"
 .PHONY : help
 
 

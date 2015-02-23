@@ -22,11 +22,18 @@ AtTpcMap::AtTpcMap():AtPadCoord(boost::extents[10240][3][2])
 
 AtTpcMap::~AtTpcMap()
 {
+
+  
+  //delete cATTPCPlane;
+  //delete hPlane;
+
+
 }
 
 void AtTpcMap::Initialize()
 {
  
+  kGUIMode ==0;
   std::fill( AtPadCoord.data(), AtPadCoord.data()+AtPadCoord.num_elements() , 0);
   std::cout<<" ATTPC Pad Coordinates container initialized "<<endl;
   fPadInd = 0;
@@ -169,7 +176,7 @@ void AtTpcMap::GenerateProto(){
 
 }
 
-int AtTpcMap::fill_coord(int pindex, float padxoff, float padyoff, float triside, float fort){
+Int_t AtTpcMap::fill_coord(int pindex, float padxoff, float padyoff, float triside, float fort){
 
     AtPadCoord[pindex][0][0] = padxoff;
     AtPadCoord[pindex][0][1] = padyoff;
@@ -192,7 +199,7 @@ TH2Poly* AtTpcMap::GetATTPCPlane(){
       }
 
 
-	cATTPCPlane = new TCanvas("cATTPCPlane","cATTPCPlane",1000,1000);
+ 
         hPlane->SetName("ATTPC_Plane");
     	hPlane->SetTitle("ATTPC_Plane");
 
@@ -204,13 +211,44 @@ TH2Poly* AtTpcMap::GetATTPCPlane(){
             
        		 }
 
-	gStyle->SetPalette(1);
-    	hPlane->Draw("col");
-
+       if(kGUIMode){
+        cATTPCPlane = new TCanvas("cATTPCPlane","cATTPCPlane",1000,1000);
+        gStyle->SetPalette(1);
+    	hPlane->Draw("Lcol");
+       }	
 
        return hPlane;
 }
 
+Bool_t AtTpcMap::ParseXMLMap(char *xmlfile){
 
+
+	    TDOMParser *domParser = new TDOMParser();
+	    domParser->SetValidate(false);
+	    Int_t parsecode = domParser->ParseFile(xmlfile);	
+	    if(parsecode<0){
+		std::cerr<< domParser->GetParseCodeMessage(parsecode) <<std::endl;
+	    }
+	    TXMLNode * node = domParser->GetXMLDocument()->GetRootNode();
+	    ParseMapList(node->GetChildren());
+	    //itrEnd = pmap.end();
+	    delete domParser;
+
+	   return true;
+
+}
+
+void AtTpcMap::ParseMapList(TXMLNode *node){
+
+		for(; node;node=node->GetNextNode()){
+		if(node->GetNodeType()==TXMLNode::kXMLElementNode){ //Element node
+		   if(strcmp(node->GetNodeName(),"Lookup20141208") == 0){
+			cout<<node->GetNodeName()<<endl;
+		   }
+		}
+	}
+
+
+}
 
 ClassImp(AtTpcMap)

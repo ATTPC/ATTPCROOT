@@ -606,6 +606,7 @@ AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o: /usr/local/fairsoft/fairsoft_jul14
 AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TCanvasImp.h
 AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TClass.h
 AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TCollection.h
+AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDOMParser.h
 AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDatime.h
 AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDictionary.h
 AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDirectory.h
@@ -640,6 +641,9 @@ AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o: /usr/local/fairsoft/fairsoft_jul14
 AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TVersionCheck.h
 AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TVirtualPad.h
 AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TVirtualX.h
+AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TXMLDocument.h
+AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TXMLNode.h
+AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TXMLParser.h
 AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/snprintf.h
 AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/strlcpy.h
 
@@ -1253,6 +1257,8 @@ AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o: /usr/local/fairsoft/fairsof
 AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TCanvasImp.h
 AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TClass.h
 AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TCollection.h
+AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TCollectionProxyInfo.h
+AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDOMParser.h
 AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDatime.h
 AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDictionary.h
 AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDirectory.h
@@ -1291,6 +1297,9 @@ AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o: /usr/local/fairsoft/fairsof
 AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TVirtualIsAProxy.h
 AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TVirtualPad.h
 AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TVirtualX.h
+AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TXMLDocument.h
+AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TXMLNode.h
+AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TXMLParser.h
 AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/snprintf.h
 AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/strlcpy.h
 

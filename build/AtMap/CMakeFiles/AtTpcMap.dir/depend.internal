@@ -607,6 +607,7 @@ AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TCanvasImp.h
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TClass.h
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TCollection.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDOMParser.h
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDatime.h
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDictionary.h
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDirectory.h
@@ -641,6 +642,9 @@ AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TVersionCheck.h
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TVirtualPad.h
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TVirtualX.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TXMLDocument.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TXMLNode.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TXMLParser.h
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/snprintf.h
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/strlcpy.h
 AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o
@@ -1254,6 +1258,8 @@ AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TCanvasImp.h
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TClass.h
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TCollection.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TCollectionProxyInfo.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDOMParser.h
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDatime.h
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDictionary.h
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDirectory.h
@@ -1292,5 +1298,8 @@ AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TVirtualIsAProxy.h
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TVirtualPad.h
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TVirtualX.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TXMLDocument.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TXMLNode.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TXMLParser.h
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/snprintf.h
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/strlcpy.h

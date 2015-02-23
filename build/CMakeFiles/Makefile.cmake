@@ -21,6 +21,7 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "../mcstack/CMakeLists.txt"
   "../passive/CMakeLists.txt"
   "../plists/CMakeLists.txt"
+  "../reco/CMakeLists.txt"
   "../tpc/CMakeLists.txt"
   "/home/daq/fair_install_2015/FairRootInst//share/fairbase/cmake/scripts/check_system.csh.in"
   "/home/daq/fair_install_2015/FairRootInst//share/fairbase/cmake/scripts/check_system.sh.in"
@@ -94,6 +95,7 @@ SET(CMAKE_MAKEFILE_PRODUCTS
   "mcstack/CMakeFiles/CMakeDirectoryInformation.cmake"
   "plists/CMakeFiles/CMakeDirectoryInformation.cmake"
   "AtMap/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "reco/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -142,4 +144,6 @@ SET(CMAKE_DEPEND_INFO_FILES
   "plists/CMakeFiles/AtTpcPlist.dir/DependInfo.cmake"
   "AtMap/CMakeFiles/AtTpcMap.dir/DependInfo.cmake"
   "AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/DependInfo.cmake"
+  "reco/CMakeFiles/ATTPCReco.dir/DependInfo.cmake"
+  "reco/CMakeFiles/libATTPCReco.rootmap.dir/DependInfo.cmake"
   )

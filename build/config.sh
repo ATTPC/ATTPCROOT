@@ -12,8 +12,8 @@ if [ "$same_system" == "1" ]; then
     export GEANT4VMC_LIBRARY_DIR="/usr/local/fairsoft/fairsoft_jul14p3-install/lib"
     export GEANT4VMC_MACRO_DIR="/usr/local/fairsoft/fairsoft_jul14p3-install/share/geant4_vmc/macro"
     export CLHEP_INCLUDE_DIR="/usr/local/fairsoft/fairsoft_jul14p3-install/include/Geant4"
-    export CLHEP_LIBRARY_DIR="/usr/local/fairsoft/fairsoft_jul14p3-install/lib"
-    export CLHEP_BASE_DIR=""
+    export CLHEP_LIBRARY_DIR=""/home/daq/fair_install_2015/FairSoftInst/lib""
+    export CLHEP_BASE_DIR=""/home/daq/fair_install_2015/FairSoftInst""
     export PLUTO_LIBRARY_DIR="/usr/local/fairsoft/fairsoft_jul14p3-install/lib"
     export PLUTO_INCLUDE_DIR="/usr/local/fairsoft/fairsoft_jul14p3-install/include/pluto"
     export PYTHIA6_LIBRARY_DIR="/usr/local/fairsoft/fairsoft_jul14p3-install/lib"
@@ -42,6 +42,6 @@ if [ "$same_system" == "1" ]; then
   export FAIRLIBDIR="/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib"
   export PYTHONPATH="/home/daq/fair_install_2015/ATTPCROOT_Feb/python:/usr/local/fairsoft/fairsoft_jul14p3-install//lib:/usr/local/fairsoft/fairsoft_jul14p3-install//lib/root:/usr/local/fairsoft/fairsoft_jul14p3-install//lib/Geant4:/usr/local/fairsoft/fairsoft_jul14p3-install//lib/g4py"
   export DYLD_LIBRARY_PATH=""
-  export LD_LIBRARY_PATH="/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib:/home/daq/fair_install_2015/FairRootInst/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root"
+  export LD_LIBRARY_PATH="/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib:/home/daq/fair_install_2015/FairRootInst/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root:"/home/daq/fair_install_2015/FairSoftInst/lib""
   export PATH="/usr/local/fairsoft/fairsoft_jul14p3-install/bin:/usr/local/go4-4.5.4/bin:/usr/local/Trolltech/Qt-4.8.4/bin:/usr/local/root_v5.34.18/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/home/daq/.local/bin:/home/daq/bin"
 fi

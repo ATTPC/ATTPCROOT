@@ -1,9 +1,12 @@
 void run_unpack(){
 
   AtTpcMap *newmap = new AtTpcMap();
+  newmap->SetGUIMode();
   newmap->GenerateATTPC();
-  newmap->DrawATTPCPlane();
+  newmap->GetATTPCPlane();
+  newmap->ParseXMLMap("/home/daq/fair_install_2015/ATTPCROOT_Feb/scripts/Lookup20141208.xml");
   //newmap->Dump();
 
+  // GETDecoder *decoder = new GETDecoder("/home/daq/Desktop/Yassid/ATTPC/run_0225/test");
 
 }

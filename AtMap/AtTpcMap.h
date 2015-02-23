@@ -20,6 +20,9 @@
 #include "TMath.h"
 #include "TROOT.h"
 #include "TStyle.h"
+#include <map>
+#include "TDOMParser.h"
+#include "TXMLNode.h"
 
 
 
@@ -43,11 +46,16 @@ class AtTpcMap : public TObject
      
      void GenerateATTPC();
      void GenerateProto();
-     int  fill_coord(int pindex, float padxoff, float padyoff, float triside, float fort);
+     Int_t  fill_coord(int pindex, float padxoff, float padyoff, float triside, float fort);
+     inline void SetGUIMode(){kGUIMode=1;}
+     Bool_t ParseXMLMap(char *xmlfile);
+     void ParseMapList(TXMLNode *node);
+
      TH2Poly* GetATTPCPlane();
-
      Int_t fPadInd;
+     Bool_t kGUIMode;
 
+     std::map<std::vector<unsigned int>,int> PadMap;
  
      TCanvas *cATTPCPlane; 
      TH2Poly *hPlane = new TH2Poly();

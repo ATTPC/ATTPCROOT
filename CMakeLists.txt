@@ -182,6 +182,7 @@ add_subdirectory (field)
 add_subdirectory (mcstack) 
 add_subdirectory (plists)
 add_subdirectory (AtMap)
+add_subdirectory (reco)
 
 WRITE_CONFIG_FILE(config.sh)
  
