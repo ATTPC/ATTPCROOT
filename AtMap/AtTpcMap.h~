@@ -14,6 +14,12 @@
 
 #include <cassert>
 #include "TObject.h"
+#include "TMath.h"
+#include "TCanvas.h"
+#include "TH2Poly.h"
+#include "TMath.h"
+#include "TROOT.h"
+#include "TStyle.h"
 
 
 
@@ -34,12 +40,19 @@ class AtTpcMap : public TObject
 
      void Initialize();
      void Dump();
-     CalcCoord();
+     
+     void GenerateATTPC();
+     void GenerateProto();
+     int  fill_coord(int pindex, float padxoff, float padyoff, float triside, float fort);
+     TH2Poly* GetATTPCPlane();
 
+     Int_t fPadInd;
+
+ 
+     TCanvas *cATTPCPlane; 
+     TH2Poly *hPlane = new TH2Poly();
 
      ClassDef(AtTpcMap,1);
-
-     
 
 };
 
