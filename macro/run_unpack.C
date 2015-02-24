@@ -3,7 +3,8 @@ void run_unpack(){
 
   gSystem->Load("libXMLParser.so");
   AtTpcMap *newmap = new AtTpcMap();
-  newmap->SetGUIMode();
+  //newmap->SetGUIMode();
+  newmap->SetDebugMode();
   newmap->GenerateATTPC();
   newmap->GetATTPCPlane();
   newmap->ParseXMLMap("/home/daq/fair_install_2015/ATTPCROOT_Feb/scripts/Lookup20141208.xml");

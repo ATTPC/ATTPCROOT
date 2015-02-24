@@ -21,6 +21,7 @@
 #include "TROOT.h"
 #include "TStyle.h"
 #include <map>
+#include <vector>
 #include "TDOMParser.h"
 #include "TXMLNode.h"
 
@@ -48,16 +49,43 @@ class AtTpcMap : public TObject
      void GenerateProto();
      Int_t  fill_coord(int pindex, float padxoff, float padyoff, float triside, float fort);
      inline void SetGUIMode(){kGUIMode=1;}
+     inline void SetDebugMode(){kDebug=1;}
      Bool_t ParseXMLMap(char *xmlfile);
+     void ParseMapList(TXMLNode *node);
+     void ParseATTPCMap(TXMLNode *node);
 
      TH2Poly* GetATTPCPlane();
      Int_t fPadInd;
      Bool_t kGUIMode;
+     Bool_t kDebug;
+     Int_t fCnt;
 
-     std::map<std::vector<unsigned int>,int> PadMap;
+     std::map<std::vector<int>,int> ATTPCPadMap;
+     std::map<std::vector<int>,int>::iterator it;
+     std::vector<int> PadKey; 
+     
  
      TCanvas *cATTPCPlane; 
      TH2Poly *hPlane = new TH2Poly();
+
+        friend ostream & operator << (ostream& out, const AtTpcMap& p){
+
+		std::vector<int>::iterator it;
+
+                for(auto it=p.PadKey.begin();it!=p.PadKey.end();it++){
+
+                             out<<"  This "<<p.PadKey[0]<<std::endl;
+		}
+
+		/*out<<" EN Node ID :"<<p.id<<" , ";
+		out<<" EN detector segment name :"<<p.detname<<" , ";
+		out<<" EN module ID :"<<p.modid<<" , "; 
+		out<<" EN detector ID :"<<p.detID<<" , ";     
+		out<<" EN VME module :"<<p.vme<<" , ";
+		out<<" EN Module status :"<<p.stat<<endl;*/
+	}
+
+
 
      ClassDef(AtTpcMap,1);
 
