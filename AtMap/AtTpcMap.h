@@ -61,7 +61,7 @@ class AtTpcMap : public TObject
      
 
      std::map<std::vector<int>,int> ATTPCPadMap;
-     std::map<std::vector<int>,int>::iterator it;
+     //std::map<int,std::vector<int>> ATTPCPadMap;
      std::vector<int> PadKey; 
      
  

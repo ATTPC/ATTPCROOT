@@ -58,10 +58,10 @@ class AtTpcMap : public TObject
      Int_t fPadInd;
      Bool_t kGUIMode;
      Bool_t kDebug;
-     Int_t fCnt;
+     
 
-     std::map<std::vector<int>,int> ATTPCPadMap;
-     std::map<std::vector<int>,int>::iterator it;
+     //std::map<std::vector<int>,int> ATTPCPadMap;
+     std::map<int,std::vector<int>> ATTPCPadMap;
      std::vector<int> PadKey; 
      
  
