@@ -33,6 +33,7 @@ AtTpcMap::~AtTpcMap()
 void AtTpcMap::Initialize()
 {
  
+  kIsParsed=0;
   kGUIMode=0;
   kDebug=0;
   std::fill( AtPadCoord.data(), AtPadCoord.data()+AtPadCoord.num_elements() , 0);
@@ -242,14 +243,14 @@ Bool_t AtTpcMap::ParseXMLMap(char *xmlfile){
 
 void AtTpcMap::ParseMapList(TXMLNode *node){
 
-		std::vector<int> test;
+		/*std::vector<int> test;
                 test.resize(4);
                 test[0] = 0;
                 test[1] = 0;
                 test[2] = 0;
-                test[3] = 0;
-                Int_t aux=0;
-		for(int i=0;i<4;i++) std::cout<<test[i]<<endl;
+                test[3] = 0;*/
+                
+		
 		for(; node;node=node->GetNextNode()){
 			if(node->GetNodeType()==TXMLNode::kXMLElementNode){ //Element node
 			   if(strcmp(node->GetNodeName(),"Lookup20141208") == 0){
@@ -260,57 +261,7 @@ void AtTpcMap::ParseMapList(TXMLNode *node){
 
 		}
 
-    
-		//Option 1: Int key - vector<int> value
-		/*	std::map<int,std::vector<int>>::iterator it;
-               		std::ostream_iterator<int> ii (std::cout,", ");
-
-				for(it=this->ATTPCPadMap.begin(); it!=this->ATTPCPadMap.end(); ++it){ 
-					std::cout<<" [ "<<(*it).first<<", ";
-					std::copy ((*it).second.begin(), (*it).second.end(), ii );
-					std::cout<<"]"<<std::endl;;
-					
-				}
-			
-			std::map<int, std::vector<int>>::const_iterator ite = ATTPCPadMap.find(1);
-                        std::string value = it->second;
-			*/
-
-		 //Option 2: vector<int> key - int value
-			std::map<std::vector<int>,int>::iterator it;
-               		std::ostream_iterator<int> ii (std::cout,", ");
-
-				/*for(it=this->ATTPCPadMap.begin(); it!=this->ATTPCPadMap.end(); ++it){ 
-					std::cout<<" [ "<<(*it).second<<", ";
-					std::copy ((*it).first.begin(), (*it).first.end(), ii );
-					std::cout<<"]"<<std::endl;;
-					
-				}*/
-		
-	//Option 1: Int key - vector<int> value
-			//std::map<int, std::vector<int>>::const_iterator ite = ATTPCPadMap.find(1);
-                        //std::string value = it->second;
-			 //Option 2: vector<int> key - int value
-			 std::map<std::vector<int>,int>::const_iterator its =ATTPCPadMap.find(test);
-			 int value = (*its).second;
-			 std::cout<<value<<std::endl;
-			 //std::map<std::vector<int>,int>::const_iterator its;
-			 //std::cout<<ATTPCPadMap.find(test)->second<<std::endl;
-			// auto its = ATTPCPadMap.find(test);
-			// std::cout << "x: " << (int)its->second << "\n";
-			
-			
-
-
-
-		/*for (auto& m : ATTPCPadMap){ //C+11 style
-			    
-			for(auto& kv : m.second){
-				std::cout<<m.first<<'\n';
-			}		
-		}*/
-
-		
+    		kIsParsed=1;
 
 
 }
@@ -318,11 +269,11 @@ void AtTpcMap::ParseMapList(TXMLNode *node){
 
 void AtTpcMap::ParseATTPCMap(TXMLNode *node){
 
-		Int_t fCoboID;
-                Int_t fAsadID;
-		Int_t fAgetID;
-		Int_t fChannelID;
-                Int_t fPadID;
+		Int_t fCoboID=-1000;
+                Int_t fAsadID=-1000;
+		Int_t fAgetID=-1000;
+		Int_t fChannelID=-1000;
+                Int_t fPadID=-1000;
 	        
                  
 
@@ -353,9 +304,96 @@ void AtTpcMap::ParseATTPCMap(TXMLNode *node){
                 
 		ATTPCPadMap.insert(std::pair<std::vector<int>,int>(PadKey,fPadID));
                 //ATTPCPadMap.insert(std::pair<int,std::vector<int>>(fPadID,PadKey));
-                //  for(Int_t i=0;i<4;i++) cout<<PadKey[i]<<endl;
 		PadKey.clear();
 		if(kDebug) cout<<"PadID : "<<fPadID<<" - CoboID : "<<fCoboID<<"  - AsadID : "<<fAsadID<<"  - AgetID : "<<fAgetID<<"  - ChannelID : "<<fChannelID<<endl;
+		
+
+}
+
+
+
+Bool_t AtTpcMap::DumpATTPCMap(){
+
+			//Option 1: Int key - vector<int> value
+		/*	std::map<int,std::vector<int>>::iterator it;
+               		std::ostream_iterator<int> ii (std::cout,", ");
+
+				for(it=this->ATTPCPadMap.begin(); it!=this->ATTPCPadMap.end(); ++it){ 
+					std::cout<<" [ "<<(*it).first<<", ";
+					std::copy ((*it).second.begin(), (*it).second.end(), ii );
+					std::cout<<"]"<<std::endl;;
+					
+				}
+			
+			std::map<int, std::vector<int>>::const_iterator ite = ATTPCPadMap.find(1);
+                        std::string value = it->second;
+			*/
+
+		 //Option 2: vector<int> key - int value
+
+
+		  if(!fPadInd || !kIsParsed){
+               
+			std::cout<<" ATTPC Error : Pad plane has not been generated or parsed1 - Exiting... "<<std::endl;
+
+			return 0;
+
+      		  }
+
+			std::map<std::vector<int>,int>::iterator it;
+               		std::ostream_iterator<int> ii (std::cout,", ");
+
+				for(it=this->ATTPCPadMap.begin(); it!=this->ATTPCPadMap.end(); ++it){ 
+					std::cout<<" [ "<<(*it).second<<", ";
+					std::copy ((*it).first.begin(), (*it).first.end(), ii );
+					std::cout<<"]"<<std::endl;;
+					
+				}
+
+			return 1;
+
+
+}
+
+Int_t AtTpcMap::GetPadNum(std::vector<int> PadRef){
+
+	
+                PadRef.resize(4);
+               /* PadRef[0] = 0;
+                PadRef[1] = 0;
+                PadRef[2] = 0;
+                PadRef[3] = 0;*/
+
+		//for(int i=0;i<4;i++) std::cout<<PadRef[i]<<endl;
+
+			//Option 1: Int key - vector<int> value
+			//std::map<int, std::vector<int>>::const_iterator ite = ATTPCPadMap.find(1);
+                        //std::string value = it->second;
+			 //Option 2: vector<int> key - int value
+			 std::map<std::vector<int>,int>::const_iterator its =ATTPCPadMap.find(PadRef);
+			 int value = (*its).second;
+			 //std::cout<<int(ATTPCPadMap.find(test) == ATTPCPadMap.end())<<endl;
+                         Int_t kIs = int(ATTPCPadMap.find(PadRef) == ATTPCPadMap.end());
+                         if(kIs) std::cerr<<" ATTPC Map - Pad key not found - CoboID : "<<PadRef[0]<<"  AsadID : "<<PadRef[1]<<"  AgetID : "<<PadRef[2]<<"  ChannelID : "<<PadRef[3]<<endl; 
+			 //std::cout<<value<<std::endl;
+			 //std::map<std::vector<int>,int>::const_iterator its;
+			 //std::cout<<ATTPCPadMap.find(test)->second<<std::endl;
+			// auto its = ATTPCPadMap.find(test);
+			// std::cout << "x: " << (int)its->second << "\n";
+			
+			
+
+
+
+		/*for (auto& m : ATTPCPadMap){ //C+11 style
+			    
+			for(auto& kv : m.second){
+				std::cout<<m.first<<'\n';
+			}		
+		}*/
+
+		
+
 
 
 }

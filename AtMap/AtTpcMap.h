@@ -53,9 +53,12 @@ class AtTpcMap : public TObject
      Bool_t ParseXMLMap(char *xmlfile);
      void ParseMapList(TXMLNode *node);
      void ParseATTPCMap(TXMLNode *node);
+     Bool_t DumpATTPCMap();
+     Int_t  GetPadNum(std::vector<int> PadRef);
 
      TH2Poly* GetATTPCPlane();
      Int_t fPadInd;
+     Bool_t kIsParsed;
      Bool_t kGUIMode;
      Bool_t kDebug;
      
@@ -68,7 +71,7 @@ class AtTpcMap : public TObject
      TCanvas *cATTPCPlane; 
      TH2Poly *hPlane = new TH2Poly();
 
-        friend ostream & operator << (ostream& out, const AtTpcMap& p){
+      /*  friend ostream & operator << (ostream& out, const AtTpcMap& p){
 
 		std::vector<int>::iterator it;
 
@@ -77,13 +80,13 @@ class AtTpcMap : public TObject
                              out<<"  This "<<p.PadKey[0]<<std::endl;
 		}
 
-		/*out<<" EN Node ID :"<<p.id<<" , ";
+		out<<" EN Node ID :"<<p.id<<" , ";
 		out<<" EN detector segment name :"<<p.detname<<" , ";
 		out<<" EN module ID :"<<p.modid<<" , "; 
 		out<<" EN detector ID :"<<p.detID<<" , ";     
 		out<<" EN VME module :"<<p.vme<<" , ";
-		out<<" EN Module status :"<<p.stat<<endl;*/
-	}
+		out<<" EN Module status :"<<p.stat<<endl;
+	}*/
 
 
 
