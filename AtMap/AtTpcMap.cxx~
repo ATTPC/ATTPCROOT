@@ -382,7 +382,7 @@ Int_t AtTpcMap::GetPadNum(std::vector<int> PadRef){
 			// std::cout << "x: " << (int)its->second << "\n";
 			
 			
-
+			return value;
 
 
 		/*for (auto& m : ATTPCPadMap){ //C+11 style

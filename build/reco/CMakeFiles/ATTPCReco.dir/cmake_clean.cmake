@@ -4,6 +4,7 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/ATTPCReco.dir/GETDecoder/GETFrame.cc.o"
   "CMakeFiles/ATTPCReco.dir/GETDecoder/GETMath.cc.o"
   "CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.o"
+  "CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o"
   "CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o"
   "../lib/libATTPCReco.pdb"
   "../lib/libATTPCReco.so"

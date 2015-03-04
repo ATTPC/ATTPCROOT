@@ -8,6 +8,7 @@
 #pragma link C++ class GETFrame+;
 #pragma link C++ class GETMath+;
 #pragma link C++ class GETPlot+;
+#pragma link C++ class ATCore+;
 
 
 #endif

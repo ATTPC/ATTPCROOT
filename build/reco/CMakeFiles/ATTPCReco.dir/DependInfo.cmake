@@ -4,6 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
+  "/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/ATCore.cc" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o"
   "/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETDecoder.cc" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.o"
   "/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETFrame.cc" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETFrame.cc.o"
   "/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETMath.cc" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETMath.cc.o"
@@ -35,6 +36,7 @@ SET(CMAKE_C_TARGET_INCLUDE_PATH
   "/usr/local/fairsoft/fairsoft_jul14p3-install/include"
   "../reco"
   "../reco/GETDecoder"
+  "../reco/ATDecoder"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

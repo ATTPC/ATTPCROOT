@@ -11,6 +11,9 @@ void run_unpack(){
 
   gSystem->Load("libXMLParser.so");
   AtTpcMap *newmap = new AtTpcMap();
+  ATCore *unpacker = new ATCore();
+  
+ 
   //newmap->SetGUIMode();
   //newmap->SetDebugMode();
   newmap->GenerateATTPC();
@@ -22,5 +25,8 @@ void run_unpack(){
   //newmap->Dump();
 
   // GETDecoder *decoder = new GETDecoder("/home/daq/Desktop/Yassid/ATTPC/run_0225/test");
+  unpacker->AddData("/home/daq/Desktop/Yassid/ATTPC/run_0225/test");
+  unpacker->SetData(0);
+  unpacker->GetRawEvent(0);
 
 }

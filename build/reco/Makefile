@@ -180,6 +180,30 @@ libATTPCReco.rootmap/fast:
 	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build && $(MAKE) -f reco/CMakeFiles/libATTPCReco.rootmap.dir/build.make reco/CMakeFiles/libATTPCReco.rootmap.dir/build
 .PHONY : libATTPCReco.rootmap/fast
 
+ATDecoder/ATCore.o: ATDecoder/ATCore.cc.o
+.PHONY : ATDecoder/ATCore.o
+
+# target to build an object file
+ATDecoder/ATCore.cc.o:
+	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build && $(MAKE) -f reco/CMakeFiles/ATTPCReco.dir/build.make reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o
+.PHONY : ATDecoder/ATCore.cc.o
+
+ATDecoder/ATCore.i: ATDecoder/ATCore.cc.i
+.PHONY : ATDecoder/ATCore.i
+
+# target to preprocess a source file
+ATDecoder/ATCore.cc.i:
+	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build && $(MAKE) -f reco/CMakeFiles/ATTPCReco.dir/build.make reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.i
+.PHONY : ATDecoder/ATCore.cc.i
+
+ATDecoder/ATCore.s: ATDecoder/ATCore.cc.s
+.PHONY : ATDecoder/ATCore.s
+
+# target to generate assembly for a file
+ATDecoder/ATCore.cc.s:
+	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build && $(MAKE) -f reco/CMakeFiles/ATTPCReco.dir/build.make reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.s
+.PHONY : ATDecoder/ATCore.cc.s
+
 GETDecoder/GETDecoder.o: GETDecoder/GETDecoder.cc.o
 .PHONY : GETDecoder/GETDecoder.o
 
@@ -315,6 +339,9 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... ATDecoder/ATCore.o"
+	@echo "... ATDecoder/ATCore.i"
+	@echo "... ATDecoder/ATCore.s"
 	@echo "... GETDecoder/GETDecoder.o"
 	@echo "... GETDecoder/GETDecoder.i"
 	@echo "... GETDecoder/GETDecoder.s"

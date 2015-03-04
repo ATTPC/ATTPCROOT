@@ -35,6 +35,7 @@ extern void G__set_cpp_environmentG__ATTPCRecoDict();
 #include "GETDecoder/GETFrame.hh"
 #include "GETDecoder/GETMath.hh"
 #include "GETDecoder/GETPlot.hh"
+#include "ATDecoder/ATCore.hh"
 #include <algorithm>
 namespace std { }
 using namespace std;
@@ -65,5 +66,6 @@ extern G__linked_taginfo G__G__ATTPCRecoDictLN_reverse_iteratorlEvectorlETString
 extern G__linked_taginfo G__G__ATTPCRecoDictLN_TGraph;
 extern G__linked_taginfo G__G__ATTPCRecoDictLN_TH2D;
 extern G__linked_taginfo G__G__ATTPCRecoDictLN_TPad;
+extern G__linked_taginfo G__G__ATTPCRecoDictLN_ATCore;
 
 /* STUB derived class for protected member access */

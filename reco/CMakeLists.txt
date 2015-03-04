@@ -7,6 +7,7 @@ ${BASE_INCLUDE_DIRECTORIES}
 #${CMAKE_SOURCE_DIR}/mcstack
 ${CMAKE_SOURCE_DIR}/reco
 ${CMAKE_SOURCE_DIR}/reco/GETDecoder
+${CMAKE_SOURCE_DIR}/reco/ATDecoder
 
 )
 
@@ -24,6 +25,7 @@ GETDecoder/GETDecoder.cc
 GETDecoder/GETFrame.cc
 GETDecoder/GETMath.cc
 GETDecoder/GETPlot.cc
+ATDecoder/ATCore.cc
 
 )
 

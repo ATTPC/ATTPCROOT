@@ -54,7 +54,7 @@ class AtTpcMap : public TObject
      void ParseMapList(TXMLNode *node);
      void ParseATTPCMap(TXMLNode *node);
      Bool_t DumpATTPCMap();
-     Int_t  GetPadNum(std::vector<int> PadRef(4,0));
+     Int_t  GetPadNum(std::vector<int> PadRef);
 
      TH2Poly* GetATTPCPlane();
      Int_t fPadInd;
