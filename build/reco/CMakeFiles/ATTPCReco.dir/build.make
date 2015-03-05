@@ -60,7 +60,7 @@ reco/G__ATTPCRecoDict.cxx: ../reco/ATDecoder/ATCore.hh
 reco/G__ATTPCRecoDict.cxx: ../reco/ATTPCRecoLinkDef.h
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating G__ATTPCRecoDict.cxx"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && LD_LIBRARY_PATH=/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root::/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib:/home/daq/fair_install_2015/FairRootInst/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root:/home/daq/fair_install_2015/FairSoftInst/lib ROOTSYS=/usr/local/fairsoft/fairsoft_jul14p3-install /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rootcint -f /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco/G__ATTPCRecoDict.cxx -c -I/usr/local/fairsoft/fairsoft_jul14p3-install/include/root -I/usr/local/fairsoft/fairsoft_jul14p3-install/include/root -I/home/daq/fair_install_2015/FairRootInst/include -I/usr/local/fairsoft/fairsoft_jul14p3-install/include -I/home/daq/fair_install_2015/ATTPCROOT_Feb/reco -I/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder -I/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder GETDecoder/GETDecoder.hh GETDecoder/GETFrame.hh GETDecoder/GETMath.hh GETDecoder/GETPlot.hh ATDecoder/ATCore.hh ATTPCRecoLinkDef.h
+	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && LD_LIBRARY_PATH=/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root::/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib:/home/daq/fair_install_2015/FairRootInst/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root:/home/daq/fair_install_2015/FairSoftInst/lib ROOTSYS=/usr/local/fairsoft/fairsoft_jul14p3-install /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rootcint -f /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco/G__ATTPCRecoDict.cxx -c -I/usr/local/fairsoft/fairsoft_jul14p3-install/include/root -I/usr/local/fairsoft/fairsoft_jul14p3-install/include/root -I/home/daq/fair_install_2015/FairRootInst/include -I/usr/local/fairsoft/fairsoft_jul14p3-install/include -I/home/daq/fair_install_2015/ATTPCROOT_Feb/AtMap -I/home/daq/fair_install_2015/ATTPCROOT_Feb/reco -I/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder -I/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder GETDecoder/GETDecoder.hh GETDecoder/GETFrame.hh GETDecoder/GETMath.hh GETDecoder/GETPlot.hh ATDecoder/ATCore.hh ATTPCRecoLinkDef.h
 
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.o: reco/CMakeFiles/ATTPCReco.dir/flags.make
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.o: ../reco/GETDecoder/GETDecoder.cc
@@ -219,6 +219,13 @@ lib/libATTPCReco.so.0.0.0: reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.o
 lib/libATTPCReco.so.0.0.0: reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o
 lib/libATTPCReco.so.0.0.0: reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o
 lib/libATTPCReco.so.0.0.0: reco/CMakeFiles/ATTPCReco.dir/build.make
+lib/libATTPCReco.so.0.0.0: lib/libAtTpcMap.so.0.0.0
+lib/libATTPCReco.so.0.0.0: lib/libBase.so.0.0.0
+lib/libATTPCReco.so.0.0.0: lib/libParBase.so.0.0.0
+lib/libATTPCReco.so.0.0.0: lib/libFairDB.so.0.0.0
+lib/libATTPCReco.so.0.0.0: lib/libGeoBase.so.0.0.0
+lib/libATTPCReco.so.0.0.0: lib/libFairTools.so.0.0.0
+lib/libATTPCReco.so.0.0.0: lib/libMbsAPI.so.0.0.0
 lib/libATTPCReco.so.0.0.0: reco/CMakeFiles/ATTPCReco.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library ../lib/libATTPCReco.so"
 	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ATTPCReco.dir/link.txt --verbose=$(VERBOSE)

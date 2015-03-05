@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/daq/fair_install_2015/ATTPCROOT_Feb/base/source/exitCli.c
+stdio.h
+-
+unistd.h
+-
+
+/home/daq/fair_install_2015/ATTPCROOT_Feb/base/source/rclose.c
+stdio.h
+-
+unistd.h
+-
+sys/socket.h
+-
+
+/home/daq/fair_install_2015/ATTPCROOT_Feb/base/source/swaplw.c
+

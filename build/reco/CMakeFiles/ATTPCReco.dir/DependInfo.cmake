@@ -27,6 +27,13 @@ SET(CMAKE_MULTIPLE_OUTPUT_PAIRS
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtMap/CMakeFiles/AtTpcMap.dir/DependInfo.cmake"
+  "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/base/CMakeFiles/Base.dir/DependInfo.cmake"
+  "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/parbase/CMakeFiles/ParBase.dir/DependInfo.cmake"
+  "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/dbase/CMakeFiles/FairDB.dir/DependInfo.cmake"
+  "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/geobase/CMakeFiles/GeoBase.dir/DependInfo.cmake"
+  "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairtools/CMakeFiles/FairTools.dir/DependInfo.cmake"
+  "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/MbsAPI/CMakeFiles/MbsAPI.dir/DependInfo.cmake"
   )
 
 # The include file search paths:
@@ -34,6 +41,7 @@ SET(CMAKE_C_TARGET_INCLUDE_PATH
   "/usr/local/fairsoft/fairsoft_jul14p3-install/include/root"
   "/home/daq/fair_install_2015/FairRootInst/include"
   "/usr/local/fairsoft/fairsoft_jul14p3-install/include"
+  "../AtMap"
   "../reco"
   "../reco/GETDecoder"
   "../reco/ATDecoder"

@@ -750,6 +750,318 @@ libATTPCReco.rootmap/fast:
 	$(MAKE) -f reco/CMakeFiles/libATTPCReco.rootmap.dir/build.make reco/CMakeFiles/libATTPCReco.rootmap.dir/build
 .PHONY : libATTPCReco.rootmap/fast
 
+#=============================================================================
+# Target rules for targets named Base
+
+# Build rule for target.
+Base: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Base
+.PHONY : Base
+
+# fast build rule for target.
+Base/fast:
+	$(MAKE) -f base/CMakeFiles/Base.dir/build.make base/CMakeFiles/Base.dir/build
+.PHONY : Base/fast
+
+#=============================================================================
+# Target rules for targets named libBase.rootmap
+
+# Build rule for target.
+libBase.rootmap: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 libBase.rootmap
+.PHONY : libBase.rootmap
+
+# fast build rule for target.
+libBase.rootmap/fast:
+	$(MAKE) -f base/CMakeFiles/libBase.rootmap.dir/build.make base/CMakeFiles/libBase.rootmap.dir/build
+.PHONY : libBase.rootmap/fast
+
+#=============================================================================
+# Target rules for targets named FairDB
+
+# Build rule for target.
+FairDB: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 FairDB
+.PHONY : FairDB
+
+# fast build rule for target.
+FairDB/fast:
+	$(MAKE) -f dbase/CMakeFiles/FairDB.dir/build.make dbase/CMakeFiles/FairDB.dir/build
+.PHONY : FairDB/fast
+
+#=============================================================================
+# Target rules for targets named libFairDB.rootmap
+
+# Build rule for target.
+libFairDB.rootmap: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 libFairDB.rootmap
+.PHONY : libFairDB.rootmap
+
+# fast build rule for target.
+libFairDB.rootmap/fast:
+	$(MAKE) -f dbase/CMakeFiles/libFairDB.rootmap.dir/build.make dbase/CMakeFiles/libFairDB.rootmap.dir/build
+.PHONY : libFairDB.rootmap/fast
+
+#=============================================================================
+# Target rules for targets named FairDbMQ
+
+# Build rule for target.
+FairDbMQ: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 FairDbMQ
+.PHONY : FairDbMQ
+
+# fast build rule for target.
+FairDbMQ/fast:
+	$(MAKE) -f dbase/dbMQ/CMakeFiles/FairDbMQ.dir/build.make dbase/dbMQ/CMakeFiles/FairDbMQ.dir/build
+.PHONY : FairDbMQ/fast
+
+#=============================================================================
+# Target rules for targets named db_client
+
+# Build rule for target.
+db_client: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 db_client
+.PHONY : db_client
+
+# fast build rule for target.
+db_client/fast:
+	$(MAKE) -f dbase/dbMQ/CMakeFiles/db_client.dir/build.make dbase/dbMQ/CMakeFiles/db_client.dir/build
+.PHONY : db_client/fast
+
+#=============================================================================
+# Target rules for targets named db_dispatcher
+
+# Build rule for target.
+db_dispatcher: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 db_dispatcher
+.PHONY : db_dispatcher
+
+# fast build rule for target.
+db_dispatcher/fast:
+	$(MAKE) -f dbase/dbMQ/CMakeFiles/db_dispatcher.dir/build.make dbase/dbMQ/CMakeFiles/db_dispatcher.dir/build
+.PHONY : db_dispatcher/fast
+
+#=============================================================================
+# Target rules for targets named db_worker
+
+# Build rule for target.
+db_worker: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 db_worker
+.PHONY : db_worker
+
+# fast build rule for target.
+db_worker/fast:
+	$(MAKE) -f dbase/dbMQ/CMakeFiles/db_worker.dir/build.make dbase/dbMQ/CMakeFiles/db_worker.dir/build
+.PHONY : db_worker/fast
+
+#=============================================================================
+# Target rules for targets named GeoBase
+
+# Build rule for target.
+GeoBase: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 GeoBase
+.PHONY : GeoBase
+
+# fast build rule for target.
+GeoBase/fast:
+	$(MAKE) -f geobase/CMakeFiles/GeoBase.dir/build.make geobase/CMakeFiles/GeoBase.dir/build
+.PHONY : GeoBase/fast
+
+#=============================================================================
+# Target rules for targets named libGeoBase.rootmap
+
+# Build rule for target.
+libGeoBase.rootmap: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 libGeoBase.rootmap
+.PHONY : libGeoBase.rootmap
+
+# fast build rule for target.
+libGeoBase.rootmap/fast:
+	$(MAKE) -f geobase/CMakeFiles/libGeoBase.rootmap.dir/build.make geobase/CMakeFiles/libGeoBase.rootmap.dir/build
+.PHONY : libGeoBase.rootmap/fast
+
+#=============================================================================
+# Target rules for targets named ParBase
+
+# Build rule for target.
+ParBase: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 ParBase
+.PHONY : ParBase
+
+# fast build rule for target.
+ParBase/fast:
+	$(MAKE) -f parbase/CMakeFiles/ParBase.dir/build.make parbase/CMakeFiles/ParBase.dir/build
+.PHONY : ParBase/fast
+
+#=============================================================================
+# Target rules for targets named libParBase.rootmap
+
+# Build rule for target.
+libParBase.rootmap: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 libParBase.rootmap
+.PHONY : libParBase.rootmap
+
+# fast build rule for target.
+libParBase.rootmap/fast:
+	$(MAKE) -f parbase/CMakeFiles/libParBase.rootmap.dir/build.make parbase/CMakeFiles/libParBase.rootmap.dir/build
+.PHONY : libParBase.rootmap/fast
+
+#=============================================================================
+# Target rules for targets named FairTools
+
+# Build rule for target.
+FairTools: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 FairTools
+.PHONY : FairTools
+
+# fast build rule for target.
+FairTools/fast:
+	$(MAKE) -f fairtools/CMakeFiles/FairTools.dir/build.make fairtools/CMakeFiles/FairTools.dir/build
+.PHONY : FairTools/fast
+
+#=============================================================================
+# Target rules for targets named libFairTools.rootmap
+
+# Build rule for target.
+libFairTools.rootmap: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 libFairTools.rootmap
+.PHONY : libFairTools.rootmap
+
+# fast build rule for target.
+libFairTools.rootmap/fast:
+	$(MAKE) -f fairtools/CMakeFiles/libFairTools.rootmap.dir/build.make fairtools/CMakeFiles/libFairTools.rootmap.dir/build
+.PHONY : libFairTools.rootmap/fast
+
+#=============================================================================
+# Target rules for targets named MbsAPI
+
+# Build rule for target.
+MbsAPI: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 MbsAPI
+.PHONY : MbsAPI
+
+# fast build rule for target.
+MbsAPI/fast:
+	$(MAKE) -f MbsAPI/CMakeFiles/MbsAPI.dir/build.make MbsAPI/CMakeFiles/MbsAPI.dir/build
+.PHONY : MbsAPI/fast
+
+#=============================================================================
+# Target rules for targets named FairMQ
+
+# Build rule for target.
+FairMQ: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 FairMQ
+.PHONY : FairMQ
+
+# fast build rule for target.
+FairMQ/fast:
+	$(MAKE) -f fairmq/CMakeFiles/FairMQ.dir/build.make fairmq/CMakeFiles/FairMQ.dir/build
+.PHONY : FairMQ/fast
+
+#=============================================================================
+# Target rules for targets named bsampler
+
+# Build rule for target.
+bsampler: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 bsampler
+.PHONY : bsampler
+
+# fast build rule for target.
+bsampler/fast:
+	$(MAKE) -f fairmq/CMakeFiles/bsampler.dir/build.make fairmq/CMakeFiles/bsampler.dir/build
+.PHONY : bsampler/fast
+
+#=============================================================================
+# Target rules for targets named buffer
+
+# Build rule for target.
+buffer: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 buffer
+.PHONY : buffer
+
+# fast build rule for target.
+buffer/fast:
+	$(MAKE) -f fairmq/CMakeFiles/buffer.dir/build.make fairmq/CMakeFiles/buffer.dir/build
+.PHONY : buffer/fast
+
+#=============================================================================
+# Target rules for targets named example_client
+
+# Build rule for target.
+example_client: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 example_client
+.PHONY : example_client
+
+# fast build rule for target.
+example_client/fast:
+	$(MAKE) -f fairmq/CMakeFiles/example_client.dir/build.make fairmq/CMakeFiles/example_client.dir/build
+.PHONY : example_client/fast
+
+#=============================================================================
+# Target rules for targets named example_server
+
+# Build rule for target.
+example_server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 example_server
+.PHONY : example_server
+
+# fast build rule for target.
+example_server/fast:
+	$(MAKE) -f fairmq/CMakeFiles/example_server.dir/build.make fairmq/CMakeFiles/example_server.dir/build
+.PHONY : example_server/fast
+
+#=============================================================================
+# Target rules for targets named merger
+
+# Build rule for target.
+merger: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 merger
+.PHONY : merger
+
+# fast build rule for target.
+merger/fast:
+	$(MAKE) -f fairmq/CMakeFiles/merger.dir/build.make fairmq/CMakeFiles/merger.dir/build
+.PHONY : merger/fast
+
+#=============================================================================
+# Target rules for targets named proxy
+
+# Build rule for target.
+proxy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 proxy
+.PHONY : proxy
+
+# fast build rule for target.
+proxy/fast:
+	$(MAKE) -f fairmq/CMakeFiles/proxy.dir/build.make fairmq/CMakeFiles/proxy.dir/build
+.PHONY : proxy/fast
+
+#=============================================================================
+# Target rules for targets named sink
+
+# Build rule for target.
+sink: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sink
+.PHONY : sink
+
+# fast build rule for target.
+sink/fast:
+	$(MAKE) -f fairmq/CMakeFiles/sink.dir/build.make fairmq/CMakeFiles/sink.dir/build
+.PHONY : sink/fast
+
+#=============================================================================
+# Target rules for targets named splitter
+
+# Build rule for target.
+splitter: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 splitter
+.PHONY : splitter
+
+# fast build rule for target.
+splitter/fast:
+	$(MAKE) -f fairmq/CMakeFiles/splitter.dir/build.make fairmq/CMakeFiles/splitter.dir/build
+.PHONY : splitter/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -809,6 +1121,30 @@ help:
 	@echo "... libAtTpcMap.rootmap"
 	@echo "... ATTPCReco"
 	@echo "... libATTPCReco.rootmap"
+	@echo "... Base"
+	@echo "... libBase.rootmap"
+	@echo "... FairDB"
+	@echo "... libFairDB.rootmap"
+	@echo "... FairDbMQ"
+	@echo "... db_client"
+	@echo "... db_dispatcher"
+	@echo "... db_worker"
+	@echo "... GeoBase"
+	@echo "... libGeoBase.rootmap"
+	@echo "... ParBase"
+	@echo "... libParBase.rootmap"
+	@echo "... FairTools"
+	@echo "... libFairTools.rootmap"
+	@echo "... MbsAPI"
+	@echo "... FairMQ"
+	@echo "... bsampler"
+	@echo "... buffer"
+	@echo "... example_client"
+	@echo "... example_server"
+	@echo "... merger"
+	@echo "... proxy"
+	@echo "... sink"
+	@echo "... splitter"
 .PHONY : help
 
 

@@ -142,6 +142,13 @@ lib/libMCStack.so.0.0.0: mcstack/CMakeFiles/MCStack.dir/FairStack.cxx.o
 lib/libMCStack.so.0.0.0: mcstack/CMakeFiles/MCStack.dir/FairMCTrack.cxx.o
 lib/libMCStack.so.0.0.0: mcstack/CMakeFiles/MCStack.dir/G__MCStackDict.cxx.o
 lib/libMCStack.so.0.0.0: mcstack/CMakeFiles/MCStack.dir/build.make
+lib/libMCStack.so.0.0.0: lib/libBase.so.0.0.0
+lib/libMCStack.so.0.0.0: lib/libFairTools.so.0.0.0
+lib/libMCStack.so.0.0.0: lib/libParBase.so.0.0.0
+lib/libMCStack.so.0.0.0: lib/libFairDB.so.0.0.0
+lib/libMCStack.so.0.0.0: lib/libGeoBase.so.0.0.0
+lib/libMCStack.so.0.0.0: lib/libFairTools.so.0.0.0
+lib/libMCStack.so.0.0.0: lib/libMbsAPI.so.0.0.0
 lib/libMCStack.so.0.0.0: mcstack/CMakeFiles/MCStack.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library ../lib/libMCStack.so"
 	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MCStack.dir/link.txt --verbose=$(VERBOSE)

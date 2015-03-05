@@ -43,6 +43,13 @@ IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/plists/cmake_install.cmake")
   INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtMap/cmake_install.cmake")
   INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco/cmake_install.cmake")
+  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/base/cmake_install.cmake")
+  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/dbase/cmake_install.cmake")
+  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/geobase/cmake_install.cmake")
+  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/parbase/cmake_install.cmake")
+  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairtools/cmake_install.cmake")
+  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/MbsAPI/cmake_install.cmake")
+  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairmq/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 

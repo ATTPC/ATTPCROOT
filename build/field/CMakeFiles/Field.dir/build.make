@@ -167,6 +167,12 @@ lib/libField.so.0.0.0: field/CMakeFiles/Field.dir/AtFieldCreator.cxx.o
 lib/libField.so.0.0.0: field/CMakeFiles/Field.dir/AtFieldPar.cxx.o
 lib/libField.so.0.0.0: field/CMakeFiles/Field.dir/G__FieldDict.cxx.o
 lib/libField.so.0.0.0: field/CMakeFiles/Field.dir/build.make
+lib/libField.so.0.0.0: lib/libBase.so.0.0.0
+lib/libField.so.0.0.0: lib/libParBase.so.0.0.0
+lib/libField.so.0.0.0: lib/libFairDB.so.0.0.0
+lib/libField.so.0.0.0: lib/libGeoBase.so.0.0.0
+lib/libField.so.0.0.0: lib/libFairTools.so.0.0.0
+lib/libField.so.0.0.0: lib/libMbsAPI.so.0.0.0
 lib/libField.so.0.0.0: field/CMakeFiles/Field.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library ../lib/libField.so"
 	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/field && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Field.dir/link.txt --verbose=$(VERBOSE)

@@ -1,5 +1,5 @@
-Library.ATCore:                             ATTPCReco libXMLParser.so
-Library.GETDecoder:                         ATTPCReco libXMLParser.so
-Library.GETFrame:                           ATTPCReco libXMLParser.so
-Library.GETMath:                            ATTPCReco libXMLParser.so
-Library.GETPlot:                            ATTPCReco libXMLParser.so
+Library.ATCore:                             ATTPCReco libXMLParser.so libAtTpcMap.so
+Library.GETDecoder:                         ATTPCReco libXMLParser.so libAtTpcMap.so
+Library.GETFrame:                           ATTPCReco libXMLParser.so libAtTpcMap.so
+Library.GETMath:                            ATTPCReco libXMLParser.so libAtTpcMap.so
+Library.GETPlot:                            ATTPCReco libXMLParser.so libAtTpcMap.so

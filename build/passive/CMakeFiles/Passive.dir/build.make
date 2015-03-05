@@ -219,6 +219,12 @@ lib/libPassive.so.0.0.0: passive/CMakeFiles/Passive.dir/AtMagnet.cxx.o
 lib/libPassive.so.0.0.0: passive/CMakeFiles/Passive.dir/AtPassiveContFact.cxx.o
 lib/libPassive.so.0.0.0: passive/CMakeFiles/Passive.dir/G__PassiveDict.cxx.o
 lib/libPassive.so.0.0.0: passive/CMakeFiles/Passive.dir/build.make
+lib/libPassive.so.0.0.0: lib/libBase.so.0.0.0
+lib/libPassive.so.0.0.0: lib/libGeoBase.so.0.0.0
+lib/libPassive.so.0.0.0: lib/libParBase.so.0.0.0
+lib/libPassive.so.0.0.0: lib/libFairDB.so.0.0.0
+lib/libPassive.so.0.0.0: lib/libFairTools.so.0.0.0
+lib/libPassive.so.0.0.0: lib/libMbsAPI.so.0.0.0
 lib/libPassive.so.0.0.0: passive/CMakeFiles/Passive.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library ../lib/libPassive.so"
 	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/passive && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Passive.dir/link.txt --verbose=$(VERBOSE)

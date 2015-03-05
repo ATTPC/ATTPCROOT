@@ -115,6 +115,12 @@ AtTpcMap_EXTERNAL_OBJECTS =
 lib/libAtTpcMap.so.0.0.0: AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o
 lib/libAtTpcMap.so.0.0.0: AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o
 lib/libAtTpcMap.so.0.0.0: AtMap/CMakeFiles/AtTpcMap.dir/build.make
+lib/libAtTpcMap.so.0.0.0: lib/libBase.so.0.0.0
+lib/libAtTpcMap.so.0.0.0: lib/libParBase.so.0.0.0
+lib/libAtTpcMap.so.0.0.0: lib/libFairDB.so.0.0.0
+lib/libAtTpcMap.so.0.0.0: lib/libGeoBase.so.0.0.0
+lib/libAtTpcMap.so.0.0.0: lib/libFairTools.so.0.0.0
+lib/libAtTpcMap.so.0.0.0: lib/libMbsAPI.so.0.0.0
 lib/libAtTpcMap.so.0.0.0: AtMap/CMakeFiles/AtTpcMap.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library ../lib/libAtTpcMap.so"
 	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtMap && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AtTpcMap.dir/link.txt --verbose=$(VERBOSE)

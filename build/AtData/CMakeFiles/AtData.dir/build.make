@@ -141,6 +141,12 @@ lib/libAtData.so.0.0.0: AtData/CMakeFiles/AtData.dir/AtStack.cxx.o
 lib/libAtData.so.0.0.0: AtData/CMakeFiles/AtData.dir/AtMCTrack.cxx.o
 lib/libAtData.so.0.0.0: AtData/CMakeFiles/AtData.dir/G__AtDataDict.cxx.o
 lib/libAtData.so.0.0.0: AtData/CMakeFiles/AtData.dir/build.make
+lib/libAtData.so.0.0.0: lib/libBase.so.0.0.0
+lib/libAtData.so.0.0.0: lib/libParBase.so.0.0.0
+lib/libAtData.so.0.0.0: lib/libFairDB.so.0.0.0
+lib/libAtData.so.0.0.0: lib/libGeoBase.so.0.0.0
+lib/libAtData.so.0.0.0: lib/libFairTools.so.0.0.0
+lib/libAtData.so.0.0.0: lib/libMbsAPI.so.0.0.0
 lib/libAtData.so.0.0.0: AtData/CMakeFiles/AtData.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library ../lib/libAtData.so"
 	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AtData.dir/link.txt --verbose=$(VERBOSE)

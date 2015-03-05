@@ -17,6 +17,7 @@ SET(CMAKE_C_TARGET_INCLUDE_PATH
   "/usr/local/fairsoft/fairsoft_jul14p3-install/include/root"
   "/home/daq/fair_install_2015/FairRootInst/include"
   "/usr/local/fairsoft/fairsoft_jul14p3-install/include"
+  "../AtMap"
   "../reco"
   "../reco/GETDecoder"
   "../reco/ATDecoder"

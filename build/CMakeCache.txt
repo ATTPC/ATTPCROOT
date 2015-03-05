@@ -15,7 +15,7 @@
 ########################
 
 //Dependencies for the target
-ATTPCReco_LIB_DEPENDS:STATIC=general;XMLParser;
+ATTPCReco_LIB_DEPENDS:STATIC=general;XMLParser;general;AtTpcMap;
 
 //Value Computed by CMake
 ATTPC_BINARY_DIR:STATIC=/home/daq/fair_install_2015/ATTPCROOT_Feb/build
@@ -43,6 +43,9 @@ BUILD_TESTING:BOOL=ON
 
 //Path to a program.
 BZRCOMMAND:FILEPATH=BZRCOMMAND-NOTFOUND
+
+//Dependencies for the target
+Base_LIB_DEPENDS:STATIC=general;ParBase;general;GeoBase;general;FairTools;general;MbsAPI;general;Proof;general;GeomPainter;general;Geom;general;VMC;general;EG;general;MathCore;general;Physics;general;Matrix;general;Tree;general;Hist;general;RIO;general;Cint;general;Core;general;Gdml;
 
 //Path to a file.
 Boost_INCLUDE_DIR:PATH=/usr/local/fairsoft/fairsoft_jul14p3-install/include
@@ -328,6 +331,18 @@ FAIRROOT_LIBRARY_DIR:PATH=/home/daq/fair_install_2015/FairRootInst/lib
 FAIRSOFT_CONFIG:FILEPATH=/usr/local/fairsoft/fairsoft_jul14p3-install/bin/fairsoft-config
 
 //Dependencies for the target
+FairDB_LIB_DEPENDS:STATIC=general;Net;general;RIO;general;Cint;general;Core;
+
+//Dependencies for the target
+FairDbMQ_LIB_DEPENDS:STATIC=general;Base;general;FairDB;general;ParBase;general;FairMQ;general;/usr/local/fairsoft/fairsoft_jul14p3-install/lib64/libzmq.so;general;boost_thread;general;boost_system;general;boost_serialization;
+
+//Dependencies for the target
+FairMQ_LIB_DEPENDS:STATIC=general;/usr/local/fairsoft/fairsoft_jul14p3-install/lib64/libzmq.so;general;boost_thread;general;boost_timer;general;boost_system;general;boost_program_options;
+
+//Dependencies for the target
+FairTools_LIB_DEPENDS:STATIC=general;Cint;general;Core;
+
+//Dependencies for the target
 Field_LIB_DEPENDS:STATIC=general;Base;
 
 //Path to a file.
@@ -393,6 +408,9 @@ GEANT4_MODULAR_PHYSICS_LIST:FILEPATH=GEANT4_MODULAR_PHYSICS_LIST-NOTFOUND
 //Path to a program.
 GITCOMMAND:FILEPATH=/usr/bin/git
 
+//Dependencies for the target
+GeoBase_LIB_DEPENDS:STATIC=general;Geom;general;Graf3d;general;Cint;general;Core;general;FairTools;
+
 //Path to a program.
 HGCOMMAND:FILEPATH=HGCOMMAND-NOTFOUND
 
@@ -426,6 +444,9 @@ MEMORYCHECK_COMMAND:FILEPATH=MEMORYCHECK_COMMAND-NOTFOUND
 //File that contains suppressions for the memory checker
 MEMORYCHECK_SUPPRESSIONS_FILE:FILEPATH=
 
+//Dependencies for the target
+MbsAPI_LIB_DEPENDS:STATIC=general;-L/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root -lGui -lCore -lCint -lRIO -lNet -lHist -lGraf -lGraf3d -lGpad -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lThread -pthread -lm -ldl -rdynamic;
+
 //Path to a program.
 PERL_EXECUTABLE:FILEPATH=/usr/bin/perl
 
@@ -443,6 +464,9 @@ PYTHIA8_INCLUDE_DIR:PATH=/usr/local/fairsoft/fairsoft_jul14p3-install/include/Py
 
 //Path to a file.
 PYTHIA8_LIB_DIR:PATH=/usr/local/fairsoft/fairsoft_jul14p3-install/lib
+
+//Dependencies for the target
+ParBase_LIB_DEPENDS:STATIC=general;FairTools;general;FairDB;general;RIO;general;Cint;general;Core;
 
 //Dependencies for the target
 Passive_LIB_DEPENDS:STATIC=general;Base;general;GeoBase;general;ParBase;general;Geom;general;Cint;general;Core;
@@ -596,7 +620,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=10
+CMAKE_NUMBER_OF_LOCAL_GENERATORS:INTERNAL=18
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

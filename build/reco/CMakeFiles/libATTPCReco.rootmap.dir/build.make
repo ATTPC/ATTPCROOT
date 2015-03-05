@@ -55,7 +55,7 @@ lib/libATTPCReco.rootmap: ../reco/ATTPCRecoLinkDef.h
 lib/libATTPCReco.rootmap: /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../lib/libATTPCReco.rootmap"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap -o /home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libATTPCReco.rootmap -l ATTPCReco -d libXMLParser.so -c ATTPCRecoLinkDef.h /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATTPCRecoLinkDef.h
+	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap -o /home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libATTPCReco.rootmap -l ATTPCReco -d libXMLParser.so libAtTpcMap.so -c ATTPCRecoLinkDef.h /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATTPCRecoLinkDef.h
 
 libATTPCReco.rootmap: reco/CMakeFiles/libATTPCReco.rootmap
 libATTPCReco.rootmap: lib/libATTPCReco.rootmap
