@@ -10,23 +10,23 @@ void run_unpack(){
 
 
   gSystem->Load("libXMLParser.so");
-  AtTpcMap *newmap = new AtTpcMap();
+  //AtTpcMap *newmap = new AtTpcMap();
   ATCore *unpacker = new ATCore();
-  
+  unpacker->SetATTPCMap("/home/daq/fair_install_2015/ATTPCROOT_Feb/scripts/Lookup20141208.xml");
  
   //newmap->SetGUIMode();
   //newmap->SetDebugMode();
-  newmap->GenerateATTPC();
-  newmap->GetATTPCPlane();
-  newmap->ParseXMLMap("/home/daq/fair_install_2015/ATTPCROOT_Feb/scripts/Lookup20141208.xml");
-  Int_t padnum = newmap->GetPadNum(PadRef);
-  cout<<padnum<<endl;
+  //newmap->GenerateATTPC();
+ // newmap->GetATTPCPlane();
+  //newmap->ParseXMLMap("/home/daq/fair_install_2015/ATTPCROOT_Feb/scripts/Lookup20141208.xml");
+  //Int_t padnum = newmap->GetPadNum(PadRef);
+  //cout<<padnum<<endl;
   //newmap->DumpATTPCMap();
   //newmap->Dump();
 
   // GETDecoder *decoder = new GETDecoder("/home/daq/Desktop/Yassid/ATTPC/run_0225/test");
   unpacker->AddData("/home/daq/Desktop/Yassid/ATTPC/run_0225/test");
   unpacker->SetData(0);
-  unpacker->GetRawEvent(0);
+ // unpacker->GetRawEvent();
 
 }

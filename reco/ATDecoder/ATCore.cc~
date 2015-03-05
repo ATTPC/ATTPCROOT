@@ -34,16 +34,17 @@ ATCore::ATCore(TString filename, Int_t numTbs)
 ATCore::~ATCore()
 {
   delete fGETDecoderPtr;
-  
+  delete fAtMapPtr;
   //delete fPedestalPtr;
   //delete fMapPtr;
 }
 
 void ATCore::Initialize(){
 
-  fGETDecoderPtr = new GETDecoder("/home/daq/Desktop/Yassid/ATTPC/run_0225/test");
+  fGETDecoderPtr = new GETDecoder();
   fNumTbs = 512;
   fIsData = kFALSE;
+  fAtMapPtr = new AtTpcMap();
 
 }
 
@@ -63,6 +64,17 @@ Bool_t ATCore::SetData(Int_t value)
   return fIsData;
 }
 
+Bool_t ATCore::SetATTPCMap(char *lookup){
+
+  fAtMapPtr->GenerateATTPC();
+  fAtMapPtr->ParseXMLMap(lookup);
+  //**** For debugging purposes only! ******//
+  fAtMapPtr->
+  fAtMapPtr->GetATTPCPlane();
+  return 1;
+
+}
+
 void ATCore::SetPositivePolarity(Bool_t value)
 {
   fGETDecoderPtr -> SetPositivePolarity(value);
@@ -76,19 +88,21 @@ void ATCore::SetNumTbs(Int_t value)
 
 Int_t *ATCore::GetRawEvent(Int_t eventID){
 
-  	/*  if (!fIsData) {
+  	  if (!fIsData) {
   		  std::cout << "== ATCore -  Data file is not set" << std::endl;
 		  return NULL;
-  	  }*/
+  	  }
 
-	//fPrevEventNo = eventID;
+	fPrevEventNo = eventID;
 
         GETFrame *frame = NULL;
 
-		while ((frame = fGETDecoderPtr -> GetFrame())) {
-		//while ((frame = fGETDecoderPtr -> GetFrame(fCurrFrameNo))) {
+		//while ((frame = fGETDecoderPtr -> GetFrame())) {
+		while ((frame = fGETDecoderPtr -> GetFrame(fCurrFrameNo))) {
 
 			Int_t frameType = fGETDecoderPtr -> GetFrameType();
+
+
 
 				 eventID = frame -> GetEventID();
 				 Int_t coboID = frame -> GetCoboID();
@@ -109,8 +123,13 @@ Int_t *ATCore::GetRawEvent(Int_t eventID){
     					}
 
 
+			
 
 		}
+
+	
+
+	return NULL;
 
 }
 

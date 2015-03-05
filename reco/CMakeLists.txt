@@ -5,6 +5,7 @@ ${ROOT_INCLUDE_DIR}
 ${BASE_INCLUDE_DIRECTORIES}
 # Add all the folders having header files you used in the code.
 #${CMAKE_SOURCE_DIR}/mcstack
+${CMAKE_SOURCE_DIR}/AtMap
 ${CMAKE_SOURCE_DIR}/reco
 ${CMAKE_SOURCE_DIR}/reco/GETDecoder
 ${CMAKE_SOURCE_DIR}/reco/ATDecoder
@@ -38,7 +39,7 @@ Set(DEPENDENCIES
     XMLParser
 # Add all library names your code depending on.
 # Basically those are the libraries in the header files' directory.
-  
+    AtTpcMap
 )
 
 GENERATE_LIBRARY()
