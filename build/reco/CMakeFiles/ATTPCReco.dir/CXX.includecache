@@ -83,6 +83,14 @@ GETFrame.hh
 /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/GETFrame.hh
 AtTpcMap.h
 /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/AtTpcMap.h
+ATPad.hh
+/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/ATPad.hh
+
+/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/ATPad.hh
+TObject.h
+/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/TObject.h
+TROOT.h
+/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/TROOT.h
 
 /usr/local/fairsoft/fairsoft_jul14p3-install/include/boost/aligned_storage.hpp
 cstddef

@@ -204,6 +204,30 @@ ATDecoder/ATCore.cc.s:
 	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build && $(MAKE) -f reco/CMakeFiles/ATTPCReco.dir/build.make reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.s
 .PHONY : ATDecoder/ATCore.cc.s
 
+ATDecoder/ATPad.o: ATDecoder/ATPad.cc.o
+.PHONY : ATDecoder/ATPad.o
+
+# target to build an object file
+ATDecoder/ATPad.cc.o:
+	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build && $(MAKE) -f reco/CMakeFiles/ATTPCReco.dir/build.make reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o
+.PHONY : ATDecoder/ATPad.cc.o
+
+ATDecoder/ATPad.i: ATDecoder/ATPad.cc.i
+.PHONY : ATDecoder/ATPad.i
+
+# target to preprocess a source file
+ATDecoder/ATPad.cc.i:
+	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build && $(MAKE) -f reco/CMakeFiles/ATTPCReco.dir/build.make reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.i
+.PHONY : ATDecoder/ATPad.cc.i
+
+ATDecoder/ATPad.s: ATDecoder/ATPad.cc.s
+.PHONY : ATDecoder/ATPad.s
+
+# target to generate assembly for a file
+ATDecoder/ATPad.cc.s:
+	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build && $(MAKE) -f reco/CMakeFiles/ATTPCReco.dir/build.make reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.s
+.PHONY : ATDecoder/ATPad.cc.s
+
 GETDecoder/GETDecoder.o: GETDecoder/GETDecoder.cc.o
 .PHONY : GETDecoder/GETDecoder.o
 
@@ -342,6 +366,9 @@ help:
 	@echo "... ATDecoder/ATCore.o"
 	@echo "... ATDecoder/ATCore.i"
 	@echo "... ATDecoder/ATCore.s"
+	@echo "... ATDecoder/ATPad.o"
+	@echo "... ATDecoder/ATPad.i"
+	@echo "... ATDecoder/ATPad.s"
 	@echo "... GETDecoder/GETDecoder.o"
 	@echo "... GETDecoder/GETDecoder.i"
 	@echo "... GETDecoder/GETDecoder.s"

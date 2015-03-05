@@ -35,7 +35,7 @@ CHANGE_FILE_EXTENSION(*.cc *.hh HEADERS "${SRCS}")
 Set(LINKDEF ATTPCRecoLinkDef.h)
 Set(LIBRARY_NAME ATTPCReco)
 Set(DEPENDENCIES
-    Base
+    #Base
     XMLParser
 # Add all library names your code depending on.
 # Basically those are the libraries in the header files' directory.

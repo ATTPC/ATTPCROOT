@@ -14,6 +14,7 @@
 #include "GETDecoder.hh"
 #include "GETFrame.hh"
 #include "AtTpcMap.h"
+#include "ATPad.hh"
 
 
 class ATCore : public TObject  {

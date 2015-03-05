@@ -8,6 +8,7 @@ reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o
  ../reco/GETDecoder/GETMath.hh
  /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/ATCore.cc
  /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/ATCore.hh
+ /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/ATPad.hh
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/boost/aligned_storage.hpp
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/boost/array.hpp
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/boost/assert.hpp
@@ -651,6 +652,34 @@ reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TXMLParser.h
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/snprintf.h
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/strlcpy.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o
+ /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/ATPad.cc
+ /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/ATPad.hh
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/DllImport.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/RConfig.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/RVersion.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/Riosfwd.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/Rtypeinfo.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/Rtypes.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TBuffer.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TCollection.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDatime.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDirectory.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TGenericClassInfo.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TIterator.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TList.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TMathBase.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TNamed.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TObject.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TROOT.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TSchemaHelper.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TSeqCollection.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TStorage.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TString.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TUUID.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TVersionCheck.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/snprintf.h
+ /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/strlcpy.h
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.o
  /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETDecoder.cc
  /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETDecoder.hh
@@ -839,6 +868,7 @@ reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.o
 reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o
  ../AtMap/AtTpcMap.h
  ../reco/ATDecoder/ATCore.hh
+ ../reco/ATDecoder/ATPad.hh
  ../reco/GETDecoder/GETDecoder.hh
  ../reco/GETDecoder/GETFrame.hh
  ../reco/GETDecoder/GETMath.hh

@@ -39,6 +39,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
     "/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETMath.hh"
     "/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETPlot.hh"
     "/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/ATCore.hh"
+    "/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/ATPad.hh"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

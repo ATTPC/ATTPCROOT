@@ -14,6 +14,7 @@
 #include "GETDecoder.hh"
 #include "GETFrame.hh"
 #include "AtTpcMap.h"
+#include "ATPad.h"
 
 
 class ATCore : public TObject  {
@@ -27,7 +28,7 @@ class ATCore : public TObject  {
      void Initialize();
      Bool_t AddData(TString filename);
      Bool_t SetData(Int_t value);
-     Bool_t SetATTPCMap(TString lookup);
+     Bool_t SetATTPCMap(char *lookup);
      void SetPositivePolarity(Bool_t value = kTRUE);
      Int_t *GetRawEvent(Int_t eventID = -1);// TO DO It returns a pointer to ATRawEvent
      void SetNumTbs(Int_t value);

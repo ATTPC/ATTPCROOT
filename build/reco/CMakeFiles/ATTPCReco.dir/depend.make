@@ -7,6 +7,7 @@ reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o: ../reco/GETDecoder/GETFrame
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o: ../reco/GETDecoder/GETMath.hh
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o: ../reco/ATDecoder/ATCore.cc
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o: ../reco/ATDecoder/ATCore.hh
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o: ../reco/ATDecoder/ATPad.hh
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/boost/aligned_storage.hpp
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/boost/array.hpp
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/boost/assert.hpp
@@ -651,6 +652,34 @@ reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o: /usr/local/fairsoft/fairsof
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/snprintf.h
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/strlcpy.h
 
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: ../reco/ATDecoder/ATPad.cc
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: ../reco/ATDecoder/ATPad.hh
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/DllImport.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/RConfig.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/RVersion.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/Riosfwd.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/Rtypeinfo.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/Rtypes.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TBuffer.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TCollection.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDatime.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TDirectory.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TGenericClassInfo.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TIterator.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TList.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TMathBase.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TNamed.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TObject.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TROOT.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TSchemaHelper.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TSeqCollection.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TStorage.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TString.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TUUID.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/TVersionCheck.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/snprintf.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/root/strlcpy.h
+
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.o: ../reco/GETDecoder/GETDecoder.cc
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.o: ../reco/GETDecoder/GETDecoder.hh
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.o: ../reco/GETDecoder/GETFrame.hh
@@ -838,6 +867,7 @@ reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.o: /usr/local/fairsoft/fairs
 
 reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o: ../AtMap/AtTpcMap.h
 reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o: ../reco/ATDecoder/ATCore.hh
+reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o: ../reco/ATDecoder/ATPad.hh
 reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o: ../reco/GETDecoder/GETDecoder.hh
 reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o: ../reco/GETDecoder/GETFrame.hh
 reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o: ../reco/GETDecoder/GETMath.hh

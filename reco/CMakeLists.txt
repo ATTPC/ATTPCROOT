@@ -26,7 +26,9 @@ GETDecoder/GETDecoder.cc
 GETDecoder/GETFrame.cc
 GETDecoder/GETMath.cc
 GETDecoder/GETPlot.cc
+
 ATDecoder/ATCore.cc
+ATDecoder/ATPad.cc
 
 )
 

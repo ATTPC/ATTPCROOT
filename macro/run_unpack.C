@@ -3,10 +3,10 @@ void run_unpack(){
   std::vector<int> PadRef;
 
   		PadRef.resize(4);
-                PadRef[0] = 0;
-                PadRef[1] = 0;
-                PadRef[2] = 0;
-                PadRef[3] = 0;
+                PadRef[0] = 0;//CoboID
+                PadRef[1] = 0;//AsadID
+                PadRef[2] = 0;//AgetID
+                PadRef[3] = 0;//ChannelID
 
 
   gSystem->Load("libXMLParser.so");
@@ -27,6 +27,6 @@ void run_unpack(){
   // GETDecoder *decoder = new GETDecoder("/home/daq/Desktop/Yassid/ATTPC/run_0225/test");
   unpacker->AddData("/home/daq/Desktop/Yassid/ATTPC/run_0225/test");
   unpacker->SetData(0);
- // unpacker->GetRawEvent();
+  unpacker->GetRawEvent();
 
 }

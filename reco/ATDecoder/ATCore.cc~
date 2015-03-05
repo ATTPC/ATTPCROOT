@@ -69,7 +69,7 @@ Bool_t ATCore::SetATTPCMap(char *lookup){
   fAtMapPtr->GenerateATTPC();
   fAtMapPtr->ParseXMLMap(lookup);
   //**** For debugging purposes only! ******//
-  fAtMapPtr->
+  fAtMapPtr->SetGUIMode();
   fAtMapPtr->GetATTPCPlane();
   return 1;
 
@@ -105,15 +105,19 @@ Int_t *ATCore::GetRawEvent(Int_t eventID){
 
 
 				 eventID = frame -> GetEventID();
-				 Int_t coboID = frame -> GetCoboID();
-				 Int_t asadID = frame -> GetAsadID();
+				 Int_t iCobo = frame -> GetCoboID();
+				 Int_t iAsad = frame -> GetAsadID();
 
 
-			          std::cout<<" Event ID : "<<eventID<<" coboID : "<<coboID<<" asadID : "<<asadID<<std::endl;
+			          //std::cout<<" Event ID : "<<eventID<<" coboID : "<<iCobo<<" asadID : "<<iAsad<<std::endl;
 
  					for (Int_t iAget = 0; iAget < 4; iAget++) {
-                                
-     						 for (Int_t iCh = 0; iCh < 68; iCh++) {
+                                		 for (Int_t iCh = 0; iCh < 68; iCh++) {
+							//std::cout<<" Event ID : "<<eventID<<" coboID : "<<iCobo<<" asadID : "<<iAsad<<std::endl;
+							//std::cout<<" AgetID : "<<iAget<<" ChannelID : "<<iCh<<std::endl;
+							std::vector<int> PadRef={iCobo,iAsad,iAget,iCh};
+							ATPad *pad = new ATPad(fAtMapPtr->GetPadNum(PadRef));
+							//std::cout<<" Pad Number : "<<fAtMapPtr->GetPadNum(PadRef)<<std::endl;
         						Int_t maxTb = fGETDecoderPtr-> GetNumTbs();
 							for (Int_t iTb = 0; iTb < maxTb; iTb++) {
          						 Int_t rawadc = frame -> GetRawADC(iAget, iCh, iTb);
