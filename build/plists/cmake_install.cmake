@@ -1,4 +1,4 @@
-# Install script for directory: /home/daq/fair_install_2015/ATTPCROOT_Feb/plists
+# Install script for directory: /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/plists
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,46 +27,30 @@ IF(NOT CMAKE_INSTALL_COMPONENT)
   ENDIF(COMPONENT)
 ENDIF(NOT CMAKE_INSTALL_COMPONENT)
 
-# Install shared libraries without execute permission?
-IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  SET(CMAKE_INSTALL_SO_NO_EXE "0")
-ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FOREACH(file
-      "$ENV{DESTDIR}/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtTpcPlist.so.0.0.0"
-      "$ENV{DESTDIR}/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtTpcPlist.so.0"
-      "$ENV{DESTDIR}/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtTpcPlist.so"
-      )
-    IF(EXISTS "${file}" AND
-       NOT IS_SYMLINK "${file}")
-      FILE(RPATH_CHECK
-           FILE "${file}"
-           RPATH "")
-    ENDIF()
-  ENDFOREACH()
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtTpcPlist.so.0.0.0;/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtTpcPlist.so.0;/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtTpcPlist.so")
+   "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libAtTpcPlist.0.0.0.so;/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libAtTpcPlist.0.so;/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libAtTpcPlist.so")
   IF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
   IF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   ENDIF (CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
-FILE(INSTALL DESTINATION "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib" TYPE SHARED_LIBRARY FILES
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtTpcPlist.so.0.0.0"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtTpcPlist.so.0"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtTpcPlist.so"
+FILE(INSTALL DESTINATION "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib" TYPE SHARED_LIBRARY FILES
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libAtTpcPlist.0.0.0.so"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libAtTpcPlist.0.so"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libAtTpcPlist.so"
     )
   FOREACH(file
-      "$ENV{DESTDIR}/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtTpcPlist.so.0.0.0"
-      "$ENV{DESTDIR}/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtTpcPlist.so.0"
-      "$ENV{DESTDIR}/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtTpcPlist.so"
+      "$ENV{DESTDIR}/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libAtTpcPlist.0.0.0.so"
+      "$ENV{DESTDIR}/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libAtTpcPlist.0.so"
+      "$ENV{DESTDIR}/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libAtTpcPlist.so"
       )
     IF(EXISTS "${file}" AND
        NOT IS_SYMLINK "${file}")
-      FILE(RPATH_REMOVE
-           FILE "${file}")
+      EXECUTE_PROCESS(COMMAND "/usr/bin/install_name_tool"
+        -id "libAtTpcPlist.0.so"
+        "${file}")
       IF(CMAKE_INSTALL_DO_STRIP)
         EXECUTE_PROCESS(COMMAND "/usr/bin/strip" "${file}")
       ENDIF(CMAKE_INSTALL_DO_STRIP)

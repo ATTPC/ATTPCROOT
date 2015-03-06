@@ -26,22 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/cmake"
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = "/Applications/CMake 2.8-10.app/Contents/bin/cmake" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+CMAKE_EDIT_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/ccmake"
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb
+CMAKE_SOURCE_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb/build
+CMAKE_BINARY_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build
 
 # Include any dependencies generated for this target.
 include AtGenerators/CMakeFiles/AtGen.dir/depend.make
@@ -56,23 +56,23 @@ AtGenerators/G__AtGenDict.cxx: ../AtGenerators/Pythia6Generator.h
 AtGenerators/G__AtGenDict.cxx: ../AtGenerators/Pythia8Generator.h
 AtGenerators/G__AtGenDict.cxx: ../AtGenerators/ATTPCIonGenerator.h
 AtGenerators/G__AtGenDict.cxx: ../AtGenerators/GenLinkDef.h
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating G__AtGenDict.cxx"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators && LD_LIBRARY_PATH=/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root::/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib:/home/daq/fair_install_2015/FairRootInst/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root:/home/daq/fair_install_2015/FairSoftInst/lib ROOTSYS=/usr/local/fairsoft/fairsoft_jul14p3-install /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rootcint -f /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators/G__AtGenDict.cxx -c -I/usr/local/fairsoft/fairsoft_jul14p3-install/include/root -I/usr/local/fairsoft/fairsoft_jul14p3-install/include/Pythia8 -I/usr/local/fairsoft/fairsoft_jul14p3-install//include -I/usr/local/fairsoft/fairsoft_jul14p3-install/include/root -I/home/daq/fair_install_2015/FairRootInst/include -I/usr/local/fairsoft/fairsoft_jul14p3-install/include -I/home/daq/fair_install_2015/ATTPCROOT_Feb/AtGenerators -I/home/daq/fair_install_2015/ATTPCROOT_Feb/generators Pythia6Generator.h Pythia8Generator.h ATTPCIonGenerator.h GenLinkDef.h
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators && DYLD_LIBRARY_PATH=/Users/yassidayyad/fair_install/FairSoftInst/lib/root:/Users/yassidayyad/fair_install/ATTPCROOT_Mar/build/lib:/Users/yassidayyad/fair_install/FairRootInst/lib:/Users/yassidayyad/fair_install/FairSoftInst/lib:/Users/yassidayyad/fair_install/FairSoftInst/lib/root ROOTSYS=/Users/yassidayyad/fair_install/FairSoftInst /Users/yassidayyad/fair_install/FairSoftInst/bin/rootcint -f /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators/G__AtGenDict.cxx -c -I/Users/yassidayyad/fair_install/FairSoftInst/include/root -I/Users/yassidayyad/fair_install/FairSoftInst/include/Pythia8 -I/Users/yassidayyad/fair_install/FairSoftInst/include -I/Users/yassidayyad/fair_install/FairSoftInst/include/root -I/Users/yassidayyad/fair_install/FairRootInst/include -I/Users/yassidayyad/fair_install/FairSoftInst/include -I/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtGenerators -I/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/generators Pythia6Generator.h Pythia8Generator.h ATTPCIonGenerator.h GenLinkDef.h
 
 AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o: AtGenerators/CMakeFiles/AtGen.dir/flags.make
 AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o: ../AtGenerators/Pythia6Generator.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_Feb/AtGenerators/Pythia6Generator.cxx
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtGenerators/Pythia6Generator.cxx
 
 AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AtGen.dir/Pythia6Generator.cxx.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/AtGenerators/Pythia6Generator.cxx > CMakeFiles/AtGen.dir/Pythia6Generator.cxx.i
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtGenerators/Pythia6Generator.cxx > CMakeFiles/AtGen.dir/Pythia6Generator.cxx.i
 
 AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AtGen.dir/Pythia6Generator.cxx.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/AtGenerators/Pythia6Generator.cxx -o CMakeFiles/AtGen.dir/Pythia6Generator.cxx.s
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtGenerators/Pythia6Generator.cxx -o CMakeFiles/AtGen.dir/Pythia6Generator.cxx.s
 
 AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o.requires:
 .PHONY : AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o.requires
@@ -85,17 +85,17 @@ AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o.provides.build: AtGener
 
 AtGenerators/CMakeFiles/AtGen.dir/Pythia8Generator.cxx.o: AtGenerators/CMakeFiles/AtGen.dir/flags.make
 AtGenerators/CMakeFiles/AtGen.dir/Pythia8Generator.cxx.o: ../AtGenerators/Pythia8Generator.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object AtGenerators/CMakeFiles/AtGen.dir/Pythia8Generator.cxx.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtGen.dir/Pythia8Generator.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_Feb/AtGenerators/Pythia8Generator.cxx
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtGen.dir/Pythia8Generator.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtGenerators/Pythia8Generator.cxx
 
 AtGenerators/CMakeFiles/AtGen.dir/Pythia8Generator.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AtGen.dir/Pythia8Generator.cxx.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/AtGenerators/Pythia8Generator.cxx > CMakeFiles/AtGen.dir/Pythia8Generator.cxx.i
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtGenerators/Pythia8Generator.cxx > CMakeFiles/AtGen.dir/Pythia8Generator.cxx.i
 
 AtGenerators/CMakeFiles/AtGen.dir/Pythia8Generator.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AtGen.dir/Pythia8Generator.cxx.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/AtGenerators/Pythia8Generator.cxx -o CMakeFiles/AtGen.dir/Pythia8Generator.cxx.s
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtGenerators/Pythia8Generator.cxx -o CMakeFiles/AtGen.dir/Pythia8Generator.cxx.s
 
 AtGenerators/CMakeFiles/AtGen.dir/Pythia8Generator.cxx.o.requires:
 .PHONY : AtGenerators/CMakeFiles/AtGen.dir/Pythia8Generator.cxx.o.requires
@@ -108,17 +108,17 @@ AtGenerators/CMakeFiles/AtGen.dir/Pythia8Generator.cxx.o.provides.build: AtGener
 
 AtGenerators/CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.o: AtGenerators/CMakeFiles/AtGen.dir/flags.make
 AtGenerators/CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.o: ../AtGenerators/ATTPCIonGenerator.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object AtGenerators/CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_Feb/AtGenerators/ATTPCIonGenerator.cxx
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtGenerators/ATTPCIonGenerator.cxx
 
 AtGenerators/CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/AtGenerators/ATTPCIonGenerator.cxx > CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.i
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtGenerators/ATTPCIonGenerator.cxx > CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.i
 
 AtGenerators/CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/AtGenerators/ATTPCIonGenerator.cxx -o CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.s
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtGenerators/ATTPCIonGenerator.cxx -o CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.s
 
 AtGenerators/CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.o.requires:
 .PHONY : AtGenerators/CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.o.requires
@@ -131,17 +131,17 @@ AtGenerators/CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.o.provides.build: AtGene
 
 AtGenerators/CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o: AtGenerators/CMakeFiles/AtGen.dir/flags.make
 AtGenerators/CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o: AtGenerators/G__AtGenDict.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object AtGenerators/CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators/G__AtGenDict.cxx
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators/G__AtGenDict.cxx
 
 AtGenerators/CMakeFiles/AtGen.dir/G__AtGenDict.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AtGen.dir/G__AtGenDict.cxx.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators/G__AtGenDict.cxx > CMakeFiles/AtGen.dir/G__AtGenDict.cxx.i
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators/G__AtGenDict.cxx > CMakeFiles/AtGen.dir/G__AtGenDict.cxx.i
 
 AtGenerators/CMakeFiles/AtGen.dir/G__AtGenDict.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AtGen.dir/G__AtGenDict.cxx.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators/G__AtGenDict.cxx -o CMakeFiles/AtGen.dir/G__AtGenDict.cxx.s
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators/G__AtGenDict.cxx -o CMakeFiles/AtGen.dir/G__AtGenDict.cxx.s
 
 AtGenerators/CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o.requires:
 .PHONY : AtGenerators/CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o.requires
@@ -162,27 +162,27 @@ AtGen_OBJECTS = \
 # External object files for target AtGen
 AtGen_EXTERNAL_OBJECTS =
 
-lib/libAtGen.so.0.0.0: AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o
-lib/libAtGen.so.0.0.0: AtGenerators/CMakeFiles/AtGen.dir/Pythia8Generator.cxx.o
-lib/libAtGen.so.0.0.0: AtGenerators/CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.o
-lib/libAtGen.so.0.0.0: AtGenerators/CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o
-lib/libAtGen.so.0.0.0: AtGenerators/CMakeFiles/AtGen.dir/build.make
-lib/libAtGen.so.0.0.0: lib/libBase.so.0.0.0
-lib/libAtGen.so.0.0.0: lib/libAtData.so.0.0.0
-lib/libAtGen.so.0.0.0: lib/libBase.so.0.0.0
-lib/libAtGen.so.0.0.0: lib/libParBase.so.0.0.0
-lib/libAtGen.so.0.0.0: lib/libFairDB.so.0.0.0
-lib/libAtGen.so.0.0.0: lib/libGeoBase.so.0.0.0
-lib/libAtGen.so.0.0.0: lib/libFairTools.so.0.0.0
-lib/libAtGen.so.0.0.0: lib/libMbsAPI.so.0.0.0
-lib/libAtGen.so.0.0.0: AtGenerators/CMakeFiles/AtGen.dir/link.txt
+lib/libAtGen.0.0.0.so: AtGenerators/CMakeFiles/AtGen.dir/Pythia6Generator.cxx.o
+lib/libAtGen.0.0.0.so: AtGenerators/CMakeFiles/AtGen.dir/Pythia8Generator.cxx.o
+lib/libAtGen.0.0.0.so: AtGenerators/CMakeFiles/AtGen.dir/ATTPCIonGenerator.cxx.o
+lib/libAtGen.0.0.0.so: AtGenerators/CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o
+lib/libAtGen.0.0.0.so: AtGenerators/CMakeFiles/AtGen.dir/build.make
+lib/libAtGen.0.0.0.so: lib/libBase.0.0.0.so
+lib/libAtGen.0.0.0.so: lib/libAtData.0.0.0.so
+lib/libAtGen.0.0.0.so: lib/libBase.0.0.0.so
+lib/libAtGen.0.0.0.so: lib/libParBase.0.0.0.so
+lib/libAtGen.0.0.0.so: lib/libFairDB.0.0.0.so
+lib/libAtGen.0.0.0.so: lib/libGeoBase.0.0.0.so
+lib/libAtGen.0.0.0.so: lib/libFairTools.0.0.0.so
+lib/libAtGen.0.0.0.so: lib/libMbsAPI.0.0.0.so
+lib/libAtGen.0.0.0.so: AtGenerators/CMakeFiles/AtGen.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library ../lib/libAtGen.so"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AtGen.dir/link.txt --verbose=$(VERBOSE)
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators && $(CMAKE_COMMAND) -E cmake_symlink_library ../lib/libAtGen.so.0.0.0 ../lib/libAtGen.so.0 ../lib/libAtGen.so
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AtGen.dir/link.txt --verbose=$(VERBOSE)
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators && $(CMAKE_COMMAND) -E cmake_symlink_library ../lib/libAtGen.0.0.0.so ../lib/libAtGen.0.so ../lib/libAtGen.so
 
-lib/libAtGen.so.0: lib/libAtGen.so.0.0.0
+lib/libAtGen.0.so: lib/libAtGen.0.0.0.so
 
-lib/libAtGen.so: lib/libAtGen.so.0.0.0
+lib/libAtGen.so: lib/libAtGen.0.0.0.so
 
 # Rule to build all files generated by this target.
 AtGenerators/CMakeFiles/AtGen.dir/build: lib/libAtGen.so
@@ -195,10 +195,10 @@ AtGenerators/CMakeFiles/AtGen.dir/requires: AtGenerators/CMakeFiles/AtGen.dir/G_
 .PHONY : AtGenerators/CMakeFiles/AtGen.dir/requires
 
 AtGenerators/CMakeFiles/AtGen.dir/clean:
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators && $(CMAKE_COMMAND) -P CMakeFiles/AtGen.dir/cmake_clean.cmake
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators && $(CMAKE_COMMAND) -P CMakeFiles/AtGen.dir/cmake_clean.cmake
 .PHONY : AtGenerators/CMakeFiles/AtGen.dir/clean
 
 AtGenerators/CMakeFiles/AtGen.dir/depend: AtGenerators/G__AtGenDict.cxx
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT_Feb /home/daq/fair_install_2015/ATTPCROOT_Feb/AtGenerators /home/daq/fair_install_2015/ATTPCROOT_Feb/build /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators/CMakeFiles/AtGen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtGenerators /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators/CMakeFiles/AtGen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : AtGenerators/CMakeFiles/AtGen.dir/depend
 

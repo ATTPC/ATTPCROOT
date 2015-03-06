@@ -26,22 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/cmake"
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = "/Applications/CMake 2.8-10.app/Contents/bin/cmake" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+CMAKE_EDIT_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/ccmake"
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb
+CMAKE_SOURCE_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb/build
+CMAKE_BINARY_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build
 
 # Include any dependencies generated for this target.
 include MbsAPI/CMakeFiles/MbsAPI.dir/depend.make
@@ -54,17 +54,17 @@ include MbsAPI/CMakeFiles/MbsAPI.dir/flags.make
 
 MbsAPI/CMakeFiles/MbsAPI.dir/f_evt.c.o: MbsAPI/CMakeFiles/MbsAPI.dir/flags.make
 MbsAPI/CMakeFiles/MbsAPI.dir/f_evt.c.o: ../MbsAPI/f_evt.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object MbsAPI/CMakeFiles/MbsAPI.dir/f_evt.c.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/MbsAPI.dir/f_evt.c.o   -c /home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/f_evt.c
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/MbsAPI.dir/f_evt.c.o   -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/MbsAPI/f_evt.c
 
 MbsAPI/CMakeFiles/MbsAPI.dir/f_evt.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MbsAPI.dir/f_evt.c.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/f_evt.c > CMakeFiles/MbsAPI.dir/f_evt.c.i
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/MbsAPI/f_evt.c > CMakeFiles/MbsAPI.dir/f_evt.c.i
 
 MbsAPI/CMakeFiles/MbsAPI.dir/f_evt.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MbsAPI.dir/f_evt.c.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/f_evt.c -o CMakeFiles/MbsAPI.dir/f_evt.c.s
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/MbsAPI/f_evt.c -o CMakeFiles/MbsAPI.dir/f_evt.c.s
 
 MbsAPI/CMakeFiles/MbsAPI.dir/f_evt.c.o.requires:
 .PHONY : MbsAPI/CMakeFiles/MbsAPI.dir/f_evt.c.o.requires
@@ -77,17 +77,17 @@ MbsAPI/CMakeFiles/MbsAPI.dir/f_evt.c.o.provides.build: MbsAPI/CMakeFiles/MbsAPI.
 
 MbsAPI/CMakeFiles/MbsAPI.dir/fLmd.c.o: MbsAPI/CMakeFiles/MbsAPI.dir/flags.make
 MbsAPI/CMakeFiles/MbsAPI.dir/fLmd.c.o: ../MbsAPI/fLmd.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object MbsAPI/CMakeFiles/MbsAPI.dir/fLmd.c.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/MbsAPI.dir/fLmd.c.o   -c /home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/fLmd.c
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/MbsAPI.dir/fLmd.c.o   -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/MbsAPI/fLmd.c
 
 MbsAPI/CMakeFiles/MbsAPI.dir/fLmd.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MbsAPI.dir/fLmd.c.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/fLmd.c > CMakeFiles/MbsAPI.dir/fLmd.c.i
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/MbsAPI/fLmd.c > CMakeFiles/MbsAPI.dir/fLmd.c.i
 
 MbsAPI/CMakeFiles/MbsAPI.dir/fLmd.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MbsAPI.dir/fLmd.c.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/fLmd.c -o CMakeFiles/MbsAPI.dir/fLmd.c.s
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/MbsAPI/fLmd.c -o CMakeFiles/MbsAPI.dir/fLmd.c.s
 
 MbsAPI/CMakeFiles/MbsAPI.dir/fLmd.c.o.requires:
 .PHONY : MbsAPI/CMakeFiles/MbsAPI.dir/fLmd.c.o.requires
@@ -100,17 +100,17 @@ MbsAPI/CMakeFiles/MbsAPI.dir/fLmd.c.o.provides.build: MbsAPI/CMakeFiles/MbsAPI.d
 
 MbsAPI/CMakeFiles/MbsAPI.dir/f_ut_utime.c.o: MbsAPI/CMakeFiles/MbsAPI.dir/flags.make
 MbsAPI/CMakeFiles/MbsAPI.dir/f_ut_utime.c.o: ../MbsAPI/f_ut_utime.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object MbsAPI/CMakeFiles/MbsAPI.dir/f_ut_utime.c.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/MbsAPI.dir/f_ut_utime.c.o   -c /home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/f_ut_utime.c
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/MbsAPI.dir/f_ut_utime.c.o   -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/MbsAPI/f_ut_utime.c
 
 MbsAPI/CMakeFiles/MbsAPI.dir/f_ut_utime.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MbsAPI.dir/f_ut_utime.c.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/f_ut_utime.c > CMakeFiles/MbsAPI.dir/f_ut_utime.c.i
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/MbsAPI/f_ut_utime.c > CMakeFiles/MbsAPI.dir/f_ut_utime.c.i
 
 MbsAPI/CMakeFiles/MbsAPI.dir/f_ut_utime.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MbsAPI.dir/f_ut_utime.c.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/f_ut_utime.c -o CMakeFiles/MbsAPI.dir/f_ut_utime.c.s
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/MbsAPI/f_ut_utime.c -o CMakeFiles/MbsAPI.dir/f_ut_utime.c.s
 
 MbsAPI/CMakeFiles/MbsAPI.dir/f_ut_utime.c.o.requires:
 .PHONY : MbsAPI/CMakeFiles/MbsAPI.dir/f_ut_utime.c.o.requires
@@ -123,17 +123,17 @@ MbsAPI/CMakeFiles/MbsAPI.dir/f_ut_utime.c.o.provides.build: MbsAPI/CMakeFiles/Mb
 
 MbsAPI/CMakeFiles/MbsAPI.dir/f_stccomm.c.o: MbsAPI/CMakeFiles/MbsAPI.dir/flags.make
 MbsAPI/CMakeFiles/MbsAPI.dir/f_stccomm.c.o: ../MbsAPI/f_stccomm.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object MbsAPI/CMakeFiles/MbsAPI.dir/f_stccomm.c.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/MbsAPI.dir/f_stccomm.c.o   -c /home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/f_stccomm.c
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/MbsAPI.dir/f_stccomm.c.o   -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/MbsAPI/f_stccomm.c
 
 MbsAPI/CMakeFiles/MbsAPI.dir/f_stccomm.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/MbsAPI.dir/f_stccomm.c.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/f_stccomm.c > CMakeFiles/MbsAPI.dir/f_stccomm.c.i
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/MbsAPI/f_stccomm.c > CMakeFiles/MbsAPI.dir/f_stccomm.c.i
 
 MbsAPI/CMakeFiles/MbsAPI.dir/f_stccomm.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/MbsAPI.dir/f_stccomm.c.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/f_stccomm.c -o CMakeFiles/MbsAPI.dir/f_stccomm.c.s
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/MbsAPI && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/MbsAPI/f_stccomm.c -o CMakeFiles/MbsAPI.dir/f_stccomm.c.s
 
 MbsAPI/CMakeFiles/MbsAPI.dir/f_stccomm.c.o.requires:
 .PHONY : MbsAPI/CMakeFiles/MbsAPI.dir/f_stccomm.c.o.requires
@@ -154,19 +154,19 @@ MbsAPI_OBJECTS = \
 # External object files for target MbsAPI
 MbsAPI_EXTERNAL_OBJECTS =
 
-lib/libMbsAPI.so.0.0.0: MbsAPI/CMakeFiles/MbsAPI.dir/f_evt.c.o
-lib/libMbsAPI.so.0.0.0: MbsAPI/CMakeFiles/MbsAPI.dir/fLmd.c.o
-lib/libMbsAPI.so.0.0.0: MbsAPI/CMakeFiles/MbsAPI.dir/f_ut_utime.c.o
-lib/libMbsAPI.so.0.0.0: MbsAPI/CMakeFiles/MbsAPI.dir/f_stccomm.c.o
-lib/libMbsAPI.so.0.0.0: MbsAPI/CMakeFiles/MbsAPI.dir/build.make
-lib/libMbsAPI.so.0.0.0: MbsAPI/CMakeFiles/MbsAPI.dir/link.txt
+lib/libMbsAPI.0.0.0.so: MbsAPI/CMakeFiles/MbsAPI.dir/f_evt.c.o
+lib/libMbsAPI.0.0.0.so: MbsAPI/CMakeFiles/MbsAPI.dir/fLmd.c.o
+lib/libMbsAPI.0.0.0.so: MbsAPI/CMakeFiles/MbsAPI.dir/f_ut_utime.c.o
+lib/libMbsAPI.0.0.0.so: MbsAPI/CMakeFiles/MbsAPI.dir/f_stccomm.c.o
+lib/libMbsAPI.0.0.0.so: MbsAPI/CMakeFiles/MbsAPI.dir/build.make
+lib/libMbsAPI.0.0.0.so: MbsAPI/CMakeFiles/MbsAPI.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C shared library ../lib/libMbsAPI.so"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/MbsAPI && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MbsAPI.dir/link.txt --verbose=$(VERBOSE)
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/MbsAPI && $(CMAKE_COMMAND) -E cmake_symlink_library ../lib/libMbsAPI.so.0.0.0 ../lib/libMbsAPI.so.0 ../lib/libMbsAPI.so
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/MbsAPI && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MbsAPI.dir/link.txt --verbose=$(VERBOSE)
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/MbsAPI && $(CMAKE_COMMAND) -E cmake_symlink_library ../lib/libMbsAPI.0.0.0.so ../lib/libMbsAPI.0.so ../lib/libMbsAPI.so
 
-lib/libMbsAPI.so.0: lib/libMbsAPI.so.0.0.0
+lib/libMbsAPI.0.so: lib/libMbsAPI.0.0.0.so
 
-lib/libMbsAPI.so: lib/libMbsAPI.so.0.0.0
+lib/libMbsAPI.so: lib/libMbsAPI.0.0.0.so
 
 # Rule to build all files generated by this target.
 MbsAPI/CMakeFiles/MbsAPI.dir/build: lib/libMbsAPI.so
@@ -179,10 +179,10 @@ MbsAPI/CMakeFiles/MbsAPI.dir/requires: MbsAPI/CMakeFiles/MbsAPI.dir/f_stccomm.c.
 .PHONY : MbsAPI/CMakeFiles/MbsAPI.dir/requires
 
 MbsAPI/CMakeFiles/MbsAPI.dir/clean:
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/MbsAPI && $(CMAKE_COMMAND) -P CMakeFiles/MbsAPI.dir/cmake_clean.cmake
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/MbsAPI && $(CMAKE_COMMAND) -P CMakeFiles/MbsAPI.dir/cmake_clean.cmake
 .PHONY : MbsAPI/CMakeFiles/MbsAPI.dir/clean
 
 MbsAPI/CMakeFiles/MbsAPI.dir/depend:
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT_Feb /home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI /home/daq/fair_install_2015/ATTPCROOT_Feb/build /home/daq/fair_install_2015/ATTPCROOT_Feb/build/MbsAPI /home/daq/fair_install_2015/ATTPCROOT_Feb/build/MbsAPI/CMakeFiles/MbsAPI.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/MbsAPI /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/MbsAPI /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/MbsAPI/CMakeFiles/MbsAPI.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : MbsAPI/CMakeFiles/MbsAPI.dir/depend
 

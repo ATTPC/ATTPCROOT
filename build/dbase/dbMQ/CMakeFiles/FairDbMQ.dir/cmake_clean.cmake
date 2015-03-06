@@ -7,8 +7,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/FairDbMQ.dir/actors/FairDbMQParMgr.cxx.o"
   "../../lib/libFairDbMQ.pdb"
   "../../lib/libFairDbMQ.so"
-  "../../lib/libFairDbMQ.so.0.0.0"
-  "../../lib/libFairDbMQ.so.0"
+  "../../lib/libFairDbMQ.0.0.0.so"
+  "../../lib/libFairDbMQ.0.so"
 )
 
 # Per-language clean rules from dependency scanning.

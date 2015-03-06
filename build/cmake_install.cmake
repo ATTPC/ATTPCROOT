@@ -1,4 +1,4 @@
-# Install script for directory: /home/daq/fair_install_2015/ATTPCROOT_Feb
+# Install script for directory: /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,29 +27,24 @@ IF(NOT CMAKE_INSTALL_COMPONENT)
   ENDIF(COMPONENT)
 ENDIF(NOT CMAKE_INSTALL_COMPONENT)
 
-# Install shared libraries without execute permission?
-IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  SET(CMAKE_INSTALL_SO_NO_EXE "0")
-ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-
 IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData/cmake_install.cmake")
-  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators/cmake_install.cmake")
-  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/tpc/cmake_install.cmake")
-  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/passive/cmake_install.cmake")
-  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/field/cmake_install.cmake")
-  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack/cmake_install.cmake")
-  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/plists/cmake_install.cmake")
-  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtMap/cmake_install.cmake")
-  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco/cmake_install.cmake")
-  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/base/cmake_install.cmake")
-  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/dbase/cmake_install.cmake")
-  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/geobase/cmake_install.cmake")
-  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/parbase/cmake_install.cmake")
-  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairtools/cmake_install.cmake")
-  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/MbsAPI/cmake_install.cmake")
-  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairmq/cmake_install.cmake")
+  INCLUDE("/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData/cmake_install.cmake")
+  INCLUDE("/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators/cmake_install.cmake")
+  INCLUDE("/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc/cmake_install.cmake")
+  INCLUDE("/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/passive/cmake_install.cmake")
+  INCLUDE("/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/field/cmake_install.cmake")
+  INCLUDE("/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack/cmake_install.cmake")
+  INCLUDE("/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/plists/cmake_install.cmake")
+  INCLUDE("/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtMap/cmake_install.cmake")
+  INCLUDE("/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/reco/cmake_install.cmake")
+  INCLUDE("/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/base/cmake_install.cmake")
+  INCLUDE("/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/dbase/cmake_install.cmake")
+  INCLUDE("/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/geobase/cmake_install.cmake")
+  INCLUDE("/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/parbase/cmake_install.cmake")
+  INCLUDE("/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools/cmake_install.cmake")
+  INCLUDE("/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/MbsAPI/cmake_install.cmake")
+  INCLUDE("/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairmq/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 
@@ -59,7 +54,7 @@ ELSE(CMAKE_INSTALL_COMPONENT)
   SET(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 ENDIF(CMAKE_INSTALL_COMPONENT)
 
-FILE(WRITE "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/${CMAKE_INSTALL_MANIFEST}" "")
+FILE(WRITE "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/${CMAKE_INSTALL_MANIFEST}" "")
 FOREACH(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  FILE(APPEND "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  FILE(APPEND "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 ENDFOREACH(file)

@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/daq/fair_install_2015/ATTPCROOT_Feb/AtGenerators
-# Build directory: /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtGenerators
+# Source directory: /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtGenerators
+# Build directory: /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtGenerators
 # 
-# This file includes the relevant testing commands required for 
+# This file includes the relevent testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

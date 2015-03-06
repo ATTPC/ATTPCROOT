@@ -6,6 +6,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
 # Preprocessor definitions for this target.
 SET(CMAKE_TARGET_DEFINITIONS
   "HAS_SHAREDPOINTER"
+  "HAS_SHAREDPOINTER"
   )
 
 # Targets to which this target links.

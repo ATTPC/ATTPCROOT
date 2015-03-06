@@ -6,6 +6,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
 # Preprocessor definitions for this target.
 SET(CMAKE_TARGET_DEFINITIONS
   "HAS_SHAREDPOINTER"
+  "HAS_SHAREDPOINTER"
   )
 
 # Targets to which this target links.
@@ -14,9 +15,9 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/usr/local/fairsoft/fairsoft_jul14p3-install/include/root"
-  "/home/daq/fair_install_2015/FairRootInst/include"
-  "/usr/local/fairsoft/fairsoft_jul14p3-install/include"
+  "/Users/yassidayyad/fair_install/FairSoftInst/include/root"
+  "/Users/yassidayyad/fair_install/FairRootInst/include"
+  "/Users/yassidayyad/fair_install/FairSoftInst/include"
   "../mcstack"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

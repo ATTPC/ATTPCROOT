@@ -6,8 +6,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/Field.dir/G__FieldDict.cxx.o"
   "../lib/libField.pdb"
   "../lib/libField.so"
-  "../lib/libField.so.0.0.0"
-  "../lib/libField.so.0"
+  "../lib/libField.0.0.0.so"
+  "../lib/libField.0.so"
 )
 
 # Per-language clean rules from dependency scanning.

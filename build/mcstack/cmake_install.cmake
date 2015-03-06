@@ -1,4 +1,4 @@
-# Install script for directory: /home/daq/fair_install_2015/ATTPCROOT_Feb/mcstack
+# Install script for directory: /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/mcstack
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,50 +27,40 @@ IF(NOT CMAKE_INSTALL_COMPONENT)
   ENDIF(COMPONENT)
 ENDIF(NOT CMAKE_INSTALL_COMPONENT)
 
-# Install shared libraries without execute permission?
-IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  SET(CMAKE_INSTALL_SO_NO_EXE "0")
-ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/mcstack/FairStack.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/mcstack/FairMCTrack.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/mcstack/FairDetectorList.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/mcstack/FairStack.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/mcstack/FairMCTrack.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/mcstack/FairDetectorList.h"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE FILE FILES "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libMCStack.rootmap")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE FILE FILES "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libMCStack.rootmap")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FOREACH(file
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libMCStack.so.0.0.0"
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libMCStack.so.0"
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libMCStack.so"
-      )
-    IF(EXISTS "${file}" AND
-       NOT IS_SYMLINK "${file}")
-      FILE(RPATH_CHECK
-           FILE "${file}"
-           RPATH "")
-    ENDIF()
-  ENDFOREACH()
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libMCStack.so.0.0.0"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libMCStack.so.0"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libMCStack.so"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libMCStack.0.0.0.so"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libMCStack.0.so"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libMCStack.so"
     )
   FOREACH(file
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libMCStack.so.0.0.0"
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libMCStack.so.0"
+      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libMCStack.0.0.0.so"
+      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libMCStack.0.so"
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libMCStack.so"
       )
     IF(EXISTS "${file}" AND
        NOT IS_SYMLINK "${file}")
-      FILE(RPATH_REMOVE
-           FILE "${file}")
+      EXECUTE_PROCESS(COMMAND "/usr/bin/install_name_tool"
+        -id "libMCStack.0.so"
+        -change "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libBase.0.so" "libBase.0.so"
+        -change "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libFairDB.0.so" "libFairDB.0.so"
+        -change "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libFairTools.0.so" "libFairTools.0.so"
+        -change "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libGeoBase.0.so" "libGeoBase.0.so"
+        -change "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libMbsAPI.0.so" "libMbsAPI.0.so"
+        -change "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libParBase.0.so" "libParBase.0.so"
+        "${file}")
       IF(CMAKE_INSTALL_DO_STRIP)
         EXECUTE_PROCESS(COMMAND "/usr/bin/strip" "${file}")
       ENDIF(CMAKE_INSTALL_DO_STRIP)

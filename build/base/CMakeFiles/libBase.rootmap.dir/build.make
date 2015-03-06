@@ -26,22 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/cmake"
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = "/Applications/CMake 2.8-10.app/Contents/bin/cmake" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+CMAKE_EDIT_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/ccmake"
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb
+CMAKE_SOURCE_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb/build
+CMAKE_BINARY_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build
 
 # Utility rule file for libBase.rootmap.
 
@@ -52,10 +52,10 @@ base/CMakeFiles/libBase.rootmap: lib/libBase.rootmap
 
 lib/libBase.rootmap: ../base/FairLinkDef.h
 lib/libBase.rootmap: ../base/FairLinkDef.h
-lib/libBase.rootmap: /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_1)
+lib/libBase.rootmap: /Users/yassidayyad/fair_install/FairSoftInst/bin/rlibmap
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../lib/libBase.rootmap"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/base && /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap -o /home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libBase.rootmap -l Base -d libParBase.so libGeoBase.so libFairTools.so libMbsAPI.so libProof.so libGeomPainter.so libGeom.so libVMC.so libEG.so libMathCore.so libPhysics.so libMatrix.so libTree.so libHist.so libRIO.so libCint.so libCore.so libGdml.so -c FairLinkDef.h /home/daq/fair_install_2015/ATTPCROOT_Feb/base/FairLinkDef.h
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/base && /Users/yassidayyad/fair_install/FairSoftInst/bin/rlibmap -o /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libBase.rootmap -l Base -d libParBase.so libGeoBase.so libFairTools.so libMbsAPI.so libProof.so libGeomPainter.so libGeom.so libVMC.so libEG.so libMathCore.so libPhysics.so libMatrix.so libTree.so libHist.so libRIO.so libCint.so libCore.so libGdml.so -c FairLinkDef.h /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/base/FairLinkDef.h
 
 libBase.rootmap: base/CMakeFiles/libBase.rootmap
 libBase.rootmap: lib/libBase.rootmap
@@ -67,10 +67,10 @@ base/CMakeFiles/libBase.rootmap.dir/build: libBase.rootmap
 .PHONY : base/CMakeFiles/libBase.rootmap.dir/build
 
 base/CMakeFiles/libBase.rootmap.dir/clean:
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/base && $(CMAKE_COMMAND) -P CMakeFiles/libBase.rootmap.dir/cmake_clean.cmake
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/base && $(CMAKE_COMMAND) -P CMakeFiles/libBase.rootmap.dir/cmake_clean.cmake
 .PHONY : base/CMakeFiles/libBase.rootmap.dir/clean
 
 base/CMakeFiles/libBase.rootmap.dir/depend:
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT_Feb /home/daq/fair_install_2015/ATTPCROOT_Feb/base /home/daq/fair_install_2015/ATTPCROOT_Feb/build /home/daq/fair_install_2015/ATTPCROOT_Feb/build/base /home/daq/fair_install_2015/ATTPCROOT_Feb/build/base/CMakeFiles/libBase.rootmap.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/base /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/base /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/base/CMakeFiles/libBase.rootmap.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : base/CMakeFiles/libBase.rootmap.dir/depend
 

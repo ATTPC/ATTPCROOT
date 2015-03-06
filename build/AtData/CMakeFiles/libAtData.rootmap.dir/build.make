@@ -26,22 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/cmake"
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = "/Applications/CMake 2.8-10.app/Contents/bin/cmake" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+CMAKE_EDIT_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/ccmake"
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb
+CMAKE_SOURCE_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb/build
+CMAKE_BINARY_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build
 
 # Utility rule file for libAtData.rootmap.
 
@@ -52,10 +52,10 @@ AtData/CMakeFiles/libAtData.rootmap: lib/libAtData.rootmap
 
 lib/libAtData.rootmap: ../AtData/MCStackLinkDef.h
 lib/libAtData.rootmap: ../AtData/MCStackLinkDef.h
-lib/libAtData.rootmap: /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_1)
+lib/libAtData.rootmap: /Users/yassidayyad/fair_install/FairSoftInst/bin/rlibmap
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../lib/libAtData.rootmap"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData && /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap -o /home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtData.rootmap -l AtData -d libBase.so libEG.so libPhysics.so libCint.so libCore.so -c MCStackLinkDef.h /home/daq/fair_install_2015/ATTPCROOT_Feb/AtData/MCStackLinkDef.h
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData && /Users/yassidayyad/fair_install/FairSoftInst/bin/rlibmap -o /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libAtData.rootmap -l AtData -d libBase.so libEG.so libPhysics.so libCint.so libCore.so -c MCStackLinkDef.h /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtData/MCStackLinkDef.h
 
 libAtData.rootmap: AtData/CMakeFiles/libAtData.rootmap
 libAtData.rootmap: lib/libAtData.rootmap
@@ -67,10 +67,10 @@ AtData/CMakeFiles/libAtData.rootmap.dir/build: libAtData.rootmap
 .PHONY : AtData/CMakeFiles/libAtData.rootmap.dir/build
 
 AtData/CMakeFiles/libAtData.rootmap.dir/clean:
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData && $(CMAKE_COMMAND) -P CMakeFiles/libAtData.rootmap.dir/cmake_clean.cmake
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData && $(CMAKE_COMMAND) -P CMakeFiles/libAtData.rootmap.dir/cmake_clean.cmake
 .PHONY : AtData/CMakeFiles/libAtData.rootmap.dir/clean
 
 AtData/CMakeFiles/libAtData.rootmap.dir/depend:
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT_Feb /home/daq/fair_install_2015/ATTPCROOT_Feb/AtData /home/daq/fair_install_2015/ATTPCROOT_Feb/build /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData/CMakeFiles/libAtData.rootmap.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtData /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData/CMakeFiles/libAtData.rootmap.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : AtData/CMakeFiles/libAtData.rootmap.dir/depend
 

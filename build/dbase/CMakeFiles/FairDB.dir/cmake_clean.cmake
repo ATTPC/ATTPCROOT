@@ -56,8 +56,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/FairDB.dir/G__FairDBDict.cxx.o"
   "../lib/libFairDB.pdb"
   "../lib/libFairDB.so"
-  "../lib/libFairDB.so.0.0.0"
-  "../lib/libFairDB.so.0"
+  "../lib/libFairDB.0.0.0.so"
+  "../lib/libFairDB.0.so"
 )
 
 # Per-language clean rules from dependency scanning.

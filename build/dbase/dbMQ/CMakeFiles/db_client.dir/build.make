@@ -26,22 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/cmake"
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = "/Applications/CMake 2.8-10.app/Contents/bin/cmake" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+CMAKE_EDIT_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/ccmake"
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb
+CMAKE_SOURCE_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb/build
+CMAKE_BINARY_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build
 
 # Include any dependencies generated for this target.
 include dbase/dbMQ/CMakeFiles/db_client.dir/depend.make
@@ -54,17 +54,17 @@ include dbase/dbMQ/CMakeFiles/db_client.dir/flags.make
 
 dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.o: dbase/dbMQ/CMakeFiles/db_client.dir/flags.make
 dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.o: ../dbase/dbMQ/procs/db_client.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/dbase/dbMQ && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/db_client.dir/procs/db_client.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbMQ/procs/db_client.cxx
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/dbase/dbMQ && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/db_client.dir/procs/db_client.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbMQ/procs/db_client.cxx
 
 dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/db_client.dir/procs/db_client.cxx.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/dbase/dbMQ && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbMQ/procs/db_client.cxx > CMakeFiles/db_client.dir/procs/db_client.cxx.i
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/dbase/dbMQ && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbMQ/procs/db_client.cxx > CMakeFiles/db_client.dir/procs/db_client.cxx.i
 
 dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/db_client.dir/procs/db_client.cxx.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/dbase/dbMQ && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbMQ/procs/db_client.cxx -o CMakeFiles/db_client.dir/procs/db_client.cxx.s
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/dbase/dbMQ && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbMQ/procs/db_client.cxx -o CMakeFiles/db_client.dir/procs/db_client.cxx.s
 
 dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.o.requires:
 .PHONY : dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.o.requires
@@ -84,20 +84,20 @@ db_client_EXTERNAL_OBJECTS =
 
 bin/db_client: dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.o
 bin/db_client: dbase/dbMQ/CMakeFiles/db_client.dir/build.make
-bin/db_client: lib/libFairDB.so.0.0.0
-bin/db_client: lib/libParBase.so.0.0.0
-bin/db_client: lib/libFairDbMQ.so.0.0.0
-bin/db_client: lib/libBase.so.0.0.0
-bin/db_client: lib/libParBase.so.0.0.0
-bin/db_client: lib/libFairDB.so.0.0.0
-bin/db_client: lib/libGeoBase.so.0.0.0
-bin/db_client: lib/libFairTools.so.0.0.0
-bin/db_client: lib/libMbsAPI.so.0.0.0
-bin/db_client: lib/libFairMQ.so.0.0.0
-bin/db_client: /usr/local/fairsoft/fairsoft_jul14p3-install/lib64/libzmq.so
+bin/db_client: lib/libFairDB.0.0.0.so
+bin/db_client: lib/libParBase.0.0.0.so
+bin/db_client: lib/libFairDbMQ.0.0.0.so
+bin/db_client: lib/libBase.0.0.0.so
+bin/db_client: lib/libParBase.0.0.0.so
+bin/db_client: lib/libFairDB.0.0.0.so
+bin/db_client: lib/libGeoBase.0.0.0.so
+bin/db_client: lib/libFairTools.0.0.0.so
+bin/db_client: lib/libMbsAPI.0.0.0.so
+bin/db_client: lib/libFairMQ.0.0.0.so
+bin/db_client: /Users/yassidayyad/fair_install/FairSoftInst/lib64/libzmq.so
 bin/db_client: dbase/dbMQ/CMakeFiles/db_client.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable ../../bin/db_client"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/dbase/dbMQ && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/db_client.dir/link.txt --verbose=$(VERBOSE)
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/dbase/dbMQ && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/db_client.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 dbase/dbMQ/CMakeFiles/db_client.dir/build: bin/db_client
@@ -107,10 +107,10 @@ dbase/dbMQ/CMakeFiles/db_client.dir/requires: dbase/dbMQ/CMakeFiles/db_client.di
 .PHONY : dbase/dbMQ/CMakeFiles/db_client.dir/requires
 
 dbase/dbMQ/CMakeFiles/db_client.dir/clean:
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/dbase/dbMQ && $(CMAKE_COMMAND) -P CMakeFiles/db_client.dir/cmake_clean.cmake
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/dbase/dbMQ && $(CMAKE_COMMAND) -P CMakeFiles/db_client.dir/cmake_clean.cmake
 .PHONY : dbase/dbMQ/CMakeFiles/db_client.dir/clean
 
 dbase/dbMQ/CMakeFiles/db_client.dir/depend:
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT_Feb /home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbMQ /home/daq/fair_install_2015/ATTPCROOT_Feb/build /home/daq/fair_install_2015/ATTPCROOT_Feb/build/dbase/dbMQ /home/daq/fair_install_2015/ATTPCROOT_Feb/build/dbase/dbMQ/CMakeFiles/db_client.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbMQ /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/dbase/dbMQ /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/dbase/dbMQ/CMakeFiles/db_client.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : dbase/dbMQ/CMakeFiles/db_client.dir/depend
 

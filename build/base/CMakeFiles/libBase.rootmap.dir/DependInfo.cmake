@@ -7,6 +7,8 @@ SET(CMAKE_DEPENDS_LANGUAGES
 SET(CMAKE_TARGET_DEFINITIONS
   "HAS_SHAREDPOINTER"
   "ROOT_HAS_GDML"
+  "HAS_SHAREDPOINTER"
+  "ROOT_HAS_GDML"
   )
 
 # Targets to which this target links.
@@ -15,8 +17,8 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/usr/local/fairsoft/fairsoft_jul14p3-install/include/root"
-  "/usr/local/fairsoft/fairsoft_jul14p3-install/include"
+  "/Users/yassidayyad/fair_install/FairSoftInst/include/root"
+  "/Users/yassidayyad/fair_install/FairSoftInst/include"
   "../fairtools"
   "../geobase"
   "../parbase"

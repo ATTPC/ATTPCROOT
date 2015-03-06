@@ -26,22 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/cmake"
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = "/Applications/CMake 2.8-10.app/Contents/bin/cmake" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+CMAKE_EDIT_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/ccmake"
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb
+CMAKE_SOURCE_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb/build
+CMAKE_BINARY_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build
 
 # Include any dependencies generated for this target.
 include AtData/CMakeFiles/AtData.dir/depend.make
@@ -55,23 +55,23 @@ include AtData/CMakeFiles/AtData.dir/flags.make
 AtData/G__AtDataDict.cxx: ../AtData/AtStack.h
 AtData/G__AtDataDict.cxx: ../AtData/AtMCTrack.h
 AtData/G__AtDataDict.cxx: ../AtData/MCStackLinkDef.h
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating G__AtDataDict.cxx"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData && LD_LIBRARY_PATH=/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root::/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib:/home/daq/fair_install_2015/FairRootInst/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root:/home/daq/fair_install_2015/FairSoftInst/lib ROOTSYS=/usr/local/fairsoft/fairsoft_jul14p3-install /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rootcint -f /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData/G__AtDataDict.cxx -c -I/usr/local/fairsoft/fairsoft_jul14p3-install/include/root -I/usr/local/fairsoft/fairsoft_jul14p3-install/include/root -I/home/daq/fair_install_2015/FairRootInst/include -I/usr/local/fairsoft/fairsoft_jul14p3-install/include -I/home/daq/fair_install_2015/ATTPCROOT_Feb/AtData AtStack.h AtMCTrack.h MCStackLinkDef.h
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData && DYLD_LIBRARY_PATH=/Users/yassidayyad/fair_install/FairSoftInst/lib/root:/Users/yassidayyad/fair_install/ATTPCROOT_Mar/build/lib:/Users/yassidayyad/fair_install/FairRootInst/lib:/Users/yassidayyad/fair_install/FairSoftInst/lib:/Users/yassidayyad/fair_install/FairSoftInst/lib/root ROOTSYS=/Users/yassidayyad/fair_install/FairSoftInst /Users/yassidayyad/fair_install/FairSoftInst/bin/rootcint -f /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData/G__AtDataDict.cxx -c -I/Users/yassidayyad/fair_install/FairSoftInst/include/root -I/Users/yassidayyad/fair_install/FairSoftInst/include/root -I/Users/yassidayyad/fair_install/FairRootInst/include -I/Users/yassidayyad/fair_install/FairSoftInst/include -I/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtData AtStack.h AtMCTrack.h MCStackLinkDef.h
 
 AtData/CMakeFiles/AtData.dir/AtStack.cxx.o: AtData/CMakeFiles/AtData.dir/flags.make
 AtData/CMakeFiles/AtData.dir/AtStack.cxx.o: ../AtData/AtStack.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object AtData/CMakeFiles/AtData.dir/AtStack.cxx.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtData.dir/AtStack.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_Feb/AtData/AtStack.cxx
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtData.dir/AtStack.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtData/AtStack.cxx
 
 AtData/CMakeFiles/AtData.dir/AtStack.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AtData.dir/AtStack.cxx.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/AtData/AtStack.cxx > CMakeFiles/AtData.dir/AtStack.cxx.i
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtData/AtStack.cxx > CMakeFiles/AtData.dir/AtStack.cxx.i
 
 AtData/CMakeFiles/AtData.dir/AtStack.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AtData.dir/AtStack.cxx.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/AtData/AtStack.cxx -o CMakeFiles/AtData.dir/AtStack.cxx.s
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtData/AtStack.cxx -o CMakeFiles/AtData.dir/AtStack.cxx.s
 
 AtData/CMakeFiles/AtData.dir/AtStack.cxx.o.requires:
 .PHONY : AtData/CMakeFiles/AtData.dir/AtStack.cxx.o.requires
@@ -84,17 +84,17 @@ AtData/CMakeFiles/AtData.dir/AtStack.cxx.o.provides.build: AtData/CMakeFiles/AtD
 
 AtData/CMakeFiles/AtData.dir/AtMCTrack.cxx.o: AtData/CMakeFiles/AtData.dir/flags.make
 AtData/CMakeFiles/AtData.dir/AtMCTrack.cxx.o: ../AtData/AtMCTrack.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object AtData/CMakeFiles/AtData.dir/AtMCTrack.cxx.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtData.dir/AtMCTrack.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_Feb/AtData/AtMCTrack.cxx
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtData.dir/AtMCTrack.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtData/AtMCTrack.cxx
 
 AtData/CMakeFiles/AtData.dir/AtMCTrack.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AtData.dir/AtMCTrack.cxx.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/AtData/AtMCTrack.cxx > CMakeFiles/AtData.dir/AtMCTrack.cxx.i
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtData/AtMCTrack.cxx > CMakeFiles/AtData.dir/AtMCTrack.cxx.i
 
 AtData/CMakeFiles/AtData.dir/AtMCTrack.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AtData.dir/AtMCTrack.cxx.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/AtData/AtMCTrack.cxx -o CMakeFiles/AtData.dir/AtMCTrack.cxx.s
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtData/AtMCTrack.cxx -o CMakeFiles/AtData.dir/AtMCTrack.cxx.s
 
 AtData/CMakeFiles/AtData.dir/AtMCTrack.cxx.o.requires:
 .PHONY : AtData/CMakeFiles/AtData.dir/AtMCTrack.cxx.o.requires
@@ -107,17 +107,17 @@ AtData/CMakeFiles/AtData.dir/AtMCTrack.cxx.o.provides.build: AtData/CMakeFiles/A
 
 AtData/CMakeFiles/AtData.dir/G__AtDataDict.cxx.o: AtData/CMakeFiles/AtData.dir/flags.make
 AtData/CMakeFiles/AtData.dir/G__AtDataDict.cxx.o: AtData/G__AtDataDict.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object AtData/CMakeFiles/AtData.dir/G__AtDataDict.cxx.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtData.dir/G__AtDataDict.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData/G__AtDataDict.cxx
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtData.dir/G__AtDataDict.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData/G__AtDataDict.cxx
 
 AtData/CMakeFiles/AtData.dir/G__AtDataDict.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AtData.dir/G__AtDataDict.cxx.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData/G__AtDataDict.cxx > CMakeFiles/AtData.dir/G__AtDataDict.cxx.i
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData/G__AtDataDict.cxx > CMakeFiles/AtData.dir/G__AtDataDict.cxx.i
 
 AtData/CMakeFiles/AtData.dir/G__AtDataDict.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AtData.dir/G__AtDataDict.cxx.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData/G__AtDataDict.cxx -o CMakeFiles/AtData.dir/G__AtDataDict.cxx.s
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData/G__AtDataDict.cxx -o CMakeFiles/AtData.dir/G__AtDataDict.cxx.s
 
 AtData/CMakeFiles/AtData.dir/G__AtDataDict.cxx.o.requires:
 .PHONY : AtData/CMakeFiles/AtData.dir/G__AtDataDict.cxx.o.requires
@@ -137,24 +137,24 @@ AtData_OBJECTS = \
 # External object files for target AtData
 AtData_EXTERNAL_OBJECTS =
 
-lib/libAtData.so.0.0.0: AtData/CMakeFiles/AtData.dir/AtStack.cxx.o
-lib/libAtData.so.0.0.0: AtData/CMakeFiles/AtData.dir/AtMCTrack.cxx.o
-lib/libAtData.so.0.0.0: AtData/CMakeFiles/AtData.dir/G__AtDataDict.cxx.o
-lib/libAtData.so.0.0.0: AtData/CMakeFiles/AtData.dir/build.make
-lib/libAtData.so.0.0.0: lib/libBase.so.0.0.0
-lib/libAtData.so.0.0.0: lib/libParBase.so.0.0.0
-lib/libAtData.so.0.0.0: lib/libFairDB.so.0.0.0
-lib/libAtData.so.0.0.0: lib/libGeoBase.so.0.0.0
-lib/libAtData.so.0.0.0: lib/libFairTools.so.0.0.0
-lib/libAtData.so.0.0.0: lib/libMbsAPI.so.0.0.0
-lib/libAtData.so.0.0.0: AtData/CMakeFiles/AtData.dir/link.txt
+lib/libAtData.0.0.0.so: AtData/CMakeFiles/AtData.dir/AtStack.cxx.o
+lib/libAtData.0.0.0.so: AtData/CMakeFiles/AtData.dir/AtMCTrack.cxx.o
+lib/libAtData.0.0.0.so: AtData/CMakeFiles/AtData.dir/G__AtDataDict.cxx.o
+lib/libAtData.0.0.0.so: AtData/CMakeFiles/AtData.dir/build.make
+lib/libAtData.0.0.0.so: lib/libBase.0.0.0.so
+lib/libAtData.0.0.0.so: lib/libParBase.0.0.0.so
+lib/libAtData.0.0.0.so: lib/libFairDB.0.0.0.so
+lib/libAtData.0.0.0.so: lib/libGeoBase.0.0.0.so
+lib/libAtData.0.0.0.so: lib/libFairTools.0.0.0.so
+lib/libAtData.0.0.0.so: lib/libMbsAPI.0.0.0.so
+lib/libAtData.0.0.0.so: AtData/CMakeFiles/AtData.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library ../lib/libAtData.so"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AtData.dir/link.txt --verbose=$(VERBOSE)
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData && $(CMAKE_COMMAND) -E cmake_symlink_library ../lib/libAtData.so.0.0.0 ../lib/libAtData.so.0 ../lib/libAtData.so
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AtData.dir/link.txt --verbose=$(VERBOSE)
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData && $(CMAKE_COMMAND) -E cmake_symlink_library ../lib/libAtData.0.0.0.so ../lib/libAtData.0.so ../lib/libAtData.so
 
-lib/libAtData.so.0: lib/libAtData.so.0.0.0
+lib/libAtData.0.so: lib/libAtData.0.0.0.so
 
-lib/libAtData.so: lib/libAtData.so.0.0.0
+lib/libAtData.so: lib/libAtData.0.0.0.so
 
 # Rule to build all files generated by this target.
 AtData/CMakeFiles/AtData.dir/build: lib/libAtData.so
@@ -166,10 +166,10 @@ AtData/CMakeFiles/AtData.dir/requires: AtData/CMakeFiles/AtData.dir/G__AtDataDic
 .PHONY : AtData/CMakeFiles/AtData.dir/requires
 
 AtData/CMakeFiles/AtData.dir/clean:
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData && $(CMAKE_COMMAND) -P CMakeFiles/AtData.dir/cmake_clean.cmake
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData && $(CMAKE_COMMAND) -P CMakeFiles/AtData.dir/cmake_clean.cmake
 .PHONY : AtData/CMakeFiles/AtData.dir/clean
 
 AtData/CMakeFiles/AtData.dir/depend: AtData/G__AtDataDict.cxx
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT_Feb /home/daq/fair_install_2015/ATTPCROOT_Feb/AtData /home/daq/fair_install_2015/ATTPCROOT_Feb/build /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtData/CMakeFiles/AtData.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtData /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtData/CMakeFiles/AtData.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : AtData/CMakeFiles/AtData.dir/depend
 

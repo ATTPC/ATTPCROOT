@@ -4,33 +4,34 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/plists/AtTpcDecaysBuilder.cxx" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/plists/CMakeFiles/AtTpcPlist.dir/AtTpcDecaysBuilder.cxx.o"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/plists/AtTpcParticlesBuilder.cxx" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/plists/CMakeFiles/AtTpcPlist.dir/AtTpcParticlesBuilder.cxx.o"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/plists/AtTpcPhysicsList.cxx" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/plists/CMakeFiles/AtTpcPlist.dir/AtTpcPhysicsList.cxx.o"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/plists/AtTpcPhysicsListMessenger.cxx" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/plists/CMakeFiles/AtTpcPlist.dir/AtTpcPhysicsListMessenger.cxx.o"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/plists/AtTpcPlistDict.cxx" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/plists/CMakeFiles/AtTpcPlist.dir/AtTpcPlistDict.cxx.o"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/plists/AtTpcRunConfiguration.cxx" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/plists/CMakeFiles/AtTpcPlist.dir/AtTpcRunConfiguration.cxx.o"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/plists/G4EmHadronBuilder.cxx" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/plists/CMakeFiles/AtTpcPlist.dir/G4EmHadronBuilder.cxx.o"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/plists/G4EmMuonBuilder.cxx" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/plists/CMakeFiles/AtTpcPlist.dir/G4EmMuonBuilder.cxx.o"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/plists/G4EmQEDBuilder.cxx" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/plists/CMakeFiles/AtTpcPlist.dir/G4EmQEDBuilder.cxx.o"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/plists/G4LowEnergyQEDBuilder.cxx" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/plists/CMakeFiles/AtTpcPlist.dir/G4LowEnergyQEDBuilder.cxx.o"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/plists/G4PenelopeQEDBuilder.cxx" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/plists/CMakeFiles/AtTpcPlist.dir/G4PenelopeQEDBuilder.cxx.o"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/plists/G4StepLimiterBuilder.cxx" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/plists/CMakeFiles/AtTpcPlist.dir/G4StepLimiterBuilder.cxx.o"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/plists/G4StepLimiterMessenger.cxx" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/plists/CMakeFiles/AtTpcPlist.dir/G4StepLimiterMessenger.cxx.o"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/plists/G4StepLimiterPerRegion.cxx" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/plists/CMakeFiles/AtTpcPlist.dir/G4StepLimiterPerRegion.cxx.o"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/plists/AtTpcDecaysBuilder.cxx" "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/plists/CMakeFiles/AtTpcPlist.dir/AtTpcDecaysBuilder.cxx.o"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/plists/AtTpcParticlesBuilder.cxx" "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/plists/CMakeFiles/AtTpcPlist.dir/AtTpcParticlesBuilder.cxx.o"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/plists/AtTpcPhysicsList.cxx" "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/plists/CMakeFiles/AtTpcPlist.dir/AtTpcPhysicsList.cxx.o"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/plists/AtTpcPhysicsListMessenger.cxx" "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/plists/CMakeFiles/AtTpcPlist.dir/AtTpcPhysicsListMessenger.cxx.o"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/plists/AtTpcPlistDict.cxx" "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/plists/CMakeFiles/AtTpcPlist.dir/AtTpcPlistDict.cxx.o"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/plists/AtTpcRunConfiguration.cxx" "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/plists/CMakeFiles/AtTpcPlist.dir/AtTpcRunConfiguration.cxx.o"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/plists/G4EmHadronBuilder.cxx" "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/plists/CMakeFiles/AtTpcPlist.dir/G4EmHadronBuilder.cxx.o"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/plists/G4EmMuonBuilder.cxx" "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/plists/CMakeFiles/AtTpcPlist.dir/G4EmMuonBuilder.cxx.o"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/plists/G4EmQEDBuilder.cxx" "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/plists/CMakeFiles/AtTpcPlist.dir/G4EmQEDBuilder.cxx.o"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/plists/G4LowEnergyQEDBuilder.cxx" "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/plists/CMakeFiles/AtTpcPlist.dir/G4LowEnergyQEDBuilder.cxx.o"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/plists/G4PenelopeQEDBuilder.cxx" "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/plists/CMakeFiles/AtTpcPlist.dir/G4PenelopeQEDBuilder.cxx.o"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/plists/G4StepLimiterBuilder.cxx" "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/plists/CMakeFiles/AtTpcPlist.dir/G4StepLimiterBuilder.cxx.o"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/plists/G4StepLimiterMessenger.cxx" "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/plists/CMakeFiles/AtTpcPlist.dir/G4StepLimiterMessenger.cxx.o"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/plists/G4StepLimiterPerRegion.cxx" "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/plists/CMakeFiles/AtTpcPlist.dir/G4StepLimiterPerRegion.cxx.o"
   )
-SET(CMAKE_CXX_COMPILER_ID "GNU")
+SET(CMAKE_CXX_COMPILER_ID "Clang")
 
 # Preprocessor definitions for this target.
 SET(CMAKE_TARGET_DEFINITIONS
+  "HAS_SHAREDPOINTER"
   "HAS_SHAREDPOINTER"
   )
 
 # Pairs of files generated by the same build rule.
 SET(CMAKE_MULTIPLE_OUTPUT_PAIRS
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtTpcPlist.so" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtTpcPlist.so.0.0.0"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtTpcPlist.so.0" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtTpcPlist.so.0.0.0"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/plists/AtTpcPlistDict.h" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/plists/AtTpcPlistDict.cxx"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libAtTpcPlist.0.so" "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libAtTpcPlist.0.0.0.so"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libAtTpcPlist.so" "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libAtTpcPlist.0.0.0.so"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/plists/AtTpcPlistDict.h" "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/plists/AtTpcPlistDict.cxx"
   )
 
 
@@ -40,17 +41,17 @@ SET(CMAKE_TARGET_LINKED_INFO_FILES
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/usr/local/fairsoft/fairsoft_jul14p3-install/include/root"
-  "/home/daq/fair_install_2015/FairRootInst/include"
-  "/usr/local/fairsoft/fairsoft_jul14p3-install/include"
+  "/Users/yassidayyad/fair_install/FairSoftInst/include/root"
+  "/Users/yassidayyad/fair_install/FairRootInst/include"
+  "/Users/yassidayyad/fair_install/FairSoftInst/include"
   "../passive"
   "../mcstack"
   "../plists"
-  "/usr/local/fairsoft/fairsoft_jul14p3-install/include/Geant4"
-  "/usr/local/fairsoft/fairsoft_jul14p3-install/transport/geant4/source/interfaces/common/include"
-  "/usr/local/fairsoft/fairsoft_jul14p3-install/transport/geant4/physics_lists/hadronic/Packaging/include"
-  "/usr/local/fairsoft/fairsoft_jul14p3-install/transport/geant4/physics_lists/hadronic/QGSP/include"
-  "/usr/local/fairsoft/fairsoft_jul14p3-install/include/geant4vmc"
+  "/Users/yassidayyad/fair_install/FairSoftInst/include/geant4"
+  "/Users/yassidayyad/fair_install/FairSoftInst/transport/geant4/source/interfaces/common/include"
+  "/Users/yassidayyad/fair_install/FairSoftInst/transport/geant4/physics_lists/hadronic/Packaging/include"
+  "/Users/yassidayyad/fair_install/FairSoftInst/transport/geant4/physics_lists/hadronic/QGSP/include"
+  "/Users/yassidayyad/fair_install/FairSoftInst/include/geant4vmc"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

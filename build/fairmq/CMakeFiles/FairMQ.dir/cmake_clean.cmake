@@ -22,8 +22,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/FairMQ.dir/zeromq/FairMQContextZMQ.cxx.o"
   "../lib/libFairMQ.pdb"
   "../lib/libFairMQ.so"
-  "../lib/libFairMQ.so.0.0.0"
-  "../lib/libFairMQ.so.0"
+  "../lib/libFairMQ.0.0.0.so"
+  "../lib/libFairMQ.0.so"
 )
 
 # Per-language clean rules from dependency scanning.

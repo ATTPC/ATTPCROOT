@@ -65,8 +65,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/Base.dir/source/swaplw.c.o"
   "../lib/libBase.pdb"
   "../lib/libBase.so"
-  "../lib/libBase.so.0.0.0"
-  "../lib/libBase.so.0"
+  "../lib/libBase.0.0.0.so"
+  "../lib/libBase.0.so"
 )
 
 # Per-language clean rules from dependency scanning.

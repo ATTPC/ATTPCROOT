@@ -1,4 +1,4 @@
-# Install script for directory: /home/daq/fair_install_2015/ATTPCROOT_Feb/dbase
+# Install script for directory: /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,122 +27,106 @@ IF(NOT CMAKE_INSTALL_COMPONENT)
   ENDIF(COMPONENT)
 ENDIF(NOT CMAKE_INSTALL_COMPONENT)
 
-# Install shared libraries without execute permission?
-IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  SET(CMAKE_INSTALL_SO_NO_EXE "0")
-ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbUtils/FairDbLogBFormat.h")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbUtils/FairDbLogBFormat.h")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbReader.tpl")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbReader.tpl")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbWriter.tpl")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbWriter.tpl")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInput/db_detector_def.h")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInput/db_detector_def.h")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dbInput" TYPE FILE FILES "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInput/prepare_db.sql")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/dbInput" TYPE FILE FILES "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInput/prepare_db.sql")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbValidation/Experiment.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbValidation/FairDbDetector.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbValidation/DataType.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbValidation/ValCondition.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbValidation/ValInterval.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbValidation/ValTimeStamp.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDb.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbConnection.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbBufferFile.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbCache.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbConfig.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbConfigNotice.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbConfigurable.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbConfigData.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbFieldType.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbTableMetaData.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbConnectionPool.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbOutTableBuffer.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbProxy.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbResult.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbRollbackTimes.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbTableBuffer.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbStatement.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbString.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbTableInterface.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbTableInterfaceStore.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbObjTableMap.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbStopWatch.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbStopWatchManager.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbValRecord.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbValRecordFactory.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairRegistry.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairRegistryElement.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairRegistryElementGeneric.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairUtilStream.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbLogEntry.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbConfigBuffer.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbConnectionManager.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbExtSqlContent.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbSqlValidityData.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbException.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbExceptionLog.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbUtils.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbValRecordMap.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbDataTypeUnion.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbStreamer.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbUtils/FairTSQLObject.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbUtils/FairDbLog.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbUtils/FairDbLogFormat.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbUtils/FairDbLogOSStream.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbUtils/FairDbLogService.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbUtils/FairDbLogStat.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbUtils/FairDbLogStream.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbReader.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbInterface/FairDbWriter.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbValidation/Experiment.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbValidation/FairDbDetector.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbValidation/DataType.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbValidation/ValCondition.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbValidation/ValInterval.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbValidation/ValTimeStamp.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDb.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbConnection.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbBufferFile.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbCache.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbConfig.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbConfigNotice.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbConfigurable.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbConfigData.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbFieldType.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbTableMetaData.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbConnectionPool.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbOutTableBuffer.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbProxy.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbResult.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbRollbackTimes.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbTableBuffer.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbStatement.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbString.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbTableInterface.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbTableInterfaceStore.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbObjTableMap.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbStopWatch.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbStopWatchManager.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbValRecord.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbValRecordFactory.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairRegistry.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairRegistryElement.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairRegistryElementGeneric.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairUtilStream.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbLogEntry.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbConfigBuffer.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbConnectionManager.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbExtSqlContent.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbSqlValidityData.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbException.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbExceptionLog.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbUtils.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbValRecordMap.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbDataTypeUnion.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbStreamer.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbUtils/FairTSQLObject.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbUtils/FairDbLog.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbUtils/FairDbLogFormat.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbUtils/FairDbLogOSStream.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbUtils/FairDbLogService.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbUtils/FairDbLogStat.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbUtils/FairDbLogStream.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbReader.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbInterface/FairDbWriter.h"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE FILE FILES "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libFairDB.rootmap")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE FILE FILES "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libFairDB.rootmap")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FOREACH(file
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libFairDB.so.0.0.0"
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libFairDB.so.0"
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libFairDB.so"
-      )
-    IF(EXISTS "${file}" AND
-       NOT IS_SYMLINK "${file}")
-      FILE(RPATH_CHECK
-           FILE "${file}"
-           RPATH "")
-    ENDIF()
-  ENDFOREACH()
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libFairDB.so.0.0.0"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libFairDB.so.0"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libFairDB.so"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libFairDB.0.0.0.so"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libFairDB.0.so"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libFairDB.so"
     )
   FOREACH(file
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libFairDB.so.0.0.0"
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libFairDB.so.0"
+      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libFairDB.0.0.0.so"
+      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libFairDB.0.so"
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libFairDB.so"
       )
     IF(EXISTS "${file}" AND
        NOT IS_SYMLINK "${file}")
-      FILE(RPATH_REMOVE
-           FILE "${file}")
+      EXECUTE_PROCESS(COMMAND "/usr/bin/install_name_tool"
+        -id "libFairDB.0.so"
+        "${file}")
       IF(CMAKE_INSTALL_DO_STRIP)
         EXECUTE_PROCESS(COMMAND "/usr/bin/strip" "${file}")
       ENDIF(CMAKE_INSTALL_DO_STRIP)
@@ -152,7 +136,7 @@ ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unsp
 
 IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  INCLUDE("/home/daq/fair_install_2015/ATTPCROOT_Feb/build/dbase/dbMQ/cmake_install.cmake")
+  INCLUDE("/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/dbase/dbMQ/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 

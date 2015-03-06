@@ -1,4 +1,4 @@
-# Install script for directory: /home/daq/fair_install_2015/ATTPCROOT_Feb/parbase
+# Install script for directory: /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/parbase
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,64 +27,50 @@ IF(NOT CMAKE_INSTALL_COMPONENT)
   ENDIF(COMPONENT)
 ENDIF(NOT CMAKE_INSTALL_COMPONENT)
 
-# Install shared libraries without execute permission?
-IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  SET(CMAKE_INSTALL_SO_NO_EXE "0")
-ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/parbase/FairContFact.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/parbase/FairDetParAsciiFileIo.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/parbase/FairDetParIo.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/parbase/FairDetParRootFileIo.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/parbase/FairGenericParAsciiFileIo.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/parbase/FairGenericParRootFileIo.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/parbase/FairParAsciiFileIo.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/parbase/FairParGenericSet.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/parbase/FairParIo.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/parbase/FairParRootFileIo.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/parbase/FairParSet.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/parbase/FairParamList.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/parbase/FairRtdbRun.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/parbase/FairRuntimeDb.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/parbase/dbIO/FairParTSQLIo.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/parbase/dbIO/FairDetParTSQLIo.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/parbase/dbIO/FairGenericParTSQLIo.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/parbase/FairContFact.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/parbase/FairDetParAsciiFileIo.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/parbase/FairDetParIo.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/parbase/FairDetParRootFileIo.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/parbase/FairGenericParAsciiFileIo.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/parbase/FairGenericParRootFileIo.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/parbase/FairParAsciiFileIo.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/parbase/FairParGenericSet.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/parbase/FairParIo.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/parbase/FairParRootFileIo.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/parbase/FairParSet.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/parbase/FairParamList.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/parbase/FairRtdbRun.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/parbase/FairRuntimeDb.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/parbase/dbIO/FairParTSQLIo.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/parbase/dbIO/FairDetParTSQLIo.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/parbase/dbIO/FairGenericParTSQLIo.h"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE FILE FILES "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libParBase.rootmap")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE FILE FILES "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libParBase.rootmap")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FOREACH(file
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libParBase.so.0.0.0"
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libParBase.so.0"
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libParBase.so"
-      )
-    IF(EXISTS "${file}" AND
-       NOT IS_SYMLINK "${file}")
-      FILE(RPATH_CHECK
-           FILE "${file}"
-           RPATH "")
-    ENDIF()
-  ENDFOREACH()
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libParBase.so.0.0.0"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libParBase.so.0"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libParBase.so"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libParBase.0.0.0.so"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libParBase.0.so"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libParBase.so"
     )
   FOREACH(file
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libParBase.so.0.0.0"
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libParBase.so.0"
+      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libParBase.0.0.0.so"
+      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libParBase.0.so"
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libParBase.so"
       )
     IF(EXISTS "${file}" AND
        NOT IS_SYMLINK "${file}")
-      FILE(RPATH_REMOVE
-           FILE "${file}")
+      EXECUTE_PROCESS(COMMAND "/usr/bin/install_name_tool"
+        -id "libParBase.0.so"
+        -change "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libFairDB.0.so" "libFairDB.0.so"
+        -change "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libFairTools.0.so" "libFairTools.0.so"
+        "${file}")
       IF(CMAKE_INSTALL_DO_STRIP)
         EXECUTE_PROCESS(COMMAND "/usr/bin/strip" "${file}")
       ENDIF(CMAKE_INSTALL_DO_STRIP)

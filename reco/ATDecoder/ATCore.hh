@@ -1,9 +1,9 @@
 /*********************************************************************
-*   ATTPC Unpacker and Decoder Core Class	ATCore               *	
-*   Author: Y. Ayyad            				     *
-*   Log: 04-03-2015 17:16 JST					     *
+*   ATTPC Unpacker and Decoder Core Class	ATCore                   *
+*   Author: Y. Ayyad            				                     *
+*   Log: 04-03-2015 17:16 JST					                     *
 *   Adapted from STCore from SPiRITROOT by G. Jhang                  *
-*								     *	
+*								                                     *
 *********************************************************************/
 
 #ifndef ATCORE_H
@@ -32,8 +32,11 @@ class ATCore : public TObject  {
      void SetPositivePolarity(Bool_t value = kTRUE);
      Int_t *GetRawEvent(Int_t eventID = -1);// TO DO It returns a pointer to ATRawEvent
      void SetNumTbs(Int_t value);
+     inline void SetDebugMode(Bool_t Debug){kDebug=Debug;}
 
      AtTpcMap *fAtMapPtr;
+    
+     Bool_t kDebug;
 
 
  private:
@@ -45,8 +48,10 @@ class ATCore : public TObject  {
     UInt_t fCurrEventNo;
 
     Int_t fCurrFrameNo;
-
+    
     ClassDef(ATCore, 1);
+
+    
 };
 
 #endif

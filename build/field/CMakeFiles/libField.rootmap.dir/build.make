@@ -26,22 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/cmake"
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = "/Applications/CMake 2.8-10.app/Contents/bin/cmake" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+CMAKE_EDIT_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/ccmake"
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb
+CMAKE_SOURCE_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb/build
+CMAKE_BINARY_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build
 
 # Utility rule file for libField.rootmap.
 
@@ -52,10 +52,10 @@ field/CMakeFiles/libField.rootmap: lib/libField.rootmap
 
 lib/libField.rootmap: ../field/FieldLinkDef.h
 lib/libField.rootmap: ../field/FieldLinkDef.h
-lib/libField.rootmap: /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_1)
+lib/libField.rootmap: /Users/yassidayyad/fair_install/FairSoftInst/bin/rlibmap
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../lib/libField.rootmap"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/field && /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap -o /home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libField.rootmap -l Field -d libBase.so -c FieldLinkDef.h /home/daq/fair_install_2015/ATTPCROOT_Feb/field/FieldLinkDef.h
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/field && /Users/yassidayyad/fair_install/FairSoftInst/bin/rlibmap -o /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libField.rootmap -l Field -d libBase.so -c FieldLinkDef.h /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/field/FieldLinkDef.h
 
 libField.rootmap: field/CMakeFiles/libField.rootmap
 libField.rootmap: lib/libField.rootmap
@@ -67,10 +67,10 @@ field/CMakeFiles/libField.rootmap.dir/build: libField.rootmap
 .PHONY : field/CMakeFiles/libField.rootmap.dir/build
 
 field/CMakeFiles/libField.rootmap.dir/clean:
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/field && $(CMAKE_COMMAND) -P CMakeFiles/libField.rootmap.dir/cmake_clean.cmake
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/field && $(CMAKE_COMMAND) -P CMakeFiles/libField.rootmap.dir/cmake_clean.cmake
 .PHONY : field/CMakeFiles/libField.rootmap.dir/clean
 
 field/CMakeFiles/libField.rootmap.dir/depend:
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT_Feb /home/daq/fair_install_2015/ATTPCROOT_Feb/field /home/daq/fair_install_2015/ATTPCROOT_Feb/build /home/daq/fair_install_2015/ATTPCROOT_Feb/build/field /home/daq/fair_install_2015/ATTPCROOT_Feb/build/field/CMakeFiles/libField.rootmap.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/field /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/field /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/field/CMakeFiles/libField.rootmap.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : field/CMakeFiles/libField.rootmap.dir/depend
 

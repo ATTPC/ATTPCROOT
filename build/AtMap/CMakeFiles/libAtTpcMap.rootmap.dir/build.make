@@ -26,22 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/cmake"
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = "/Applications/CMake 2.8-10.app/Contents/bin/cmake" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+CMAKE_EDIT_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/ccmake"
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb
+CMAKE_SOURCE_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb/build
+CMAKE_BINARY_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build
 
 # Utility rule file for libAtTpcMap.rootmap.
 
@@ -52,10 +52,10 @@ AtMap/CMakeFiles/libAtTpcMap.rootmap: lib/libAtTpcMap.rootmap
 
 lib/libAtTpcMap.rootmap: ../AtMap/AtTpcMapLinkDef.h
 lib/libAtTpcMap.rootmap: ../AtMap/AtTpcMapLinkDef.h
-lib/libAtTpcMap.rootmap: /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_1)
+lib/libAtTpcMap.rootmap: /Users/yassidayyad/fair_install/FairSoftInst/bin/rlibmap
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../lib/libAtTpcMap.rootmap"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtMap && /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap -o /home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtTpcMap.rootmap -l AtTpcMap -d libBase.so -c AtTpcMapLinkDef.h /home/daq/fair_install_2015/ATTPCROOT_Feb/AtMap/AtTpcMapLinkDef.h
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtMap && /Users/yassidayyad/fair_install/FairSoftInst/bin/rlibmap -o /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libAtTpcMap.rootmap -l AtTpcMap -d libBase.so -c AtTpcMapLinkDef.h /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtMap/AtTpcMapLinkDef.h
 
 libAtTpcMap.rootmap: AtMap/CMakeFiles/libAtTpcMap.rootmap
 libAtTpcMap.rootmap: lib/libAtTpcMap.rootmap
@@ -67,10 +67,10 @@ AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/build: libAtTpcMap.rootmap
 .PHONY : AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/build
 
 AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/clean:
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtMap && $(CMAKE_COMMAND) -P CMakeFiles/libAtTpcMap.rootmap.dir/cmake_clean.cmake
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtMap && $(CMAKE_COMMAND) -P CMakeFiles/libAtTpcMap.rootmap.dir/cmake_clean.cmake
 .PHONY : AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/clean
 
 AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/depend:
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT_Feb /home/daq/fair_install_2015/ATTPCROOT_Feb/AtMap /home/daq/fair_install_2015/ATTPCROOT_Feb/build /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtMap /home/daq/fair_install_2015/ATTPCROOT_Feb/build/AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtMap /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtMap /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : AtMap/CMakeFiles/libAtTpcMap.rootmap.dir/depend
 

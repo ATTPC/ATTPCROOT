@@ -26,22 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/cmake"
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = "/Applications/CMake 2.8-10.app/Contents/bin/cmake" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+CMAKE_EDIT_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/ccmake"
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb
+CMAKE_SOURCE_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb/build
+CMAKE_BINARY_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build
 
 # Utility rule file for libMCStack.rootmap.
 
@@ -52,10 +52,10 @@ mcstack/CMakeFiles/libMCStack.rootmap: lib/libMCStack.rootmap
 
 lib/libMCStack.rootmap: ../mcstack/MCStackLinkDef.h
 lib/libMCStack.rootmap: ../mcstack/MCStackLinkDef.h
-lib/libMCStack.rootmap: /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_1)
+lib/libMCStack.rootmap: /Users/yassidayyad/fair_install/FairSoftInst/bin/rlibmap
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../lib/libMCStack.rootmap"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack && /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap -o /home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libMCStack.rootmap -l MCStack -d libBase.so libFairTools.so -c MCStackLinkDef.h /home/daq/fair_install_2015/ATTPCROOT_Feb/mcstack/MCStackLinkDef.h
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack && /Users/yassidayyad/fair_install/FairSoftInst/bin/rlibmap -o /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libMCStack.rootmap -l MCStack -d libBase.so libFairTools.so -c MCStackLinkDef.h /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/mcstack/MCStackLinkDef.h
 
 libMCStack.rootmap: mcstack/CMakeFiles/libMCStack.rootmap
 libMCStack.rootmap: lib/libMCStack.rootmap
@@ -67,10 +67,10 @@ mcstack/CMakeFiles/libMCStack.rootmap.dir/build: libMCStack.rootmap
 .PHONY : mcstack/CMakeFiles/libMCStack.rootmap.dir/build
 
 mcstack/CMakeFiles/libMCStack.rootmap.dir/clean:
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack && $(CMAKE_COMMAND) -P CMakeFiles/libMCStack.rootmap.dir/cmake_clean.cmake
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack && $(CMAKE_COMMAND) -P CMakeFiles/libMCStack.rootmap.dir/cmake_clean.cmake
 .PHONY : mcstack/CMakeFiles/libMCStack.rootmap.dir/clean
 
 mcstack/CMakeFiles/libMCStack.rootmap.dir/depend:
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT_Feb /home/daq/fair_install_2015/ATTPCROOT_Feb/mcstack /home/daq/fair_install_2015/ATTPCROOT_Feb/build /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack/CMakeFiles/libMCStack.rootmap.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/mcstack /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack/CMakeFiles/libMCStack.rootmap.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : mcstack/CMakeFiles/libMCStack.rootmap.dir/depend
 

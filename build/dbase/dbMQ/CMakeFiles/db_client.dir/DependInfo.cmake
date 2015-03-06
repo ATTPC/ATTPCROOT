@@ -4,30 +4,31 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbMQ/procs/db_client.cxx" "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.o"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbMQ/procs/db_client.cxx" "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.o"
   )
-SET(CMAKE_CXX_COMPILER_ID "GNU")
+SET(CMAKE_CXX_COMPILER_ID "Clang")
 
 # Preprocessor definitions for this target.
 SET(CMAKE_TARGET_DEFINITIONS
+  "HAS_SHAREDPOINTER"
   "HAS_SHAREDPOINTER"
   )
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/dbase/CMakeFiles/FairDB.dir/DependInfo.cmake"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/parbase/CMakeFiles/ParBase.dir/DependInfo.cmake"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/dbase/dbMQ/CMakeFiles/FairDbMQ.dir/DependInfo.cmake"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/base/CMakeFiles/Base.dir/DependInfo.cmake"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/geobase/CMakeFiles/GeoBase.dir/DependInfo.cmake"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairtools/CMakeFiles/FairTools.dir/DependInfo.cmake"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/MbsAPI/CMakeFiles/MbsAPI.dir/DependInfo.cmake"
-  "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairmq/CMakeFiles/FairMQ.dir/DependInfo.cmake"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/dbase/CMakeFiles/FairDB.dir/DependInfo.cmake"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/parbase/CMakeFiles/ParBase.dir/DependInfo.cmake"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/dbase/dbMQ/CMakeFiles/FairDbMQ.dir/DependInfo.cmake"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/base/CMakeFiles/Base.dir/DependInfo.cmake"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/geobase/CMakeFiles/GeoBase.dir/DependInfo.cmake"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools/CMakeFiles/FairTools.dir/DependInfo.cmake"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/MbsAPI/CMakeFiles/MbsAPI.dir/DependInfo.cmake"
+  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairmq/CMakeFiles/FairMQ.dir/DependInfo.cmake"
   )
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
-  "/usr/local/fairsoft/fairsoft_jul14p3-install/include/root"
+  "/Users/yassidayyad/fair_install/FairSoftInst/include/root"
   "../fairtools"
   "../base"
   "../base/steer"
@@ -41,8 +42,8 @@ SET(CMAKE_C_TARGET_INCLUDE_PATH
   "../dbase/dbUtils"
   "../input/db"
   "../dbase/dbInput"
-  "/home/daq/fair_install_2015/FairRootInst/include"
-  "/usr/local/fairsoft/fairsoft_jul14p3-install/include"
+  "/Users/yassidayyad/fair_install/FairRootInst/include"
+  "/Users/yassidayyad/fair_install/FairSoftInst/include"
   "../parbase/dbIO"
   "../fairmq"
   "../base/MQ"

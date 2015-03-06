@@ -7,8 +7,8 @@ dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.o: ../dbase/dbMQ/utils/F
 dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.o: ../dbase/dbMQ/utils/FairDbMQSocket.h
 dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.o: ../dbase/dbMQ/utils/FairDbMQUtils.h
 dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.o: ../dbase/dbMQ/procs/db_client.cxx
-dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.o: /home/daq/fair_install_2015/FairRootInst/include/FairDbMQ.h
-dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.o: /home/daq/fair_install_2015/FairRootInst/include/FairDbMQClient.h
-dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.o: /home/daq/fair_install_2015/FairRootInst/include/FairDbMQError.h
-dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.o: /usr/local/fairsoft/fairsoft_jul14p3-install/include/zmq.h
+dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.o: /Users/yassidayyad/fair_install/FairRootInst/include/FairDbMQ.h
+dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.o: /Users/yassidayyad/fair_install/FairRootInst/include/FairDbMQClient.h
+dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.o: /Users/yassidayyad/fair_install/FairRootInst/include/FairDbMQError.h
+dbase/dbMQ/CMakeFiles/db_client.dir/procs/db_client.cxx.o: /Users/yassidayyad/fair_install/FairSoftInst/include/zmq.h
 

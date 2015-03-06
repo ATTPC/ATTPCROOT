@@ -7,8 +7,8 @@ dbase/dbMQ/CMakeFiles/db_dispatcher.dir/procs/db_dispatcher.cxx.o
  ../dbase/dbMQ/utils/FairDbMQMsg.h
  ../dbase/dbMQ/utils/FairDbMQSocket.h
  ../dbase/dbMQ/utils/FairDbMQUtils.h
- /home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbMQ/procs/db_dispatcher.cxx
- /home/daq/fair_install_2015/FairRootInst/include/FairDbMQ.h
- /home/daq/fair_install_2015/FairRootInst/include/FairDbMQDispatcher.h
- /home/daq/fair_install_2015/FairRootInst/include/FairDbMQError.h
- /usr/local/fairsoft/fairsoft_jul14p3-install/include/zmq.h
+ /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbMQ/procs/db_dispatcher.cxx
+ /Users/yassidayyad/fair_install/FairRootInst/include/FairDbMQ.h
+ /Users/yassidayyad/fair_install/FairRootInst/include/FairDbMQDispatcher.h
+ /Users/yassidayyad/fair_install/FairRootInst/include/FairDbMQError.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/zmq.h

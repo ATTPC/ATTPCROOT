@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/home/daq/fair_install_2015/ATTPCROOT_Feb/base/source/exitCli.c
+/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/base/source/exitCli.c
 stdio.h
 -
 unistd.h
 -
 
-/home/daq/fair_install_2015/ATTPCROOT_Feb/base/source/rclose.c
+/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/base/source/rclose.c
 stdio.h
 -
 unistd.h
@@ -20,5 +20,5 @@ unistd.h
 sys/socket.h
 -
 
-/home/daq/fair_install_2015/ATTPCROOT_Feb/base/source/swaplw.c
+/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/base/source/swaplw.c
 

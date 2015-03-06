@@ -26,22 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/cmake"
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = "/Applications/CMake 2.8-10.app/Contents/bin/cmake" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+CMAKE_EDIT_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/ccmake"
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb
+CMAKE_SOURCE_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb/build
+CMAKE_BINARY_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build
 
 # Utility rule file for libGeoBase.rootmap.
 
@@ -52,10 +52,10 @@ geobase/CMakeFiles/libGeoBase.rootmap: lib/libGeoBase.rootmap
 
 lib/libGeoBase.rootmap: ../geobase/GeoBaseLinkDef.h
 lib/libGeoBase.rootmap: ../geobase/GeoBaseLinkDef.h
-lib/libGeoBase.rootmap: /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_1)
+lib/libGeoBase.rootmap: /Users/yassidayyad/fair_install/FairSoftInst/bin/rlibmap
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../lib/libGeoBase.rootmap"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/geobase && /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap -o /home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libGeoBase.rootmap -l GeoBase -d libGeom.so libGraf3d.so libCint.so libCore.so libFairTools.so -c GeoBaseLinkDef.h /home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/GeoBaseLinkDef.h
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/geobase && /Users/yassidayyad/fair_install/FairSoftInst/bin/rlibmap -o /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libGeoBase.rootmap -l GeoBase -d libGeom.so libGraf3d.so libCint.so libCore.so libFairTools.so -c GeoBaseLinkDef.h /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/GeoBaseLinkDef.h
 
 libGeoBase.rootmap: geobase/CMakeFiles/libGeoBase.rootmap
 libGeoBase.rootmap: lib/libGeoBase.rootmap
@@ -67,10 +67,10 @@ geobase/CMakeFiles/libGeoBase.rootmap.dir/build: libGeoBase.rootmap
 .PHONY : geobase/CMakeFiles/libGeoBase.rootmap.dir/build
 
 geobase/CMakeFiles/libGeoBase.rootmap.dir/clean:
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/geobase && $(CMAKE_COMMAND) -P CMakeFiles/libGeoBase.rootmap.dir/cmake_clean.cmake
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/geobase && $(CMAKE_COMMAND) -P CMakeFiles/libGeoBase.rootmap.dir/cmake_clean.cmake
 .PHONY : geobase/CMakeFiles/libGeoBase.rootmap.dir/clean
 
 geobase/CMakeFiles/libGeoBase.rootmap.dir/depend:
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT_Feb /home/daq/fair_install_2015/ATTPCROOT_Feb/geobase /home/daq/fair_install_2015/ATTPCROOT_Feb/build /home/daq/fair_install_2015/ATTPCROOT_Feb/build/geobase /home/daq/fair_install_2015/ATTPCROOT_Feb/build/geobase/CMakeFiles/libGeoBase.rootmap.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/geobase /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/geobase/CMakeFiles/libGeoBase.rootmap.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : geobase/CMakeFiles/libGeoBase.rootmap.dir/depend
 

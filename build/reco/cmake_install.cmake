@@ -1,4 +1,4 @@
-# Install script for directory: /home/daq/fair_install_2015/ATTPCROOT_Feb/reco
+# Install script for directory: /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,53 +27,44 @@ IF(NOT CMAKE_INSTALL_COMPONENT)
   ENDIF(COMPONENT)
 ENDIF(NOT CMAKE_INSTALL_COMPONENT)
 
-# Install shared libraries without execute permission?
-IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  SET(CMAKE_INSTALL_SO_NO_EXE "0")
-ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETDecoder.hh"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETFrame.hh"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETMath.hh"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETPlot.hh"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/ATCore.hh"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/ATPad.hh"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/GETDecoder/GETDecoder.hh"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/GETDecoder/GETFrame.hh"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/GETDecoder/GETMath.hh"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/GETDecoder/GETPlot.hh"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/ATCore.hh"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/ATPad.hh"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE FILE FILES "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libATTPCReco.rootmap")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE FILE FILES "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libATTPCReco.rootmap")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FOREACH(file
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libATTPCReco.so.0.0.0"
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libATTPCReco.so.0"
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libATTPCReco.so"
-      )
-    IF(EXISTS "${file}" AND
-       NOT IS_SYMLINK "${file}")
-      FILE(RPATH_CHECK
-           FILE "${file}"
-           RPATH "")
-    ENDIF()
-  ENDFOREACH()
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libATTPCReco.so.0.0.0"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libATTPCReco.so.0"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libATTPCReco.so"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libATTPCReco.0.0.0.so"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libATTPCReco.0.so"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libATTPCReco.so"
     )
   FOREACH(file
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libATTPCReco.so.0.0.0"
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libATTPCReco.so.0"
+      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libATTPCReco.0.0.0.so"
+      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libATTPCReco.0.so"
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libATTPCReco.so"
       )
     IF(EXISTS "${file}" AND
        NOT IS_SYMLINK "${file}")
-      FILE(RPATH_REMOVE
-           FILE "${file}")
+      EXECUTE_PROCESS(COMMAND "/usr/bin/install_name_tool"
+        -id "libATTPCReco.0.so"
+        -change "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libAtTpcMap.0.so" "libAtTpcMap.0.so"
+        -change "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libBase.0.so" "libBase.0.so"
+        -change "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libFairDB.0.so" "libFairDB.0.so"
+        -change "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libFairTools.0.so" "libFairTools.0.so"
+        -change "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libGeoBase.0.so" "libGeoBase.0.so"
+        -change "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libMbsAPI.0.so" "libMbsAPI.0.so"
+        -change "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libParBase.0.so" "libParBase.0.so"
+        "${file}")
       IF(CMAKE_INSTALL_DO_STRIP)
         EXECUTE_PROCESS(COMMAND "/usr/bin/strip" "${file}")
       ENDIF(CMAKE_INSTALL_DO_STRIP)

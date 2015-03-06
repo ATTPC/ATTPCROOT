@@ -19,6 +19,7 @@ ClassImp(ATCore);
 ATCore::ATCore()
 {
   Initialize();
+  kDebug=kFALSE;
 }
 
 ATCore::ATCore(TString filename, Int_t numTbs)
@@ -27,7 +28,7 @@ ATCore::ATCore(TString filename, Int_t numTbs)
   Initialize();
   AddData(filename);
   SetNumTbs(numTbs);
-
+  kDebug=kFALSE;
   
 }
 
@@ -69,8 +70,8 @@ Bool_t ATCore::SetATTPCMap(char *lookup){
   fAtMapPtr->GenerateATTPC();
   fAtMapPtr->ParseXMLMap(lookup);
   //**** For debugging purposes only! ******//
-  fAtMapPtr->SetGUIMode();
-  fAtMapPtr->GetATTPCPlane();
+  //fAtMapPtr->SetGUIMode();
+  //fAtMapPtr->GetATTPCPlane();
   return 1;
 
 }
@@ -88,6 +89,8 @@ void ATCore::SetNumTbs(Int_t value)
 
 Int_t *ATCore::GetRawEvent(Int_t eventID){
 
+      if(kDebug) fAtMapPtr->SetDebugMode();
+    
   	  if (!fIsData) {
   		  std::cout << "== ATCore -  Data file is not set" << std::endl;
 		  return NULL;
@@ -97,8 +100,8 @@ Int_t *ATCore::GetRawEvent(Int_t eventID){
 
         GETFrame *frame = NULL;
 
-		//while ((frame = fGETDecoderPtr -> GetFrame())) {
-		while ((frame = fGETDecoderPtr -> GetFrame(fCurrFrameNo))) {
+		
+		while ((frame = fGETDecoderPtr -> GetFrame())) {
 
 			Int_t frameType = fGETDecoderPtr -> GetFrameType();
 
@@ -109,22 +112,33 @@ Int_t *ATCore::GetRawEvent(Int_t eventID){
 				 Int_t iAsad = frame -> GetAsadID();
 
 
-			          std::cout<<" Event ID : "<<eventID<<" coboID : "<<iCobo<<" asadID : "<<iAsad<<std::endl;
+                 std::cout<<" Event ID : "<<eventID<<" coboID : "<<iCobo<<" asadID : "<<iAsad<<std::endl;
 
  					for (Int_t iAget = 0; iAget < 4; iAget++) {
-                                		 for (Int_t iCh = 0; iCh < 68; iCh++) {
+                        for (Int_t iCh = 0; iCh < 68; iCh++) {
 							//std::cout<<" Event ID : "<<eventID<<" coboID : "<<iCobo<<" asadID : "<<iAsad<<std::endl;
 							//std::cout<<" AgetID : "<<iAget<<" ChannelID : "<<iCh<<std::endl;
 							std::vector<int> PadRef={iCobo,iAsad,iAget,iCh};
-							ATPad *pad = new ATPad(fAtMapPtr->GetPadNum(PadRef));
-							//std::cout<<" Pad Number : "<<fAtMapPtr->GetPadNum(PadRef)<<std::endl;
-        						Int_t maxTb = fGETDecoderPtr-> GetNumTbs();
-							for (Int_t iTb = 0; iTb < maxTb; iTb++) {
-         						 Int_t rawadc = frame -> GetRawADC(iAget, iCh, iTb);
-                                        		 //std::cout<<" AGet "<<iAget<<" Channel : "<<iCh<<" ADC : "<<rawadc<<" Time Bucket : "<<iTb<<std::endl;
-        						}
+                            Int_t PadRefNum = fAtMapPtr->GetPadNum(PadRef);
+                            ATPad *pad = new ATPad(PadRefNum); // TODO Return all pads with a flag??????
+                            if(PadRefNum!=-1) pad->SetValidPad(kFALSE);
+                            else pad->SetValidPad(kTRUE);
+                            //else continue;
+                            
+                                Int_t *rawadc = frame -> GetRawADC(iAget, iCh);
+                                for (Int_t iTb = 0; iTb < fGETDecoderPtr -> GetNumTbs(); iTb++){
+                                    //std::cout<<" AGet "<<iAget<<" Channel : "<<iCh<<" ADC : "<<*rawadc<<" Time Bucket : "<<iTb<<std::endl;
+                                    pad -> SetRawADC(iTb, rawadc[iTb]);
+
+                                }
+							    //std::cout<<" Pad Number : "<<fAtMapPtr->GetPadNum(PadRef)<<std::endl;
+        						//Int_t maxTb = fGETDecoderPtr-> GetNumTbs();
+							    //for (Int_t iTb = 0; iTb < maxTb; iTb++) {
+         						// Int_t rawadc = frame -> GetRawADC(iAget, iCh, iTb);
+                                //std::cout<<" AGet "<<iAget<<" Channel : "<<iCh<<" ADC : "<<rawadc<<" Time Bucket : "<<iTb<<std::endl;
+        						//}
 						 }
-    					}
+                    }
 
 
 			

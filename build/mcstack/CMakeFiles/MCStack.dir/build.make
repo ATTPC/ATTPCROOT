@@ -26,22 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/cmake"
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = "/Applications/CMake 2.8-10.app/Contents/bin/cmake" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+CMAKE_EDIT_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/ccmake"
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb
+CMAKE_SOURCE_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb/build
+CMAKE_BINARY_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build
 
 # Include any dependencies generated for this target.
 include mcstack/CMakeFiles/MCStack.dir/depend.make
@@ -56,23 +56,23 @@ mcstack/G__MCStackDict.cxx: ../mcstack/FairStack.h
 mcstack/G__MCStackDict.cxx: ../mcstack/FairMCTrack.h
 mcstack/G__MCStackDict.cxx: ../mcstack/FairDetectorList.h
 mcstack/G__MCStackDict.cxx: ../mcstack/MCStackLinkDef.h
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating G__MCStackDict.cxx"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack && LD_LIBRARY_PATH=/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root::/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib:/home/daq/fair_install_2015/FairRootInst/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root:/home/daq/fair_install_2015/FairSoftInst/lib ROOTSYS=/usr/local/fairsoft/fairsoft_jul14p3-install /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rootcint -f /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack/G__MCStackDict.cxx -c -I/usr/local/fairsoft/fairsoft_jul14p3-install/include/root -I/usr/local/fairsoft/fairsoft_jul14p3-install/include/root -I/home/daq/fair_install_2015/FairRootInst/include -I/usr/local/fairsoft/fairsoft_jul14p3-install/include -I/home/daq/fair_install_2015/ATTPCROOT_Feb/mcstack FairStack.h FairMCTrack.h FairDetectorList.h MCStackLinkDef.h
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack && DYLD_LIBRARY_PATH=/Users/yassidayyad/fair_install/FairSoftInst/lib/root:/Users/yassidayyad/fair_install/ATTPCROOT_Mar/build/lib:/Users/yassidayyad/fair_install/FairRootInst/lib:/Users/yassidayyad/fair_install/FairSoftInst/lib:/Users/yassidayyad/fair_install/FairSoftInst/lib/root ROOTSYS=/Users/yassidayyad/fair_install/FairSoftInst /Users/yassidayyad/fair_install/FairSoftInst/bin/rootcint -f /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack/G__MCStackDict.cxx -c -I/Users/yassidayyad/fair_install/FairSoftInst/include/root -I/Users/yassidayyad/fair_install/FairSoftInst/include/root -I/Users/yassidayyad/fair_install/FairRootInst/include -I/Users/yassidayyad/fair_install/FairSoftInst/include -I/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/mcstack FairStack.h FairMCTrack.h FairDetectorList.h MCStackLinkDef.h
 
 mcstack/CMakeFiles/MCStack.dir/FairStack.cxx.o: mcstack/CMakeFiles/MCStack.dir/flags.make
 mcstack/CMakeFiles/MCStack.dir/FairStack.cxx.o: ../mcstack/FairStack.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object mcstack/CMakeFiles/MCStack.dir/FairStack.cxx.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/MCStack.dir/FairStack.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_Feb/mcstack/FairStack.cxx
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/MCStack.dir/FairStack.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/mcstack/FairStack.cxx
 
 mcstack/CMakeFiles/MCStack.dir/FairStack.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MCStack.dir/FairStack.cxx.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/mcstack/FairStack.cxx > CMakeFiles/MCStack.dir/FairStack.cxx.i
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/mcstack/FairStack.cxx > CMakeFiles/MCStack.dir/FairStack.cxx.i
 
 mcstack/CMakeFiles/MCStack.dir/FairStack.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MCStack.dir/FairStack.cxx.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/mcstack/FairStack.cxx -o CMakeFiles/MCStack.dir/FairStack.cxx.s
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/mcstack/FairStack.cxx -o CMakeFiles/MCStack.dir/FairStack.cxx.s
 
 mcstack/CMakeFiles/MCStack.dir/FairStack.cxx.o.requires:
 .PHONY : mcstack/CMakeFiles/MCStack.dir/FairStack.cxx.o.requires
@@ -85,17 +85,17 @@ mcstack/CMakeFiles/MCStack.dir/FairStack.cxx.o.provides.build: mcstack/CMakeFile
 
 mcstack/CMakeFiles/MCStack.dir/FairMCTrack.cxx.o: mcstack/CMakeFiles/MCStack.dir/flags.make
 mcstack/CMakeFiles/MCStack.dir/FairMCTrack.cxx.o: ../mcstack/FairMCTrack.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object mcstack/CMakeFiles/MCStack.dir/FairMCTrack.cxx.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/MCStack.dir/FairMCTrack.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_Feb/mcstack/FairMCTrack.cxx
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/MCStack.dir/FairMCTrack.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/mcstack/FairMCTrack.cxx
 
 mcstack/CMakeFiles/MCStack.dir/FairMCTrack.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MCStack.dir/FairMCTrack.cxx.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/mcstack/FairMCTrack.cxx > CMakeFiles/MCStack.dir/FairMCTrack.cxx.i
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/mcstack/FairMCTrack.cxx > CMakeFiles/MCStack.dir/FairMCTrack.cxx.i
 
 mcstack/CMakeFiles/MCStack.dir/FairMCTrack.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MCStack.dir/FairMCTrack.cxx.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/mcstack/FairMCTrack.cxx -o CMakeFiles/MCStack.dir/FairMCTrack.cxx.s
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/mcstack/FairMCTrack.cxx -o CMakeFiles/MCStack.dir/FairMCTrack.cxx.s
 
 mcstack/CMakeFiles/MCStack.dir/FairMCTrack.cxx.o.requires:
 .PHONY : mcstack/CMakeFiles/MCStack.dir/FairMCTrack.cxx.o.requires
@@ -108,17 +108,17 @@ mcstack/CMakeFiles/MCStack.dir/FairMCTrack.cxx.o.provides.build: mcstack/CMakeFi
 
 mcstack/CMakeFiles/MCStack.dir/G__MCStackDict.cxx.o: mcstack/CMakeFiles/MCStack.dir/flags.make
 mcstack/CMakeFiles/MCStack.dir/G__MCStackDict.cxx.o: mcstack/G__MCStackDict.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object mcstack/CMakeFiles/MCStack.dir/G__MCStackDict.cxx.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/MCStack.dir/G__MCStackDict.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack/G__MCStackDict.cxx
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/MCStack.dir/G__MCStackDict.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack/G__MCStackDict.cxx
 
 mcstack/CMakeFiles/MCStack.dir/G__MCStackDict.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MCStack.dir/G__MCStackDict.cxx.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack/G__MCStackDict.cxx > CMakeFiles/MCStack.dir/G__MCStackDict.cxx.i
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack/G__MCStackDict.cxx > CMakeFiles/MCStack.dir/G__MCStackDict.cxx.i
 
 mcstack/CMakeFiles/MCStack.dir/G__MCStackDict.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MCStack.dir/G__MCStackDict.cxx.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack/G__MCStackDict.cxx -o CMakeFiles/MCStack.dir/G__MCStackDict.cxx.s
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack/G__MCStackDict.cxx -o CMakeFiles/MCStack.dir/G__MCStackDict.cxx.s
 
 mcstack/CMakeFiles/MCStack.dir/G__MCStackDict.cxx.o.requires:
 .PHONY : mcstack/CMakeFiles/MCStack.dir/G__MCStackDict.cxx.o.requires
@@ -138,25 +138,25 @@ MCStack_OBJECTS = \
 # External object files for target MCStack
 MCStack_EXTERNAL_OBJECTS =
 
-lib/libMCStack.so.0.0.0: mcstack/CMakeFiles/MCStack.dir/FairStack.cxx.o
-lib/libMCStack.so.0.0.0: mcstack/CMakeFiles/MCStack.dir/FairMCTrack.cxx.o
-lib/libMCStack.so.0.0.0: mcstack/CMakeFiles/MCStack.dir/G__MCStackDict.cxx.o
-lib/libMCStack.so.0.0.0: mcstack/CMakeFiles/MCStack.dir/build.make
-lib/libMCStack.so.0.0.0: lib/libBase.so.0.0.0
-lib/libMCStack.so.0.0.0: lib/libFairTools.so.0.0.0
-lib/libMCStack.so.0.0.0: lib/libParBase.so.0.0.0
-lib/libMCStack.so.0.0.0: lib/libFairDB.so.0.0.0
-lib/libMCStack.so.0.0.0: lib/libGeoBase.so.0.0.0
-lib/libMCStack.so.0.0.0: lib/libFairTools.so.0.0.0
-lib/libMCStack.so.0.0.0: lib/libMbsAPI.so.0.0.0
-lib/libMCStack.so.0.0.0: mcstack/CMakeFiles/MCStack.dir/link.txt
+lib/libMCStack.0.0.0.so: mcstack/CMakeFiles/MCStack.dir/FairStack.cxx.o
+lib/libMCStack.0.0.0.so: mcstack/CMakeFiles/MCStack.dir/FairMCTrack.cxx.o
+lib/libMCStack.0.0.0.so: mcstack/CMakeFiles/MCStack.dir/G__MCStackDict.cxx.o
+lib/libMCStack.0.0.0.so: mcstack/CMakeFiles/MCStack.dir/build.make
+lib/libMCStack.0.0.0.so: lib/libBase.0.0.0.so
+lib/libMCStack.0.0.0.so: lib/libFairTools.0.0.0.so
+lib/libMCStack.0.0.0.so: lib/libParBase.0.0.0.so
+lib/libMCStack.0.0.0.so: lib/libFairDB.0.0.0.so
+lib/libMCStack.0.0.0.so: lib/libGeoBase.0.0.0.so
+lib/libMCStack.0.0.0.so: lib/libFairTools.0.0.0.so
+lib/libMCStack.0.0.0.so: lib/libMbsAPI.0.0.0.so
+lib/libMCStack.0.0.0.so: mcstack/CMakeFiles/MCStack.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library ../lib/libMCStack.so"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MCStack.dir/link.txt --verbose=$(VERBOSE)
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack && $(CMAKE_COMMAND) -E cmake_symlink_library ../lib/libMCStack.so.0.0.0 ../lib/libMCStack.so.0 ../lib/libMCStack.so
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MCStack.dir/link.txt --verbose=$(VERBOSE)
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack && $(CMAKE_COMMAND) -E cmake_symlink_library ../lib/libMCStack.0.0.0.so ../lib/libMCStack.0.so ../lib/libMCStack.so
 
-lib/libMCStack.so.0: lib/libMCStack.so.0.0.0
+lib/libMCStack.0.so: lib/libMCStack.0.0.0.so
 
-lib/libMCStack.so: lib/libMCStack.so.0.0.0
+lib/libMCStack.so: lib/libMCStack.0.0.0.so
 
 # Rule to build all files generated by this target.
 mcstack/CMakeFiles/MCStack.dir/build: lib/libMCStack.so
@@ -168,10 +168,10 @@ mcstack/CMakeFiles/MCStack.dir/requires: mcstack/CMakeFiles/MCStack.dir/G__MCSta
 .PHONY : mcstack/CMakeFiles/MCStack.dir/requires
 
 mcstack/CMakeFiles/MCStack.dir/clean:
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack && $(CMAKE_COMMAND) -P CMakeFiles/MCStack.dir/cmake_clean.cmake
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack && $(CMAKE_COMMAND) -P CMakeFiles/MCStack.dir/cmake_clean.cmake
 .PHONY : mcstack/CMakeFiles/MCStack.dir/clean
 
 mcstack/CMakeFiles/MCStack.dir/depend: mcstack/G__MCStackDict.cxx
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT_Feb /home/daq/fair_install_2015/ATTPCROOT_Feb/mcstack /home/daq/fair_install_2015/ATTPCROOT_Feb/build /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack /home/daq/fair_install_2015/ATTPCROOT_Feb/build/mcstack/CMakeFiles/MCStack.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/mcstack /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack/CMakeFiles/MCStack.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : mcstack/CMakeFiles/MCStack.dir/depend
 

@@ -8,8 +8,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.o"
   "../lib/libAtTpc.pdb"
   "../lib/libAtTpc.so"
-  "../lib/libAtTpc.so.0.0.0"
-  "../lib/libAtTpc.so.0"
+  "../lib/libAtTpc.0.0.0.so"
+  "../lib/libAtTpc.0.so"
 )
 
 # Per-language clean rules from dependency scanning.

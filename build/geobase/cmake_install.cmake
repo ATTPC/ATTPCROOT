@@ -1,4 +1,4 @@
-# Install script for directory: /home/daq/fair_install_2015/ATTPCROOT_Feb/geobase
+# Install script for directory: /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -27,79 +27,64 @@ IF(NOT CMAKE_INSTALL_COMPONENT)
   ENDIF(COMPONENT)
 ENDIF(NOT CMAKE_INSTALL_COMPONENT)
 
-# Install shared libraries without execute permission?
-IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-  SET(CMAKE_INSTALL_SO_NO_EXE "0")
-ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
-
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoAssembly.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoCone.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoCons.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoEltu.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoBuilder.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoInterface.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoIo.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoLoader.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoMatrix.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoMedia.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoMedium.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoNode.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoOldAsciiIo.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoPcon.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoPgon.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoRootBuilder.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoRotation.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoSet.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoShapes.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoSphe.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoTransform.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoTrap.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoTrd1.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoTube.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoTubs.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoTorus.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoVector.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoVolume.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoCompositeVolume.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoAsciiIo.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoBrik.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/geobase/FairGeoBasicShape.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoAssembly.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoCone.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoCons.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoEltu.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoBuilder.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoInterface.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoIo.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoLoader.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoMatrix.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoMedia.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoMedium.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoNode.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoOldAsciiIo.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoPcon.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoPgon.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoRootBuilder.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoRotation.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoSet.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoShapes.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoSphe.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoTransform.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoTrap.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoTrd1.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoTube.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoTubs.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoTorus.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoVector.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoVolume.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoCompositeVolume.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoAsciiIo.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoBrik.h"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/geobase/FairGeoBasicShape.h"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE FILE FILES "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libGeoBase.rootmap")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE FILE FILES "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libGeoBase.rootmap")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FOREACH(file
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libGeoBase.so.0.0.0"
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libGeoBase.so.0"
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libGeoBase.so"
-      )
-    IF(EXISTS "${file}" AND
-       NOT IS_SYMLINK "${file}")
-      FILE(RPATH_CHECK
-           FILE "${file}"
-           RPATH "")
-    ENDIF()
-  ENDFOREACH()
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libGeoBase.so.0.0.0"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libGeoBase.so.0"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libGeoBase.so"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libGeoBase.0.0.0.so"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libGeoBase.0.so"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libGeoBase.so"
     )
   FOREACH(file
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libGeoBase.so.0.0.0"
-      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libGeoBase.so.0"
+      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libGeoBase.0.0.0.so"
+      "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libGeoBase.0.so"
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libGeoBase.so"
       )
     IF(EXISTS "${file}" AND
        NOT IS_SYMLINK "${file}")
-      FILE(RPATH_REMOVE
-           FILE "${file}")
+      EXECUTE_PROCESS(COMMAND "/usr/bin/install_name_tool"
+        -id "libGeoBase.0.so"
+        -change "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libFairTools.0.so" "libFairTools.0.so"
+        "${file}")
       IF(CMAKE_INSTALL_DO_STRIP)
         EXECUTE_PROCESS(COMMAND "/usr/bin/strip" "${file}")
       ENDIF(CMAKE_INSTALL_DO_STRIP)

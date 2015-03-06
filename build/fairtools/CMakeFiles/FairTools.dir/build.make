@@ -26,22 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/bin/cmake
+CMAKE_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/cmake"
 
 # The command to remove a file.
-RM = /usr/bin/cmake -E remove -f
+RM = "/Applications/CMake 2.8-10.app/Contents/bin/cmake" -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+CMAKE_EDIT_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/ccmake"
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb
+CMAKE_SOURCE_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb/build
+CMAKE_BINARY_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build
 
 # Include any dependencies generated for this target.
 include fairtools/CMakeFiles/FairTools.dir/depend.make
@@ -54,23 +54,23 @@ include fairtools/CMakeFiles/FairTools.dir/flags.make
 
 fairtools/G__FairToolsDict.cxx: ../fairtools/FairLogger.h
 fairtools/G__FairToolsDict.cxx: ../fairtools/FairToolsLinkDef.h
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating G__FairToolsDict.cxx"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairtools && LD_LIBRARY_PATH=/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root::/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib:/home/daq/fair_install_2015/FairRootInst/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root:/home/daq/fair_install_2015/FairSoftInst/lib ROOTSYS=/usr/local/fairsoft/fairsoft_jul14p3-install /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rootcint -f /home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairtools/G__FairToolsDict.cxx -c -I/usr/local/fairsoft/fairsoft_jul14p3-install/include/root -I/home/daq/fair_install_2015/ATTPCROOT_Feb/fairtools FairLogger.h FairToolsLinkDef.h
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools && DYLD_LIBRARY_PATH=/Users/yassidayyad/fair_install/FairSoftInst/lib/root:/Users/yassidayyad/fair_install/ATTPCROOT_Mar/build/lib:/Users/yassidayyad/fair_install/FairRootInst/lib:/Users/yassidayyad/fair_install/FairSoftInst/lib:/Users/yassidayyad/fair_install/FairSoftInst/lib/root ROOTSYS=/Users/yassidayyad/fair_install/FairSoftInst /Users/yassidayyad/fair_install/FairSoftInst/bin/rootcint -f /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools/G__FairToolsDict.cxx -c -I/Users/yassidayyad/fair_install/FairSoftInst/include/root -I/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/fairtools FairLogger.h FairToolsLinkDef.h
 
 fairtools/CMakeFiles/FairTools.dir/FairLogger.cxx.o: fairtools/CMakeFiles/FairTools.dir/flags.make
 fairtools/CMakeFiles/FairTools.dir/FairLogger.cxx.o: ../fairtools/FairLogger.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object fairtools/CMakeFiles/FairTools.dir/FairLogger.cxx.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairtools && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/FairTools.dir/FairLogger.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_Feb/fairtools/FairLogger.cxx
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/FairTools.dir/FairLogger.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/fairtools/FairLogger.cxx
 
 fairtools/CMakeFiles/FairTools.dir/FairLogger.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FairTools.dir/FairLogger.cxx.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairtools && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/fairtools/FairLogger.cxx > CMakeFiles/FairTools.dir/FairLogger.cxx.i
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/fairtools/FairLogger.cxx > CMakeFiles/FairTools.dir/FairLogger.cxx.i
 
 fairtools/CMakeFiles/FairTools.dir/FairLogger.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FairTools.dir/FairLogger.cxx.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairtools && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/fairtools/FairLogger.cxx -o CMakeFiles/FairTools.dir/FairLogger.cxx.s
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/fairtools/FairLogger.cxx -o CMakeFiles/FairTools.dir/FairLogger.cxx.s
 
 fairtools/CMakeFiles/FairTools.dir/FairLogger.cxx.o.requires:
 .PHONY : fairtools/CMakeFiles/FairTools.dir/FairLogger.cxx.o.requires
@@ -83,17 +83,17 @@ fairtools/CMakeFiles/FairTools.dir/FairLogger.cxx.o.provides.build: fairtools/CM
 
 fairtools/CMakeFiles/FairTools.dir/G__FairToolsDict.cxx.o: fairtools/CMakeFiles/FairTools.dir/flags.make
 fairtools/CMakeFiles/FairTools.dir/G__FairToolsDict.cxx.o: fairtools/G__FairToolsDict.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object fairtools/CMakeFiles/FairTools.dir/G__FairToolsDict.cxx.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairtools && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/FairTools.dir/G__FairToolsDict.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairtools/G__FairToolsDict.cxx
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/FairTools.dir/G__FairToolsDict.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools/G__FairToolsDict.cxx
 
 fairtools/CMakeFiles/FairTools.dir/G__FairToolsDict.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/FairTools.dir/G__FairToolsDict.cxx.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairtools && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairtools/G__FairToolsDict.cxx > CMakeFiles/FairTools.dir/G__FairToolsDict.cxx.i
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools/G__FairToolsDict.cxx > CMakeFiles/FairTools.dir/G__FairToolsDict.cxx.i
 
 fairtools/CMakeFiles/FairTools.dir/G__FairToolsDict.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/FairTools.dir/G__FairToolsDict.cxx.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairtools && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairtools/G__FairToolsDict.cxx -o CMakeFiles/FairTools.dir/G__FairToolsDict.cxx.s
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools/G__FairToolsDict.cxx -o CMakeFiles/FairTools.dir/G__FairToolsDict.cxx.s
 
 fairtools/CMakeFiles/FairTools.dir/G__FairToolsDict.cxx.o.requires:
 .PHONY : fairtools/CMakeFiles/FairTools.dir/G__FairToolsDict.cxx.o.requires
@@ -112,17 +112,17 @@ FairTools_OBJECTS = \
 # External object files for target FairTools
 FairTools_EXTERNAL_OBJECTS =
 
-lib/libFairTools.so.0.0.0: fairtools/CMakeFiles/FairTools.dir/FairLogger.cxx.o
-lib/libFairTools.so.0.0.0: fairtools/CMakeFiles/FairTools.dir/G__FairToolsDict.cxx.o
-lib/libFairTools.so.0.0.0: fairtools/CMakeFiles/FairTools.dir/build.make
-lib/libFairTools.so.0.0.0: fairtools/CMakeFiles/FairTools.dir/link.txt
+lib/libFairTools.0.0.0.so: fairtools/CMakeFiles/FairTools.dir/FairLogger.cxx.o
+lib/libFairTools.0.0.0.so: fairtools/CMakeFiles/FairTools.dir/G__FairToolsDict.cxx.o
+lib/libFairTools.0.0.0.so: fairtools/CMakeFiles/FairTools.dir/build.make
+lib/libFairTools.0.0.0.so: fairtools/CMakeFiles/FairTools.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library ../lib/libFairTools.so"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairtools && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/FairTools.dir/link.txt --verbose=$(VERBOSE)
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairtools && $(CMAKE_COMMAND) -E cmake_symlink_library ../lib/libFairTools.so.0.0.0 ../lib/libFairTools.so.0 ../lib/libFairTools.so
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/FairTools.dir/link.txt --verbose=$(VERBOSE)
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools && $(CMAKE_COMMAND) -E cmake_symlink_library ../lib/libFairTools.0.0.0.so ../lib/libFairTools.0.so ../lib/libFairTools.so
 
-lib/libFairTools.so.0: lib/libFairTools.so.0.0.0
+lib/libFairTools.0.so: lib/libFairTools.0.0.0.so
 
-lib/libFairTools.so: lib/libFairTools.so.0.0.0
+lib/libFairTools.so: lib/libFairTools.0.0.0.so
 
 # Rule to build all files generated by this target.
 fairtools/CMakeFiles/FairTools.dir/build: lib/libFairTools.so
@@ -133,10 +133,10 @@ fairtools/CMakeFiles/FairTools.dir/requires: fairtools/CMakeFiles/FairTools.dir/
 .PHONY : fairtools/CMakeFiles/FairTools.dir/requires
 
 fairtools/CMakeFiles/FairTools.dir/clean:
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairtools && $(CMAKE_COMMAND) -P CMakeFiles/FairTools.dir/cmake_clean.cmake
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools && $(CMAKE_COMMAND) -P CMakeFiles/FairTools.dir/cmake_clean.cmake
 .PHONY : fairtools/CMakeFiles/FairTools.dir/clean
 
 fairtools/CMakeFiles/FairTools.dir/depend: fairtools/G__FairToolsDict.cxx
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT_Feb /home/daq/fair_install_2015/ATTPCROOT_Feb/fairtools /home/daq/fair_install_2015/ATTPCROOT_Feb/build /home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairtools /home/daq/fair_install_2015/ATTPCROOT_Feb/build/fairtools/CMakeFiles/FairTools.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/fairtools /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools/CMakeFiles/FairTools.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : fairtools/CMakeFiles/FairTools.dir/depend
 
