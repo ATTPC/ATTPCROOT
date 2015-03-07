@@ -58,10 +58,11 @@ reco/G__ATTPCRecoDict.cxx: ../reco/GETDecoder/GETMath.hh
 reco/G__ATTPCRecoDict.cxx: ../reco/GETDecoder/GETPlot.hh
 reco/G__ATTPCRecoDict.cxx: ../reco/ATDecoder/ATCore.hh
 reco/G__ATTPCRecoDict.cxx: ../reco/ATDecoder/ATPad.hh
+reco/G__ATTPCRecoDict.cxx: ../reco/ATDecoder/ATRawEvent.hh
 reco/G__ATTPCRecoDict.cxx: ../reco/ATTPCRecoLinkDef.h
 	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating G__ATTPCRecoDict.cxx"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/reco && DYLD_LIBRARY_PATH=/Users/yassidayyad/fair_install/FairSoftInst/lib/root:/Users/yassidayyad/fair_install/ATTPCROOT_Mar/build/lib:/Users/yassidayyad/fair_install/FairRootInst/lib:/Users/yassidayyad/fair_install/FairSoftInst/lib:/Users/yassidayyad/fair_install/FairSoftInst/lib/root ROOTSYS=/Users/yassidayyad/fair_install/FairSoftInst /Users/yassidayyad/fair_install/FairSoftInst/bin/rootcint -f /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/reco/G__ATTPCRecoDict.cxx -c -I/Users/yassidayyad/fair_install/FairSoftInst/include/root -I/Users/yassidayyad/fair_install/FairSoftInst/include/root -I/Users/yassidayyad/fair_install/FairRootInst/include -I/Users/yassidayyad/fair_install/FairSoftInst/include -I/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtMap -I/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco -I/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/GETDecoder -I/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder GETDecoder/GETDecoder.hh GETDecoder/GETFrame.hh GETDecoder/GETMath.hh GETDecoder/GETPlot.hh ATDecoder/ATCore.hh ATDecoder/ATPad.hh ATTPCRecoLinkDef.h
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/reco && DYLD_LIBRARY_PATH=/Users/yassidayyad/fair_install/FairSoftInst/lib/root: ROOTSYS=/Users/yassidayyad/fair_install/FairSoftInst /Users/yassidayyad/fair_install/FairSoftInst/bin/rootcint -f /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/reco/G__ATTPCRecoDict.cxx -c -I/Users/yassidayyad/fair_install/FairSoftInst/include/root -I/Users/yassidayyad/fair_install/FairSoftInst/include/root -I/Users/yassidayyad/fair_install/FairRootInst/include -I/Users/yassidayyad/fair_install/FairSoftInst/include -I/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtMap -I/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco -I/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/GETDecoder -I/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder GETDecoder/GETDecoder.hh GETDecoder/GETFrame.hh GETDecoder/GETMath.hh GETDecoder/GETPlot.hh ATDecoder/ATCore.hh ATDecoder/ATPad.hh ATDecoder/ATRawEvent.hh ATTPCRecoLinkDef.h
 
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.o: reco/CMakeFiles/ATTPCReco.dir/flags.make
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.o: ../reco/GETDecoder/GETDecoder.cc
@@ -201,9 +202,32 @@ reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o.provides: reco/CMakeFiles/ATT
 
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o.provides.build: reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o
 
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: reco/CMakeFiles/ATTPCReco.dir/flags.make
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: ../reco/ATDecoder/ATRawEvent.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_8)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o"
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/reco && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/ATRawEvent.cc
+
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.i"
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/ATRawEvent.cc > CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.i
+
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.s"
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/ATRawEvent.cc -o CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.s
+
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o.requires:
+.PHONY : reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o.requires
+
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o.provides: reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o.requires
+	$(MAKE) -f reco/CMakeFiles/ATTPCReco.dir/build.make reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o.provides.build
+.PHONY : reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o.provides
+
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o.provides.build: reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o
+
 reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o: reco/CMakeFiles/ATTPCReco.dir/flags.make
 reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o: reco/G__ATTPCRecoDict.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_8)
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_9)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o"
 	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/reco && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/reco/G__ATTPCRecoDict.cxx
 
@@ -232,6 +256,7 @@ ATTPCReco_OBJECTS = \
 "CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.o" \
 "CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o" \
 "CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o" \
+"CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o" \
 "CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o"
 
 # External object files for target ATTPCReco
@@ -243,6 +268,7 @@ lib/libATTPCReco.0.0.0.so: reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETMath.cc.o
 lib/libATTPCReco.0.0.0.so: reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.o
 lib/libATTPCReco.0.0.0.so: reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o
 lib/libATTPCReco.0.0.0.so: reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o
+lib/libATTPCReco.0.0.0.so: reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o
 lib/libATTPCReco.0.0.0.so: reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o
 lib/libATTPCReco.0.0.0.so: reco/CMakeFiles/ATTPCReco.dir/build.make
 lib/libATTPCReco.0.0.0.so: lib/libAtTpcMap.0.0.0.so
@@ -271,6 +297,7 @@ reco/CMakeFiles/ATTPCReco.dir/requires: reco/CMakeFiles/ATTPCReco.dir/GETDecoder
 reco/CMakeFiles/ATTPCReco.dir/requires: reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.o.requires
 reco/CMakeFiles/ATTPCReco.dir/requires: reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o.requires
 reco/CMakeFiles/ATTPCReco.dir/requires: reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o.requires
+reco/CMakeFiles/ATTPCReco.dir/requires: reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o.requires
 reco/CMakeFiles/ATTPCReco.dir/requires: reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o.requires
 .PHONY : reco/CMakeFiles/ATTPCReco.dir/requires
 

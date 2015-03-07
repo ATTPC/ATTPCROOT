@@ -29,6 +29,7 @@ GETDecoder/GETPlot.cc
 
 ATDecoder/ATCore.cc
 ATDecoder/ATPad.cc
+ATDecoder/ATRawEvent.cc
 
 )
 

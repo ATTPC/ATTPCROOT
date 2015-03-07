@@ -9,6 +9,7 @@ reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o
  /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/ATCore.cc
  /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/ATCore.hh
  /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/ATPad.hh
+ /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/ATRawEvent.hh
  /Users/yassidayyad/fair_install/FairSoftInst/include/boost/aligned_storage.hpp
  /Users/yassidayyad/fair_install/FairSoftInst/include/boost/array.hpp
  /Users/yassidayyad/fair_install/FairSoftInst/include/boost/assert.hpp
@@ -683,6 +684,35 @@ reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o
  /Users/yassidayyad/fair_install/FairSoftInst/include/root/TVersionCheck.h
  /Users/yassidayyad/fair_install/FairSoftInst/include/root/snprintf.h
  /Users/yassidayyad/fair_install/FairSoftInst/include/root/strlcpy.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o
+ /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/ATPad.hh
+ /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/ATRawEvent.cc
+ /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/ATRawEvent.hh
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/DllImport.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/RConfig.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/RVersion.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/Riosfwd.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/Rtypeinfo.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/Rtypes.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/TBuffer.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/TCollection.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/TDatime.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/TDirectory.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/TGenericClassInfo.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/TIterator.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/TList.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/TMathBase.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/TNamed.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/TObject.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/TROOT.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/TSchemaHelper.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/TSeqCollection.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/TStorage.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/TString.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/TUUID.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/TVersionCheck.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/snprintf.h
+ /Users/yassidayyad/fair_install/FairSoftInst/include/root/strlcpy.h
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.o
  /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/GETDecoder/GETDecoder.cc
  /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/GETDecoder/GETDecoder.hh
@@ -877,6 +907,7 @@ reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o
  ../AtMap/AtTpcMap.h
  ../reco/ATDecoder/ATCore.hh
  ../reco/ATDecoder/ATPad.hh
+ ../reco/ATDecoder/ATRawEvent.hh
  ../reco/GETDecoder/GETDecoder.hh
  ../reco/GETDecoder/GETFrame.hh
  ../reco/GETDecoder/GETMath.hh

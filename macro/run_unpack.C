@@ -29,5 +29,6 @@ void run_unpack(){
   unpacker->AddData("/Users/yassidayyad/Desktop/ATTPC/Data/run_0225/test");
   unpacker->SetData(0);
   unpacker->GetRawEvent();
+  unpacker->GetRawEvent();
 
 }

@@ -37,6 +37,7 @@ extern void G__set_cpp_environmentG__ATTPCRecoDict();
 #include "GETDecoder/GETPlot.hh"
 #include "ATDecoder/ATCore.hh"
 #include "ATDecoder/ATPad.hh"
+#include "ATDecoder/ATRawEvent.hh"
 #include <algorithm>
 namespace std { }
 using namespace std;
@@ -48,6 +49,7 @@ extern G__linked_taginfo G__G__ATTPCRecoDictLN_TClass;
 extern G__linked_taginfo G__G__ATTPCRecoDictLN_TBuffer;
 extern G__linked_taginfo G__G__ATTPCRecoDictLN_TMemberInspector;
 extern G__linked_taginfo G__G__ATTPCRecoDictLN_TObject;
+extern G__linked_taginfo G__G__ATTPCRecoDictLN_TNamed;
 extern G__linked_taginfo G__G__ATTPCRecoDictLN_TString;
 extern G__linked_taginfo G__G__ATTPCRecoDictLN_basic_ifstreamlEcharcOchar_traitslEchargRsPgR;
 extern G__linked_taginfo G__G__ATTPCRecoDictLN_vectorlEROOTcLcLTSchemaHelpercOallocatorlEROOTcLcLTSchemaHelpergRsPgR;
@@ -79,6 +81,9 @@ extern G__linked_taginfo G__G__ATTPCRecoDictLN_vectorlEintcOallocatorlEintgRsPgR
 extern G__linked_taginfo G__G__ATTPCRecoDictLN_reverse_iteratorlEvectorlEintcOallocatorlEintgRsPgRcLcLiteratorgR;
 extern G__linked_taginfo G__G__ATTPCRecoDictLN_maplEvectorlEintcOallocatorlEintgRsPgRcOintcOlesslEvectorlEintcOallocatorlEintgRsPgRsPgRcOallocatorlEpairlEconstsPvectorlEintcOallocatorlEintgRsPgRcOintgRsPgRsPgR;
 extern G__linked_taginfo G__G__ATTPCRecoDictLN_ATPad;
+extern G__linked_taginfo G__G__ATTPCRecoDictLN_ATRawEvent;
+extern G__linked_taginfo G__G__ATTPCRecoDictLN_vectorlEATPadcOallocatorlEATPadgRsPgR;
+extern G__linked_taginfo G__G__ATTPCRecoDictLN_reverse_iteratorlEvectorlEATPadcOallocatorlEATPadgRsPgRcLcLiteratorgR;
 extern G__linked_taginfo G__G__ATTPCRecoDictLN_ATCore;
 
 /* STUB derived class for protected member access */

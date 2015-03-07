@@ -85,12 +85,24 @@ AtTpcMap.h
 /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/AtTpcMap.h
 ATPad.hh
 /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/ATPad.hh
+ATRawEvent.hh
+/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/ATRawEvent.hh
 
 /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/ATPad.hh
 TObject.h
 /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/TObject.h
 TROOT.h
 /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/TROOT.h
+
+/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/ATRawEvent.hh
+TROOT.h
+/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/TROOT.h
+TObject.h
+/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/TObject.h
+ATPad.hh
+/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/ATPad.hh
+vector
+-
 
 /Users/yassidayyad/fair_install/FairSoftInst/include/boost/aligned_storage.hpp
 cstddef

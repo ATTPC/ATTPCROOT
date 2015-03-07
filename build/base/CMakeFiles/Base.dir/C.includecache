@@ -6,19 +6,3 @@
 
 #IncludeRegexTransform: 
 
-/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/base/source/exitCli.c
-stdio.h
--
-unistd.h
--
-
-/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/base/source/rclose.c
-stdio.h
--
-unistd.h
--
-sys/socket.h
--
-
-/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/base/source/swaplw.c
-

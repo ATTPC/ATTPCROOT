@@ -46,6 +46,7 @@ void ATCore::Initialize(){
   fNumTbs = 512;
   fIsData = kFALSE;
   fAtMapPtr = new AtTpcMap();
+  fRawEventPtr = NULL;
 
 }
 
@@ -87,7 +88,7 @@ void ATCore::SetNumTbs(Int_t value)
   fGETDecoderPtr -> SetNumTbs(value);
 }
 
-Int_t *ATCore::GetRawEvent(Int_t eventID){
+ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
 
       if(kDebug) fAtMapPtr->SetDebugMode();
     
@@ -96,14 +97,53 @@ Int_t *ATCore::GetRawEvent(Int_t eventID){
 		  return NULL;
   	  }
 
-	fPrevEventNo = eventID;
+    fPrevEventNo = eventID;
+    
+    if (fRawEventPtr != NULL)
+        delete fRawEventPtr;
 
+        fRawEventPtr = new ATRawEvent();
         GETFrame *frame = NULL;
 
 		
-		while ((frame = fGETDecoderPtr -> GetFrame())) {
+		while ((frame = fGETDecoderPtr -> GetFrame(fCurrFrameNo))) {
+            if (fPrevEventNo == -1)
+                fPrevEventNo = frame -> GetEventID();
+            
+            fCurrEventNo = frame -> GetEventID();
+            
+            if (fCurrEventNo == fPrevEventNo + 1) {
+                fPrevEventNo = fCurrEventNo;
+                return fRawEventPtr;
+            } else if (fCurrEventNo > fPrevEventNo + 1) {
+                fCurrFrameNo = 0;
+                continue;
+            } else if (fCurrEventNo < fPrevEventNo) {
+                fCurrFrameNo++;
+                continue;
+            }
+
+            
 
 			Int_t frameType = fGETDecoderPtr -> GetFrameType();
+            
+        if ((frameType == GETDecoder::kMergedID || frameType == GETDecoder::kMergedTime) && !(fRawEventPtr -> IsGood())) {
+                Int_t currentInnerFrameID = fGETDecoderPtr -> GetCurrentInnerFrameID();
+                Int_t numInnerFrames = fGETDecoderPtr -> GetNumMergedFrames();
+                
+                while (!(currentInnerFrameID + 1 == numInnerFrames)) {
+                    fGETDecoderPtr -> GetFrame(fCurrFrameNo);
+                    
+                    currentInnerFrameID = fGETDecoderPtr -> GetCurrentInnerFrameID();
+                    numInnerFrames = fGETDecoderPtr -> GetNumMergedFrames();
+                }
+                
+                fCurrFrameNo++;
+                fPrevEventNo = fCurrEventNo;
+                return fRawEventPtr;
+            }
+          
+            fRawEventPtr -> SetEventID(fCurrEventNo);
 
 
 
@@ -137,8 +177,23 @@ Int_t *ATCore::GetRawEvent(Int_t eventID){
          						// Int_t rawadc = frame -> GetRawADC(iAget, iCh, iTb);
                                 //std::cout<<" AGet "<<iAget<<" Channel : "<<iCh<<" ADC : "<<rawadc<<" Time Bucket : "<<iTb<<std::endl;
         						//}
+                            
+                                fRawEventPtr -> SetPad(pad);
+                                delete pad;
 						 }
                     }
+           
+             if (frameType == GETDecoder::kMergedID || frameType == GETDecoder::kMergedTime) {
+                Int_t currentInnerFrameID = fGETDecoderPtr -> GetCurrentInnerFrameID();
+                Int_t numInnerFrames = fGETDecoderPtr -> GetNumMergedFrames();
+                
+                if (currentInnerFrameID + 1 == numInnerFrames) {
+                    fCurrFrameNo++;
+                    fPrevEventNo = fCurrEventNo;
+                    return fRawEventPtr;
+                }
+              } else
+                fCurrFrameNo++;
 
 
 			

@@ -15,6 +15,7 @@
 #include "GETFrame.hh"
 #include "AtTpcMap.h"
 #include "ATPad.hh"
+#include "ATRawEvent.hh"
 
 
 class ATCore : public TObject  {
@@ -30,7 +31,7 @@ class ATCore : public TObject  {
      Bool_t SetData(Int_t value);
      Bool_t SetATTPCMap(char *lookup);
      void SetPositivePolarity(Bool_t value = kTRUE);
-     Int_t *GetRawEvent(Int_t eventID = -1);// TO DO It returns a pointer to ATRawEvent
+     ATRawEvent *GetRawEvent(Int_t eventID = -1);// TO DO It returns a pointer to ATRawEvent
      void SetNumTbs(Int_t value);
      inline void SetDebugMode(Bool_t Debug){kDebug=Debug;}
 
@@ -43,12 +44,16 @@ class ATCore : public TObject  {
     GETDecoder* fGETDecoderPtr;
     Bool_t fIsData;
     Int_t fNumTbs;
-
+    
+    ATRawEvent *fRawEventPtr;
+    
     UInt_t fPrevEventNo;
     UInt_t fCurrEventNo;
-
-    Int_t fCurrFrameNo;
     
+    Int_t fCurrFrameNo;
+
+
+
     ClassDef(ATCore, 1);
 
     

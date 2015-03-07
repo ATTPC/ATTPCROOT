@@ -56,7 +56,7 @@ fairtools/G__FairToolsDict.cxx: ../fairtools/FairLogger.h
 fairtools/G__FairToolsDict.cxx: ../fairtools/FairToolsLinkDef.h
 	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating G__FairToolsDict.cxx"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools && DYLD_LIBRARY_PATH=/Users/yassidayyad/fair_install/FairSoftInst/lib/root:/Users/yassidayyad/fair_install/ATTPCROOT_Mar/build/lib:/Users/yassidayyad/fair_install/FairRootInst/lib:/Users/yassidayyad/fair_install/FairSoftInst/lib:/Users/yassidayyad/fair_install/FairSoftInst/lib/root ROOTSYS=/Users/yassidayyad/fair_install/FairSoftInst /Users/yassidayyad/fair_install/FairSoftInst/bin/rootcint -f /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools/G__FairToolsDict.cxx -c -I/Users/yassidayyad/fair_install/FairSoftInst/include/root -I/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/fairtools FairLogger.h FairToolsLinkDef.h
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools && DYLD_LIBRARY_PATH=/Users/yassidayyad/fair_install/FairSoftInst/lib/root: ROOTSYS=/Users/yassidayyad/fair_install/FairSoftInst /Users/yassidayyad/fair_install/FairSoftInst/bin/rootcint -f /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairtools/G__FairToolsDict.cxx -c -I/Users/yassidayyad/fair_install/FairSoftInst/include/root -I/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/fairtools FairLogger.h FairToolsLinkDef.h
 
 fairtools/CMakeFiles/FairTools.dir/FairLogger.cxx.o: fairtools/CMakeFiles/FairTools.dir/flags.make
 fairtools/CMakeFiles/FairTools.dir/FairLogger.cxx.o: ../fairtools/FairLogger.cxx

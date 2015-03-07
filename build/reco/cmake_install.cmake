@@ -35,6 +35,7 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
     "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/GETDecoder/GETPlot.hh"
     "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/ATCore.hh"
     "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/ATPad.hh"
+    "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATDecoder/ATRawEvent.hh"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

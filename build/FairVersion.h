@@ -1,5 +1,5 @@
 #ifndef FAIRROOT_VERSION
 #define FAIRROOT_VERSION 
-#define FAIRROOT_GIT_DATE "Thu Mar 5 22:34:28 2015 +0900"
+#define FAIRROOT_GIT_DATE "Fri Mar 6 20:34:17 2015 +0900"
 #endif
 

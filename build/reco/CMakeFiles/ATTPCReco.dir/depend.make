@@ -8,6 +8,7 @@ reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o: ../reco/GETDecoder/GETMath.
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o: ../reco/ATDecoder/ATCore.cc
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o: ../reco/ATDecoder/ATCore.hh
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o: ../reco/ATDecoder/ATPad.hh
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o: ../reco/ATDecoder/ATRawEvent.hh
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/boost/aligned_storage.hpp
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/boost/array.hpp
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/boost/assert.hpp
@@ -683,6 +684,35 @@ reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /Users/yassidayyad/fair_inst
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/snprintf.h
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/strlcpy.h
 
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: ../reco/ATDecoder/ATPad.hh
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: ../reco/ATDecoder/ATRawEvent.cc
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: ../reco/ATDecoder/ATRawEvent.hh
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/DllImport.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/RConfig.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/RVersion.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/Riosfwd.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/Rtypeinfo.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/Rtypes.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/TBuffer.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/TCollection.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/TDatime.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/TDirectory.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/TGenericClassInfo.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/TIterator.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/TList.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/TMathBase.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/TNamed.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/TObject.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/TROOT.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/TSchemaHelper.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/TSeqCollection.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/TStorage.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/TString.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/TUUID.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/TVersionCheck.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/snprintf.h
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: /Users/yassidayyad/fair_install/FairSoftInst/include/root/strlcpy.h
+
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.o: ../reco/GETDecoder/GETDecoder.cc
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.o: ../reco/GETDecoder/GETDecoder.hh
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.o: ../reco/GETDecoder/GETFrame.hh
@@ -876,6 +906,7 @@ reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.o: /Users/yassidayyad/fair_i
 reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o: ../AtMap/AtTpcMap.h
 reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o: ../reco/ATDecoder/ATCore.hh
 reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o: ../reco/ATDecoder/ATPad.hh
+reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o: ../reco/ATDecoder/ATRawEvent.hh
 reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o: ../reco/GETDecoder/GETDecoder.hh
 reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o: ../reco/GETDecoder/GETFrame.hh
 reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o: ../reco/GETDecoder/GETMath.hh

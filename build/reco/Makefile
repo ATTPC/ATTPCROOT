@@ -228,6 +228,30 @@ ATDecoder/ATPad.cc.s:
 	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f reco/CMakeFiles/ATTPCReco.dir/build.make reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.s
 .PHONY : ATDecoder/ATPad.cc.s
 
+ATDecoder/ATRawEvent.o: ATDecoder/ATRawEvent.cc.o
+.PHONY : ATDecoder/ATRawEvent.o
+
+# target to build an object file
+ATDecoder/ATRawEvent.cc.o:
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f reco/CMakeFiles/ATTPCReco.dir/build.make reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o
+.PHONY : ATDecoder/ATRawEvent.cc.o
+
+ATDecoder/ATRawEvent.i: ATDecoder/ATRawEvent.cc.i
+.PHONY : ATDecoder/ATRawEvent.i
+
+# target to preprocess a source file
+ATDecoder/ATRawEvent.cc.i:
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f reco/CMakeFiles/ATTPCReco.dir/build.make reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.i
+.PHONY : ATDecoder/ATRawEvent.cc.i
+
+ATDecoder/ATRawEvent.s: ATDecoder/ATRawEvent.cc.s
+.PHONY : ATDecoder/ATRawEvent.s
+
+# target to generate assembly for a file
+ATDecoder/ATRawEvent.cc.s:
+	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f reco/CMakeFiles/ATTPCReco.dir/build.make reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.s
+.PHONY : ATDecoder/ATRawEvent.cc.s
+
 GETDecoder/GETDecoder.o: GETDecoder/GETDecoder.cc.o
 .PHONY : GETDecoder/GETDecoder.o
 
@@ -369,6 +393,9 @@ help:
 	@echo "... ATDecoder/ATPad.o"
 	@echo "... ATDecoder/ATPad.i"
 	@echo "... ATDecoder/ATPad.s"
+	@echo "... ATDecoder/ATRawEvent.o"
+	@echo "... ATDecoder/ATRawEvent.i"
+	@echo "... ATDecoder/ATRawEvent.s"
 	@echo "... GETDecoder/GETDecoder.o"
 	@echo "... GETDecoder/GETDecoder.i"
 	@echo "... GETDecoder/GETDecoder.s"

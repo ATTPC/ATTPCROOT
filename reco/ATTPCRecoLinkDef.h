@@ -10,6 +10,7 @@
 #pragma link C++ class GETPlot+;
 #pragma link C++ class ATCore+;
 #pragma link C++ class ATPad+;
+#pragma link C++ class ATRawEvent+;
 
 
 #endif
