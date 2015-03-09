@@ -1,0 +1,7 @@
+[INFO   ] [FairRootManager.cxx::OpenOutFile:723] FairRootManager::OpenOutFile("output.root")
+[INFO   ] [FairRootManager.cxx::OpenInChain:355] No input file defined. 
+[INFO   ] [FairRunAna.cxx::Init:307] Initializing without input file or Mixed input 
+[ERROR  ] [FairParSet.cxx::init:70] init() FairGeoParSet  not initialized 
+[ERROR  ] [FairParSet.cxx::init:70] init() FairBaseParSet  not initialized 
+[ERROR  ] [FairParSet.cxx::init:70] init() FairGeoParSet  not initialized 
+[ERROR  ] [FairParSet.cxx::init:70] init() FairBaseParSet  not initialized 
