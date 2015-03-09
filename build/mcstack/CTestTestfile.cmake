@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/mcstack
-# Build directory: /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/mcstack
+# Source directory: /home/daq/fair_install_2015/ATTPCROOT_09032015/mcstack
+# Build directory: /home/daq/fair_install_2015/ATTPCROOT_09032015/build/mcstack
 # 
-# This file includes the relevent testing commands required for 
+# This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

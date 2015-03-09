@@ -5,8 +5,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/MCStack.dir/G__MCStackDict.cxx.o"
   "../lib/libMCStack.pdb"
   "../lib/libMCStack.so"
-  "../lib/libMCStack.0.0.0.so"
-  "../lib/libMCStack.0.so"
+  "../lib/libMCStack.so.0.0.0"
+  "../lib/libMCStack.so.0"
 )
 
 # Per-language clean rules from dependency scanning.

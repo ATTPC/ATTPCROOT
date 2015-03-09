@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/plists
-# Build directory: /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/plists
+# Source directory: /home/daq/fair_install_2015/ATTPCROOT_09032015/plists
+# Build directory: /home/daq/fair_install_2015/ATTPCROOT_09032015/build/plists
 # 
-# This file includes the relevent testing commands required for 
+# This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

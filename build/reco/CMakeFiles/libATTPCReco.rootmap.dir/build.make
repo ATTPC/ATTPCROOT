@@ -26,22 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/cmake"
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = "/Applications/CMake 2.8-10.app/Contents/bin/cmake" -E remove -f
+RM = /usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/ccmake"
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev
+CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT_09032015
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build
+CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT_09032015/build
 
 # Utility rule file for libATTPCReco.rootmap.
 
@@ -52,10 +52,10 @@ reco/CMakeFiles/libATTPCReco.rootmap: lib/libATTPCReco.rootmap
 
 lib/libATTPCReco.rootmap: ../reco/ATTPCRecoLinkDef.h
 lib/libATTPCReco.rootmap: ../reco/ATTPCRecoLinkDef.h
-lib/libATTPCReco.rootmap: /Users/yassidayyad/fair_install/FairSoftInst/bin/rlibmap
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_1)
+lib/libATTPCReco.rootmap: /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../lib/libATTPCReco.rootmap"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/reco && /Users/yassidayyad/fair_install/FairSoftInst/bin/rlibmap -o /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libATTPCReco.rootmap -l ATTPCReco -d libXMLParser.so libAtTpcMap.so -c ATTPCRecoLinkDef.h /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco/ATTPCRecoLinkDef.h
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap -o /home/daq/fair_install_2015/ATTPCROOT_09032015/build/lib/libATTPCReco.rootmap -l ATTPCReco -d libXMLParser.so libAtTpcMap.so -c ATTPCRecoLinkDef.h /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/ATTPCRecoLinkDef.h
 
 libATTPCReco.rootmap: reco/CMakeFiles/libATTPCReco.rootmap
 libATTPCReco.rootmap: lib/libATTPCReco.rootmap
@@ -67,10 +67,10 @@ reco/CMakeFiles/libATTPCReco.rootmap.dir/build: libATTPCReco.rootmap
 .PHONY : reco/CMakeFiles/libATTPCReco.rootmap.dir/build
 
 reco/CMakeFiles/libATTPCReco.rootmap.dir/clean:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/reco && $(CMAKE_COMMAND) -P CMakeFiles/libATTPCReco.rootmap.dir/cmake_clean.cmake
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && $(CMAKE_COMMAND) -P CMakeFiles/libATTPCReco.rootmap.dir/cmake_clean.cmake
 .PHONY : reco/CMakeFiles/libATTPCReco.rootmap.dir/clean
 
 reco/CMakeFiles/libATTPCReco.rootmap.dir/depend:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/reco /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/reco /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/reco/CMakeFiles/libATTPCReco.rootmap.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT_09032015 /home/daq/fair_install_2015/ATTPCROOT_09032015/reco /home/daq/fair_install_2015/ATTPCROOT_09032015/build /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco/CMakeFiles/libATTPCReco.rootmap.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : reco/CMakeFiles/libATTPCReco.rootmap.dir/depend
 

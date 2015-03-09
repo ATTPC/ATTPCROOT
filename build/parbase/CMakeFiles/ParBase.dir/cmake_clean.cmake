@@ -20,8 +20,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/ParBase.dir/G__ParBaseDict.cxx.o"
   "../lib/libParBase.pdb"
   "../lib/libParBase.so"
-  "../lib/libParBase.0.0.0.so"
-  "../lib/libParBase.0.so"
+  "../lib/libParBase.so.0.0.0"
+  "../lib/libParBase.so.0"
 )
 
 # Per-language clean rules from dependency scanning.

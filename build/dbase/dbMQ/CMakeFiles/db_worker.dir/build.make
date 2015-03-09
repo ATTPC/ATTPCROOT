@@ -26,22 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/cmake"
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = "/Applications/CMake 2.8-10.app/Contents/bin/cmake" -E remove -f
+RM = /usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/ccmake"
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev
+CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT_09032015
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build
+CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT_09032015/build
 
 # Include any dependencies generated for this target.
 include dbase/dbMQ/CMakeFiles/db_worker.dir/depend.make
@@ -54,17 +54,17 @@ include dbase/dbMQ/CMakeFiles/db_worker.dir/flags.make
 
 dbase/dbMQ/CMakeFiles/db_worker.dir/procs/db_worker.cxx.o: dbase/dbMQ/CMakeFiles/db_worker.dir/flags.make
 dbase/dbMQ/CMakeFiles/db_worker.dir/procs/db_worker.cxx.o: ../dbase/dbMQ/procs/db_worker.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object dbase/dbMQ/CMakeFiles/db_worker.dir/procs/db_worker.cxx.o"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/dbase/dbMQ && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/db_worker.dir/procs/db_worker.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbMQ/procs/db_worker.cxx
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/dbase/dbMQ && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/db_worker.dir/procs/db_worker.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_09032015/dbase/dbMQ/procs/db_worker.cxx
 
 dbase/dbMQ/CMakeFiles/db_worker.dir/procs/db_worker.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/db_worker.dir/procs/db_worker.cxx.i"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/dbase/dbMQ && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbMQ/procs/db_worker.cxx > CMakeFiles/db_worker.dir/procs/db_worker.cxx.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/dbase/dbMQ && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_09032015/dbase/dbMQ/procs/db_worker.cxx > CMakeFiles/db_worker.dir/procs/db_worker.cxx.i
 
 dbase/dbMQ/CMakeFiles/db_worker.dir/procs/db_worker.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/db_worker.dir/procs/db_worker.cxx.s"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/dbase/dbMQ && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbMQ/procs/db_worker.cxx -o CMakeFiles/db_worker.dir/procs/db_worker.cxx.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/dbase/dbMQ && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_09032015/dbase/dbMQ/procs/db_worker.cxx -o CMakeFiles/db_worker.dir/procs/db_worker.cxx.s
 
 dbase/dbMQ/CMakeFiles/db_worker.dir/procs/db_worker.cxx.o.requires:
 .PHONY : dbase/dbMQ/CMakeFiles/db_worker.dir/procs/db_worker.cxx.o.requires
@@ -84,20 +84,20 @@ db_worker_EXTERNAL_OBJECTS =
 
 bin/db_worker: dbase/dbMQ/CMakeFiles/db_worker.dir/procs/db_worker.cxx.o
 bin/db_worker: dbase/dbMQ/CMakeFiles/db_worker.dir/build.make
-bin/db_worker: lib/libFairDB.0.0.0.so
-bin/db_worker: lib/libParBase.0.0.0.so
-bin/db_worker: lib/libFairDbMQ.0.0.0.so
-bin/db_worker: lib/libBase.0.0.0.so
-bin/db_worker: lib/libParBase.0.0.0.so
-bin/db_worker: lib/libFairDB.0.0.0.so
-bin/db_worker: lib/libGeoBase.0.0.0.so
-bin/db_worker: lib/libFairTools.0.0.0.so
-bin/db_worker: lib/libMbsAPI.0.0.0.so
-bin/db_worker: lib/libFairMQ.0.0.0.so
-bin/db_worker: /Users/yassidayyad/fair_install/FairSoftInst/lib64/libzmq.so
+bin/db_worker: lib/libFairDB.so.0.0.0
+bin/db_worker: lib/libParBase.so.0.0.0
+bin/db_worker: lib/libFairDbMQ.so.0.0.0
+bin/db_worker: lib/libBase.so.0.0.0
+bin/db_worker: lib/libParBase.so.0.0.0
+bin/db_worker: lib/libFairDB.so.0.0.0
+bin/db_worker: lib/libGeoBase.so.0.0.0
+bin/db_worker: lib/libFairTools.so.0.0.0
+bin/db_worker: lib/libMbsAPI.so.0.0.0
+bin/db_worker: lib/libFairMQ.so.0.0.0
+bin/db_worker: /usr/local/fairsoft/fairsoft_jul14p3-install/lib64/libzmq.so
 bin/db_worker: dbase/dbMQ/CMakeFiles/db_worker.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable ../../bin/db_worker"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/dbase/dbMQ && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/db_worker.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/dbase/dbMQ && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/db_worker.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 dbase/dbMQ/CMakeFiles/db_worker.dir/build: bin/db_worker
@@ -107,10 +107,10 @@ dbase/dbMQ/CMakeFiles/db_worker.dir/requires: dbase/dbMQ/CMakeFiles/db_worker.di
 .PHONY : dbase/dbMQ/CMakeFiles/db_worker.dir/requires
 
 dbase/dbMQ/CMakeFiles/db_worker.dir/clean:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/dbase/dbMQ && $(CMAKE_COMMAND) -P CMakeFiles/db_worker.dir/cmake_clean.cmake
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/dbase/dbMQ && $(CMAKE_COMMAND) -P CMakeFiles/db_worker.dir/cmake_clean.cmake
 .PHONY : dbase/dbMQ/CMakeFiles/db_worker.dir/clean
 
 dbase/dbMQ/CMakeFiles/db_worker.dir/depend:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbMQ /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/dbase/dbMQ /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/dbase/dbMQ/CMakeFiles/db_worker.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT_09032015 /home/daq/fair_install_2015/ATTPCROOT_09032015/dbase/dbMQ /home/daq/fair_install_2015/ATTPCROOT_09032015/build /home/daq/fair_install_2015/ATTPCROOT_09032015/build/dbase/dbMQ /home/daq/fair_install_2015/ATTPCROOT_09032015/build/dbase/dbMQ/CMakeFiles/db_worker.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : dbase/dbMQ/CMakeFiles/db_worker.dir/depend
 

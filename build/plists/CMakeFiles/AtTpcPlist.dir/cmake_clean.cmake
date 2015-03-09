@@ -17,8 +17,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/AtTpcPlist.dir/AtTpcPlistDict.cxx.o"
   "../lib/libAtTpcPlist.pdb"
   "../lib/libAtTpcPlist.so"
-  "../lib/libAtTpcPlist.0.0.0.so"
-  "../lib/libAtTpcPlist.0.so"
+  "../lib/libAtTpcPlist.so.0.0.0"
+  "../lib/libAtTpcPlist.so.0"
 )
 
 # Per-language clean rules from dependency scanning.

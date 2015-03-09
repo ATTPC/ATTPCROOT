@@ -4,8 +4,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/FairTools.dir/G__FairToolsDict.cxx.o"
   "../lib/libFairTools.pdb"
   "../lib/libFairTools.so"
-  "../lib/libFairTools.0.0.0.so"
-  "../lib/libFairTools.0.so"
+  "../lib/libFairTools.so.0.0.0"
+  "../lib/libFairTools.so.0"
 )
 
 # Per-language clean rules from dependency scanning.

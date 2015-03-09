@@ -5,8 +5,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/MbsAPI.dir/f_stccomm.c.o"
   "../lib/libMbsAPI.pdb"
   "../lib/libMbsAPI.so"
-  "../lib/libMbsAPI.0.0.0.so"
-  "../lib/libMbsAPI.0.so"
+  "../lib/libMbsAPI.so.0.0.0"
+  "../lib/libMbsAPI.so.0"
 )
 
 # Per-language clean rules from dependency scanning.

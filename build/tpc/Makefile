@@ -30,22 +30,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/cmake"
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = "/Applications/CMake 2.8-10.app/Contents/bin/cmake" -E remove -f
+RM = /usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/ccmake"
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev
+CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT_09032015
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build
+CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT_09032015/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -53,7 +53,7 @@ CMAKE_BINARY_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	"/Applications/CMake 2.8-10.app/Contents/bin/ccmake" -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -63,19 +63,19 @@ edit_cache/fast: edit_cache
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	"/Applications/CMake 2.8-10.app/Contents/bin/cmake" -P cmake_install.cmake
+	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install
 
 # Special rule for the target install
 install/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	"/Applications/CMake 2.8-10.app/Contents/bin/cmake" -P cmake_install.cmake
+	/usr/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	"/Applications/CMake 2.8-10.app/Contents/bin/cmake" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local
 
 # Special rule for the target install/local
@@ -85,7 +85,7 @@ install/local/fast: install/local
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	"/Applications/CMake 2.8-10.app/Contents/bin/cmake" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip
 
 # Special rule for the target install/strip
@@ -104,7 +104,7 @@ list_install_components/fast: list_install_components
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	"/Applications/CMake 2.8-10.app/Contents/bin/cmake" -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -114,7 +114,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	"/Applications/CMake 2.8-10.app/Contents/bin/ctest" --force-new-ctest-process $(ARGS)
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
 .PHONY : test
 
 # Special rule for the target test
@@ -123,14 +123,14 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc/CMakeFiles/progress.marks
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f CMakeFiles/Makefile2 tpc/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles 0
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc/CMakeFiles/progress.marks
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f CMakeFiles/Makefile2 tpc/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f CMakeFiles/Makefile2 tpc/clean
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f CMakeFiles/Makefile2 tpc/clean
 .PHONY : clean
 
 # The main clean target
@@ -139,22 +139,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f CMakeFiles/Makefile2 tpc/preinstall
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f CMakeFiles/Makefile2 tpc/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f CMakeFiles/Makefile2 tpc/preinstall
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f CMakeFiles/Makefile2 tpc/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 tpc/CMakeFiles/AtTpc.dir/rule:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f CMakeFiles/Makefile2 tpc/CMakeFiles/AtTpc.dir/rule
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f CMakeFiles/Makefile2 tpc/CMakeFiles/AtTpc.dir/rule
 .PHONY : tpc/CMakeFiles/AtTpc.dir/rule
 
 # Convenience name for target.
@@ -163,12 +163,12 @@ AtTpc: tpc/CMakeFiles/AtTpc.dir/rule
 
 # fast build rule for target.
 AtTpc/fast:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/build
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/build
 .PHONY : AtTpc/fast
 
 # Convenience name for target.
 tpc/CMakeFiles/libAtTpc.rootmap.dir/rule:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f CMakeFiles/Makefile2 tpc/CMakeFiles/libAtTpc.rootmap.dir/rule
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f CMakeFiles/Makefile2 tpc/CMakeFiles/libAtTpc.rootmap.dir/rule
 .PHONY : tpc/CMakeFiles/libAtTpc.rootmap.dir/rule
 
 # Convenience name for target.
@@ -177,7 +177,7 @@ libAtTpc.rootmap: tpc/CMakeFiles/libAtTpc.rootmap.dir/rule
 
 # fast build rule for target.
 libAtTpc.rootmap/fast:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f tpc/CMakeFiles/libAtTpc.rootmap.dir/build.make tpc/CMakeFiles/libAtTpc.rootmap.dir/build
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f tpc/CMakeFiles/libAtTpc.rootmap.dir/build.make tpc/CMakeFiles/libAtTpc.rootmap.dir/build
 .PHONY : libAtTpc.rootmap/fast
 
 AtTpc.o: AtTpc.cxx.o
@@ -185,7 +185,7 @@ AtTpc.o: AtTpc.cxx.o
 
 # target to build an object file
 AtTpc.cxx.o:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpc.cxx.o
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpc.cxx.o
 .PHONY : AtTpc.cxx.o
 
 AtTpc.i: AtTpc.cxx.i
@@ -193,7 +193,7 @@ AtTpc.i: AtTpc.cxx.i
 
 # target to preprocess a source file
 AtTpc.cxx.i:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpc.cxx.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpc.cxx.i
 .PHONY : AtTpc.cxx.i
 
 AtTpc.s: AtTpc.cxx.s
@@ -201,7 +201,7 @@ AtTpc.s: AtTpc.cxx.s
 
 # target to generate assembly for a file
 AtTpc.cxx.s:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpc.cxx.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpc.cxx.s
 .PHONY : AtTpc.cxx.s
 
 AtTpcContFact.o: AtTpcContFact.cxx.o
@@ -209,7 +209,7 @@ AtTpcContFact.o: AtTpcContFact.cxx.o
 
 # target to build an object file
 AtTpcContFact.cxx.o:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.o
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.o
 .PHONY : AtTpcContFact.cxx.o
 
 AtTpcContFact.i: AtTpcContFact.cxx.i
@@ -217,7 +217,7 @@ AtTpcContFact.i: AtTpcContFact.cxx.i
 
 # target to preprocess a source file
 AtTpcContFact.cxx.i:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.i
 .PHONY : AtTpcContFact.cxx.i
 
 AtTpcContFact.s: AtTpcContFact.cxx.s
@@ -225,7 +225,7 @@ AtTpcContFact.s: AtTpcContFact.cxx.s
 
 # target to generate assembly for a file
 AtTpcContFact.cxx.s:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.s
 .PHONY : AtTpcContFact.cxx.s
 
 AtTpcGeo.o: AtTpcGeo.cxx.o
@@ -233,7 +233,7 @@ AtTpcGeo.o: AtTpcGeo.cxx.o
 
 # target to build an object file
 AtTpcGeo.cxx.o:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.o
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.o
 .PHONY : AtTpcGeo.cxx.o
 
 AtTpcGeo.i: AtTpcGeo.cxx.i
@@ -241,7 +241,7 @@ AtTpcGeo.i: AtTpcGeo.cxx.i
 
 # target to preprocess a source file
 AtTpcGeo.cxx.i:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.i
 .PHONY : AtTpcGeo.cxx.i
 
 AtTpcGeo.s: AtTpcGeo.cxx.s
@@ -249,7 +249,7 @@ AtTpcGeo.s: AtTpcGeo.cxx.s
 
 # target to generate assembly for a file
 AtTpcGeo.cxx.s:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.s
 .PHONY : AtTpcGeo.cxx.s
 
 AtTpcGeoPar.o: AtTpcGeoPar.cxx.o
@@ -257,7 +257,7 @@ AtTpcGeoPar.o: AtTpcGeoPar.cxx.o
 
 # target to build an object file
 AtTpcGeoPar.cxx.o:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.o
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.o
 .PHONY : AtTpcGeoPar.cxx.o
 
 AtTpcGeoPar.i: AtTpcGeoPar.cxx.i
@@ -265,7 +265,7 @@ AtTpcGeoPar.i: AtTpcGeoPar.cxx.i
 
 # target to preprocess a source file
 AtTpcGeoPar.cxx.i:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.i
 .PHONY : AtTpcGeoPar.cxx.i
 
 AtTpcGeoPar.s: AtTpcGeoPar.cxx.s
@@ -273,7 +273,7 @@ AtTpcGeoPar.s: AtTpcGeoPar.cxx.s
 
 # target to generate assembly for a file
 AtTpcGeoPar.cxx.s:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.s
 .PHONY : AtTpcGeoPar.cxx.s
 
 AtTpcPoint.o: AtTpcPoint.cxx.o
@@ -281,7 +281,7 @@ AtTpcPoint.o: AtTpcPoint.cxx.o
 
 # target to build an object file
 AtTpcPoint.cxx.o:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.o
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.o
 .PHONY : AtTpcPoint.cxx.o
 
 AtTpcPoint.i: AtTpcPoint.cxx.i
@@ -289,7 +289,7 @@ AtTpcPoint.i: AtTpcPoint.cxx.i
 
 # target to preprocess a source file
 AtTpcPoint.cxx.i:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.i
 .PHONY : AtTpcPoint.cxx.i
 
 AtTpcPoint.s: AtTpcPoint.cxx.s
@@ -297,7 +297,7 @@ AtTpcPoint.s: AtTpcPoint.cxx.s
 
 # target to generate assembly for a file
 AtTpcPoint.cxx.s:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.s
 .PHONY : AtTpcPoint.cxx.s
 
 G__AtTpcDict.o: G__AtTpcDict.cxx.o
@@ -305,7 +305,7 @@ G__AtTpcDict.o: G__AtTpcDict.cxx.o
 
 # target to build an object file
 G__AtTpcDict.cxx.o:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.o
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.o
 .PHONY : G__AtTpcDict.cxx.o
 
 G__AtTpcDict.i: G__AtTpcDict.cxx.i
@@ -313,7 +313,7 @@ G__AtTpcDict.i: G__AtTpcDict.cxx.i
 
 # target to preprocess a source file
 G__AtTpcDict.cxx.i:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.i
 .PHONY : G__AtTpcDict.cxx.i
 
 G__AtTpcDict.s: G__AtTpcDict.cxx.s
@@ -321,7 +321,7 @@ G__AtTpcDict.s: G__AtTpcDict.cxx.s
 
 # target to generate assembly for a file
 G__AtTpcDict.cxx.s:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(MAKE) -f tpc/CMakeFiles/AtTpc.dir/build.make tpc/CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.s
 .PHONY : G__AtTpcDict.cxx.s
 
 # Help Target
@@ -368,6 +368,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

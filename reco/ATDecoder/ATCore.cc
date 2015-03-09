@@ -69,11 +69,12 @@ Bool_t ATCore::SetData(Int_t value)
 Bool_t ATCore::SetATTPCMap(char *lookup){
 
   fAtMapPtr->GenerateATTPC();
-  fAtMapPtr->ParseXMLMap(lookup);
+  Bool_t MapIn = fAtMapPtr->ParseXMLMap(lookup);
+  if(!MapIn) return false;
   //**** For debugging purposes only! ******//
   //fAtMapPtr->SetGUIMode();
   //fAtMapPtr->GetATTPCPlane();
-  return 1;
+  return true;
 
 }
 
@@ -154,11 +155,11 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
 
                  std::cout<<" Event ID : "<<eventID<<" coboID : "<<iCobo<<" asadID : "<<iAsad<<std::endl;
 
- 					for (Int_t iAget = 0; iAget < 4; iAget++) {
-                        for (Int_t iCh = 0; iCh < 68; iCh++) {
+ 			for (Int_t iAget = 0; iAget < 4; iAget++) {
+                         for (Int_t iCh = 0; iCh < 68; iCh++) {
 							//std::cout<<" Event ID : "<<eventID<<" coboID : "<<iCobo<<" asadID : "<<iAsad<<std::endl;
 							//std::cout<<" AgetID : "<<iAget<<" ChannelID : "<<iCh<<std::endl;
-							std::vector<int> PadRef={iCobo,iAsad,iAget,iCh};
+			    std::vector<int> PadRef={iCobo,iAsad,iAget,iCh};
                             Int_t PadRefNum = fAtMapPtr->GetPadNum(PadRef);
                             ATPad *pad = new ATPad(PadRefNum); // TODO Return all pads with a flag??????
                             if(PadRefNum!=-1) pad->SetValidPad(kFALSE);

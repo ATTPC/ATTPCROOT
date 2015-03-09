@@ -231,6 +231,7 @@ Bool_t AtTpcMap::ParseXMLMap(char *xmlfile){
 	    Int_t parsecode = domParser->ParseFile(xmlfile);	
 	    if(parsecode<0){
 		std::cerr<< domParser->GetParseCodeMessage(parsecode) <<std::endl;
+                return false;
 	    }
 	    TXMLNode * node = domParser->GetXMLDocument()->GetRootNode();
 	    ParseMapList(node->GetChildren());

@@ -40,13 +40,13 @@ cstring
 exception
 -
 
-/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbMQ/procs/db_client.cxx
+/home/daq/fair_install_2015/ATTPCROOT_09032015/dbase/dbMQ/procs/db_client.cxx
 FairDbMQClient.h
-/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbMQ/procs/FairDbMQClient.h
+/home/daq/fair_install_2015/ATTPCROOT_09032015/dbase/dbMQ/procs/FairDbMQClient.h
 
-/Users/yassidayyad/fair_install/FairRootInst/include/FairDbMQ.h
+/home/daq/fair_install_2015/FairRootInst/include/FairDbMQ.h
 zmq.h
-/Users/yassidayyad/fair_install/FairRootInst/include/zmq.h
+/home/daq/fair_install_2015/FairRootInst/include/zmq.h
 iostream
 -
 iomanip
@@ -74,27 +74,27 @@ stdarg.h
 signal.h
 -
 FairDbMQUtils.h
-/Users/yassidayyad/fair_install/FairRootInst/include/FairDbMQUtils.h
+/home/daq/fair_install_2015/FairRootInst/include/FairDbMQUtils.h
 FairDbMQError.h
-/Users/yassidayyad/fair_install/FairRootInst/include/FairDbMQError.h
+/home/daq/fair_install_2015/FairRootInst/include/FairDbMQError.h
 FairDbMQMsg.h
-/Users/yassidayyad/fair_install/FairRootInst/include/FairDbMQMsg.h
+/home/daq/fair_install_2015/FairRootInst/include/FairDbMQMsg.h
 FairDbMQContext.h
-/Users/yassidayyad/fair_install/FairRootInst/include/FairDbMQContext.h
+/home/daq/fair_install_2015/FairRootInst/include/FairDbMQContext.h
 FairDbMQSocket.h
-/Users/yassidayyad/fair_install/FairRootInst/include/FairDbMQSocket.h
+/home/daq/fair_install_2015/FairRootInst/include/FairDbMQSocket.h
 FairDbMQMisc.h
-/Users/yassidayyad/fair_install/FairRootInst/include/FairDbMQMisc.h
+/home/daq/fair_install_2015/FairRootInst/include/FairDbMQMisc.h
 
-/Users/yassidayyad/fair_install/FairRootInst/include/FairDbMQClient.h
+/home/daq/fair_install_2015/FairRootInst/include/FairDbMQClient.h
 FairDbMQ.h
-/Users/yassidayyad/fair_install/FairRootInst/include/FairDbMQ.h
+/home/daq/fair_install_2015/FairRootInst/include/FairDbMQ.h
 
-/Users/yassidayyad/fair_install/FairRootInst/include/FairDbMQError.h
+/home/daq/fair_install_2015/FairRootInst/include/FairDbMQError.h
 FairDbMQUtils.h
-/Users/yassidayyad/fair_install/FairRootInst/include/FairDbMQUtils.h
+/home/daq/fair_install_2015/FairRootInst/include/FairDbMQUtils.h
 
-/Users/yassidayyad/fair_install/FairSoftInst/include/zmq.h
+/usr/local/fairsoft/fairsoft_jul14p3-install/include/zmq.h
 errno.h
 -
 stddef.h

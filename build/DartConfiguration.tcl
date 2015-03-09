@@ -4,17 +4,17 @@
 
 
 # Configuration directories and files
-SourceDirectory: /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev
-BuildDirectory: /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build
+SourceDirectory: /home/daq/fair_install_2015/ATTPCROOT_09032015
+BuildDirectory: /home/daq/fair_install_2015/ATTPCROOT_09032015/build
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: iMac-de-Yassid.local
+Site: californium.rcnp.osaka-u.ac.jp
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
-BuildName: Darwin-c++
+BuildName: Linux-c++
 
 # Submission information
 IsCDash: TRUE
@@ -33,8 +33,8 @@ ScpCommand: /usr/bin/scp
 NightlyStartTime: 00:00:00 CEST
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/Applications/CMake 2.8-10.app/Contents/bin/cmake" "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev"
-MakeCommand: /usr/bin/make -i
+ConfigureCommand: "/usr/bin/cmake" "/home/daq/fair_install_2015/ATTPCROOT_09032015"
+MakeCommand: /usr/bin/gmake -i
 DefaultCTestConfigurationType: Release
 
 # CVS options

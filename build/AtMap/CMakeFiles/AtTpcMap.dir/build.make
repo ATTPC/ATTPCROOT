@@ -26,22 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/cmake"
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = "/Applications/CMake 2.8-10.app/Contents/bin/cmake" -E remove -f
+RM = /usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/ccmake"
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev
+CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT_09032015
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build
+CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT_09032015/build
 
 # Include any dependencies generated for this target.
 include AtMap/CMakeFiles/AtTpcMap.dir/depend.make
@@ -54,23 +54,23 @@ include AtMap/CMakeFiles/AtTpcMap.dir/flags.make
 
 AtMap/G__AtTpcMapDict.cxx: ../AtMap/AtTpcMap.h
 AtMap/G__AtTpcMapDict.cxx: ../AtMap/AtTpcMapLinkDef.h
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating G__AtTpcMapDict.cxx"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtMap && DYLD_LIBRARY_PATH=/Users/yassidayyad/fair_install/FairSoftInst/lib/root: ROOTSYS=/Users/yassidayyad/fair_install/FairSoftInst /Users/yassidayyad/fair_install/FairSoftInst/bin/rootcint -f /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtMap/G__AtTpcMapDict.cxx -c -I/Users/yassidayyad/fair_install/FairSoftInst/include/root -I/Users/yassidayyad/fair_install/FairSoftInst/include/root -I/Users/yassidayyad/fair_install/FairRootInst/include -I/Users/yassidayyad/fair_install/FairSoftInst/include -I/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtMap AtTpcMap.h AtTpcMapLinkDef.h
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/AtMap && LD_LIBRARY_PATH=/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root::/home/daq/fair_install_2015/ATTPCROOT_09032015/build/lib:/home/daq/fair_install_2015/FairRootInst/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root ROOTSYS=/usr/local/fairsoft/fairsoft_jul14p3-install /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rootcint -f /home/daq/fair_install_2015/ATTPCROOT_09032015/build/AtMap/G__AtTpcMapDict.cxx -c -I/usr/local/fairsoft/fairsoft_jul14p3-install/include/root -I/usr/local/fairsoft/fairsoft_jul14p3-install/include/root -I/home/daq/fair_install_2015/FairRootInst/include -I/usr/local/fairsoft/fairsoft_jul14p3-install/include -I/home/daq/fair_install_2015/ATTPCROOT_09032015/AtMap AtTpcMap.h AtTpcMapLinkDef.h
 
 AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o: AtMap/CMakeFiles/AtTpcMap.dir/flags.make
 AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o: ../AtMap/AtTpcMap.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtMap && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtMap/AtTpcMap.cxx
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/AtMap && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_09032015/AtMap/AtTpcMap.cxx
 
 AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.i"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtMap && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtMap/AtTpcMap.cxx > CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/AtMap && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_09032015/AtMap/AtTpcMap.cxx > CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.i
 
 AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.s"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtMap && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtMap/AtTpcMap.cxx -o CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/AtMap && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_09032015/AtMap/AtTpcMap.cxx -o CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.s
 
 AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o.requires:
 .PHONY : AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o.requires
@@ -83,17 +83,17 @@ AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o.provides.build: AtMap/CMakeFiles/At
 
 AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o: AtMap/CMakeFiles/AtTpcMap.dir/flags.make
 AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o: AtMap/G__AtTpcMapDict.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtMap && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtMap/G__AtTpcMapDict.cxx
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/AtMap && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_09032015/build/AtMap/G__AtTpcMapDict.cxx
 
 AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.i"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtMap && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtMap/G__AtTpcMapDict.cxx > CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/AtMap && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_09032015/build/AtMap/G__AtTpcMapDict.cxx > CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.i
 
 AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.s"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtMap && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtMap/G__AtTpcMapDict.cxx -o CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/AtMap && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_09032015/build/AtMap/G__AtTpcMapDict.cxx -o CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.s
 
 AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o.requires:
 .PHONY : AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o.requires
@@ -112,23 +112,23 @@ AtTpcMap_OBJECTS = \
 # External object files for target AtTpcMap
 AtTpcMap_EXTERNAL_OBJECTS =
 
-lib/libAtTpcMap.0.0.0.so: AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o
-lib/libAtTpcMap.0.0.0.so: AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o
-lib/libAtTpcMap.0.0.0.so: AtMap/CMakeFiles/AtTpcMap.dir/build.make
-lib/libAtTpcMap.0.0.0.so: lib/libBase.0.0.0.so
-lib/libAtTpcMap.0.0.0.so: lib/libParBase.0.0.0.so
-lib/libAtTpcMap.0.0.0.so: lib/libFairDB.0.0.0.so
-lib/libAtTpcMap.0.0.0.so: lib/libGeoBase.0.0.0.so
-lib/libAtTpcMap.0.0.0.so: lib/libFairTools.0.0.0.so
-lib/libAtTpcMap.0.0.0.so: lib/libMbsAPI.0.0.0.so
-lib/libAtTpcMap.0.0.0.so: AtMap/CMakeFiles/AtTpcMap.dir/link.txt
+lib/libAtTpcMap.so.0.0.0: AtMap/CMakeFiles/AtTpcMap.dir/AtTpcMap.cxx.o
+lib/libAtTpcMap.so.0.0.0: AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMapDict.cxx.o
+lib/libAtTpcMap.so.0.0.0: AtMap/CMakeFiles/AtTpcMap.dir/build.make
+lib/libAtTpcMap.so.0.0.0: lib/libBase.so.0.0.0
+lib/libAtTpcMap.so.0.0.0: lib/libParBase.so.0.0.0
+lib/libAtTpcMap.so.0.0.0: lib/libFairDB.so.0.0.0
+lib/libAtTpcMap.so.0.0.0: lib/libGeoBase.so.0.0.0
+lib/libAtTpcMap.so.0.0.0: lib/libFairTools.so.0.0.0
+lib/libAtTpcMap.so.0.0.0: lib/libMbsAPI.so.0.0.0
+lib/libAtTpcMap.so.0.0.0: AtMap/CMakeFiles/AtTpcMap.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library ../lib/libAtTpcMap.so"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtMap && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AtTpcMap.dir/link.txt --verbose=$(VERBOSE)
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtMap && $(CMAKE_COMMAND) -E cmake_symlink_library ../lib/libAtTpcMap.0.0.0.so ../lib/libAtTpcMap.0.so ../lib/libAtTpcMap.so
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/AtMap && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AtTpcMap.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/AtMap && $(CMAKE_COMMAND) -E cmake_symlink_library ../lib/libAtTpcMap.so.0.0.0 ../lib/libAtTpcMap.so.0 ../lib/libAtTpcMap.so
 
-lib/libAtTpcMap.0.so: lib/libAtTpcMap.0.0.0.so
+lib/libAtTpcMap.so.0: lib/libAtTpcMap.so.0.0.0
 
-lib/libAtTpcMap.so: lib/libAtTpcMap.0.0.0.so
+lib/libAtTpcMap.so: lib/libAtTpcMap.so.0.0.0
 
 # Rule to build all files generated by this target.
 AtMap/CMakeFiles/AtTpcMap.dir/build: lib/libAtTpcMap.so
@@ -139,10 +139,10 @@ AtMap/CMakeFiles/AtTpcMap.dir/requires: AtMap/CMakeFiles/AtTpcMap.dir/G__AtTpcMa
 .PHONY : AtMap/CMakeFiles/AtTpcMap.dir/requires
 
 AtMap/CMakeFiles/AtTpcMap.dir/clean:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtMap && $(CMAKE_COMMAND) -P CMakeFiles/AtTpcMap.dir/cmake_clean.cmake
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/AtMap && $(CMAKE_COMMAND) -P CMakeFiles/AtTpcMap.dir/cmake_clean.cmake
 .PHONY : AtMap/CMakeFiles/AtTpcMap.dir/clean
 
 AtMap/CMakeFiles/AtTpcMap.dir/depend: AtMap/G__AtTpcMapDict.cxx
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtMap /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtMap /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/AtMap/CMakeFiles/AtTpcMap.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT_09032015 /home/daq/fair_install_2015/ATTPCROOT_09032015/AtMap /home/daq/fair_install_2015/ATTPCROOT_09032015/build /home/daq/fair_install_2015/ATTPCROOT_09032015/build/AtMap /home/daq/fair_install_2015/ATTPCROOT_09032015/build/AtMap/CMakeFiles/AtTpcMap.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : AtMap/CMakeFiles/AtTpcMap.dir/depend
 

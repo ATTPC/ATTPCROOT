@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/dbase/dbMQ
-# Build directory: /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/dbase/dbMQ
+# Source directory: /home/daq/fair_install_2015/ATTPCROOT_09032015/dbase/dbMQ
+# Build directory: /home/daq/fair_install_2015/ATTPCROOT_09032015/build/dbase/dbMQ
 # 
-# This file includes the relevent testing commands required for 
+# This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

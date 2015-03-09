@@ -31,6 +31,8 @@ ATDecoder/ATCore.cc
 ATDecoder/ATPad.cc
 ATDecoder/ATRawEvent.cc
 
+ATDecoderTask.cc
+
 )
 
 CHANGE_FILE_EXTENSION(*.cc *.hh HEADERS "${SRCS}")

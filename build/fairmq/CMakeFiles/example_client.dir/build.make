@@ -26,22 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/cmake"
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = "/Applications/CMake 2.8-10.app/Contents/bin/cmake" -E remove -f
+RM = /usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/ccmake"
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev
+CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT_09032015
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build
+CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT_09032015/build
 
 # Include any dependencies generated for this target.
 include fairmq/CMakeFiles/example_client.dir/depend.make
@@ -54,17 +54,17 @@ include fairmq/CMakeFiles/example_client.dir/flags.make
 
 fairmq/CMakeFiles/example_client.dir/examples/req-rep/runExampleClient.cxx.o: fairmq/CMakeFiles/example_client.dir/flags.make
 fairmq/CMakeFiles/example_client.dir/examples/req-rep/runExampleClient.cxx.o: ../fairmq/examples/req-rep/runExampleClient.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object fairmq/CMakeFiles/example_client.dir/examples/req-rep/runExampleClient.cxx.o"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairmq && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/example_client.dir/examples/req-rep/runExampleClient.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/fairmq/examples/req-rep/runExampleClient.cxx
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/fairmq && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/example_client.dir/examples/req-rep/runExampleClient.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_09032015/fairmq/examples/req-rep/runExampleClient.cxx
 
 fairmq/CMakeFiles/example_client.dir/examples/req-rep/runExampleClient.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/example_client.dir/examples/req-rep/runExampleClient.cxx.i"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairmq && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/fairmq/examples/req-rep/runExampleClient.cxx > CMakeFiles/example_client.dir/examples/req-rep/runExampleClient.cxx.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/fairmq && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_09032015/fairmq/examples/req-rep/runExampleClient.cxx > CMakeFiles/example_client.dir/examples/req-rep/runExampleClient.cxx.i
 
 fairmq/CMakeFiles/example_client.dir/examples/req-rep/runExampleClient.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/example_client.dir/examples/req-rep/runExampleClient.cxx.s"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairmq && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/fairmq/examples/req-rep/runExampleClient.cxx -o CMakeFiles/example_client.dir/examples/req-rep/runExampleClient.cxx.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/fairmq && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_09032015/fairmq/examples/req-rep/runExampleClient.cxx -o CMakeFiles/example_client.dir/examples/req-rep/runExampleClient.cxx.s
 
 fairmq/CMakeFiles/example_client.dir/examples/req-rep/runExampleClient.cxx.o.requires:
 .PHONY : fairmq/CMakeFiles/example_client.dir/examples/req-rep/runExampleClient.cxx.o.requires
@@ -84,11 +84,11 @@ example_client_EXTERNAL_OBJECTS =
 
 bin/example_client: fairmq/CMakeFiles/example_client.dir/examples/req-rep/runExampleClient.cxx.o
 bin/example_client: fairmq/CMakeFiles/example_client.dir/build.make
-bin/example_client: lib/libFairMQ.0.0.0.so
-bin/example_client: /Users/yassidayyad/fair_install/FairSoftInst/lib64/libzmq.so
+bin/example_client: lib/libFairMQ.so.0.0.0
+bin/example_client: /usr/local/fairsoft/fairsoft_jul14p3-install/lib64/libzmq.so
 bin/example_client: fairmq/CMakeFiles/example_client.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable ../bin/example_client"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairmq && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/example_client.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/fairmq && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/example_client.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 fairmq/CMakeFiles/example_client.dir/build: bin/example_client
@@ -98,10 +98,10 @@ fairmq/CMakeFiles/example_client.dir/requires: fairmq/CMakeFiles/example_client.
 .PHONY : fairmq/CMakeFiles/example_client.dir/requires
 
 fairmq/CMakeFiles/example_client.dir/clean:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairmq && $(CMAKE_COMMAND) -P CMakeFiles/example_client.dir/cmake_clean.cmake
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/fairmq && $(CMAKE_COMMAND) -P CMakeFiles/example_client.dir/cmake_clean.cmake
 .PHONY : fairmq/CMakeFiles/example_client.dir/clean
 
 fairmq/CMakeFiles/example_client.dir/depend:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/fairmq /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairmq /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairmq/CMakeFiles/example_client.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT_09032015 /home/daq/fair_install_2015/ATTPCROOT_09032015/fairmq /home/daq/fair_install_2015/ATTPCROOT_09032015/build /home/daq/fair_install_2015/ATTPCROOT_09032015/build/fairmq /home/daq/fair_install_2015/ATTPCROOT_09032015/build/fairmq/CMakeFiles/example_client.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : fairmq/CMakeFiles/example_client.dir/depend
 

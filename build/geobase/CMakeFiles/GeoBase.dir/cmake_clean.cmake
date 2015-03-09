@@ -35,8 +35,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/GeoBase.dir/G__GeoBaseDict.cxx.o"
   "../lib/libGeoBase.pdb"
   "../lib/libGeoBase.so"
-  "../lib/libGeoBase.0.0.0.so"
-  "../lib/libGeoBase.0.so"
+  "../lib/libGeoBase.so.0.0.0"
+  "../lib/libGeoBase.so.0"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -4,26 +4,25 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/fairmq/run/runMerger.cxx" "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairmq/CMakeFiles/merger.dir/run/runMerger.cxx.o"
+  "/home/daq/fair_install_2015/ATTPCROOT_09032015/fairmq/run/runMerger.cxx" "/home/daq/fair_install_2015/ATTPCROOT_09032015/build/fairmq/CMakeFiles/merger.dir/run/runMerger.cxx.o"
   )
-SET(CMAKE_CXX_COMPILER_ID "Clang")
+SET(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 SET(CMAKE_TARGET_DEFINITIONS
-  "HAS_SHAREDPOINTER"
   "HAS_SHAREDPOINTER"
   )
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
-  "/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/fairmq/CMakeFiles/FairMQ.dir/DependInfo.cmake"
+  "/home/daq/fair_install_2015/ATTPCROOT_09032015/build/fairmq/CMakeFiles/FairMQ.dir/DependInfo.cmake"
   )
 
 # The include file search paths:
 SET(CMAKE_C_TARGET_INCLUDE_PATH
   "../fairmq"
   "../fairmq/devices"
-  "/Users/yassidayyad/fair_install/FairSoftInst/include"
+  "/usr/local/fairsoft/fairsoft_jul14p3-install/include"
   "../fairmq/zeromq"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

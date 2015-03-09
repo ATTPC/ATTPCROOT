@@ -6,8 +6,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/AtGen.dir/G__AtGenDict.cxx.o"
   "../lib/libAtGen.pdb"
   "../lib/libAtGen.so"
-  "../lib/libAtGen.0.0.0.so"
-  "../lib/libAtGen.0.so"
+  "../lib/libAtGen.so.0.0.0"
+  "../lib/libAtGen.so.0"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -5,8 +5,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/AtData.dir/G__AtDataDict.cxx.o"
   "../lib/libAtData.pdb"
   "../lib/libAtData.so"
-  "../lib/libAtData.0.0.0.so"
-  "../lib/libAtData.0.so"
+  "../lib/libAtData.so.0.0.0"
+  "../lib/libAtData.so.0"
 )
 
 # Per-language clean rules from dependency scanning.

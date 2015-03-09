@@ -26,22 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/cmake"
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = "/Applications/CMake 2.8-10.app/Contents/bin/cmake" -E remove -f
+RM = /usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/ccmake"
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev
+CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT_09032015
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build
+CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT_09032015/build
 
 # Include any dependencies generated for this target.
 include tpc/CMakeFiles/AtTpc.dir/depend.make
@@ -58,23 +58,23 @@ tpc/G__AtTpcDict.cxx: ../tpc/AtTpcGeo.h
 tpc/G__AtTpcDict.cxx: ../tpc/AtTpcGeoPar.h
 tpc/G__AtTpcDict.cxx: ../tpc/AtTpcPoint.h
 tpc/G__AtTpcDict.cxx: ../tpc/AtTpcLinkDef.h
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating G__AtTpcDict.cxx"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && DYLD_LIBRARY_PATH=/Users/yassidayyad/fair_install/FairSoftInst/lib/root: ROOTSYS=/Users/yassidayyad/fair_install/FairSoftInst /Users/yassidayyad/fair_install/FairSoftInst/bin/rootcint -f /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc/G__AtTpcDict.cxx -c -I/Users/yassidayyad/fair_install/FairSoftInst/include/root -I/Users/yassidayyad/fair_install/FairSoftInst/include/root -I/Users/yassidayyad/fair_install/FairRootInst/include -I/Users/yassidayyad/fair_install/FairSoftInst/include -I/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/AtData -I/Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/tpc AtTpc.h AtTpcContFact.h AtTpcGeo.h AtTpcGeoPar.h AtTpcPoint.h AtTpcLinkDef.h
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && LD_LIBRARY_PATH=/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root::/home/daq/fair_install_2015/ATTPCROOT_09032015/build/lib:/home/daq/fair_install_2015/FairRootInst/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root ROOTSYS=/usr/local/fairsoft/fairsoft_jul14p3-install /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rootcint -f /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc/G__AtTpcDict.cxx -c -I/usr/local/fairsoft/fairsoft_jul14p3-install/include/root -I/usr/local/fairsoft/fairsoft_jul14p3-install/include/root -I/home/daq/fair_install_2015/FairRootInst/include -I/usr/local/fairsoft/fairsoft_jul14p3-install/include -I/home/daq/fair_install_2015/ATTPCROOT_09032015/AtData -I/home/daq/fair_install_2015/ATTPCROOT_09032015/tpc AtTpc.h AtTpcContFact.h AtTpcGeo.h AtTpcGeoPar.h AtTpcPoint.h AtTpcLinkDef.h
 
 tpc/CMakeFiles/AtTpc.dir/AtTpc.cxx.o: tpc/CMakeFiles/AtTpc.dir/flags.make
 tpc/CMakeFiles/AtTpc.dir/AtTpc.cxx.o: ../tpc/AtTpc.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object tpc/CMakeFiles/AtTpc.dir/AtTpc.cxx.o"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtTpc.dir/AtTpc.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/tpc/AtTpc.cxx
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtTpc.dir/AtTpc.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_09032015/tpc/AtTpc.cxx
 
 tpc/CMakeFiles/AtTpc.dir/AtTpc.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AtTpc.dir/AtTpc.cxx.i"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/tpc/AtTpc.cxx > CMakeFiles/AtTpc.dir/AtTpc.cxx.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_09032015/tpc/AtTpc.cxx > CMakeFiles/AtTpc.dir/AtTpc.cxx.i
 
 tpc/CMakeFiles/AtTpc.dir/AtTpc.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AtTpc.dir/AtTpc.cxx.s"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/tpc/AtTpc.cxx -o CMakeFiles/AtTpc.dir/AtTpc.cxx.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_09032015/tpc/AtTpc.cxx -o CMakeFiles/AtTpc.dir/AtTpc.cxx.s
 
 tpc/CMakeFiles/AtTpc.dir/AtTpc.cxx.o.requires:
 .PHONY : tpc/CMakeFiles/AtTpc.dir/AtTpc.cxx.o.requires
@@ -87,17 +87,17 @@ tpc/CMakeFiles/AtTpc.dir/AtTpc.cxx.o.provides.build: tpc/CMakeFiles/AtTpc.dir/At
 
 tpc/CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.o: tpc/CMakeFiles/AtTpc.dir/flags.make
 tpc/CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.o: ../tpc/AtTpcContFact.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object tpc/CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.o"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/tpc/AtTpcContFact.cxx
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_09032015/tpc/AtTpcContFact.cxx
 
 tpc/CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.i"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/tpc/AtTpcContFact.cxx > CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_09032015/tpc/AtTpcContFact.cxx > CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.i
 
 tpc/CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.s"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/tpc/AtTpcContFact.cxx -o CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_09032015/tpc/AtTpcContFact.cxx -o CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.s
 
 tpc/CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.o.requires:
 .PHONY : tpc/CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.o.requires
@@ -110,17 +110,17 @@ tpc/CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.o.provides.build: tpc/CMakeFiles/AtTp
 
 tpc/CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.o: tpc/CMakeFiles/AtTpc.dir/flags.make
 tpc/CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.o: ../tpc/AtTpcGeo.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object tpc/CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.o"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/tpc/AtTpcGeo.cxx
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_09032015/tpc/AtTpcGeo.cxx
 
 tpc/CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.i"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/tpc/AtTpcGeo.cxx > CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_09032015/tpc/AtTpcGeo.cxx > CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.i
 
 tpc/CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.s"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/tpc/AtTpcGeo.cxx -o CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_09032015/tpc/AtTpcGeo.cxx -o CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.s
 
 tpc/CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.o.requires:
 .PHONY : tpc/CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.o.requires
@@ -133,17 +133,17 @@ tpc/CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.o.provides.build: tpc/CMakeFiles/AtTpc.dir
 
 tpc/CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.o: tpc/CMakeFiles/AtTpc.dir/flags.make
 tpc/CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.o: ../tpc/AtTpcGeoPar.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object tpc/CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.o"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/tpc/AtTpcGeoPar.cxx
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_09032015/tpc/AtTpcGeoPar.cxx
 
 tpc/CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.i"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/tpc/AtTpcGeoPar.cxx > CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_09032015/tpc/AtTpcGeoPar.cxx > CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.i
 
 tpc/CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.s"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/tpc/AtTpcGeoPar.cxx -o CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_09032015/tpc/AtTpcGeoPar.cxx -o CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.s
 
 tpc/CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.o.requires:
 .PHONY : tpc/CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.o.requires
@@ -156,17 +156,17 @@ tpc/CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.o.provides.build: tpc/CMakeFiles/AtTpc.
 
 tpc/CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.o: tpc/CMakeFiles/AtTpc.dir/flags.make
 tpc/CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.o: ../tpc/AtTpcPoint.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object tpc/CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.o"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/tpc/AtTpcPoint.cxx
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_09032015/tpc/AtTpcPoint.cxx
 
 tpc/CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.i"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/tpc/AtTpcPoint.cxx > CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_09032015/tpc/AtTpcPoint.cxx > CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.i
 
 tpc/CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.s"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/tpc/AtTpcPoint.cxx -o CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_09032015/tpc/AtTpcPoint.cxx -o CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.s
 
 tpc/CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.o.requires:
 .PHONY : tpc/CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.o.requires
@@ -179,17 +179,17 @@ tpc/CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.o.provides.build: tpc/CMakeFiles/AtTpc.d
 
 tpc/CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.o: tpc/CMakeFiles/AtTpc.dir/flags.make
 tpc/CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.o: tpc/G__AtTpcDict.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object tpc/CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.o"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.o -c /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc/G__AtTpcDict.cxx
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc/G__AtTpcDict.cxx
 
 tpc/CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.i"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc/G__AtTpcDict.cxx > CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc/G__AtTpcDict.cxx > CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.i
 
 tpc/CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.s"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc/G__AtTpcDict.cxx -o CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc/G__AtTpcDict.cxx -o CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.s
 
 tpc/CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.o.requires:
 .PHONY : tpc/CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.o.requires
@@ -212,27 +212,27 @@ AtTpc_OBJECTS = \
 # External object files for target AtTpc
 AtTpc_EXTERNAL_OBJECTS =
 
-lib/libAtTpc.0.0.0.so: tpc/CMakeFiles/AtTpc.dir/AtTpc.cxx.o
-lib/libAtTpc.0.0.0.so: tpc/CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.o
-lib/libAtTpc.0.0.0.so: tpc/CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.o
-lib/libAtTpc.0.0.0.so: tpc/CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.o
-lib/libAtTpc.0.0.0.so: tpc/CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.o
-lib/libAtTpc.0.0.0.so: tpc/CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.o
-lib/libAtTpc.0.0.0.so: tpc/CMakeFiles/AtTpc.dir/build.make
-lib/libAtTpc.0.0.0.so: lib/libBase.0.0.0.so
-lib/libAtTpc.0.0.0.so: lib/libParBase.0.0.0.so
-lib/libAtTpc.0.0.0.so: lib/libFairDB.0.0.0.so
-lib/libAtTpc.0.0.0.so: lib/libGeoBase.0.0.0.so
-lib/libAtTpc.0.0.0.so: lib/libFairTools.0.0.0.so
-lib/libAtTpc.0.0.0.so: lib/libMbsAPI.0.0.0.so
-lib/libAtTpc.0.0.0.so: tpc/CMakeFiles/AtTpc.dir/link.txt
+lib/libAtTpc.so.0.0.0: tpc/CMakeFiles/AtTpc.dir/AtTpc.cxx.o
+lib/libAtTpc.so.0.0.0: tpc/CMakeFiles/AtTpc.dir/AtTpcContFact.cxx.o
+lib/libAtTpc.so.0.0.0: tpc/CMakeFiles/AtTpc.dir/AtTpcGeo.cxx.o
+lib/libAtTpc.so.0.0.0: tpc/CMakeFiles/AtTpc.dir/AtTpcGeoPar.cxx.o
+lib/libAtTpc.so.0.0.0: tpc/CMakeFiles/AtTpc.dir/AtTpcPoint.cxx.o
+lib/libAtTpc.so.0.0.0: tpc/CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.o
+lib/libAtTpc.so.0.0.0: tpc/CMakeFiles/AtTpc.dir/build.make
+lib/libAtTpc.so.0.0.0: lib/libBase.so.0.0.0
+lib/libAtTpc.so.0.0.0: lib/libParBase.so.0.0.0
+lib/libAtTpc.so.0.0.0: lib/libFairDB.so.0.0.0
+lib/libAtTpc.so.0.0.0: lib/libGeoBase.so.0.0.0
+lib/libAtTpc.so.0.0.0: lib/libFairTools.so.0.0.0
+lib/libAtTpc.so.0.0.0: lib/libMbsAPI.so.0.0.0
+lib/libAtTpc.so.0.0.0: tpc/CMakeFiles/AtTpc.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library ../lib/libAtTpc.so"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AtTpc.dir/link.txt --verbose=$(VERBOSE)
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && $(CMAKE_COMMAND) -E cmake_symlink_library ../lib/libAtTpc.0.0.0.so ../lib/libAtTpc.0.so ../lib/libAtTpc.so
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/AtTpc.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && $(CMAKE_COMMAND) -E cmake_symlink_library ../lib/libAtTpc.so.0.0.0 ../lib/libAtTpc.so.0 ../lib/libAtTpc.so
 
-lib/libAtTpc.0.so: lib/libAtTpc.0.0.0.so
+lib/libAtTpc.so.0: lib/libAtTpc.so.0.0.0
 
-lib/libAtTpc.so: lib/libAtTpc.0.0.0.so
+lib/libAtTpc.so: lib/libAtTpc.so.0.0.0
 
 # Rule to build all files generated by this target.
 tpc/CMakeFiles/AtTpc.dir/build: lib/libAtTpc.so
@@ -247,10 +247,10 @@ tpc/CMakeFiles/AtTpc.dir/requires: tpc/CMakeFiles/AtTpc.dir/G__AtTpcDict.cxx.o.r
 .PHONY : tpc/CMakeFiles/AtTpc.dir/requires
 
 tpc/CMakeFiles/AtTpc.dir/clean:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc && $(CMAKE_COMMAND) -P CMakeFiles/AtTpc.dir/cmake_clean.cmake
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc && $(CMAKE_COMMAND) -P CMakeFiles/AtTpc.dir/cmake_clean.cmake
 .PHONY : tpc/CMakeFiles/AtTpc.dir/clean
 
 tpc/CMakeFiles/AtTpc.dir/depend: tpc/G__AtTpcDict.cxx
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/tpc /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/tpc/CMakeFiles/AtTpc.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT_09032015 /home/daq/fair_install_2015/ATTPCROOT_09032015/tpc /home/daq/fair_install_2015/ATTPCROOT_09032015/build /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc /home/daq/fair_install_2015/ATTPCROOT_09032015/build/tpc/CMakeFiles/AtTpc.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : tpc/CMakeFiles/AtTpc.dir/depend
 

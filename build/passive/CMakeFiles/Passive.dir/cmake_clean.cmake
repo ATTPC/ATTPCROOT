@@ -8,8 +8,8 @@ FILE(REMOVE_RECURSE
   "CMakeFiles/Passive.dir/G__PassiveDict.cxx.o"
   "../lib/libPassive.pdb"
   "../lib/libPassive.so"
-  "../lib/libPassive.0.0.0.so"
-  "../lib/libPassive.0.so"
+  "../lib/libPassive.so.0.0.0"
+  "../lib/libPassive.so.0"
 )
 
 # Per-language clean rules from dependency scanning.

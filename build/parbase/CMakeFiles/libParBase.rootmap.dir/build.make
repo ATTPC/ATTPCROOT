@@ -26,22 +26,22 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/cmake"
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = "/Applications/CMake 2.8-10.app/Contents/bin/cmake" -E remove -f
+RM = /usr/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The program to use to edit the cache.
-CMAKE_EDIT_COMMAND = "/Applications/CMake 2.8-10.app/Contents/bin/ccmake"
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev
+CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT_09032015
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build
+CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT_09032015/build
 
 # Utility rule file for libParBase.rootmap.
 
@@ -52,10 +52,10 @@ parbase/CMakeFiles/libParBase.rootmap: lib/libParBase.rootmap
 
 lib/libParBase.rootmap: ../parbase/ParBaseLinkDef.h
 lib/libParBase.rootmap: ../parbase/ParBaseLinkDef.h
-lib/libParBase.rootmap: /Users/yassidayyad/fair_install/FairSoftInst/bin/rlibmap
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/CMakeFiles $(CMAKE_PROGRESS_1)
+lib/libParBase.rootmap: /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating ../lib/libParBase.rootmap"
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/parbase && /Users/yassidayyad/fair_install/FairSoftInst/bin/rlibmap -o /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/lib/libParBase.rootmap -l ParBase -d libFairTools.so libFairDB.so libRIO.so libCint.so libCore.so -c ParBaseLinkDef.h /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/parbase/ParBaseLinkDef.h
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/parbase && /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rlibmap -o /home/daq/fair_install_2015/ATTPCROOT_09032015/build/lib/libParBase.rootmap -l ParBase -d libFairTools.so libFairDB.so libRIO.so libCint.so libCore.so -c ParBaseLinkDef.h /home/daq/fair_install_2015/ATTPCROOT_09032015/parbase/ParBaseLinkDef.h
 
 libParBase.rootmap: parbase/CMakeFiles/libParBase.rootmap
 libParBase.rootmap: lib/libParBase.rootmap
@@ -67,10 +67,10 @@ parbase/CMakeFiles/libParBase.rootmap.dir/build: libParBase.rootmap
 .PHONY : parbase/CMakeFiles/libParBase.rootmap.dir/build
 
 parbase/CMakeFiles/libParBase.rootmap.dir/clean:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/parbase && $(CMAKE_COMMAND) -P CMakeFiles/libParBase.rootmap.dir/cmake_clean.cmake
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/parbase && $(CMAKE_COMMAND) -P CMakeFiles/libParBase.rootmap.dir/cmake_clean.cmake
 .PHONY : parbase/CMakeFiles/libParBase.rootmap.dir/clean
 
 parbase/CMakeFiles/libParBase.rootmap.dir/depend:
-	cd /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/parbase /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/parbase /Users/yassidayyad/fair_install/ATTPCROOT_Mar_dev/build/parbase/CMakeFiles/libParBase.rootmap.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT_09032015 /home/daq/fair_install_2015/ATTPCROOT_09032015/parbase /home/daq/fair_install_2015/ATTPCROOT_09032015/build /home/daq/fair_install_2015/ATTPCROOT_09032015/build/parbase /home/daq/fair_install_2015/ATTPCROOT_09032015/build/parbase/CMakeFiles/libParBase.rootmap.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : parbase/CMakeFiles/libParBase.rootmap.dir/depend
 
