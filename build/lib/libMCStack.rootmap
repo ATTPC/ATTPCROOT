@@ -1,2 +1,0 @@
-Library.FairMCTrack:                        MCStack libBase.so libFairTools.so
-Library.FairStack:                          MCStack libBase.so libFairTools.so

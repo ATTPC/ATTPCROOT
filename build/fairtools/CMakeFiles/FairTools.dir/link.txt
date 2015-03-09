@@ -1,1 +1,0 @@
-/usr/bin/c++  -fPIC  -std=c++11 -g -Wshadow    -shared -Wl,-soname,libFairTools.so.0 -o ../lib/libFairTools.so.0.0.0 CMakeFiles/FairTools.dir/FairLogger.cxx.o CMakeFiles/FairTools.dir/G__FairToolsDict.cxx.o  -L/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root -lCint -lCore -Wl,-rpath,/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root: 

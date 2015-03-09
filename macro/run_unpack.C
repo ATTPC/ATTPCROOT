@@ -11,26 +11,30 @@ void run_unpack(){
                 PadRef[3] = 0;*/
 
   FairLogger *logger = FairLogger::GetLogger();
-  logger -> SetLogFileName("genieLog.log");
+  logger -> SetLogFileName("ATTPCLog.log");
   logger -> SetLogToFile(kTRUE);
   logger -> SetLogToScreen(kTRUE);
   logger -> SetLogVerbosityLevel("MEDIUM");
 
   FairRunAna* run = new FairRunAna();
-  //run -> SetInputFile("mc.dummy.root");
+  run -> SetInputFile("mc.dummy.root");
   run -> SetOutputFile("output.root");
+    
+    TString file = "../parameters/AT.parameters.par";
 
    FairRuntimeDb* rtdb = run->GetRuntimeDb();
- // FairParAsciiFileIo* parIo1 = new FairParAsciiFileIo();
- // parIo1 -> open(file.Data(), "in");
- // FairParRootFileIo* parIo2 = new FairParRootFileIo();
- // parIo2 -> open("param.dummy.root");
- // rtdb -> setFirstInput(parIo2);
- // rtdb -> setSecondInput(parIo1);
+   FairParAsciiFileIo* parIo1 = new FairParAsciiFileIo();
+   parIo1 -> open(file.Data(), "in");
+   FairParRootFileIo* parIo2 = new FairParRootFileIo();
+   parIo2 -> open("param.dummy.root");
+   rtdb -> setFirstInput(parIo2);
+   rtdb -> setSecondInput(parIo1);
 
   ATDecoderTask *decoderTask = new ATDecoderTask();
-  decoderTask ->SetMap("/home/daq/fair_install_2015/ATTPCROOT_09032015/scripts/Lookup20141208.xml");
-  decoderTask -> AddData("/home/daq/Desktop/Yassid/ATTPC/run_0225/test");
+  //decoderTask ->SetMap("/home/daq/fair_install_2015/ATTPCROOT_09032015/scripts/Lookup20141208.xml");
+  //decoderTask -> AddData("/home/daq/Desktop/Yassid/ATTPC/run_0225/test");
+  decoderTask ->SetMap("/Users/yassidayyad/fair_install/ATTPCROOT_Mar/scripts/Lookup20141208.xml");
+  decoderTask -> AddData("/Users/yassidayyad/Desktop/ATTPC/Data/run_0225/test");
   decoderTask -> SetData(0);
   //decoderTask -> SetInternalPedestal(5, 20);
   decoderTask -> SetNumTbs(512);

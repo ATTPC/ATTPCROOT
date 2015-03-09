@@ -1,7 +1,13 @@
 [INFO   ] [FairRootManager.cxx::OpenOutFile:723] FairRootManager::OpenOutFile("output.root")
-[INFO   ] [FairRootManager.cxx::OpenInChain:355] No input file defined. 
-[INFO   ] [FairRunAna.cxx::Init:307] Initializing without input file or Mixed input 
-[ERROR  ] [FairParSet.cxx::init:70] init() FairGeoParSet  not initialized 
-[ERROR  ] [FairParSet.cxx::init:70] init() FairBaseParSet  not initialized 
-[ERROR  ] [FairParSet.cxx::init:70] init() FairGeoParSet  not initialized 
-[ERROR  ] [FairParSet.cxx::init:70] init() FairBaseParSet  not initialized 
+[INFO   ] [FairRootManager.cxx::PrintFriendList:563] The input consists out of the following trees and files: 
+[INFO   ] [FairRootManager.cxx::PrintFriendList:565]  - cbmsim 
+[INFO   ] [FairRootManager.cxx::PrintFriendList:570]     - mc.dummy.root 
+[INFO   ] [FairRunAna.cxx::Init:238] Parameter and input file are available, Assure that basic info is there for the run! 
+[INFO   ] [FairRootManager.cxx::ReadEvent:1115] The number of entries in chain is 20000 
+[INFO   ] [FairRootManager.cxx::ActivateBranch:1638]  Branch: EventHeader.  not found in Tree  
+[INFO   ] [FairRootManager.cxx::ActivateBranch:1638]  Branch: EventHeader.  not found in Tree  
+[INFO   ] [FairRootManager.cxx::ReadEvent:1129]  No event Header was found!!! 
+[INFO   ] [FairRootManager.cxx::ActivateBranch:1638]  Branch: EventHeader.  not found in Tree  
+[INFO   ] [FairRootManager.cxx::ActivateBranch:1638]  Branch: EventHeader.  not found in Tree  
+[INFO   ] [FairRootManager.cxx::ReadEvent:1115] The number of entries in chain is 20000 
+[INFO   ] [FairRootManager.cxx::ReadEvent:1115] The number of entries in chain is 20000 

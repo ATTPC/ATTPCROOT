@@ -1,2 +1,0 @@
-Library.AtMCTrack:                          AtData libBase.so libEG.so libPhysics.so libCint.so libCore.so
-Library.AtStack:                            AtData libBase.so libEG.so libPhysics.so libCint.so libCore.so
