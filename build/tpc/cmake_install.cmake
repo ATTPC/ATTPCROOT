@@ -1,4 +1,4 @@
-# Install script for directory: /home/daq/fair_install_2015/ATTPCROOT_Feb/tpc
+# Install script for directory: /home/daq/fair_install_2015/ATTPCROOT_09032015/tpc
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,16 +34,16 @@ ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/tpc/AtTpc.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/tpc/AtTpcContFact.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/tpc/AtTpcGeo.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/tpc/AtTpcGeoPar.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/tpc/AtTpcPoint.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/tpc/AtTpc.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/tpc/AtTpcContFact.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/tpc/AtTpcGeo.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/tpc/AtTpcGeoPar.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/tpc/AtTpcPoint.h"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE FILE FILES "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtTpc.rootmap")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE FILE FILES "/home/daq/fair_install_2015/ATTPCROOT_09032015/build/lib/libAtTpc.rootmap")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
@@ -60,9 +60,9 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
     ENDIF()
   ENDFOREACH()
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtTpc.so.0.0.0"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtTpc.so.0"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libAtTpc.so"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/build/lib/libAtTpc.so.0.0.0"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/build/lib/libAtTpc.so.0"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/build/lib/libAtTpc.so"
     )
   FOREACH(file
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libAtTpc.so.0.0.0"

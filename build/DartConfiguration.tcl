@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/daq/fair_install_2015/ATTPCROOT_Feb
-BuildDirectory: /home/daq/fair_install_2015/ATTPCROOT_Feb/build
+SourceDirectory: /home/daq/fair_install_2015/ATTPCROOT_09032015
+BuildDirectory: /home/daq/fair_install_2015/ATTPCROOT_09032015/build
 
 # Where to place the cost data store
 CostDataFile: 
@@ -33,7 +33,7 @@ ScpCommand: /usr/bin/scp
 NightlyStartTime: 00:00:00 CEST
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/home/daq/fair_install_2015/ATTPCROOT_Feb"
+ConfigureCommand: "/usr/bin/cmake" "/home/daq/fair_install_2015/ATTPCROOT_09032015"
 MakeCommand: /usr/bin/gmake -i
 DefaultCTestConfigurationType: Release
 

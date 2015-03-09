@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/ccmake
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb
+CMAKE_SOURCE_DIR = /home/daq/fair_install_2015/ATTPCROOT_09032015
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT_Feb/build
+CMAKE_BINARY_DIR = /home/daq/fair_install_2015/ATTPCROOT_09032015/build
 
 # Include any dependencies generated for this target.
 include reco/CMakeFiles/ATTPCReco.dir/depend.make
@@ -58,24 +58,26 @@ reco/G__ATTPCRecoDict.cxx: ../reco/GETDecoder/GETMath.hh
 reco/G__ATTPCRecoDict.cxx: ../reco/GETDecoder/GETPlot.hh
 reco/G__ATTPCRecoDict.cxx: ../reco/ATDecoder/ATCore.hh
 reco/G__ATTPCRecoDict.cxx: ../reco/ATDecoder/ATPad.hh
+reco/G__ATTPCRecoDict.cxx: ../reco/ATDecoder/ATRawEvent.hh
+reco/G__ATTPCRecoDict.cxx: ../reco/ATDecoderTask.hh
 reco/G__ATTPCRecoDict.cxx: ../reco/ATTPCRecoLinkDef.h
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Generating G__ATTPCRecoDict.cxx"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && LD_LIBRARY_PATH=/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root::/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib:/home/daq/fair_install_2015/FairRootInst/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root:/home/daq/fair_install_2015/FairSoftInst/lib ROOTSYS=/usr/local/fairsoft/fairsoft_jul14p3-install /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rootcint -f /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco/G__ATTPCRecoDict.cxx -c -I/usr/local/fairsoft/fairsoft_jul14p3-install/include/root -I/usr/local/fairsoft/fairsoft_jul14p3-install/include/root -I/home/daq/fair_install_2015/FairRootInst/include -I/usr/local/fairsoft/fairsoft_jul14p3-install/include -I/home/daq/fair_install_2015/ATTPCROOT_Feb/AtMap -I/home/daq/fair_install_2015/ATTPCROOT_Feb/reco -I/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder -I/home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder GETDecoder/GETDecoder.hh GETDecoder/GETFrame.hh GETDecoder/GETMath.hh GETDecoder/GETPlot.hh ATDecoder/ATCore.hh ATDecoder/ATPad.hh ATTPCRecoLinkDef.h
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && LD_LIBRARY_PATH=/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root::/home/daq/fair_install_2015/ATTPCROOT_09032015/build/lib:/home/daq/fair_install_2015/FairRootInst/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib:/usr/local/fairsoft/fairsoft_jul14p3-install/lib/root ROOTSYS=/usr/local/fairsoft/fairsoft_jul14p3-install /usr/local/fairsoft/fairsoft_jul14p3-install/bin/rootcint -f /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco/G__ATTPCRecoDict.cxx -c -I/usr/local/fairsoft/fairsoft_jul14p3-install/include/root -I/usr/local/fairsoft/fairsoft_jul14p3-install/include/root -I/home/daq/fair_install_2015/FairRootInst/include -I/usr/local/fairsoft/fairsoft_jul14p3-install/include -I/home/daq/fair_install_2015/ATTPCROOT_09032015/AtMap -I/home/daq/fair_install_2015/ATTPCROOT_09032015/reco -I/home/daq/fair_install_2015/ATTPCROOT_09032015/reco/GETDecoder -I/home/daq/fair_install_2015/ATTPCROOT_09032015/reco/ATDecoder GETDecoder/GETDecoder.hh GETDecoder/GETFrame.hh GETDecoder/GETMath.hh GETDecoder/GETPlot.hh ATDecoder/ATCore.hh ATDecoder/ATPad.hh ATDecoder/ATRawEvent.hh ATDecoderTask.hh ATTPCRecoLinkDef.h
 
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.o: reco/CMakeFiles/ATTPCReco.dir/flags.make
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.o: ../reco/GETDecoder/GETDecoder.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.o -c /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETDecoder.cc
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.o -c /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/GETDecoder/GETDecoder.cc
 
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETDecoder.cc > CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/GETDecoder/GETDecoder.cc > CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.i
 
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETDecoder.cc -o CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/GETDecoder/GETDecoder.cc -o CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.s
 
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.o.requires:
 .PHONY : reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.o.requires
@@ -88,17 +90,17 @@ reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETDecoder.cc.o.provides.build: reco/CM
 
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETFrame.cc.o: reco/CMakeFiles/ATTPCReco.dir/flags.make
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETFrame.cc.o: ../reco/GETDecoder/GETFrame.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETFrame.cc.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ATTPCReco.dir/GETDecoder/GETFrame.cc.o -c /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETFrame.cc
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ATTPCReco.dir/GETDecoder/GETFrame.cc.o -c /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/GETDecoder/GETFrame.cc
 
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETFrame.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ATTPCReco.dir/GETDecoder/GETFrame.cc.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETFrame.cc > CMakeFiles/ATTPCReco.dir/GETDecoder/GETFrame.cc.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/GETDecoder/GETFrame.cc > CMakeFiles/ATTPCReco.dir/GETDecoder/GETFrame.cc.i
 
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETFrame.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ATTPCReco.dir/GETDecoder/GETFrame.cc.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETFrame.cc -o CMakeFiles/ATTPCReco.dir/GETDecoder/GETFrame.cc.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/GETDecoder/GETFrame.cc -o CMakeFiles/ATTPCReco.dir/GETDecoder/GETFrame.cc.s
 
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETFrame.cc.o.requires:
 .PHONY : reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETFrame.cc.o.requires
@@ -111,17 +113,17 @@ reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETFrame.cc.o.provides.build: reco/CMak
 
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETMath.cc.o: reco/CMakeFiles/ATTPCReco.dir/flags.make
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETMath.cc.o: ../reco/GETDecoder/GETMath.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_4)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETMath.cc.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ATTPCReco.dir/GETDecoder/GETMath.cc.o -c /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETMath.cc
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ATTPCReco.dir/GETDecoder/GETMath.cc.o -c /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/GETDecoder/GETMath.cc
 
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETMath.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ATTPCReco.dir/GETDecoder/GETMath.cc.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETMath.cc > CMakeFiles/ATTPCReco.dir/GETDecoder/GETMath.cc.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/GETDecoder/GETMath.cc > CMakeFiles/ATTPCReco.dir/GETDecoder/GETMath.cc.i
 
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETMath.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ATTPCReco.dir/GETDecoder/GETMath.cc.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETMath.cc -o CMakeFiles/ATTPCReco.dir/GETDecoder/GETMath.cc.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/GETDecoder/GETMath.cc -o CMakeFiles/ATTPCReco.dir/GETDecoder/GETMath.cc.s
 
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETMath.cc.o.requires:
 .PHONY : reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETMath.cc.o.requires
@@ -134,17 +136,17 @@ reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETMath.cc.o.provides.build: reco/CMake
 
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.o: reco/CMakeFiles/ATTPCReco.dir/flags.make
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.o: ../reco/GETDecoder/GETPlot.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.o -c /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETPlot.cc
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.o -c /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/GETDecoder/GETPlot.cc
 
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETPlot.cc > CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/GETDecoder/GETPlot.cc > CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.i
 
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/GETDecoder/GETPlot.cc -o CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/GETDecoder/GETPlot.cc -o CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.s
 
 reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.o.requires:
 .PHONY : reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.o.requires
@@ -157,17 +159,17 @@ reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.o.provides.build: reco/CMake
 
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o: reco/CMakeFiles/ATTPCReco.dir/flags.make
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o: ../reco/ATDecoder/ATCore.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_6)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o -c /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/ATCore.cc
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o -c /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/ATDecoder/ATCore.cc
 
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/ATCore.cc > CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/ATDecoder/ATCore.cc > CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.i
 
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/ATCore.cc -o CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/ATDecoder/ATCore.cc -o CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.s
 
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o.requires:
 .PHONY : reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o.requires
@@ -180,17 +182,17 @@ reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o.provides.build: reco/CMakeFi
 
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: reco/CMakeFiles/ATTPCReco.dir/flags.make
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o: ../reco/ATDecoder/ATPad.cc
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_7)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o -c /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/ATPad.cc
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o -c /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/ATDecoder/ATPad.cc
 
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/ATPad.cc > CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/ATDecoder/ATPad.cc > CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.i
 
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/reco/ATDecoder/ATPad.cc -o CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/ATDecoder/ATPad.cc -o CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.s
 
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o.requires:
 .PHONY : reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o.requires
@@ -201,19 +203,65 @@ reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o.provides: reco/CMakeFiles/ATT
 
 reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o.provides.build: reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o
 
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: reco/CMakeFiles/ATTPCReco.dir/flags.make
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o: ../reco/ATDecoder/ATRawEvent.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_8)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o"
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o -c /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/ATDecoder/ATRawEvent.cc
+
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.i"
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/ATDecoder/ATRawEvent.cc > CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.i
+
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.s"
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/ATDecoder/ATRawEvent.cc -o CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.s
+
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o.requires:
+.PHONY : reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o.requires
+
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o.provides: reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o.requires
+	$(MAKE) -f reco/CMakeFiles/ATTPCReco.dir/build.make reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o.provides.build
+.PHONY : reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o.provides
+
+reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o.provides.build: reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o
+
+reco/CMakeFiles/ATTPCReco.dir/ATDecoderTask.cc.o: reco/CMakeFiles/ATTPCReco.dir/flags.make
+reco/CMakeFiles/ATTPCReco.dir/ATDecoderTask.cc.o: ../reco/ATDecoderTask.cc
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_9)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object reco/CMakeFiles/ATTPCReco.dir/ATDecoderTask.cc.o"
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ATTPCReco.dir/ATDecoderTask.cc.o -c /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/ATDecoderTask.cc
+
+reco/CMakeFiles/ATTPCReco.dir/ATDecoderTask.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ATTPCReco.dir/ATDecoderTask.cc.i"
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/ATDecoderTask.cc > CMakeFiles/ATTPCReco.dir/ATDecoderTask.cc.i
+
+reco/CMakeFiles/ATTPCReco.dir/ATDecoderTask.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ATTPCReco.dir/ATDecoderTask.cc.s"
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_09032015/reco/ATDecoderTask.cc -o CMakeFiles/ATTPCReco.dir/ATDecoderTask.cc.s
+
+reco/CMakeFiles/ATTPCReco.dir/ATDecoderTask.cc.o.requires:
+.PHONY : reco/CMakeFiles/ATTPCReco.dir/ATDecoderTask.cc.o.requires
+
+reco/CMakeFiles/ATTPCReco.dir/ATDecoderTask.cc.o.provides: reco/CMakeFiles/ATTPCReco.dir/ATDecoderTask.cc.o.requires
+	$(MAKE) -f reco/CMakeFiles/ATTPCReco.dir/build.make reco/CMakeFiles/ATTPCReco.dir/ATDecoderTask.cc.o.provides.build
+.PHONY : reco/CMakeFiles/ATTPCReco.dir/ATDecoderTask.cc.o.provides
+
+reco/CMakeFiles/ATTPCReco.dir/ATDecoderTask.cc.o.provides.build: reco/CMakeFiles/ATTPCReco.dir/ATDecoderTask.cc.o
+
 reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o: reco/CMakeFiles/ATTPCReco.dir/flags.make
 reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o: reco/G__ATTPCRecoDict.cxx
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_Feb/build/CMakeFiles $(CMAKE_PROGRESS_8)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/daq/fair_install_2015/ATTPCROOT_09032015/build/CMakeFiles $(CMAKE_PROGRESS_10)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco/G__ATTPCRecoDict.cxx
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o -c /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco/G__ATTPCRecoDict.cxx
 
 reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.i"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco/G__ATTPCRecoDict.cxx > CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.i
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco/G__ATTPCRecoDict.cxx > CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.i
 
 reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.s"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco/G__ATTPCRecoDict.cxx -o CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.s
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco/G__ATTPCRecoDict.cxx -o CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.s
 
 reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o.requires:
 .PHONY : reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o.requires
@@ -232,6 +280,8 @@ ATTPCReco_OBJECTS = \
 "CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.o" \
 "CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o" \
 "CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o" \
+"CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o" \
+"CMakeFiles/ATTPCReco.dir/ATDecoderTask.cc.o" \
 "CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o"
 
 # External object files for target ATTPCReco
@@ -243,6 +293,8 @@ lib/libATTPCReco.so.0.0.0: reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETMath.cc.o
 lib/libATTPCReco.so.0.0.0: reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.o
 lib/libATTPCReco.so.0.0.0: reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o
 lib/libATTPCReco.so.0.0.0: reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o
+lib/libATTPCReco.so.0.0.0: reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o
+lib/libATTPCReco.so.0.0.0: reco/CMakeFiles/ATTPCReco.dir/ATDecoderTask.cc.o
 lib/libATTPCReco.so.0.0.0: reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o
 lib/libATTPCReco.so.0.0.0: reco/CMakeFiles/ATTPCReco.dir/build.make
 lib/libATTPCReco.so.0.0.0: lib/libAtTpcMap.so.0.0.0
@@ -254,8 +306,8 @@ lib/libATTPCReco.so.0.0.0: lib/libFairTools.so.0.0.0
 lib/libATTPCReco.so.0.0.0: lib/libMbsAPI.so.0.0.0
 lib/libATTPCReco.so.0.0.0: reco/CMakeFiles/ATTPCReco.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX shared library ../lib/libATTPCReco.so"
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ATTPCReco.dir/link.txt --verbose=$(VERBOSE)
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && $(CMAKE_COMMAND) -E cmake_symlink_library ../lib/libATTPCReco.so.0.0.0 ../lib/libATTPCReco.so.0 ../lib/libATTPCReco.so
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ATTPCReco.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && $(CMAKE_COMMAND) -E cmake_symlink_library ../lib/libATTPCReco.so.0.0.0 ../lib/libATTPCReco.so.0 ../lib/libATTPCReco.so
 
 lib/libATTPCReco.so.0: lib/libATTPCReco.so.0.0.0
 
@@ -271,14 +323,16 @@ reco/CMakeFiles/ATTPCReco.dir/requires: reco/CMakeFiles/ATTPCReco.dir/GETDecoder
 reco/CMakeFiles/ATTPCReco.dir/requires: reco/CMakeFiles/ATTPCReco.dir/GETDecoder/GETPlot.cc.o.requires
 reco/CMakeFiles/ATTPCReco.dir/requires: reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATCore.cc.o.requires
 reco/CMakeFiles/ATTPCReco.dir/requires: reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATPad.cc.o.requires
+reco/CMakeFiles/ATTPCReco.dir/requires: reco/CMakeFiles/ATTPCReco.dir/ATDecoder/ATRawEvent.cc.o.requires
+reco/CMakeFiles/ATTPCReco.dir/requires: reco/CMakeFiles/ATTPCReco.dir/ATDecoderTask.cc.o.requires
 reco/CMakeFiles/ATTPCReco.dir/requires: reco/CMakeFiles/ATTPCReco.dir/G__ATTPCRecoDict.cxx.o.requires
 .PHONY : reco/CMakeFiles/ATTPCReco.dir/requires
 
 reco/CMakeFiles/ATTPCReco.dir/clean:
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco && $(CMAKE_COMMAND) -P CMakeFiles/ATTPCReco.dir/cmake_clean.cmake
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco && $(CMAKE_COMMAND) -P CMakeFiles/ATTPCReco.dir/cmake_clean.cmake
 .PHONY : reco/CMakeFiles/ATTPCReco.dir/clean
 
 reco/CMakeFiles/ATTPCReco.dir/depend: reco/G__ATTPCRecoDict.cxx
-	cd /home/daq/fair_install_2015/ATTPCROOT_Feb/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT_Feb /home/daq/fair_install_2015/ATTPCROOT_Feb/reco /home/daq/fair_install_2015/ATTPCROOT_Feb/build /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco/CMakeFiles/ATTPCReco.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/daq/fair_install_2015/ATTPCROOT_09032015/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/daq/fair_install_2015/ATTPCROOT_09032015 /home/daq/fair_install_2015/ATTPCROOT_09032015/reco /home/daq/fair_install_2015/ATTPCROOT_09032015/build /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco/CMakeFiles/ATTPCReco.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : reco/CMakeFiles/ATTPCReco.dir/depend
 

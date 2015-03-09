@@ -1,4 +1,4 @@
-# Install script for directory: /home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI
+# Install script for directory: /home/daq/fair_install_2015/ATTPCROOT_09032015/MbsAPI
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,24 +34,24 @@ ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE FILE FILES
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/fLmd.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/s_evhe.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/s_evhe_swap.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/sMbs.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/s_ves10_1.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/s_ves10_1_swap.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/s_ve10_1.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/s_ve10_1_swap.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/f_evt.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/f_ut_utime.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/s_bufhe.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/s_bufhe_swap.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/s_filhe.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/s_filhe_swap.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/portnum_def.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/s_stdint.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/typedefs.h"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/MbsAPI/f_stccomm.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/MbsAPI/fLmd.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/MbsAPI/s_evhe.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/MbsAPI/s_evhe_swap.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/MbsAPI/sMbs.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/MbsAPI/s_ves10_1.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/MbsAPI/s_ves10_1_swap.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/MbsAPI/s_ve10_1.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/MbsAPI/s_ve10_1_swap.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/MbsAPI/f_evt.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/MbsAPI/f_ut_utime.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/MbsAPI/s_bufhe.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/MbsAPI/s_bufhe_swap.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/MbsAPI/s_filhe.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/MbsAPI/s_filhe_swap.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/MbsAPI/portnum_def.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/MbsAPI/s_stdint.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/MbsAPI/typedefs.h"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/MbsAPI/f_stccomm.h"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
@@ -69,9 +69,9 @@ IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
     ENDIF()
   ENDFOREACH()
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE SHARED_LIBRARY FILES
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libMbsAPI.so.0.0.0"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libMbsAPI.so.0"
-    "/home/daq/fair_install_2015/ATTPCROOT_Feb/build/lib/libMbsAPI.so"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/build/lib/libMbsAPI.so.0.0.0"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/build/lib/libMbsAPI.so.0"
+    "/home/daq/fair_install_2015/ATTPCROOT_09032015/build/lib/libMbsAPI.so"
     )
   FOREACH(file
       "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/libMbsAPI.so.0.0.0"

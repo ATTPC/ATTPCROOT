@@ -231,6 +231,7 @@ Bool_t AtTpcMap::ParseXMLMap(char *xmlfile){
 	    Int_t parsecode = domParser->ParseFile(xmlfile);	
 	    if(parsecode<0){
 		std::cerr<< domParser->GetParseCodeMessage(parsecode) <<std::endl;
+                return false;
 	    }
 	    TXMLNode * node = domParser->GetXMLDocument()->GetRootNode();
 	    ParseMapList(node->GetChildren());
@@ -334,7 +335,7 @@ Bool_t AtTpcMap::DumpATTPCMap(){
 
 		  if(!fPadInd || !kIsParsed){
                
-			std::cout<<" ATTPC Error : Pad plane has not been generated or parsed1 - Exiting... "<<std::endl;
+			std::cout<<" ATTPC Error : Pad plane has not been generated or parsed - Exiting... "<<std::endl;
 
 			return 0;
 
@@ -374,7 +375,10 @@ Int_t AtTpcMap::GetPadNum(std::vector<int> PadRef){
 			 int value = (*its).second;
 			 //std::cout<<int(ATTPCPadMap.find(test) == ATTPCPadMap.end())<<endl;
                          Int_t kIs = int(ATTPCPadMap.find(PadRef) == ATTPCPadMap.end());
-                         if(kIs) std::cerr<<" ATTPC Map - Pad key not found - CoboID : "<<PadRef[0]<<"  AsadID : "<<PadRef[1]<<"  AgetID : "<<PadRef[2]<<"  ChannelID : "<<PadRef[3]<<endl; 
+            if(kIs){
+                    if(kDebug)std::cerr<<" ATTPC Map - Pad key not found - CoboID : "<<PadRef[0]<<"  AsadID : "<<PadRef[1]<<"  AgetID : "<<PadRef[2]<<"  ChannelID : "<<PadRef[3]<<endl;
+                    return -1;
+             }
 			 //std::cout<<value<<std::endl;
 			 //std::map<std::vector<int>,int>::const_iterator its;
 			 //std::cout<<ATTPCPadMap.find(test)->second<<std::endl;
@@ -382,7 +386,7 @@ Int_t AtTpcMap::GetPadNum(std::vector<int> PadRef){
 			// std::cout << "x: " << (int)its->second << "\n";
 			
 			
-			return value;
+			else return value;
 
 
 		/*for (auto& m : ATTPCPadMap){ //C+11 style

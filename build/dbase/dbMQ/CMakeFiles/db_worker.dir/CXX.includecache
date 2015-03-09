@@ -40,9 +40,9 @@ cstring
 exception
 -
 
-/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbMQ/procs/db_worker.cxx
+/home/daq/fair_install_2015/ATTPCROOT_09032015/dbase/dbMQ/procs/db_worker.cxx
 FairDbMQWorker.h
-/home/daq/fair_install_2015/ATTPCROOT_Feb/dbase/dbMQ/procs/FairDbMQWorker.h
+/home/daq/fair_install_2015/ATTPCROOT_09032015/dbase/dbMQ/procs/FairDbMQWorker.h
 
 /home/daq/fair_install_2015/FairRootInst/include/DataType.h
 Rtypes.h

@@ -16,7 +16,7 @@ fairmq/CMakeFiles/sink.dir/run/runSink.cxx.o
  ../fairmq/zeromq/FairMQPollerZMQ.h
  ../fairmq/zeromq/FairMQSocketZMQ.h
  ../fairmq/zeromq/FairMQTransportFactoryZMQ.h
- /home/daq/fair_install_2015/ATTPCROOT_Feb/fairmq/run/runSink.cxx
+ /home/daq/fair_install_2015/ATTPCROOT_09032015/fairmq/run/runSink.cxx
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/boost/algorithm/string/compare.hpp
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/boost/algorithm/string/concept.hpp
  /usr/local/fairsoft/fairsoft_jul14p3-install/include/boost/algorithm/string/config.hpp

@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/daq/fair_install_2015/ATTPCROOT_Feb/reco
-# Build directory: /home/daq/fair_install_2015/ATTPCROOT_Feb/build/reco
+# Source directory: /home/daq/fair_install_2015/ATTPCROOT_09032015/reco
+# Build directory: /home/daq/fair_install_2015/ATTPCROOT_09032015/build/reco
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
