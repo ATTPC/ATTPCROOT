@@ -12,6 +12,8 @@
 #include "AtTpcMap.h"
 #include "ATRawEvent.hh"
 
+#include "ATDigiPar.hh"
+
 // ROOT classes
 #include "TClonesArray.h"
 #include "TString.h"
@@ -79,7 +81,7 @@ class ATDecoderTask : public FairTask {
 
     Bool_t fIsPersistence;        
 
-    //STDigiPar *fPar;             
+    ATDigiPar *fPar;             
     TClonesArray *fRawEventArray; 
 
   ClassDef(ATDecoderTask, 1);

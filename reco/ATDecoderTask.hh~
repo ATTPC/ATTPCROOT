@@ -12,6 +12,8 @@
 #include "AtTpcMap.h"
 #include "ATRawEvent.hh"
 
+#include "ATDigiPar.hh"
+
 // ROOT classes
 #include "TClonesArray.h"
 #include "TString.h"
@@ -36,7 +38,7 @@ class ATDecoderTask : public FairTask {
    
     void SetData(Int_t value);
 
-    void SetMap(Char_t *map);
+    Bool_t SetMap(Char_t *map);
   
   //  void SetInternalPedestal(Int_t startTb = 3, Int_t averageTbs = 20);
   
@@ -79,7 +81,7 @@ class ATDecoderTask : public FairTask {
 
     Bool_t fIsPersistence;        
 
-    //STDigiPar *fPar;             
+    ATDigiPar *fPar;             
     TClonesArray *fRawEventArray; 
 
   ClassDef(ATDecoderTask, 1);

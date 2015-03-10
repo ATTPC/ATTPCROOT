@@ -32,7 +32,7 @@ ATDecoderTask::ATDecoderTask()
 
   fIsPersistence = kFALSE;
 
- // fPar = NULL;
+  fPar = NULL;
   fRawEventArray = new TClonesArray("ATRawEvent");
 }
 
@@ -69,6 +69,7 @@ ATDecoderTask::Init()
   fDecoder -> AddData(fDataList.at(iFile));
   fDecoder -> SetData(fDataNum);
   fDecoder -> SetNumTbs(fNumTbs);
+ 
   Bool_t kMapIn = fDecoder -> SetATTPCMap(fMap);
   //std::cout<<kMapIn<<std::endl;
    if (!kMapIn) {
@@ -142,9 +143,9 @@ ATDecoderTask::SetParContainers()
   if (!db)
     fLogger -> Fatal(MESSAGE_ORIGIN, "No runtime database!");
 
-  //fPar = (STDigiPar *) db -> getContainer("STDigiPar");
-  //if (!fPar)
-   // fLogger -> Fatal(MESSAGE_ORIGIN, "Cannot find STDigiPar!");
+  fPar = (ATDigiPar *) db -> getContainer("ATDigiPar");
+  if (!fPar)
+    fLogger -> Fatal(MESSAGE_ORIGIN, "Cannot find ATDigiPar!");
 }
 
 void

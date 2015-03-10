@@ -6,6 +6,7 @@ ${BASE_INCLUDE_DIRECTORIES}
 # Add all the folders having header files you used in the code.
 #${CMAKE_SOURCE_DIR}/mcstack
 ${CMAKE_SOURCE_DIR}/AtMap
+${CMAKE_SOURCE_DIR}/par
 ${CMAKE_SOURCE_DIR}/reco
 ${CMAKE_SOURCE_DIR}/reco/GETDecoder
 ${CMAKE_SOURCE_DIR}/reco/ATDecoder
@@ -29,6 +30,7 @@ GETDecoder/GETPlot.cc
 
 ATDecoder/ATCore.cc
 ATDecoder/ATPad.cc
+ATDecoder/ATRawEvent.cc
 
 ATDecoderTask.cc
 
@@ -39,11 +41,13 @@ CHANGE_FILE_EXTENSION(*.cc *.hh HEADERS "${SRCS}")
 Set(LINKDEF ATTPCRecoLinkDef.h)
 Set(LIBRARY_NAME ATTPCReco)
 Set(DEPENDENCIES
-    #Base
-    XMLParser
+    Base
+    MCStack
+    XMLParser   
 # Add all library names your code depending on.
 # Basically those are the libraries in the header files' directory.
     AtTpcMap
+    ATPar
 )
 
 GENERATE_LIBRARY()
