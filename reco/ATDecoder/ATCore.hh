@@ -34,19 +34,27 @@ class ATCore : public TObject  {
      ATRawEvent *GetRawEvent(Int_t eventID = -1);// TO DO It returns a pointer to ATRawEvent
      void SetNumTbs(Int_t value);
      inline void SetDebugMode(Bool_t Debug){kDebug=Debug;}
+     void SetInternalPedestal(Int_t startTb = 10, Int_t averageTbs = 20);
+     void SetFPNPedestal(Double_t sigmaThreshold = 5);
 
      AtTpcMap *fAtMapPtr;
     
      Bool_t kDebug;
 
+     enum EPedestalMode { kNoPedestal, kPedestalInternal, kPedestalExternal, kPedestalFPN, kPedestalBothIE };
 
  private:
     GETDecoder* fGETDecoderPtr;
     Bool_t fIsData;
+    Bool_t fIsInternalPedestal;
+    Bool_t fIsFPNPedestal;
     Int_t fNumTbs;
+    Int_t fStartTb;
+    Int_t fAverageTbs;
     
     ATRawEvent *fRawEventPtr;
-    
+    EPedestalMode fPedestalMode;    
+    Double_t fFPNSigmaThreshold;
     UInt_t fPrevEventNo;
     UInt_t fCurrEventNo;
     

@@ -43,10 +43,23 @@ ATCore::~ATCore()
 void ATCore::Initialize(){
 
   fGETDecoderPtr = new GETDecoder();
-  fNumTbs = 512;
+  
   fIsData = kFALSE;
   fAtMapPtr = new AtTpcMap();
   fRawEventPtr = NULL;
+
+  fIsData = kFALSE;
+  
+ 
+  fIsInternalPedestal = kFALSE;
+  fPedestalMode = kNoPedestal;
+  //fPedestalRMSFactor = 0;
+  fIsFPNPedestal = kFALSE;
+  fFPNSigmaThreshold = 5;
+
+  fNumTbs = 512;
+  fStartTb = 3;
+  fAverageTbs = 20;
 
 }
 
@@ -70,7 +83,7 @@ Bool_t ATCore::SetATTPCMap(char *lookup){
 
   fAtMapPtr->GenerateATTPC();
   Bool_t MapIn = fAtMapPtr->ParseXMLMap(lookup);
-  if()
+  if(!MapIn) return false;
   //**** For debugging purposes only! ******//
   //fAtMapPtr->SetGUIMode();
   //fAtMapPtr->GetATTPCPlane();
@@ -88,6 +101,32 @@ void ATCore::SetNumTbs(Int_t value)
   fNumTbs = value;
   fGETDecoderPtr -> SetNumTbs(value);
 }
+
+void ATCore::SetInternalPedestal(Int_t startTb, Int_t averageTbs)
+{
+ /* if (fIsPedestalData) {// TODO Pedestal Data mode
+    fPedestalMode = kPedestalBothIE;
+    std::cout << "== ATCore Using both pedestal data is set!" << std::endl;
+  } else {*/
+    fPedestalMode = kPedestalInternal;
+    std::cout << "== ATCore Internal pedestal calculation will be done!" << std::endl;
+  //}
+
+  fIsInternalPedestal = kTRUE;
+  fStartTb = startTb;
+  fAverageTbs = averageTbs;
+}
+
+void ATCore::SetFPNPedestal(Double_t sigmaThreshold)
+{
+  fIsFPNPedestal = kTRUE;
+  fPedestalMode = kPedestalFPN;
+  fFPNSigmaThreshold = sigmaThreshold;
+
+  std::cout << "== ATCore Using FPN pedestal is set!" << std::endl;
+}
+
+
 
 ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
 
@@ -107,7 +146,7 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
         GETFrame *frame = NULL;
 
 		
-		while ((frame = fGETDecoderPtr -> GetFrame(fCurrFrameNo))) {
+	while ((frame = fGETDecoderPtr -> GetFrame(fCurrFrameNo))) {
             if (fPrevEventNo == -1)
                 fPrevEventNo = frame -> GetEventID();
             
@@ -126,7 +165,7 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
 
             
 
-			Int_t frameType = fGETDecoderPtr -> GetFrameType();
+		Int_t frameType = fGETDecoderPtr -> GetFrameType();
             
         if ((frameType == GETDecoder::kMergedID || frameType == GETDecoder::kMergedTime) && !(fRawEventPtr -> IsGood())) {
                 Int_t currentInnerFrameID = fGETDecoderPtr -> GetCurrentInnerFrameID();
@@ -161,6 +200,7 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
 							//std::cout<<" AgetID : "<<iAget<<" ChannelID : "<<iCh<<std::endl;
 			    std::vector<int> PadRef={iCobo,iAsad,iAget,iCh};
                             Int_t PadRefNum = fAtMapPtr->GetPadNum(PadRef);
+                            //std::cout<<" Pad Number : "<<fAtMapPtr->GetPadNum(PadRef)<<std::endl;
                             ATPad *pad = new ATPad(PadRefNum); // TODO Return all pads with a flag??????
                             if(PadRefNum!=-1) pad->SetValidPad(kFALSE);
                             else pad->SetValidPad(kTRUE);
@@ -172,17 +212,98 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
                                     pad -> SetRawADC(iTb, rawadc[iTb]);
 
                                 }
-							    //std::cout<<" Pad Number : "<<fAtMapPtr->GetPadNum(PadRef)<<std::endl;
-        						//Int_t maxTb = fGETDecoderPtr-> GetNumTbs();
-							    //for (Int_t iTb = 0; iTb < maxTb; iTb++) {
-         						// Int_t rawadc = frame -> GetRawADC(iAget, iCh, iTb);
-                                //std::cout<<" AGet "<<iAget<<" Channel : "<<iCh<<" ADC : "<<rawadc<<" Time Bucket : "<<iTb<<std::endl;
-        						//}
+
+				 Int_t signalDelay = 0;
+       				/* if (fIsSignalDelayData) { //TODO Implement in the future
+       					   Int_t uaIdx = fMapPtr -> GetUAIdx(coboID, asadID);
+        				   signalDelay = ceil(fSignalDelayPtr -> GetSignalDelay(uaIdx));
+       				 }*/
+				
+    				    if (fPedestalMode == kPedestalInternal) {
+       					   frame -> CalcPedestal(iAget, iCh, fStartTb, fAverageTbs);
+          				   frame -> SubtractPedestal(iAget, iCh);
+
+					   Double_t *adc = frame -> GetADC(iAget, iCh);
+        				  
+					   for (Int_t iTb = 0; iTb < fGETDecoderPtr -> GetNumTbs(); iTb++) {
+           					  Int_t delayedTb = iTb - signalDelay;
+           					  Double_t delayedADC = 0;
+         					   /*if (delayedTb < 0 || delayedTb >= fGETDecoderPtr -> GetNumTbs())//TODO
+             					   delayedADC = 0;
+           					   else
+             					   delayedADC = adc[delayedTb];*/
+
+            					  // pad -> SetADC(iTb, delayedADC);
+                                                   
+						   pad -> SetADC(iTb, adc[iTb]); //TODO For the moment we fill it without delay
+          				    }
+
+					    Int_t maxADCIdx = frame -> GetMaxADCIdx(iAget, iCh) + signalDelay;
+         				    if (maxADCIdx < 0 || maxADCIdx >= fGETDecoderPtr -> GetNumTbs())
+           				    maxADCIdx = 0;
+
+         				    pad -> SetMaxADCIdx(maxADCIdx);
+                                            pad -> SetPedestalSubtracted(kTRUE);
+
+					  
+				    
+			            } else if (fPedestalMode != kNoPedestal) {
+         					/* if (fPedestalMode == kPedestalBothIE)//TODO
+           						 frame -> CalcPedestal(iAget, iCh, fStartTb, fAverageTbs);*/
+						 
+         				     Double_t pedestal[512];
+          				     Double_t pedestalSigma[512];
+
+          					if (fPedestalMode == kPedestalExternal || fPedestalMode == kPedestalBothIE) {
+           					// fPedestalPtr -> GetPedestal(row, layer, pedestal, pedestalSigma); //TODO
+           					// frame -> SetPedestal(iAget, iCh, pedestal, pedestalSigma);
+         				        } else if (fPedestalMode == kPedestalFPN)
+           					    frame -> SetFPNPedestal(fFPNSigmaThreshold);
+
+         			         // Bool_t good = frame -> SubtractPedestal(iAget, iCh, fPedestalRMSFactor);//TODO
+          				  //fRawEventPtr -> SetIsGood(good);
+					  
+					  fRawEventPtr -> SetIsGood(kTRUE); //All True for the moment TODO
+         			          // if (!good) {
+           				     //delete pad;
+				             // continue;
+                                           // }
+
+          			                    Double_t *adc = frame -> GetADC(iAget, iCh);
+						   std::cout<<" I am here "<<std::endl;
+
+        				  //if (fIsGainCalibrationData)//TODO
+          				   // fGainCalibrationPtr -> CalibrateADC(row, layer, fNumTbs, adc);
+
+		  			      for (Int_t iTb = 0; iTb < fGETDecoderPtr -> GetNumTbs(); iTb++) {
+		   				    // Int_t delayedTb = iTb - signalDelay;
+		 			    	   //  Double_t delayedADC = 0;
+		                            	   //  if (delayedTb < 0 || delayedTb >= fGETDecoderPtr -> GetNumTbs())
+		     			    	   // 	 delayedADC = 0;
+		   			    	  //   else
+		     			   	//	 delayedADC = adc[delayedTb];
+
+	      					   // std::cout<<delayedADC<<"   "<<adc[delayedTb]<<std::endl;
+		                                   // pad -> SetADC(iTb, delayedADC);
+						    pad -> SetADC(iTb, adc[iTb]); //TODO For the moment we fill it without delay
+		                             }
+
+		  			    Int_t maxADCIdx = frame -> GetMaxADCIdx(iAget, iCh) + signalDelay;
+		                            if (maxADCIdx < 0 || maxADCIdx >= fGETDecoderPtr -> GetNumTbs())
+		   				maxADCIdx = 0;
+
+		 			    pad -> SetMaxADCIdx(maxADCIdx);
+		                            pad -> SetPedestalSubtracted(kTRUE);
+                                   }
+
+
+					
+        			
                             
                                 fRawEventPtr -> SetPad(pad);
                                 delete pad;
-						 }
-                    }
+			  }
+                       }
            
              if (frameType == GETDecoder::kMergedID || frameType == GETDecoder::kMergedTime) {
                 Int_t currentInnerFrameID = fGETDecoderPtr -> GetCurrentInnerFrameID();
@@ -195,14 +316,9 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
                 }
               } else
                 fCurrFrameNo++;
-
-
-			
-
-		}
+	}
 
 	
-
 	return NULL;
 
 }

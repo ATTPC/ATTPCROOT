@@ -27,9 +27,9 @@ ATPSA::ATPSA()
   if (!db)
     fLogger -> Fatal(MESSAGE_ORIGIN, "No runtime database!");
 
-  fPar = (ATDigiPar *) db -> getContainer("ATDigiPar");
+  fPar = (STDigiPar *) db -> getContainer("STDigiPar");
   if (!fPar)
-    fLogger -> Fatal(MESSAGE_ORIGIN, "ATDigiPar not found!!");
+    fLogger -> Fatal(MESSAGE_ORIGIN, "STDigiPar not found!!");
 
   fPadPlaneX = fPar -> GetPadPlaneX();
   fPadSizeX = fPar -> GetPadSizeX();

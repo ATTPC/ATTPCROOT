@@ -12,6 +12,8 @@
 #pragma link C++ class ATCore+;
 #pragma link C++ class ATPad+;
 #pragma link C++ class ATRawEvent+;
+#pragma link C++ class ATHit+;
+#pragma link C++ class ATEvent+;
 
 #pragma link C++ class ATDecoderTask+;
 

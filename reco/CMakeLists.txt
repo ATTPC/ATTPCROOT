@@ -31,6 +31,9 @@ GETDecoder/GETPlot.cc
 ATDecoder/ATCore.cc
 ATDecoder/ATPad.cc
 ATDecoder/ATRawEvent.cc
+ATDecoder/ATHit.cc
+ATDecoder/ATEvent.cc
+
 
 ATDecoderTask.cc
 
@@ -48,6 +51,7 @@ Set(DEPENDENCIES
 # Basically those are the libraries in the header files' directory.
     AtTpcMap
     ATPar
+    Spectrum
 )
 
 GENERATE_LIBRARY()

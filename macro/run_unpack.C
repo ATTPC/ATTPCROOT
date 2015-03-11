@@ -1,5 +1,10 @@
 void run_unpack(){
   
+   // -----   Timer   --------------------------------------------------------
+	TStopwatch timer;
+	timer.Start();
+  // ------------------------------------------------------------------------
+
    gSystem->Load("libXMLParser.so");
 
   /*std::vector<int> PadRef;
@@ -38,7 +43,7 @@ void run_unpack(){
   //decoderTask ->SetMap("/Users/yassidayyad/fair_install/ATTPCROOT_Mar/scripts/Lookup20141208.xml");
   //decoderTask -> AddData("/Users/yassidayyad/Desktop/ATTPC/Data/run_0225/test");
   //decoderTask -> SetData(0);
-  //decoderTask -> SetInternalPedestal(5, 20);
+  decoderTask -> SetInternalPedestal(5, 20);
   decoderTask -> SetNumTbs(512);
   decoderTask -> SetPersistence();
   run -> AddTask(decoderTask);
@@ -71,5 +76,15 @@ void run_unpack(){
   run->Init();
 
   run->Run(0, 1);
+
+  // -----   Finish   -------------------------------------------------------
+	timer.Stop();
+	Double_t rtime = timer.RealTime();
+	Double_t ctime = timer.CpuTime();
+	cout << endl << endl;
+	cout << "Macro finished succesfully." << endl;
+	cout << "Real time " << rtime << " s, CPU time " << ctime << " s" << endl;
+	cout << endl;
+  // ------------------------------------------------------------------------
 
 }

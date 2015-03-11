@@ -1,6 +1,7 @@
 #ifndef STPSASIMPLE_H
 #define STPSASIMPLE_H
 
+// SpiRITROOT classes
 #include "ATRawEvent.hh"
 #include "ATPad.hh"
 #include "ATEvent.hh"
