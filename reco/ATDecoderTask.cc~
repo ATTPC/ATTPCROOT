@@ -18,7 +18,7 @@ ATDecoderTask::ATDecoderTask()
   fUseInternalPedestal = kFALSE;
   fStartTb = 3;
  // fAverageTbs = 20;
-  //fPedestalFile = "";
+    fPedestalFile = "";
   //fPedestalRMSFactor = 0;
   fUseFPNPedestal = kFALSE;
 
@@ -81,6 +81,8 @@ ATDecoderTask::Init()
 
   if (fUseInternalPedestal)
      fDecoder -> SetInternalPedestal(fStartTb, fAverageTbs);
+    
+   
 
  /* if (!fPedestalFile.EqualTo("")) {
     Bool_t isSetPedestalData = fDecoder -> SetPedestalData(fPedestalFile, fPedestalRMSFactor);

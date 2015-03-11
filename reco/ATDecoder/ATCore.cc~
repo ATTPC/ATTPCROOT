@@ -53,7 +53,7 @@ void ATCore::Initialize(){
  
   fIsInternalPedestal = kFALSE;
   fPedestalMode = kNoPedestal;
-  //fPedestalRMSFactor = 0;
+  fPedestalRMSFactor = 0;
   fIsFPNPedestal = kFALSE;
   fFPNSigmaThreshold = 5;
 
@@ -218,7 +218,7 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
        					   Int_t uaIdx = fMapPtr -> GetUAIdx(coboID, asadID);
         				   signalDelay = ceil(fSignalDelayPtr -> GetSignalDelay(uaIdx));
        				 }*/
-				
+		
     				    if (fPedestalMode == kPedestalInternal) {
        					   frame -> CalcPedestal(iAget, iCh, fStartTb, fAverageTbs);
           				   frame -> SubtractPedestal(iAget, iCh);
@@ -260,32 +260,31 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
          				        } else if (fPedestalMode == kPedestalFPN)
            					    frame -> SetFPNPedestal(fFPNSigmaThreshold);
 
-         			         // Bool_t good = frame -> SubtractPedestal(iAget, iCh, fPedestalRMSFactor);//TODO
-          				  //fRawEventPtr -> SetIsGood(good);
-					  
-					  fRawEventPtr -> SetIsGood(kTRUE); //All True for the moment TODO
+         			            Bool_t good = frame -> SubtractPedestal(iAget, iCh, fPedestalRMSFactor);//TODO
+          				    fRawEventPtr -> SetIsGood(good);
+				            fRawEventPtr -> SetIsGood(kTRUE); //All True for the moment TODO
          			          // if (!good) {
            				     //delete pad;
 				             // continue;
                                            // }
 
-          			                    Double_t *adc = frame -> GetADC(iAget, iCh);
-						   std::cout<<" I am here "<<std::endl;
+          			                   Double_t *adc = frame -> GetADC(iAget, iCh); //DEBUG Chrasih because SetPedestalSubstracted is not done!!!
+						   
 
         				  //if (fIsGainCalibrationData)//TODO
           				   // fGainCalibrationPtr -> CalibrateADC(row, layer, fNumTbs, adc);
 
 		  			      for (Int_t iTb = 0; iTb < fGETDecoderPtr -> GetNumTbs(); iTb++) {
-		   				    // Int_t delayedTb = iTb - signalDelay;
-		 			    	   //  Double_t delayedADC = 0;
+		   				      Int_t delayedTb = iTb - signalDelay;
+		 			    	      Double_t delayedADC = 0;
 		                            	   //  if (delayedTb < 0 || delayedTb >= fGETDecoderPtr -> GetNumTbs())
 		     			    	   // 	 delayedADC = 0;
 		   			    	  //   else
 		     			   	//	 delayedADC = adc[delayedTb];
 
-	      					   // std::cout<<delayedADC<<"   "<<adc[delayedTb]<<std::endl;
+	      					     std::cout<<delayedADC<<"   "<<adc[delayedTb]<<std::endl;
 		                                   // pad -> SetADC(iTb, delayedADC);
-						    pad -> SetADC(iTb, adc[iTb]); //TODO For the moment we fill it without delay
+						  //  pad -> SetADC(iTb, adc[iTb]); //TODO For the moment we fill it without delay
 		                             }
 
 		  			    Int_t maxADCIdx = frame -> GetMaxADCIdx(iAget, iCh) + signalDelay;

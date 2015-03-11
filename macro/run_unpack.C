@@ -43,7 +43,8 @@ void run_unpack(){
   //decoderTask ->SetMap("/Users/yassidayyad/fair_install/ATTPCROOT_Mar/scripts/Lookup20141208.xml");
   //decoderTask -> AddData("/Users/yassidayyad/Desktop/ATTPC/Data/run_0225/test");
   //decoderTask -> SetData(0);
-  decoderTask -> SetInternalPedestal(5, 20);
+  //decoderTask -> SetInternalPedestal(5, 20);
+  decoderTask -> SetFPNPedestal();
   decoderTask -> SetNumTbs(512);
   decoderTask -> SetPersistence();
   run -> AddTask(decoderTask);
@@ -75,7 +76,7 @@ void run_unpack(){
 
   run->Init();
 
-  run->Run(0, 1);
+  run->Run(0, 1); // Number must be lower than the number of events in dummy
 
   // -----   Finish   -------------------------------------------------------
 	timer.Stop();

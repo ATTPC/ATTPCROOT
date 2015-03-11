@@ -54,7 +54,7 @@ class ATCore : public TObject  {
     
     ATRawEvent *fRawEventPtr;
     EPedestalMode fPedestalMode;    
-
+    Double_t fFPNSigmaThreshold;
     UInt_t fPrevEventNo;
     UInt_t fCurrEventNo;
     
