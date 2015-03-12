@@ -1,7 +1,6 @@
 
 #pragma once
 
-// SpiRITROOT classes
 #include "ATPSA.hh"
 
 // ROOT classes

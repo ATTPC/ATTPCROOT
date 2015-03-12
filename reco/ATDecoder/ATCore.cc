@@ -16,13 +16,13 @@
 
 ClassImp(ATCore);
 
-ATCore::ATCore()
+ATCore::ATCore():AtPadCoordArr(boost::extents[10240][3][2])
 {
   Initialize();
   kDebug=kFALSE;
 }
 
-ATCore::ATCore(TString filename, Int_t numTbs)
+ATCore::ATCore(TString filename, Int_t numTbs):AtPadCoordArr(boost::extents[10240][3][2])
 {
   
   Initialize();
@@ -36,6 +36,7 @@ ATCore::~ATCore()
 {
   delete fGETDecoderPtr;
   delete fAtMapPtr;
+  //delete fAtPadCoordPtr;
   //delete fPedestalPtr;
   //delete fMapPtr;
 }
@@ -47,6 +48,7 @@ void ATCore::Initialize(){
   fIsData = kFALSE;
   fAtMapPtr = new AtTpcMap();
   fRawEventPtr = NULL;
+ // fAtPadCoordPtr = NULL;
 
   fIsData = kFALSE;
   
@@ -84,6 +86,8 @@ Bool_t ATCore::SetATTPCMap(char *lookup){
   fAtMapPtr->GenerateATTPC();
   Bool_t MapIn = fAtMapPtr->ParseXMLMap(lookup);
   if(!MapIn) return false;
+   //fAtPadCoordPtr = fAtMapPtr->GetPadCoord();
+  //AtPadCoordArr = fAtMapPtr->GetPadCoordArr();//TODO Use a pointer to a simpler container
   //**** For debugging purposes only! ******//
   //fAtMapPtr->SetGUIMode();
   //fAtMapPtr->GetATTPCPlane();
@@ -194,13 +198,21 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
 
                  std::cout<<" Event ID : "<<eventID<<" coboID : "<<iCobo<<" asadID : "<<iAsad<<std::endl;
 
+		
+
  			for (Int_t iAget = 0; iAget < 4; iAget++) {
                          for (Int_t iCh = 0; iCh < 68; iCh++) {
 							//std::cout<<" Event ID : "<<eventID<<" coboID : "<<iCobo<<" asadID : "<<iAsad<<std::endl;
 							//std::cout<<" AgetID : "<<iAget<<" ChannelID : "<<iCh<<std::endl;
+			  
+                            //fAtMapPtr->Dump();
+    
 			    std::vector<int> PadRef={iCobo,iAsad,iAget,iCh};
                             Int_t PadRefNum = fAtMapPtr->GetPadNum(PadRef);
-                            //std::cout<<" Pad Number : "<<fAtMapPtr->GetPadNum(PadRef)<<std::endl;
+                            std::vector<Float_t> PadCenterCoord;
+                            PadCenterCoord.reserve(2);
+			    PadCenterCoord = fAtMapPtr->CalcPadCenter(PadRefNum); 
+                            //std::cout<<" Pad Number : "<<fAtMapPtr->GetPadNum(PadRef)<<"  Pad Center X : "<<PadCenterCoord[0]<<"  Pad Center Y : "<<PadCenterCoord[1]<<std::endl;
                             ATPad *pad = new ATPad(PadRefNum); // TODO Return all pads with a flag??????
                             if(PadRefNum!=-1) pad->SetValidPad(kFALSE);
                             else pad->SetValidPad(kTRUE);
@@ -219,7 +231,7 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
         				   signalDelay = ceil(fSignalDelayPtr -> GetSignalDelay(uaIdx));
        				 }*/
 		
-    				    if (fPedestalMode == kPedestalInternal) {
+    				    if (fPedestalMode == kPedestalInternal) { //TODO Obsolete, FPN does both
        					   frame -> CalcPedestal(iAget, iCh, fStartTb, fAverageTbs);
           				   frame -> SubtractPedestal(iAget, iCh);
 

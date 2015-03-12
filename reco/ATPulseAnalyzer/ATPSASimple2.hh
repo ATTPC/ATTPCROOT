@@ -17,6 +17,5 @@ class STPSASimple2 : public STPSA
   private:
     TSpectrum *fPeakFinder;  /// TSpectrum object
 
-  ClassDef(A
-TPSASimple2, 1)
+  ClassDef(ATPSASimple2, 1)
 };

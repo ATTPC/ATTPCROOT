@@ -48,7 +48,7 @@ void AtTpcMap::Dump(){
   	 for(index i = 0; i != 10240; ++i) 
    	   for(index j = 0; j != 3; ++j)
      	     for(index k = 0; k != 2; ++k)
-             	std::cout<<" ATTPC Triangular pad coordinates - Pad Index : "<<i<<"   X("<<j<<")  -  Y("<<k<<") :"<<AtPadCoord[i][j][k]<<endl;
+             	std::cout<<" ATTPC Triangular pad coordinates - Pad Index : "<<i<<"   X("<<j<<")  -  Y("<<k<<") :"<<AtPadCoord[i][j][k]<<std::endl;
 
 }
 
@@ -195,7 +195,7 @@ TH2Poly* AtTpcMap::GetATTPCPlane(){
 
       if(fPadInd == 0){
                
-	std::cout<<" ATTPC Error : Pad plane has not been generated - Exiting... "<<std::endl;
+	std::cout<<" AtTpcMap::GetATTPCPlane Error : Pad plane has not been generated - Exiting... "<<std::endl;
 
 	return 0;
 
@@ -231,6 +231,7 @@ Bool_t AtTpcMap::ParseXMLMap(char *xmlfile){
 	    Int_t parsecode = domParser->ParseFile(xmlfile);	
 	    if(parsecode<0){
 		std::cerr<< domParser->GetParseCodeMessage(parsecode) <<std::endl;
+                return false;
 	    }
 	    TXMLNode * node = domParser->GetXMLDocument()->GetRootNode();
 	    ParseMapList(node->GetChildren());
@@ -334,9 +335,9 @@ Bool_t AtTpcMap::DumpATTPCMap(){
 
 		  if(!fPadInd || !kIsParsed){
                
-			std::cout<<" ATTPC Error : Pad plane has not been generated or parsed - Exiting... "<<std::endl;
+			std::cout<<" AtTpcMap::DumpATTPCMap Error : Pad plane has not been generated or parsed - Exiting... "<<std::endl;
 
-			return 0;
+			return false;
 
       		  }
 
@@ -350,7 +351,7 @@ Bool_t AtTpcMap::DumpATTPCMap(){
 					
 				}
 
-			return 1;
+			return true;
 
 
 }
@@ -375,7 +376,7 @@ Int_t AtTpcMap::GetPadNum(std::vector<int> PadRef){
 			 //std::cout<<int(ATTPCPadMap.find(test) == ATTPCPadMap.end())<<endl;
                          Int_t kIs = int(ATTPCPadMap.find(PadRef) == ATTPCPadMap.end());
             if(kIs){
-                    if(kDebug)std::cerr<<" ATTPC Map - Pad key not found - CoboID : "<<PadRef[0]<<"  AsadID : "<<PadRef[1]<<"  AgetID : "<<PadRef[2]<<"  ChannelID : "<<PadRef[3]<<endl;
+                    if(kDebug)std::cerr<<" AtTpcMap::GetPadNum - Pad key not found - CoboID : "<<PadRef[0]<<"  AsadID : "<<PadRef[1]<<"  AgetID : "<<PadRef[2]<<"  ChannelID : "<<PadRef[3]<<endl;
                     return -1;
              }
 			 //std::cout<<value<<std::endl;
@@ -398,6 +399,38 @@ Int_t AtTpcMap::GetPadNum(std::vector<int> PadRef){
 		
 
 
+
+}
+
+std::vector<Float_t> AtTpcMap::CalcPadCenter(Int_t PadRef){
+
+             std::vector<Float_t> PadCenter={-9999,-9999};
+             PadCenter.reserve(2);
+	     
+           
+	      if(!fPadInd || !kIsParsed){
+               
+		   std::cout<<" AtTpcMap::CalcPadCenter Error : Pad plane has not been generated or parsed "<<std::endl;
+
+		 return PadCenter;
+
+      	      }
+
+   	   if(PadRef!=-1){ //Boost multi_array crashes with a negative index
+	       	    
+
+               Float_t x = (AtPadCoord[PadRef][0][0] + AtPadCoord[PadRef][1][0] + AtPadCoord[PadRef][2][0])/3.;
+               PadCenter[0]=x;
+               Float_t y = (AtPadCoord[PadRef][0][1] + AtPadCoord[PadRef][1][1] + AtPadCoord[PadRef][2][1])/3.;
+	       PadCenter[1]=y;
+               return PadCenter;
+
+	   }else{
+
+		std::cout<<" AtTpcMap::CalcPadCenter Error : Pad not found"<<std::endl;
+		return PadCenter;
+
+	   }
 
 }
 

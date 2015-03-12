@@ -57,7 +57,7 @@ ATPSASimple2::Analyze(ATRawEvent *rawEvent, ATEvent *event)
       if (yPos > 0 || yPos < -fMaxDriftLength)
         continue;
 
-      STHit *hit = new STHit(hitNum, xPos, yPos, zPos, charge);
+      ATHit *hit = new ATHit(hitNum, xPos, yPos, zPos, charge);
       event -> AddHit(hit);
       delete hit;
 

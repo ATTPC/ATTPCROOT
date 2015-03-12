@@ -39,14 +39,20 @@ class AtTpcMap : public TObject
      typedef boost::multi_array<double,3> multiarray;
      typedef multiarray::index index;
      multiarray AtPadCoord;
+     multiarray GetPadCoordArr(){return AtPadCoord;}
+     std::vector<Float_t> CalcPadCenter(Int_t PadRef);
+     //multiarray *GetPadCoord(){return fAtPadCoordPtr=&AtPadCoord;}
+     //multiarray *fAtPadCoordPtr;
      #endif //__CINT__
 
+     
 
      void Initialize();
      void Dump();
      
      void GenerateATTPC();
      void GenerateProto();
+     
      Int_t  fill_coord(int pindex, float padxoff, float padyoff, float triside, float fort);
      inline void SetGUIMode(){kGUIMode=1;}
      inline void SetDebugMode(){kDebug=1;}
@@ -67,6 +73,8 @@ class AtTpcMap : public TObject
      std::map<std::vector<int>,int> ATTPCPadMap;
      //std::map<int,std::vector<int>> ATTPCPadMap;
      std::vector<int> PadKey; 
+
+     
      
  
      TCanvas *cATTPCPlane; 

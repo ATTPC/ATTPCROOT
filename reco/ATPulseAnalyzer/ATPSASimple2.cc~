@@ -21,7 +21,7 @@ ATPSASimple2::Analyze(ATRawEvent *rawEvent, ATEvent *event)
   Int_t hitNum = 0;
 
   for (Int_t iPad = 0; iPad < numPads; iPad++) {
-    STPad *pad = rawEvent -> GetPad(iPad);
+    ATPad *pad = rawEvent -> GetPad(iPad);
     
     Double_t xPos = CalculateX(pad -> GetRow());
     Double_t zPos = CalculateZ(pad -> GetLayer());
