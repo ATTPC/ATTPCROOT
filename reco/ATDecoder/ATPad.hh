@@ -44,10 +44,17 @@ class ATPad : public TObject  {
     Double_t *GetADC();
     Double_t GetADC(Int_t idx);
 
-    
+    void SetPadXCoord(Double_t val);
+    void SetPadYCoord(Double_t val);   
+
+    Float_t GetPadXCoord();
+    Float_t GetPadYCoord(); 
+
    private:
     
     Int_t fPadNum;
+    Float_t fPadXCoord;
+    Float_t fPadYCoord;
     Bool_t kIsValid;
     Int_t fRawAdc[512];
     Int_t fMaxAdcIdx;

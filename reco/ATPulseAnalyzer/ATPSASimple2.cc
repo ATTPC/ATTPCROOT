@@ -23,9 +23,11 @@ ATPSASimple2::Analyze(ATRawEvent *rawEvent, ATEvent *event)
   for (Int_t iPad = 0; iPad < numPads; iPad++) {
     ATPad *pad = rawEvent -> GetPad(iPad);
     
-    Double_t xPos = CalculateX(pad -> GetRow());
-    Double_t zPos = CalculateZ(pad -> GetLayer());
-    Double_t yPos = 0;
+    //Double_t xPos = CalculateX(pad -> GetRow()); //Obsolete
+    //Double_t zPos = CalculateZ(pad -> GetLayer());
+    Double_t xPos = pad -> GetPadXCoord();
+    Double_t yPos = pad -> GetPadYCoord();
+    Double_t zPos = 0;
     Double_t charge = 0;
 
     if (!(pad -> IsPedestalSubtracted())) {
@@ -48,13 +50,13 @@ ATPSASimple2::Analyze(ATRawEvent *rawEvent, ATEvent *event)
     for (Int_t iPeak = 0; iPeak < numPeaks; iPeak++) {
       Int_t maxAdcIdx = (Int_t)(ceil((fPeakFinder -> GetPositionX())[iPeak]));
 
-      yPos = CalculateY(maxAdcIdx);
+      zPos = CalculateZ(maxAdcIdx);
       charge = adc[maxAdcIdx];
 
       if (fThreshold > 0 && charge < fThreshold)
         continue;
 
-      if (yPos > 0 || yPos < -fMaxDriftLength)
+      if (zPos > 0 || zPos < -fMaxDriftLength)
         continue;
 
       ATHit *hit = new ATHit(hitNum, xPos, yPos, zPos, charge);

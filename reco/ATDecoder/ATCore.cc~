@@ -134,6 +134,9 @@ void ATCore::SetFPNPedestal(Double_t sigmaThreshold)
 
 ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
 
+     // TH2I *wave = new TH2I("","",612,-100,511,1000,1,4000); 
+     // TCanvas *c = new TCanvas();
+
       if(kDebug) fAtMapPtr->SetDebugMode();
     
   	  if (!fIsData) {
@@ -196,9 +199,9 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
 				 Int_t iAsad = frame -> GetAsadID();
 
 
-                 std::cout<<" Event ID : "<<eventID<<" coboID : "<<iCobo<<" asadID : "<<iAsad<<std::endl;
+                 std::cout<<" Event ID : "<<eventID<<" coboID : "<<iCobo<<" asadID : "<<iAsad<<'\xd';//std::endl;
 
-			fAtMapPtr->Dump();
+		        
 
  			for (Int_t iAget = 0; iAget < 4; iAget++) {
                          for (Int_t iCh = 0; iCh < 68; iCh++) {
@@ -218,12 +221,16 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
                             else pad->SetValidPad(kTRUE);
                             //else continue;
                             
+				    
                                 Int_t *rawadc = frame -> GetRawADC(iAget, iCh);
                                 for (Int_t iTb = 0; iTb < fGETDecoderPtr -> GetNumTbs(); iTb++){
-                                    //std::cout<<" AGet "<<iAget<<" Channel : "<<iCh<<" ADC : "<<*rawadc<<" Time Bucket : "<<iTb<<std::endl;
+                                    //if(*rawadc>0) std::cout<<" AGet "<<iAget<<" Channel : "<<iCh<<" ADC : "<<*rawadc<<" Time Bucket : "<<iTb<<std::endl;
                                     pad -> SetRawADC(iTb, rawadc[iTb]);
-
+				  //  wave-> Fill(iTb, rawadc[iTb]);
+                                    
                                 }
+
+                               //  wave->Draw("col");
 
 				 Int_t signalDelay = 0;
        				/* if (fIsSignalDelayData) { //TODO Implement in the future
@@ -296,8 +303,11 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
 
 	      					   //  std::cout<<delayedADC<<"   "<<adc[delayedTb]<<std::endl;
 		                                   // pad -> SetADC(iTb, delayedADC);
-						  //  pad -> SetADC(iTb, adc[iTb]); //TODO For the moment we fill it without delay
+						      pad -> SetADC(iTb, adc[iTb]); //TODO For the moment we fill it without delay
+ 						      // wave-> Fill(iTb, adc[iTb]);
 		                             }
+
+						// wave->Draw("col");
 
 		  			    Int_t maxADCIdx = frame -> GetMaxADCIdx(iAget, iCh) + signalDelay;
 		                            if (maxADCIdx < 0 || maxADCIdx >= fGETDecoderPtr -> GetNumTbs())
@@ -329,6 +339,7 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
                 fCurrFrameNo++;
 	}
 
+       
 	
 	return NULL;
 

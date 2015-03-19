@@ -17,4 +17,8 @@
 
 #pragma link C++ class ATDecoderTask+;
 
+#pragma link C++ class ATPSA+;
+#pragma link C++ class ATPSASimple+;
+#pragma link C++ class ATPSASimple2+;
+
 #endif

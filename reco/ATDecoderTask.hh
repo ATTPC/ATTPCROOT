@@ -48,6 +48,8 @@ class ATDecoderTask : public FairTask {
     
     void SetPersistence(Bool_t value = kTRUE);
 
+    void SetPositivePolarity(Bool_t value = kFALSE);
+
     /// Initializing the task. This will be called when Init() method invoked from FairRun.
     virtual InitStatus Init();
     
@@ -68,7 +70,8 @@ class ATDecoderTask : public FairTask {
       Int_t fAverageTbs;           
       TString fPedestalFile;        
   //  Double_t fPedestalRMSFactor; 
-      Bool_t fUseFPNPedestal;       
+      Bool_t fUseFPNPedestal;
+      Bool_t fIsPositive;       
 
    // TString fGainCalibrationFile; 
   //  Double_t fGainConstant;       

@@ -14,13 +14,16 @@ ClassImp(ATPad);
 ATPad::ATPad()
 {
     fPadNum = -1;
+    fPadXCoord = -9999;
+    fPadYCoord = -9999;
 }
 
 ATPad::ATPad(Int_t PadNum)
 {
     Initialize();
     fPadNum = PadNum;
-    
+    fPadXCoord = -9999;
+    fPadYCoord = -9999;
 }
 
 
@@ -41,13 +44,18 @@ void ATPad::Initialize(){
 
 void ATPad::SetValidPad(Bool_t val)               { kIsValid = val; }
 void ATPad::SetPad(Int_t val)                     { fPadNum = val; }
-void ATPad::SetRawADC(Int_t *val)                 { memcpy(val, fRawAdc, sizeof(fRawAdc)); }
-void ATPad::SetRawADC(Int_t idx, Int_t val)       { fRawAdc[idx] = val; memset(fRawAdc, 0, sizeof(fRawAdc));}
+void ATPad::SetRawADC(Int_t *val)                 { memcpy(fRawAdc,val, sizeof(fRawAdc)); }
+void ATPad::SetRawADC(Int_t idx, Int_t val)       { fRawAdc[idx] = val;}
 void ATPad::SetPedestalSubtracted(Bool_t val) { fIsPedestalSubtracted = val; }
 //void ATPad::SetGainCalibrated(Bool_t val)     { fIsGainCalibrated = val; }//TODO
 void ATPad::SetMaxADCIdx(Int_t val)           { fMaxAdcIdx = val; }
 void ATPad::SetADC(Double_t *val)             { memcpy(fAdc, val, sizeof(fAdc)); }
 void ATPad::SetADC(Int_t idx, Double_t val)   { fAdc[idx] = val; }
+void ATPad::SetPadXCoord(Double_t val)        { fPadXCoord = val;}
+void ATPad::SetPadYCoord(Double_t val)        { fPadYCoord = val;}
+
+Float_t ATPad::GetPadXCoord()                 { return fPadXCoord;}
+Float_t ATPad::GetPadYCoord()                 { return fPadYCoord;}
 
 ATPad &ATPad::operator= (ATPad right)
 {

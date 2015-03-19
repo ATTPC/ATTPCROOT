@@ -6,7 +6,7 @@
 // ROOT classes
 #include "TSpectrum.h"
 
-class STPSASimple2 : public STPSA
+class ATPSASimple2 : public ATPSA
 {
   public:
     ATPSASimple2();

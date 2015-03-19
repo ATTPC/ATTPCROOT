@@ -10,6 +10,7 @@ ${CMAKE_SOURCE_DIR}/par
 ${CMAKE_SOURCE_DIR}/reco
 ${CMAKE_SOURCE_DIR}/reco/GETDecoder
 ${CMAKE_SOURCE_DIR}/reco/ATDecoder
+${CMAKE_SOURCE_DIR}/reco/ATPulseAnalyzer
 
 )
 
@@ -34,6 +35,10 @@ ATDecoder/ATRawEvent.cc
 ATDecoder/ATHit.cc
 ATDecoder/ATEvent.cc
 
+ATPulseAnalyzer/ATPSA.cc
+ATPulseAnalyzer/ATPSASimple.cc
+ATPulseAnalyzer/ATPSASimple2.cc
+#ATPulseAnalyzer/STPSALayer.cc
 
 ATDecoderTask.cc
 

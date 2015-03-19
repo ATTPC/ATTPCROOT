@@ -46,8 +46,8 @@ class ATPSA
     Int_t fThreshold;         ///< threshold of ADC value
 
     Double_t CalculateX(Double_t row);      ///< Calculate x position in mm. This returns the center position of given pad row.
-    Double_t CalculateY(Double_t peakIdx);  ///< Calculate y position in mm using the peak index.
-    Double_t CalculateZ(Double_t layer);    ///< Calculate z position in mm. This returns the center position of given pad layer.
+    Double_t CalculateZ(Double_t peakIdx);  ///< Calculate z position in mm using the peak index.
+    Double_t CalculateY(Double_t layer);    ///< Calculate y position in mm. This returns the center position of given pad layer.
 
   ClassDef(ATPSA, 2)
 };

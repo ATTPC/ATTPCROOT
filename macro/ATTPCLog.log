@@ -9,4 +9,5 @@
 [INFO   ] [FairRootManager.cxx::ReadEvent:1129]  No event Header was found!!! 
 [INFO   ] [FairRootManager.cxx::ActivateBranch:1638]  Branch: EventHeader.  not found in Tree  
 [INFO   ] [FairRootManager.cxx::ActivateBranch:1638]  Branch: EventHeader.  not found in Tree  
+[INFO   ] [ATDecoderTask.cc::Init:77] Positive polarity set 
 [INFO   ] [FairRootManager.cxx::ReadEvent:1115] The number of entries in chain is 20000 

@@ -62,13 +62,13 @@ ATPSA::CalculateX(Double_t row)
 }
 
 Double_t
-ATPSA::CalculateY(Double_t peakIdx)
+ATPSA::CalculateZ(Double_t peakIdx)
 {
   return -peakIdx*fTBTime*fDriftVelocity/100.;
 }
 
 Double_t
-ATPSA::CalculateZ(Double_t layer)
+ATPSA::CalculateY(Double_t layer)
 {
   return (layer + 0.5)*fPadSizeZ;
 }
