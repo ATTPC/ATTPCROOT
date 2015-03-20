@@ -86,7 +86,7 @@ Bool_t ATCore::SetATTPCMap(char *lookup){
   fAtMapPtr->GenerateATTPC();
   Bool_t MapIn = fAtMapPtr->ParseXMLMap(lookup);
   if(!MapIn) return false;
-   //fAtPadCoordPtr = fAtMapPtr->GetPadCoord();
+   
   //AtPadCoordArr = fAtMapPtr->GetPadCoordArr();//TODO Use a pointer to a simpler container
   //**** For debugging purposes only! ******//
   //fAtMapPtr->SetGUIMode();

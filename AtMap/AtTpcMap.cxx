@@ -91,6 +91,7 @@ void AtTpcMap::GenerateATTPC(){
     Float_t xoff = 0.;
     Float_t yoff = 0.;
 
+   
       
     for(Int_t j =0;j<row_len_l;j++){
          
@@ -113,6 +114,8 @@ void AtTpcMap::GenerateATTPC(){
 
 	ort = 1;
  
+        
+
             for(Int_t i =0;i<pads_in_row;i++){
              
                 if(i==0){
@@ -132,7 +135,8 @@ void AtTpcMap::GenerateATTPC(){
                     pad_y_off = j*dotted_l_tri_hi + large_y_spacing + yoff;
                     if(ort==-1) pad_y_off+=large_tri_hi;
                     fill_coord(pad_index,pad_x_off,pad_y_off,large_tri_side,ort);
-                    pad_index+=1;  
+                    pad_index+=1; 
+                     
                      
                 }//if
                 else{
@@ -171,23 +175,28 @@ void AtTpcMap::GenerateATTPC(){
       		  pad_index_aux++;
    	 }
 
+       
+
        fPadInd = pad_index + pad_index_aux;
 
 }
 
 void AtTpcMap::GenerateProto(){
 
+//TODO Geomtery of the prototype
+
 }
 
 Int_t AtTpcMap::fill_coord(int pindex, float padxoff, float padyoff, float triside, float fort){
 
+    
     AtPadCoord[pindex][0][0] = padxoff;
     AtPadCoord[pindex][0][1] = padyoff;
     AtPadCoord[pindex][1][0] = padxoff + triside/2.;
     AtPadCoord[pindex][1][1] = padyoff + fort*triside*TMath::Sqrt(3.)/2.;
     AtPadCoord[pindex][2][0] = padxoff + triside;
     AtPadCoord[pindex][2][1] = padyoff;
-
+    
 
 }
 
@@ -254,7 +263,7 @@ void AtTpcMap::ParseMapList(TXMLNode *node){
 		
 		for(; node;node=node->GetNextNode()){
 			if(node->GetNodeType()==TXMLNode::kXMLElementNode){ //Element node
-			   if(strcmp(node->GetNodeName(),"Lookup20141208") == 0){
+			   if(strcmp(node->GetNodeName(),"Lookup20141208") == 0){ //TODO Implement this as function parameter
 				//cout<<node->GetNodeName()<<endl;
 				ParseATTPCMap(node->GetChildren());
 			   }

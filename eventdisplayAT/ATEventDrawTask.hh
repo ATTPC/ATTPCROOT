@@ -18,6 +18,7 @@
 #include "TCanvas.h"
 #include "TH2D.h"
 #include "TGraph.h"
+#include "TH2Poly.h"
 
 #include "ATEventManager.hh"
 //#include "ATRiemannTrack.hh"
@@ -25,6 +26,10 @@
 #include "ATEvent.hh"
 #include "ATHit.hh"
 #include "AtTpcMap.h"
+
+#ifndef __CINT__ // Boost 
+#include <boost/multi_array.hpp>
+#endif //__CINT__
 
 class ATEventDrawTask : public FairTask
 {
@@ -81,7 +86,7 @@ class ATEventDrawTask : public FairTask
     Style_t fRiemannStyle;*/
 
     TCanvas* fCvsPadPlane;
-    TH2D* fPadPlane;
+    TH2Poly* fPadPlane;
     Int_t fMinZ;
     Int_t fMaxZ;
     Int_t fMinX;

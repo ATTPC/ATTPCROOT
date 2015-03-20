@@ -11,10 +11,6 @@
 
 #include "TCanvas.h"
 
-#ifndef __CINT__ // Boost 
-#include <boost/multi_array.hpp>
-#endif //__CINT__
-
 class TGListTreeItem;
 
 class ATEventManager : public TEveEventManager

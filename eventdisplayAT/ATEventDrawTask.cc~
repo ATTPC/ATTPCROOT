@@ -13,6 +13,11 @@
 #include "TStyle.h"
 
 #include "AtTpcMap.h"
+#include "TH2Poly.h"
+
+#ifndef __CINT__ // Boost 
+#include <boost/multi_array.hpp>
+#endif //__CINT__
 
 #include <iostream>
 
@@ -43,11 +48,15 @@ ATEventDrawTask::ATEventDrawTask()
   //fRiemannStyle(kOpenCircle),
   fCvsPadPlane(0),
   fPadPlane(0),
+  fAtMapPtr(0),
   fMinZ(0),
   fMaxZ(1344),
   fMinX(432),
   fMaxX(-432)
 {
+
+  fAtMapPtr = new AtTpcMap(); 
+
 }
 
 ATEventDrawTask::~ATEventDrawTask()
@@ -74,14 +83,14 @@ ATEventDrawTask::Init()
 
   gStyle -> SetPalette(55);
   fCvsPadPlane = fEventManager->GetCvsPadPlane();
- // DrawPadPlane();  //TODO DO not forget this now
+  DrawPadPlane(); 
 }
 
 void 
 ATEventDrawTask::Exec(Option_t* option)
 {
   Reset();
-
+ 
   if(fHitArray) DrawHitPoints();
   //if(fHitClusterArray) DrawHitClusterPoints();
   //if(fRiemannTrackArray) DrawRiemannHits();
@@ -109,8 +118,8 @@ ATEventDrawTask::DrawHitPoints()
     TVector3 position = hit.GetPosition();
     fHitSet->SetNextPoint(position.X()/10.,position.Y()/10.,position.Z()/10.);
     fHitSet->SetPointId(new TNamed(Form("Hit %d",iHit),""));
-
-    fPadPlane->Fill(position.Z(), position.X(), hit.GetCharge());
+    std::cout<<position.X()<<endl;
+    fPadPlane->Fill(position.X(), position.Y(), hit.GetCharge());
   }
   gEve -> AddElement(fHitSet);
 }
@@ -201,7 +210,7 @@ ATEventDrawTask::Reset()
   }*/
 
   if(fPadPlane!=NULL)
-    fPadPlane->Reset();
+    fPadPlane->Reset(0);
 }
 
 /*void
@@ -225,15 +234,19 @@ ATEventDrawTask::Set2DPlotRange(Int_t uaIdx)
 void
 ATEventDrawTask::DrawPadPlane()
 {
-  /*if(fPadPlane) 
+  if(fPadPlane) 
   {
-    fPadPlane->Reset();
+    fPadPlane->Reset(0);
     return;
-  }*/
+  }
 
-  fAtMapPtr->SetGUIMode();
-  fAtMapPtr->GetATTPCPlane();
-
+   
+    
+    fAtMapPtr->GenerateATTPC();
+ // fAtMapPtr->SetGUIMode();// This method does not need to be called since it generates the Canvas we do not want
+    fPadPlane = fAtMapPtr->GetATTPCPlane();
+    fCvsPadPlane -> cd();
+    fPadPlane -> Draw("col");
   
 }
 

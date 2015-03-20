@@ -18,6 +18,7 @@
 #include "TCanvas.h"
 #include "TH2D.h"
 #include "TGraph.h"
+#include "TH2Poly.h"
 
 #include "ATEventManager.hh"
 //#include "ATRiemannTrack.hh"
@@ -46,7 +47,7 @@ class ATEventDrawTask : public FairTask
     //void SetRiemannAttributes(Color_t, Size_t, Style_t);
 
   private :
-   // void DrawPadPlane();
+    void DrawPadPlane();
     AtTpcMap *fAtMapPtr;
     void UpdateCvsPadPlane();
 
@@ -81,7 +82,7 @@ class ATEventDrawTask : public FairTask
     Style_t fRiemannStyle;*/
 
     TCanvas* fCvsPadPlane;
-    TH2D* fPadPlane;
+    TH2Poly* fPadPlane;
     Int_t fMinZ;
     Int_t fMaxZ;
     Int_t fMinX;
