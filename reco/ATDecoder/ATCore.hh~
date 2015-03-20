@@ -46,7 +46,7 @@ class ATCore : public TObject  {
      #ifndef __CINT__
      typedef boost::multi_array<double,3> multiarray;
      typedef multiarray::index index;
-     //multiarray AtPadCoordArr;
+     multiarray AtPadCoordArr;
      #endif //__CINT__
     
      Bool_t kDebug;

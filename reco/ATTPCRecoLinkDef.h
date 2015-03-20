@@ -21,4 +21,6 @@
 #pragma link C++ class ATPSASimple+;
 #pragma link C++ class ATPSASimple2+;
 
+#pragma link C++ class ATPSATask+;
+
 #endif

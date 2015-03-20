@@ -41,6 +41,7 @@ ATPulseAnalyzer/ATPSASimple2.cc
 #ATPulseAnalyzer/STPSALayer.cc
 
 ATDecoderTask.cc
+ATPSATask.cc
 
 )
 

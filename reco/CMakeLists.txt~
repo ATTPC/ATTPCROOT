@@ -37,10 +37,11 @@ ATDecoder/ATEvent.cc
 
 ATPulseAnalyzer/ATPSA.cc
 ATPulseAnalyzer/ATPSASimple.cc
-ATPulseAnalyzer/STPSASimple2.cc
+ATPulseAnalyzer/ATPSASimple2.cc
 #ATPulseAnalyzer/STPSALayer.cc
 
 ATDecoderTask.cc
+#ATPSATask.cc
 
 )
 

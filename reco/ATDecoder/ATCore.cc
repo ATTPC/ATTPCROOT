@@ -199,7 +199,8 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
 				 Int_t iAsad = frame -> GetAsadID();
 
 
-                 std::cout<<" Event ID : "<<eventID<<" coboID : "<<iCobo<<" asadID : "<<iAsad<<'\xd';//std::endl;
+                 //std::cout<<" Event ID : "<<eventID<<" coboID : "<<iCobo<<" asadID : "<<iAsad<<'\xd';//std::endl;
+                 std::cout<<" Event ID : "<<eventID<<" coboID : "<<iCobo<<" asadID : "<<iAsad<<std::endl;
 
 		        
 
