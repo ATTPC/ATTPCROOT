@@ -38,11 +38,12 @@ void run_unpack(){
   
 
   ATDecoderTask *decoderTask = new ATDecoderTask();
-  decoderTask ->SetMap("/home/daq/fair_install_2015/ATTPCROOT_09032015/scripts/Lookup20141208.xml");
-  decoderTask -> AddData("/home/daq/Desktop/Yassid/ATTPC/run_0225/test");
+  //decoderTask ->SetMap("/home/daq/fair_install_2015/ATTPCROOT_09032015/scripts/Lookup20141208.xml");
+  //decoderTask -> AddData("/home/daq/Desktop/Yassid/ATTPC/run_0225/test");
+  decoderTask ->SetMap("/Users/yassidayyad/fair_install/ATTPCROOT_Apr/scripts/Lookup20141208.xml");
+  decoderTask -> AddData("/Users/yassidayyad/Desktop/ATTPC/Data/run_0225/test");
   decoderTask -> SetPositivePolarity(kTRUE);
-  //decoderTask ->SetMap("/Users/yassidayyad/fair_install/ATTPCROOT_Mar/scripts/Lookup20141208.xml");
-  //decoderTask -> AddData("/Users/yassidayyad/Desktop/ATTPC/Data/run_0225/test");
+  
   //decoderTask -> SetData(0);
   //decoderTask -> SetInternalPedestal(5, 20);
   decoderTask -> SetFPNPedestal();

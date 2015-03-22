@@ -90,7 +90,7 @@ void
 ATEventDrawTask::Exec(Option_t* option)
 {
   Reset();
- 
+  
   if(fHitArray) DrawHitPoints();
   //if(fHitClusterArray) DrawHitClusterPoints();
   //if(fRiemannTrackArray) DrawRiemannHits();
@@ -104,20 +104,24 @@ ATEventDrawTask::DrawHitPoints()
 {
   ATEvent* event = (ATEvent*) fHitArray->At(0);
   Int_t nHits = event->GetNumHits();
-
   fHitSet = new TEvePointSet("Hit",nHits, TEvePointSelectorConsumer::kTVT_XYZ);
   fHitSet->SetOwnIds(kTRUE);
   fHitSet->SetMarkerColor(fHitColor);
   fHitSet->SetMarkerSize(fHitSize);
   fHitSet->SetMarkerStyle(fHitStyle);
+    std::cout<<" Number of hits : "<<nHits<<std::endl;
 
-  for(Int_t iHit; iHit<nHits; iHit++)
+  for(Int_t iHit=0; iHit<nHits; iHit++)
   {
+     
     ATHit hit = event->GetHitArray()->at(iHit);
+      
     if(hit.GetCharge()<fThreshold) continue;
     TVector3 position = hit.GetPosition();
     fHitSet->SetNextPoint(position.X()/10.,position.Y()/10.,position.Z()/10.);
     fHitSet->SetPointId(new TNamed(Form("Hit %d",iHit),""));
+      
+      std::cout<<position.X()<<std::endl;
     fPadPlane->Fill(position.X(), position.Y(), hit.GetCharge());
   }
   gEve -> AddElement(fHitSet);

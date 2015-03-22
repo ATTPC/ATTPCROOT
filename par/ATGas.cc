@@ -26,7 +26,7 @@ ATGas::ATGas(TString GasFileName)
 void ATGas::InitializeParameters()
 {
   ifstream gasFile(fGasFileName.Data(), std::fstream::in);
-  if(gasFile==NULL) cerr << "Gas file " << fGasFileName.Data() << " not found!!" << endl;
+  if(!gasFile) cerr << "Gas file " << fGasFileName.Data() << " not found!!" << endl;
 
   string line;
   string data;
