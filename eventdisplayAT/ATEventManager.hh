@@ -1,5 +1,3 @@
-
-
 #pragma once
 
 #include "TEveEventManager.h"
@@ -11,7 +9,7 @@
 
 #include "TCanvas.h"
 
-#ifndef __CINT__ // Boost 
+#ifndef __CINT__ // Boost
 #include <boost/multi_array.hpp>
 #endif //__CINT__
 
@@ -55,3 +53,5 @@ class ATEventManager : public TEveEventManager
 
   ClassDef(ATEventManager,1);
 };
+
+

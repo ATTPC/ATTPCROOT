@@ -94,7 +94,7 @@ ATPSATask::Exec(Option_t *opt)
     return;
 
   ATRawEvent *rawEvent = (ATRawEvent *) fRawEventArray -> At(0);
-  std::cout << rawEvent -> GetEventID() << " " << rawEvent -> GetNumPads() << std::endl;  
+  std::cout << "  Event Number :  " << rawEvent -> GetEventID() << " Valid pads : " << rawEvent -> GetNumPads() << std::endl;
 
   ATEvent *event = (ATEvent *) new ((*fEventHArray)[0]) ATEvent();
   event -> SetEventID(event -> GetEventID());

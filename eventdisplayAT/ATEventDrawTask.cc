@@ -120,8 +120,6 @@ ATEventDrawTask::DrawHitPoints()
     TVector3 position = hit.GetPosition();
     fHitSet->SetNextPoint(position.X()/10.,position.Y()/10.,position.Z()/10.);
     fHitSet->SetPointId(new TNamed(Form("Hit %d",iHit),""));
-      
-      std::cout<<position.X()<<std::endl;
     fPadPlane->Fill(position.X(), position.Y(), hit.GetCharge());
   }
   gEve -> AddElement(fHitSet);

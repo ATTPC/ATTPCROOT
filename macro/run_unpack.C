@@ -79,12 +79,12 @@ void run_unpack(){
 
   ATPSATask *psaTask = new ATPSATask();
   psaTask -> SetPersistence();
-  psaTask -> SetThreshold(40);
+  psaTask -> SetThreshold(20);
   run -> AddTask(psaTask);
 
   run->Init();
 
-  run->Run(0, 30); // Number must be lower than the number of events in dummy
+  run->Run(0, 1000); // Number must be lower than the number of events in dummy
 
   // -----   Finish   -------------------------------------------------------
 	timer.Stop();
