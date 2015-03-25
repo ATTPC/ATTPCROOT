@@ -1,7 +1,8 @@
 #pragma once
 
 #include "TEveEventManager.h"
-//#include "FairEventManager.h"
+#include "FairEventManager.h"
+#include "TGNumberEntry.h"
 
 #include "FairRunAna.h"
 #include "FairRootManager.h"
@@ -25,6 +26,8 @@ class ATEventManager : public TEveEventManager
     virtual void GotoEvent(Int_t event); ///< *MENU*
     virtual void NextEvent();            ///< *MENU*
     virtual void PrevEvent();            ///< *MENU*
+    virtual void make_gui();
+    virtual void SelectEvent();
 
     void AddTask(FairTask* task) { fRunAna->AddTask(task); }
     //virtual void InitRiemann(Int_t option=1, Int_t level=3, Int_t nNodes=10000);
@@ -35,20 +38,24 @@ class ATEventManager : public TEveEventManager
     TCanvas* GetCvsPadPlane() { return fCvsPadPlane; }
 
     void RunEvent();
+    
 
   private :
     FairRootManager* fRootManager;
     FairRunAna* fRunAna;
-
+    TGNumberEntry*  fCurrentEvent;
+    
     Int_t fEntry;
     TGListTreeItem* fEvent;
 
     TCanvas* fCvsPadPlane;
 
+
     static ATEventManager* fInstance;
 
     ATEventManager(const ATEventManager&);
     ATEventManager& operator=(const ATEventManager&);
+    
 
 
   ClassDef(ATEventManager,1);

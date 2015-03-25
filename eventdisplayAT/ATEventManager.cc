@@ -1,5 +1,6 @@
 
 #include "ATEventManager.hh"
+#include "FairEventManagerEditor.h"
 
 #include "TEveGeoNode.h"
 #include "TEveManager.h"
@@ -16,10 +17,16 @@
 #include "TGeoManager.h"
 #include "TVirtualX.h"
 #include "TGWindow.h"
+#include "TGButton.h"
+#include "TGLabel.h"
+
+
+
 
 #include <iostream>
 
 class TGeoNode;
+
 
 using namespace std;
 
@@ -37,6 +44,7 @@ ATEventManager::ATEventManager()
   fRunAna(FairRunAna::Instance()),
   fEntry(0),
   fEvent(0),
+  fCurrentEvent(0),
   fCvsPadPlane(0)
 {
   fInstance=this;
@@ -58,7 +66,7 @@ void
 ATEventManager::Init(Int_t option, Int_t level, Int_t nNodes)
 {
   TEveManager::Create();
-
+    
   Int_t  dummy;
   UInt_t width, height;
   UInt_t widthMax = 1400, heightMax = 650;
@@ -128,39 +136,140 @@ ATEventManager::Init(Int_t option, Int_t level, Int_t nNodes)
 
   /**************************************************************************/
 
-  //gEve->GetBrowser()->GetTabRight()->SetTab(1);
+  gEve->GetBrowser()->GetTabRight()->SetTab(1);
+   make_gui();
+    
   gEve->Redraw3D(kTRUE, kTRUE);
 
-  TGLViewer *dfViewer = gEve->GetDefaultGLViewer();
+  TGLViewer *dfViewer = gEve->GetDefaultGLViewer(); //Is this doing anything?
   dfViewer->CurrentCamera().RotateRad(-.7, 0.5);
   dfViewer->DoDraw();
 
   //RunEvent();
 }
 
+void ATEventManager::SelectEvent()
+{
+   GotoEvent(fCurrentEvent->GetIntNumber());
+   // cout<<fCurrentEvent->GetIntNumber()<<endl;
+
+}
+
 void 
 ATEventManager::GotoEvent(Int_t event)
 {
+    
   fEntry=event;
+  std::cout<<" Event number : "<<fEntry<<std::endl;
   fRunAna->Run((Long64_t)event);
+  
 }
 
 void 
 ATEventManager::NextEvent()
 {
   fEntry+=1;
+  std::cout<<" Event number : "<<fEntry<<std::endl;
   fRunAna->Run((Long64_t)fEntry);
+    
 }
 
 void 
 ATEventManager::PrevEvent()
 {
   fEntry-=1;
+  std::cout<<" Event number : "<<fEntry<<std::endl;
   fRunAna->Run((Long64_t)fEntry);
+  
 }
 
 void
 ATEventManager::RunEvent()
 {
   fRunAna->Run((Long64_t)fEntry);
+}
+
+void
+ATEventManager::make_gui()
+{
+    // Create minimal GUI for event navigation.
+    
+       TChain* chain =FairRootManager::Instance()->GetInChain();
+       Int_t Entries= chain->GetEntriesFast();
+    
+    TEveBrowser* browser = gEve->GetBrowser();
+    browser->StartEmbedding(TRootBrowser::kLeft);
+    
+    TGMainFrame* frmMain = new TGMainFrame(gClient->GetRoot(), 1000, 600);
+    frmMain->SetWindowName("XX GUI");
+    frmMain->SetCleanup(kDeepCleanup);
+    
+    TGHorizontalFrame* hf = new TGHorizontalFrame(frmMain);
+    {
+        
+        TString icondir( Form("%s/icons/", gSystem->Getenv("VMCWORKDIR")) );
+        TGPictureButton* b = 0;
+        //EvNavHandler    *fh = new EvNavHandler;
+        //ATEventManager *fh = new ATEventManager; //Wrong!! Another instance produces different events
+        
+        
+        b = new TGPictureButton(hf, gClient->GetPicture(icondir+"arrow_left.gif"));
+        hf->AddFrame(b);
+        b->Connect("Clicked()", "ATEventManager", fInstance, "PrevEvent()");
+      
+        b = new TGPictureButton(hf, gClient->GetPicture(icondir+"arrow_right.gif"));
+        hf->AddFrame(b);
+        b->Connect("Clicked()", "ATEventManager", fInstance, "NextEvent()");
+        
+        
+       // b = new TGPictureButton(hf, gClient->GetPicture(icondir+"goto.gif"));
+       // hf->AddFrame(b);
+       // b->Connect("Clicked()", "ATEventManager", fInstance, "GotoEvent(Int_t)");
+    }
+    
+    frmMain->AddFrame(hf);
+    
+    
+   /* TString Infile= "Input file : ";
+    //  TFile* file =FairRunAna::Instance()->GetInputFile();
+    TFile* file =FairRootManager::Instance()->GetInChain()->GetFile();
+    Infile+=file->GetName();
+    TGLabel* TFName=new TGLabel(frmMain, Infile.Data());
+    frmMain->AddFrame(TFName);
+    
+    UInt_t RunId= FairRunAna::Instance()->getRunId();
+    TString run= "Run Id : ";
+    run += RunId;
+    TGLabel* TRunId=new TGLabel(frmMain, run.Data());
+    frmMain->AddFrame( TRunId);
+    
+    TString nevent= "No of events : ";
+    nevent +=Entries ;
+    TGLabel* TEvent=new TGLabel(frmMain, nevent.Data());
+    frmMain->AddFrame(TEvent);*/
+
+
+    
+    TGHorizontalFrame* f = new TGHorizontalFrame(frmMain);
+    TGLabel* l = new TGLabel(f, "Current Event:");
+    f->AddFrame(l, new TGLayoutHints(kLHintsLeft | kLHintsCenterY, 1, 2, 1, 1));
+    
+    
+    
+      fCurrentEvent = new TGNumberEntry(f, 0., 6, -1,
+                                      TGNumberFormat::kNESInteger, TGNumberFormat::kNEANonNegative,
+                                      TGNumberFormat::kNELLimitMinMax, 0, Entries);
+      f->AddFrame(fCurrentEvent, new TGLayoutHints(kLHintsLeft, 1, 1, 1, 1));
+      fCurrentEvent->Connect("ValueSet(Long_t)","ATEventManager",fInstance, "SelectEvent()");
+      frmMain->AddFrame(f);
+
+    
+    
+    
+    frmMain->MapSubwindows();
+    frmMain->Resize();
+    frmMain->MapWindow();
+    
+    browser->StopEmbedding();
+    browser->SetTabTitle("ATTPC Event Control", 0);
 }
