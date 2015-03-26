@@ -64,14 +64,14 @@ void AtMagnet::ConstructGeometry()
     TGeoVolume *magyoke = new TGeoVolume("magyoke", magyokec, Fe);
     magyoke->SetLineColor(kViolet+2);
     magyoke->SetTransparency(50);
-    top->AddNode(magyoke, 1, new TGeoTranslation(0, 0, 50));
+    top->AddNode(magyoke, 1, new TGeoTranslation(0, 0, 90));
     
     // magnet
-     TGeoTube *SolenoidGeo = new TGeoTube("SolenoidGeo",105./4.0,274./4.0,229.0/2.0);
+     TGeoTube *SolenoidGeo = new TGeoTube("SolenoidGeo",125./4.0,274./4.0,229.0/2.0);// Radius divided by 2.0 
      TGeoVolume *SolenoidVol = new TGeoVolume("SolenoidVol", SolenoidGeo, Fe);
      SolenoidVol->SetLineColor(kWhite);
      SolenoidVol->SetTransparency(50);
-     top->AddNode(SolenoidVol,1,new TGeoTranslation(0, 0, 70));
+     top->AddNode(SolenoidVol,1,new TGeoTranslation(0, 0, 110));
 
   /*  TGeoTubeSeg *magnet1a = new TGeoTubeSeg("magnet1a", 250, 300, 35, 45, 135);
     TGeoTubeSeg *magnet1b = new TGeoTubeSeg("magnet1b", 250, 300, 35, 45, 135);

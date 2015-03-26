@@ -50,7 +50,7 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
     // Constant Field
     AtConstField  *fMagField = new AtConstField();
     fMagField->SetField(0., 0. ,20. ); // values are in kG
-    fMagField->SetFieldRegion(-50, 50,-50, 50, 10,130); // values are in cm
+    fMagField->SetFieldRegion(-50, 50,-50, 50, -10,230); // values are in cm
                           //  (xmin,xmax,ymin,ymax,zmin,zmax)
     run->SetField(fMagField);
     // --------------------------------------------------------------------
@@ -107,7 +107,7 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
 	          Double_t py = 0.01/a;  // Y-Momentum / per nucleon!!!!!!
 	          Double_t pz = 0.300/a;  // Z-Momentum / per nucleon!!!!!!
 	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator(z,a,q,m,px,py,pz);
-	          ionGen->SetSpotRadius(1,1,0);
+	          ionGen->SetSpotRadius(1,-20,0);
 	          // add the ion generator
 	          primGen->AddGenerator(ionGen);
   

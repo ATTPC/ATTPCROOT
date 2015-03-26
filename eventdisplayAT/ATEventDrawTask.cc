@@ -70,7 +70,10 @@ ATEventDrawTask::Init()
   fEventManager = ATEventManager::Instance();
 
   fHitArray = (TClonesArray*) ioMan->GetObject("ATEventH");
-  if(fHitArray) LOG(INFO)<<"Hit Found."<<FairLogger::endl;
+  if(fHitArray) LOG(INFO)<<"Hit Array Found."<<FairLogger::endl;
+    
+   fRawEventArray = (TClonesArray*) ioMan->GetObject("ATRawEvent");
+   if(fRawEventArray) LOG(INFO)<<"Raw Event Array  Found."<<FairLogger::endl;
 
   //fHitClusterArray = (TClonesArray*) ioMan->GetObject("STEventHC");
   //if(fHitClusterArray) LOG(INFO)<<"Hit Cluster Found."<<FairLogger::endl;
@@ -118,7 +121,8 @@ ATEventDrawTask::DrawHitPoints()
       
     if(hit.GetCharge()<fThreshold) continue;
     TVector3 position = hit.GetPosition();
-    fHitSet->SetNextPoint(position.X()/10.,position.Y()/10.,position.Z()/10.);
+    //std::cout<<"  Hit number : "<<iHit<<" Position X : "<<position.X()<<" Position Y : "<<position.Y()<<" Position Z : "<<position.Z()<<std::endl;
+    fHitSet->SetNextPoint(position.X()/10.,position.Y()/10.,position.Z()/10.); // Convert into cm
     fHitSet->SetPointId(new TNamed(Form("Hit %d",iHit),""));
     fPadPlane->Fill(position.X(), position.Y(), hit.GetCharge());
   }

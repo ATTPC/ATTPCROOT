@@ -64,7 +64,9 @@ ATPSA::CalculateX(Double_t row)
 Double_t
 ATPSA::CalculateZ(Double_t peakIdx)
 {
-  return -peakIdx*fTBTime*fDriftVelocity/100.;
+  //return -peakIdx*fTBTime*fDriftVelocity/100.;
+  //  std::cout<<fNumTbs<<"    "<<fTBTime<<std::endl;
+    return (fNumTbs - peakIdx)*fTBTime*fDriftVelocity/100.;
 }
 
 Double_t

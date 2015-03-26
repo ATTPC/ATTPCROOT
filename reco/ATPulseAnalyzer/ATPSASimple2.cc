@@ -52,11 +52,13 @@ ATPSASimple2::Analyze(ATRawEvent *rawEvent, ATEvent *event)
 
       zPos = CalculateZ(maxAdcIdx);
       charge = adc[maxAdcIdx];
+        //std::cout<<zPos<<std::endl;
 
       if (fThreshold > 0 && charge < fThreshold)
         continue;
 
-      if (zPos > 0 || zPos < -fMaxDriftLength)
+      //if (zPos > 0 || zPos < -fMaxDriftLength)
+      if (zPos < 0 || zPos > fMaxDriftLength)
         continue;
 
       ATHit *hit = new ATHit(hitNum, xPos, yPos, zPos, charge);

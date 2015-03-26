@@ -23,6 +23,7 @@
 #include "ATEventManager.hh"
 //#include "ATRiemannTrack.hh"
 //#include "ATRiemannHit.hh"
+#include "ATRawEvent.hh"
 #include "ATEvent.hh"
 #include "ATHit.hh"
 #include "AtTpcMap.h"
@@ -65,6 +66,7 @@ class ATEventDrawTask : public FairTask
     //TClonesArray* fHitClusterArray;
     //TClonesArray* fRiemannTrackArray;
     //TClonesArray* fKalmanArray;
+    TClonesArray* fRawEventArray;
 
     ATEventManager* fEventManager;
 

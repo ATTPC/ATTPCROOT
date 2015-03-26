@@ -51,7 +51,7 @@ void AtPipe::ConstructGeometry()
    
     
     Int_t nSects=2;
-    Double_t z[] = { -100, 10};    // in cm
+    Double_t z[] = { -110, 0};    // in cm
     Double_t r[] = { 2.5, 2.5};    // in cm
     Double_t Thickness = 0.05;     // thickness of beam pipe [cm]
     TGeoPcon* shape = new TGeoPcon(0., 360., nSects);
