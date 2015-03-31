@@ -28,7 +28,8 @@ class AtTpcProtoMap : public AtTpcMap
         TH2Poly *hProto;
         Int_t bin;
 
-        Bool_t IsFileSet;
+        Bool_t kIsFileSet;
+        Bool_t kIsGenerated;
 
    ClassDef(AtTpcProtoMap,1);
 

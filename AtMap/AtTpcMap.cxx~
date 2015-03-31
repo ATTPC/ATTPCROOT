@@ -56,7 +56,7 @@ void AtTpcMap::Dump(){
 void AtTpcMap::GenerateATTPC(){
 
  
-    std::cout<<" ATTPC Map : Generating the map geometry "<<std::endl;
+    std::cout<<" ATTPC Map : Generating the map geometry of the ATTPC "<<std::endl;
     // Local variables
     Float_t pads_in_half_hex;
     Float_t pads_in_hex;
@@ -261,8 +261,9 @@ void AtTpcMap::ParseMapList(TXMLNode *node){
 		
 		for(; node;node=node->GetNextNode()){
 			if(node->GetNodeType()==TXMLNode::kXMLElementNode){ //Element node
-			   if(strcmp(node->GetNodeName(),"Lookup20141208") == 0){ //TODO Implement this as function parameter
+			 if( strcmp(node->GetNodeName(),"LookupProto20150331") == 0){ //TODO Implement this as function parameter
 				//cout<<node->GetNodeName()<<endl;
+                                //if(strcmp(node->GetNodeName(),"Lookup20141208") == 0){
 				ParseATTPCMap(node->GetChildren());
 			   }
 			}

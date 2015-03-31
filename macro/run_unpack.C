@@ -7,6 +7,10 @@ void run_unpack(){
 
    gSystem->Load("libXMLParser.so");
 
+   TString scriptfile = "Lookup20141208.xml";
+   TString dir = getenv("VMCWORKDIR");
+   TString scriptdir = dir + "/scripts/"+ scriptfile;
+
   /*std::vector<int> PadRef;
 
   		PadRef.resize(4);
@@ -38,7 +42,8 @@ void run_unpack(){
   
 
   ATDecoderTask *decoderTask = new ATDecoderTask();
-  decoderTask ->SetMap("/home/daq/fair_install_2015/ATTPCROOT_09032015/scripts/Lookup20141208.xml");
+   decoderTask ->SetMap(scriptdir.Data());
+ // decoderTask ->SetMap("/home/daq/fair_install_2015/ATTPCROOT_09032015/scripts/Lookup20141208.xml");
   decoderTask -> AddData("/home/daq/Desktop/Yassid/ATTPC/run_0225/test");
   //decoderTask ->SetMap("/Users/yassidayyad/fair_install/ATTPCROOT_Apr/scripts/Lookup20141208.xml");
   //decoderTask -> AddData("/Users/yassidayyad/Desktop/ATTPC/Data/run_0225/test");

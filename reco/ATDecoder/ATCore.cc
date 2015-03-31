@@ -215,7 +215,7 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
                             Int_t PadRefNum = fAtMapPtr->GetPadNum(PadRef);
                             std::vector<Float_t> PadCenterCoord;
                             PadCenterCoord.reserve(2);
-			                PadCenterCoord = fAtMapPtr->CalcPadCenter(PadRefNum);
+			    PadCenterCoord = fAtMapPtr->CalcPadCenter(PadRefNum);
                             //std::cout<<" Pad Number : "<<fAtMapPtr->GetPadNum(PadRef)<<"  Pad Center X : "<<PadCenterCoord[0]<<"  Pad Center Y : "<<PadCenterCoord[1]<<std::endl;
                             ATPad *pad = new ATPad(PadRefNum); // TODO Return all pads with a flag??????
                             pad->SetPadXCoord(PadCenterCoord[0]);

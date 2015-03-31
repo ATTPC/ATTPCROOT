@@ -20,7 +20,7 @@ class AtTpcProtoMap : public AtTpcMap
 
 	void Initialize();
         void GenerateATTPC();
-        //TH2Poly* GetATTPCPlane();
+        TH2Poly* GetATTPCPlane();
         TH2Poly* GetATTPCPlane(TString TH2Poly_name);
         Bool_t SetGeoFile(TString geofile);
 
@@ -29,6 +29,7 @@ class AtTpcProtoMap : public AtTpcMap
         Int_t bin;
 
         Bool_t IsFileSet;
+        Bool_t IsGenerated;
 
    ClassDef(AtTpcProtoMap,1);
 

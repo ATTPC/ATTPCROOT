@@ -6,7 +6,12 @@ void run_unpack_proto(){
 	timer.Start();
   // ------------------------------------------------------------------------
 
+
    gSystem->Load("libXMLParser.so");
+
+   TString scriptfile = "LookupProto20150331.xml";
+   TString dir = getenv("VMCWORKDIR");
+   TString scriptdir = dir + "/scripts/"+ scriptfile;
 
    FairLogger *logger = FairLogger::GetLogger();
   logger -> SetLogFileName("ATTPCLog.log");
@@ -15,12 +20,14 @@ void run_unpack_proto(){
   logger -> SetLogVerbosityLevel("MEDIUM");
  
    AtTpcProtoMap *c = new AtTpcProtoMap();
+   //c->SetDebugMode();
    TString geo = "proto_geo_hires.root";
    c->SetGeoFile(geo);   
    //c->GenerateATTPC(); // These two methods generate the pad plane from TMultiGraphs
    //c->GetATTPCPlane(); //
 
-   c->GetATTPCPlane("ATTPC_Proto"); // This overloaded method extract the TH2Poly from the geomtry file previously created
+   c->GetATTPCPlane("ATTPC_Proto"); // This overloaded method extract the TH2Poly from the geomtry file previously created. Name of the TObject must be provided here (To Be changed)
+   c->ParseXMLMap(scriptdir.Data());
 
  // -----   Finish   -------------------------------------------------------
 	timer.Stop();
