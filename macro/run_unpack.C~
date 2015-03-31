@@ -40,9 +40,10 @@ void run_unpack(){
   ATDecoderTask *decoderTask = new ATDecoderTask();
   decoderTask ->SetMap("/home/daq/fair_install_2015/ATTPCROOT_09032015/scripts/Lookup20141208.xml");
   decoderTask -> AddData("/home/daq/Desktop/Yassid/ATTPC/run_0225/test");
-  decoderTask -> SetPositivePolarity(kTRUE);
-  //decoderTask ->SetMap("/Users/yassidayyad/fair_install/ATTPCROOT_Mar/scripts/Lookup20141208.xml");
+  //decoderTask ->SetMap("/Users/yassidayyad/fair_install/ATTPCROOT_Apr/scripts/Lookup20141208.xml");
   //decoderTask -> AddData("/Users/yassidayyad/Desktop/ATTPC/Data/run_0225/test");
+  decoderTask -> SetPositivePolarity(kTRUE);
+  
   //decoderTask -> SetData(0);
   //decoderTask -> SetInternalPedestal(5, 20);
   decoderTask -> SetFPNPedestal();
@@ -78,12 +79,12 @@ void run_unpack(){
 
   ATPSATask *psaTask = new ATPSATask();
   psaTask -> SetPersistence();
-  psaTask -> SetThreshold(40);
+  psaTask -> SetThreshold(20);
   run -> AddTask(psaTask);
 
   run->Init();
 
-  run->Run(0, 20); // Number must be lower than the number of events in dummy
+  run->Run(0, 10); // Number must be lower than the number of events in dummy
 
   // -----   Finish   -------------------------------------------------------
 	timer.Stop();

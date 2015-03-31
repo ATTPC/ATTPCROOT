@@ -37,7 +37,8 @@ void AtTpcMap::Initialize()
   kGUIMode=0;
   kDebug=0;
   std::fill( AtPadCoord.data(), AtPadCoord.data()+AtPadCoord.num_elements() , 0);
-  std::cout<<" ATTPC Pad Coordinates container initialized "<<endl;
+  std::cout<<" ATTPC Map initialized "<<std::endl;
+  std::cout<<" ATTPC Pad Coordinates container initialized "<<std::endl;
   fPadInd = 0;
   PadKey.clear();
 }
@@ -54,6 +55,8 @@ void AtTpcMap::Dump(){
 
 void AtTpcMap::GenerateATTPC(){
 
+ 
+    std::cout<<" ATTPC Map : Generating the map geometry of the ATTPC "<<std::endl;
     // Local variables
     Float_t pads_in_half_hex;
     Float_t pads_in_hex;
@@ -181,11 +184,6 @@ void AtTpcMap::GenerateATTPC(){
 
 }
 
-void AtTpcMap::GenerateProto(){
-
-//TODO Geomtery of the prototype
-
-}
 
 Int_t AtTpcMap::fill_coord(int pindex, float padxoff, float padyoff, float triside, float fort){
 

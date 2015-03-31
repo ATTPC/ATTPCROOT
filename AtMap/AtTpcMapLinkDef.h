@@ -12,6 +12,7 @@
 #pragma link off all functions;
 
 #pragma link C++ class AtTpcMap+;
+#pragma link C++ class AtTpcProtoMap+;
 
 
 #endif

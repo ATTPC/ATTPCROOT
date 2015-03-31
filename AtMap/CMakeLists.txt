@@ -31,6 +31,7 @@ link_directories( ${LINK_DIRECTORIES})
 set(SRCS
 #Put here your sourcefiles
 AtTpcMap.cxx
+AtTpcProtoMap.cxx
 
 )
 

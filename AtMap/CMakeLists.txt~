@@ -31,13 +31,14 @@ link_directories( ${LINK_DIRECTORIES})
 set(SRCS
 #Put here your sourcefiles
 AtTpcMap.cxx
+AtTpcProtoMap.cxx
 
 )
 
 Set(LINKDEF AtTpcMapLinkDef.h)
 Set(LIBRARY_NAME AtTpcMap)
 Set(DEPENDENCIES
-    #Base
+    Base
 )
 
 GENERATE_LIBRARY()

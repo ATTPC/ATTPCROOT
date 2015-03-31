@@ -39,21 +39,21 @@ class AtTpcMap : public TObject
      typedef boost::multi_array<double,3> multiarray;
      typedef multiarray::index index;
      multiarray AtPadCoord;
-     multiarray GetPadCoordArr(){return AtPadCoord;}
-     std::vector<Float_t> CalcPadCenter(Int_t PadRef);
+     virtual multiarray GetPadCoordArr(){return AtPadCoord;}
+     virtual std::vector<Float_t> CalcPadCenter(Int_t PadRef);
      //multiarray *GetPadCoord(){return fAtPadCoordPtr=&AtPadCoord;}
      //multiarray *fAtPadCoordPtr;
      #endif //__CINT__
 
      
 
-     void Initialize();
-     void Dump();
+     virtual void Initialize();
+     virtual void Dump();
      
-     void GenerateATTPC();
-     void GenerateProto();
+     virtual void GenerateATTPC();
      
-     Int_t  fill_coord(int pindex, float padxoff, float padyoff, float triside, float fort);
+     
+     virtual Int_t  fill_coord(int pindex, float padxoff, float padyoff, float triside, float fort);
      inline void SetGUIMode(){kGUIMode=1;}
      inline void SetDebugMode(){kDebug=1;}
      Bool_t ParseXMLMap(char *xmlfile);
@@ -62,7 +62,7 @@ class AtTpcMap : public TObject
      Bool_t DumpATTPCMap();
      Int_t  GetPadNum(std::vector<int> PadRef);
 
-     TH2Poly* GetATTPCPlane();
+     virtual TH2Poly* GetATTPCPlane();
      Int_t fPadInd;
      Bool_t kIsParsed;
      Bool_t kGUIMode;

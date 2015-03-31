@@ -86,7 +86,7 @@ Bool_t ATCore::SetATTPCMap(char *lookup){
   fAtMapPtr->GenerateATTPC();
   Bool_t MapIn = fAtMapPtr->ParseXMLMap(lookup);
   if(!MapIn) return false;
-   //fAtPadCoordPtr = fAtMapPtr->GetPadCoord();
+   
   //AtPadCoordArr = fAtMapPtr->GetPadCoordArr();//TODO Use a pointer to a simpler container
   //**** For debugging purposes only! ******//
   //fAtMapPtr->SetGUIMode();
@@ -200,7 +200,7 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
 
 
                  //std::cout<<" Event ID : "<<eventID<<" coboID : "<<iCobo<<" asadID : "<<iAsad<<'\xd';//std::endl;
-                 std::cout<<" Event ID : "<<eventID<<" coboID : "<<iCobo<<" asadID : "<<iAsad<<std::endl;
+                 //std::cout<<" Event ID : "<<eventID<<" coboID : "<<iCobo<<" asadID : "<<iAsad<<std::endl;
 
 		        
 
@@ -211,11 +211,11 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
 			  
                             //fAtMapPtr->Dump();
     
-			    std::vector<int> PadRef={iCobo,iAsad,iAget,iCh};
+			                std::vector<int> PadRef={iCobo,iAsad,iAget,iCh};
                             Int_t PadRefNum = fAtMapPtr->GetPadNum(PadRef);
                             std::vector<Float_t> PadCenterCoord;
                             PadCenterCoord.reserve(2);
-			    PadCenterCoord = fAtMapPtr->CalcPadCenter(PadRefNum); 
+			                PadCenterCoord = fAtMapPtr->CalcPadCenter(PadRefNum);
                             //std::cout<<" Pad Number : "<<fAtMapPtr->GetPadNum(PadRef)<<"  Pad Center X : "<<PadCenterCoord[0]<<"  Pad Center Y : "<<PadCenterCoord[1]<<std::endl;
                             ATPad *pad = new ATPad(PadRefNum); // TODO Return all pads with a flag??????
                             pad->SetPadXCoord(PadCenterCoord[0]);
@@ -241,7 +241,7 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
         				   signalDelay = ceil(fSignalDelayPtr -> GetSignalDelay(uaIdx));
        				 }*/
 		
-    				    if (fPedestalMode == kPedestalInternal) { //TODO Obsolete, FPN does both
+                      if (fPedestalMode == kPedestalInternal) { //TODO Obsolete, FPN does both
        					   frame -> CalcPedestal(iAget, iCh, fStartTb, fAverageTbs);
           				   frame -> SubtractPedestal(iAget, iCh);
 
@@ -265,7 +265,7 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
            				    maxADCIdx = 0;
 
          				    pad -> SetMaxADCIdx(maxADCIdx);
-                                            pad -> SetPedestalSubtracted(kTRUE);
+                            pad -> SetPedestalSubtracted(kTRUE);
 
 					  
 				    
@@ -283,12 +283,15 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
            					    frame -> SetFPNPedestal(fFPNSigmaThreshold);
 
          			            Bool_t good = frame -> SubtractPedestal(iAget, iCh, fPedestalRMSFactor);//TODO
-          				    fRawEventPtr -> SetIsGood(good);
-				            fRawEventPtr -> SetIsGood(kTRUE); //All True for the moment TODO
-         			          // if (!good) {
-           				     //delete pad;
-				             // continue;
-                                           // }
+          				        fRawEventPtr -> SetIsGood(good);
+				                
+         			           if (!good) {
+           				         delete pad;
+                                   iAget = 4;
+                                   iCh = 68;
+
+				                 continue;
+                                }
 
           			                   Double_t *adc = frame -> GetADC(iAget, iCh); //DEBUG Chrasih because SetPedestalSubstracted is not done!!!
 						   
@@ -312,11 +315,11 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
 
 						// wave->Draw("col");
 
-		  			    Int_t maxADCIdx = frame -> GetMaxADCIdx(iAget, iCh) + signalDelay;
+		  			               Int_t maxADCIdx = frame -> GetMaxADCIdx(iAget, iCh) + signalDelay;
 		                            if (maxADCIdx < 0 || maxADCIdx >= fGETDecoderPtr -> GetNumTbs())
-		   				maxADCIdx = 0;
+                                        maxADCIdx = 0;
 
-		 			    pad -> SetMaxADCIdx(maxADCIdx);
+                                    pad -> SetMaxADCIdx(maxADCIdx);
 		                            pad -> SetPedestalSubtracted(kTRUE);
                                    }
 
