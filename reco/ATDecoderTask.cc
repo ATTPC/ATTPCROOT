@@ -14,6 +14,7 @@ ATDecoderTask::ATDecoderTask()
 
   fDecoder = NULL;
   fDataNum = 0;
+  fOpt = 0;
 
   fUseInternalPedestal = kFALSE;
   fStartTb = 3;
@@ -49,6 +50,7 @@ Bool_t ATDecoderTask::SetMap(Char_t *map)                                  { fMa
 void ATDecoderTask::SetInternalPedestal(Int_t startTb, Int_t averageTbs)   { fUseInternalPedestal = kTRUE; fStartTb = startTb; fAverageTbs = averageTbs; } 
 void ATDecoderTask::SetFPNPedestal()                                       { fUseFPNPedestal = kTRUE; fUseInternalPedestal = kFALSE; fPedestalFile = ""; }
 void ATDecoderTask::SetPositivePolarity(Bool_t value)                      { fIsPositive = value; }
+void ATDecoderTask::SetMapOpt(Int_t value)                                 { fOpt = value; } 
 //void ATDecoderTask::SetPedestalData(TString filename, Double_t rmsFactor)  { fPedestalFile = filename; fPedestalRMSFactor = rmsFactor; }
 //void ATDecoderTask::SetGainCalibrationData(TString filename)               { fGainCalibrationFile = filename; }
 //void ATDecoderTask::SetGainBase(Double_t constant, Double_t slope)         { fGainConstant = constant; fGainSlope = slope; }
@@ -66,7 +68,7 @@ ATDecoderTask::Init()
 
   ioMan -> Register("ATRawEvent", "ATTPC", fRawEventArray, fIsPersistence);
 
-  fDecoder = new ATCore();
+  fDecoder = new ATCore(fOpt);
   for (Int_t iFile = 0; iFile < fDataList.size(); iFile++)
   fDecoder -> AddData(fDataList.at(iFile));
   fDecoder -> SetData(fDataNum);

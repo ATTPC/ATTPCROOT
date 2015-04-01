@@ -16,13 +16,21 @@
 
 ClassImp(ATCore);
 
-ATCore::ATCore():AtPadCoordArr(boost::extents[10240][3][2])
+ATCore::ATCore():AtPadCoordArr(boost::extents[10240][3][2]),kOpt(0)
 {
   Initialize();
   kDebug=kFALSE;
 }
 
-ATCore::ATCore(TString filename, Int_t numTbs):AtPadCoordArr(boost::extents[10240][3][2])
+ATCore::ATCore(Int_t opt):AtPadCoordArr(boost::extents[10240][3][2]),kOpt(0)
+{
+  kOpt=opt;
+  Initialize();
+  kDebug=kFALSE;
+}
+
+
+ATCore::ATCore(TString filename, Int_t numTbs):AtPadCoordArr(boost::extents[10240][3][2]),kOpt(0)
 {
   
   Initialize();
@@ -46,7 +54,11 @@ void ATCore::Initialize(){
   fGETDecoderPtr = new GETDecoder();
   
   fIsData = kFALSE;
-  fAtMapPtr = new AtTpcMap();
+  if(kOpt==0) fAtMapPtr = new AtTpcMap();
+  else if(kOpt==1) fAtMapPtr = new AtTpcProtoMap();
+  else std::cout << "== ATCore Initialization Error : Option not found. Current available options: ATTPC Map 0 / Prototype Map 1" << std::endl;
+
+	
   fRawEventPtr = NULL;
  // fAtPadCoordPtr = NULL;
 
@@ -83,7 +95,7 @@ Bool_t ATCore::SetData(Int_t value)
 
 Bool_t ATCore::SetATTPCMap(char *lookup){
 
-  fAtMapPtr->GenerateATTPC();
+  if(kOpt==0) fAtMapPtr->GenerateATTPC(); // NOTE: In the case of the ATTPC Map we need to generate the coordinates to calculate the Pad Center 
   Bool_t MapIn = fAtMapPtr->ParseXMLMap(lookup);
   if(!MapIn) return false;
    
@@ -265,7 +277,7 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
            				    maxADCIdx = 0;
 
          				    pad -> SetMaxADCIdx(maxADCIdx);
-                            pad -> SetPedestalSubtracted(kTRUE);
+                                            pad -> SetPedestalSubtracted(kTRUE);
 
 					  
 				    

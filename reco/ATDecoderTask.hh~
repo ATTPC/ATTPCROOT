@@ -70,7 +70,8 @@ class ATDecoderTask : public FairTask {
       Int_t fAverageTbs;           
       TString fPedestalFile;        
   //  Double_t fPedestalRMSFactor; 
-      Bool_t fUseFPNPedestal;       
+      Bool_t fUseFPNPedestal;
+      Bool_t fIsPositive;       
 
    // TString fGainCalibrationFile; 
   //  Double_t fGainConstant;       
@@ -81,7 +82,8 @@ class ATDecoderTask : public FairTask {
 
     Char_t *fMap;
 
-    Bool_t fIsPersistence;        
+    Bool_t fIsPersistence;
+    Int_t fOpt;       
 
     ATDigiPar *fPar;             
     TClonesArray *fRawEventArray; 

@@ -20,7 +20,7 @@ void run_unpack_proto(){
   logger -> SetLogVerbosityLevel("MEDIUM");
  
    AtTpcProtoMap *c = new AtTpcProtoMap();
-   c->SetDebugMode();
+   //c->SetDebugMode();
    TString geo = "proto_geo_hires.root";
    c->SetGeoFile(geo);   
    //c->GenerateATTPC(); // These two methods generate the pad plane from TMultiGraphs

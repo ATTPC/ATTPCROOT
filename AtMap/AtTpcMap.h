@@ -61,6 +61,8 @@ class AtTpcMap : public TObject
      void ParseATTPCMap(TXMLNode *node);
      Bool_t DumpATTPCMap();
      Int_t  GetPadNum(std::vector<int> PadRef);
+     virtual Bool_t SetGeoFile(TString geofile){return kTRUE;} // TODO This is a non-pure virtual function overriden by the method in AtTpcProtoMap. Make it pure by creating another derived class for ATTPC 
+     virtual TH2Poly* GetATTPCPlane(TString TH2Poly_name){return NULL;}
 
      virtual TH2Poly* GetATTPCPlane();
      Int_t fPadInd;

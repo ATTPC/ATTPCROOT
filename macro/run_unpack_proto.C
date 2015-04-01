@@ -19,7 +19,7 @@ void run_unpack_proto(){
   logger -> SetLogToScreen(kTRUE);
   logger -> SetLogVerbosityLevel("MEDIUM");
  
-   AtTpcProtoMap *c = new AtTpcProtoMap();
+   AtTpcMap *c = new AtTpcProtoMap();
    //c->SetDebugMode();
    TString geo = "proto_geo_hires.root";
    c->SetGeoFile(geo);   

@@ -39,6 +39,8 @@ class ATDecoderTask : public FairTask {
     void SetData(Int_t value);
 
     Bool_t SetMap(Char_t *map);
+
+    void SetMapOpt(Int_t value);
   
     void SetInternalPedestal(Int_t startTb = 3, Int_t averageTbs = 20);
   
@@ -82,7 +84,8 @@ class ATDecoderTask : public FairTask {
 
     Char_t *fMap;
 
-    Bool_t fIsPersistence;        
+    Bool_t fIsPersistence;
+    Int_t fOpt;       
 
     ATDigiPar *fPar;             
     TClonesArray *fRawEventArray; 
