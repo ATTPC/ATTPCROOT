@@ -35,7 +35,9 @@ class ATCore : public TObject  {
      void Initialize();
      Bool_t AddData(TString filename);
      Bool_t SetData(Int_t value);
-     Bool_t SetATTPCMap(char *lookup);     
+     Bool_t SetATTPCMap(char *lookup);
+     Bool_t SetProtoGeoFile(TString geofile); // Only for Prototype Map
+     Bool_t SetProtoMapFile(TString mapfile);  // Only for Prototype Map   
      void SetPositivePolarity(Bool_t value = kTRUE);
      ATRawEvent *GetRawEvent(Int_t eventID = -1);// TODO It returns a pointer to ATRawEvent
      void SetNumTbs(Int_t value);
@@ -61,6 +63,8 @@ class ATCore : public TObject  {
     Bool_t fIsData;
     Bool_t fIsInternalPedestal;
     Bool_t fIsFPNPedestal;
+    Bool_t fIsProtoGeoSet;
+    Bool_t fIsProtoMapSet;
     Int_t fNumTbs;
     Int_t fStartTb;
     Int_t fAverageTbs;

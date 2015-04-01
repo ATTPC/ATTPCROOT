@@ -11,6 +11,8 @@
 #include "AtTpcMap.h"
 #include "TFile.h"
 #include "TH2Poly.h"
+#include <vector>
+#include <fstream>
 
 class AtTpcProtoMap : public AtTpcMap
 {
@@ -23,6 +25,8 @@ class AtTpcProtoMap : public AtTpcMap
         TH2Poly* GetATTPCPlane();
         TH2Poly* GetATTPCPlane(TString TH2Poly_name);
         Bool_t SetGeoFile(TString geofile);
+        std::vector<Float_t> CalcPadCenter(Int_t PadRef);
+        Bool_t SetProtoMap(TString file);
 
         TFile *f;
         TH2Poly *hProto;
@@ -30,6 +34,9 @@ class AtTpcProtoMap : public AtTpcMap
 
         Bool_t kIsFileSet;
         Bool_t kIsGenerated;
+        Bool_t kIsProtoMapSet;
+
+        std::ifstream *InProtoMap;
 
    ClassDef(AtTpcProtoMap,1);
 

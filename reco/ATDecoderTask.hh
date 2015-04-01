@@ -37,8 +37,12 @@ class ATDecoderTask : public FairTask {
     void AddData(TString filename);
    
     void SetData(Int_t value);
+  
+    void SetProtoMap(TString mapfile);//only for prototype
 
     Bool_t SetMap(Char_t *map);
+
+    void SetGeo(TString geofile); //only for prototype
 
     void SetMapOpt(Int_t value);
   
@@ -70,7 +74,9 @@ class ATDecoderTask : public FairTask {
       Bool_t fUseInternalPedestal;  
       Int_t fStartTb;              
       Int_t fAverageTbs;           
-      TString fPedestalFile;        
+      TString fPedestalFile;
+      TString fGeoFile;
+      TString fProtoMapFile;
   //  Double_t fPedestalRMSFactor; 
       Bool_t fUseFPNPedestal;
       Bool_t fIsPositive;       

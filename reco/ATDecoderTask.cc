@@ -50,6 +50,8 @@ Bool_t ATDecoderTask::SetMap(Char_t *map)                                  { fMa
 void ATDecoderTask::SetInternalPedestal(Int_t startTb, Int_t averageTbs)   { fUseInternalPedestal = kTRUE; fStartTb = startTb; fAverageTbs = averageTbs; } 
 void ATDecoderTask::SetFPNPedestal()                                       { fUseFPNPedestal = kTRUE; fUseInternalPedestal = kFALSE; fPedestalFile = ""; }
 void ATDecoderTask::SetPositivePolarity(Bool_t value)                      { fIsPositive = value; }
+void ATDecoderTask::SetGeo(TString geofile)				   { fGeoFile = geofile; }
+void ATDecoderTask::SetProtoMap(TString mapfile)	                   { fProtoMapFile = mapfile;}                      
 void ATDecoderTask::SetMapOpt(Int_t value)                                 { fOpt = value; } 
 //void ATDecoderTask::SetPedestalData(TString filename, Double_t rmsFactor)  { fPedestalFile = filename; fPedestalRMSFactor = rmsFactor; }
 //void ATDecoderTask::SetGainCalibrationData(TString filename)               { fGainCalibrationFile = filename; }
@@ -69,6 +71,7 @@ ATDecoderTask::Init()
   ioMan -> Register("ATRawEvent", "ATTPC", fRawEventArray, fIsPersistence);
 
   fDecoder = new ATCore(fOpt);
+  
   for (Int_t iFile = 0; iFile < fDataList.size(); iFile++)
   fDecoder -> AddData(fDataList.at(iFile));
   fDecoder -> SetData(fDataNum);
@@ -138,6 +141,12 @@ ATDecoderTask::Init()
 
     fLogger -> Info(MESSAGE_ORIGIN, "Signal delay data is set!");
   }*/
+
+   // Here we start we different map options
+    if(fOpt==1){
+	fDecoder -> SetProtoGeoFile(fGeoFile);
+        fDecoder -> SetProtoMapFile(fProtoMapFile);
+    }
 
   return kSUCCESS;
 }

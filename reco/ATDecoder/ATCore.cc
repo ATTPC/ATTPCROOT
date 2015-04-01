@@ -64,7 +64,8 @@ void ATCore::Initialize(){
 
   fIsData = kFALSE;
   
- 
+  fIsProtoGeoSet = kFALSE;
+  fIsProtoMapSet = kFALSE;
   fIsInternalPedestal = kFALSE;
   fPedestalMode = kNoPedestal;
   fPedestalRMSFactor = 0;
@@ -104,6 +105,37 @@ Bool_t ATCore::SetATTPCMap(char *lookup){
   //fAtMapPtr->SetGUIMode();
   //fAtMapPtr->GetATTPCPlane();
   return true;
+
+}
+
+Bool_t ATCore::SetProtoGeoFile(TString geofile){
+
+   if(kOpt==1){
+               
+	fIsProtoGeoSet = fAtMapPtr->SetGeoFile(geofile); 
+        return fIsProtoGeoSet;
+
+   }else{
+	 std::cout << "== ATCore::SetProtoGeoMap. This method must be used only with Prototype mapping (kOpt=1)!" << std::endl;
+         return kFALSE;
+   }
+   
+
+}
+
+
+Bool_t ATCore::SetProtoMapFile(TString mapfile){
+
+  if(kOpt==1){
+               
+	fIsProtoMapSet = fAtMapPtr->SetProtoMap(mapfile); 
+        return fIsProtoMapSet;
+
+   }else{
+	 std::cout << "== ATCore::SetProtoMapFile. This method must be used only with Prototype mapping (kOpt=1)!" << std::endl;
+         return kFALSE;
+   }
+ 
 
 }
 

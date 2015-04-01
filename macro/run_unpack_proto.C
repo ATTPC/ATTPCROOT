@@ -10,24 +10,60 @@ void run_unpack_proto(){
    gSystem->Load("libXMLParser.so");
 
    TString scriptfile = "LookupProto20150331.xml";
+   TString protomapfile = "proto.map";
    TString dir = getenv("VMCWORKDIR");
    TString scriptdir = dir + "/scripts/"+ scriptfile;
+   TString protomapdir = dir + "/scripts/"+ protomapfile;
+   TString geo = "proto_geo_hires.root";
 
    FairLogger *logger = FairLogger::GetLogger();
   logger -> SetLogFileName("ATTPCLog.log");
   logger -> SetLogToFile(kTRUE);
   logger -> SetLogToScreen(kTRUE);
   logger -> SetLogVerbosityLevel("MEDIUM");
- 
-   AtTpcMap *c = new AtTpcProtoMap();
+
+
+   FairRunAna* run = new FairRunAna();
+  run -> SetInputFile("mc.dummy.root");
+  run -> SetOutputFile("output_proto.root");
+    
+    TString file = "../parameters/AT.parameters.par";
+
+   FairRuntimeDb* rtdb = run->GetRuntimeDb();
+   FairParAsciiFileIo* parIo1 = new FairParAsciiFileIo();
+   parIo1 -> open(file.Data(), "in");
+   FairParRootFileIo* parIo2 = new FairParRootFileIo();
+   parIo2 -> open("param.dummy.root");
+   rtdb -> setFirstInput(parIo2);
+   rtdb -> setSecondInput(parIo1);
+  
+   ATDecoderTask *decoderTask = new ATDecoderTask(); 
+   decoderTask ->SetMapOpt(1); // ATTPC : 0  - Prototype: 1 |||| Default value = 0
+   decoderTask ->SetGeo(geo.Data());
+   decoderTask ->SetProtoMap(protomapdir.Data());
+   decoderTask ->SetMap(scriptdir.Data());
+  
+
+   decoderTask -> SetPositivePolarity(kTRUE);
+   decoderTask -> SetFPNPedestal();
+   decoderTask -> SetNumTbs(512);
+   decoderTask -> SetPersistence();
+   run -> AddTask(decoderTask);
+   /*AtTpcProtoMap *c = new AtTpcProtoMap();
    //c->SetDebugMode();
    TString geo = "proto_geo_hires.root";
-   c->SetGeoFile(geo);   
+   c->SetGeoFile(geo.Data());   
    //c->GenerateATTPC(); // These two methods generate the pad plane from TMultiGraphs
    //c->GetATTPCPlane(); //
 
-   c->GetATTPCPlane("ATTPC_Proto"); // This overloaded method extract the TH2Poly from the geomtry file previously created. Name of the TObject must be provided here (To Be changed)
+   c->GetATTPCPlane("ATTPC_Proto"); //This overloaded method extract the TH2Poly from the geomtry file previously created. Name of the TObject must be provided here (To Be changed). No GenerateATTPC method needed
    c->ParseXMLMap(scriptdir.Data());
+   c->SetProtoMap(protomapdir.Data());*/
+
+
+   run->Init();
+
+   //run->Run(0, 10); // Number must be lower than the number of events in dummy
 
  // -----   Finish   -------------------------------------------------------
 	timer.Stop();
