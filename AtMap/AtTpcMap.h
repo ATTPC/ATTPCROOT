@@ -64,6 +64,7 @@ class AtTpcMap : public TObject
      virtual Bool_t SetGeoFile(TString geofile){std::cout<<" = AtTpcMap Warning: SetGeoFile method from Base invoked"<<std::endl;return kFALSE;} // TODO This is a non-pure virtual function overriden by the method in AtTpcProtoMap. Make it pure by creating another derived class for ATTPC 
      virtual TH2Poly* GetATTPCPlane(TString TH2Poly_name){std::cout<<" = AtTpcMap Warning: GetATTPCPlane overloaded method from Base invoked"<<std::endl;return NULL;}
      virtual Bool_t SetProtoMap(TString file){std::cout<<" = AtTpcMap Warning: SetProtoMap method from Base invoked"<<std::endl;return kFALSE;};
+	
 
      virtual TH2Poly* GetATTPCPlane();
      Int_t fPadInd;

@@ -250,8 +250,9 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
 
  			for (Int_t iAget = 0; iAget < 4; iAget++) {
                          for (Int_t iCh = 0; iCh < 68; iCh++) {
-							//std::cout<<" Event ID : "<<eventID<<" coboID : "<<iCobo<<" asadID : "<<iAsad<<std::endl;
-							//std::cout<<" AgetID : "<<iAget<<" ChannelID : "<<iCh<<std::endl;
+							std::cout<<std::endl;
+							std::cout<<" Event ID : "<<eventID<<" coboID : "<<iCobo<<" asadID : "<<iAsad<<std::endl;
+							std::cout<<" AgetID : "<<iAget<<" ChannelID : "<<iCh<<std::endl;
 			  
                             //fAtMapPtr->Dump();
     
@@ -260,7 +261,7 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
                             std::vector<Float_t> PadCenterCoord;
                             PadCenterCoord.reserve(2);
 			    PadCenterCoord = fAtMapPtr->CalcPadCenter(PadRefNum);
-                            //std::cout<<" Pad Number : "<<fAtMapPtr->GetPadNum(PadRef)<<"  Pad Center X : "<<PadCenterCoord[0]<<"  Pad Center Y : "<<PadCenterCoord[1]<<std::endl;
+                            std::cout<<" Pad Number : "<<fAtMapPtr->GetPadNum(PadRef)<<"  Pad Center X : "<<PadCenterCoord[0]<<"  Pad Center Y : "<<PadCenterCoord[1]<<std::endl;
                             ATPad *pad = new ATPad(PadRefNum); // TODO Return all pads with a flag??????
                             pad->SetPadXCoord(PadCenterCoord[0]);
 			    pad->SetPadYCoord(PadCenterCoord[1]);

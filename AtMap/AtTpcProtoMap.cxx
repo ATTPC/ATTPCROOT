@@ -39,7 +39,7 @@ void AtTpcProtoMap::Initialize()
 Bool_t AtTpcProtoMap::SetGeoFile(TString geofile){
 
   TString dir = getenv("VMCWORKDIR");
-  TString geodir = dir + "/gometry/"+ geofile;
+  TString geodir = dir + "/geometry/"+ geofile;
   f = new TFile(geodir.Data());
   
  	 if(f->IsZombie()){
@@ -57,7 +57,7 @@ Bool_t AtTpcProtoMap::SetGeoFile(TString geofile){
 
 void AtTpcProtoMap::GenerateATTPC(){
 
-    if(!f){
+    if(f->IsZombie()){
    	std::cout<<" ATTPC Proto Map : No geometry file found! Please set the geometry file first via SetGeoFile method "<<std::endl;
                 return;
     }
@@ -103,7 +103,7 @@ TH2Poly* AtTpcProtoMap::GetATTPCPlane(){
 
 TH2Poly* AtTpcProtoMap::GetATTPCPlane(TString TH2Poly_name){
        // This is a stand alone method
-       if(!f){
+       if(f->IsZombie()){
    	std::cout<<" ATTPC Proto Map : No geometry file found! Please set the geometry file first via SetGeoFile method "<<std::endl;
                 return NULL;
 	}
@@ -128,7 +128,7 @@ std::vector<Float_t> AtTpcProtoMap::CalcPadCenter(Int_t PadRef){
       	      }           
 
 	      
-	      if(!f){
+	      if(f->IsZombie()){
    		std::cout<<" ATTPC Proto Map : No geometry file found! Please set the geometry file first via the SetGeoFile method "<<std::endl;
 		return PadCenter;
 
