@@ -51,8 +51,8 @@ class ATEventDrawTask : public FairTask
     //void SetHitClusterAttributes(Color_t, Size_t, Style_t);
     //void SetRiemannAttributes(Color_t, Size_t, Style_t);
 
-  private :
-    void DrawPadPlane();
+  protected :
+    virtual void DrawPadPlane();
     AtTpcMap *fAtMapPtr;
     void UpdateCvsPadPlane();
 

@@ -1,4 +1,4 @@
-void run_eve() 
+void run_eve_proto() 
 {
   FairLogger *fLogger = FairLogger::GetLogger();
   fLogger -> SetLogToScreen(kTRUE);

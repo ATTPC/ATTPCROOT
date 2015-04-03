@@ -16,7 +16,7 @@ void run_eve_proto()
   FairRootManager* ioman = FairRootManager::Instance();
 
   ATEventManager *eveMan = new ATEventManager();
-  ATEventDrawTask* eve = new ATEventDrawTask();
+  ATEventDrawTask* eve = new ATEventProtoDrawTask();
 
   eveMan->AddTask(eve);
   eveMan->Init();                    

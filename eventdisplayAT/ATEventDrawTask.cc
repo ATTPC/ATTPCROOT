@@ -55,7 +55,7 @@ ATEventDrawTask::ATEventDrawTask()
   fMaxX(-432)
 {
 
-  fAtMapPtr = new AtTpcMap(); 
+  //fAtMapPtr = new AtTpcMap(); 
 
 }
 
@@ -239,6 +239,7 @@ ATEventDrawTask::Set2DPlotRange(Int_t uaIdx)
 void
 ATEventDrawTask::DrawPadPlane()
 {
+  fAtMapPtr = new AtTpcMap();
   if(fPadPlane) 
   {
     fPadPlane->Reset(0);

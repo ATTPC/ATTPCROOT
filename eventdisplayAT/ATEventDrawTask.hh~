@@ -23,9 +23,14 @@
 #include "ATEventManager.hh"
 //#include "ATRiemannTrack.hh"
 //#include "ATRiemannHit.hh"
+#include "ATRawEvent.hh"
 #include "ATEvent.hh"
 #include "ATHit.hh"
 #include "AtTpcMap.h"
+
+#ifndef __CINT__ // Boost 
+#include <boost/multi_array.hpp>
+#endif //__CINT__
 
 class ATEventDrawTask : public FairTask
 {
@@ -46,7 +51,7 @@ class ATEventDrawTask : public FairTask
     //void SetHitClusterAttributes(Color_t, Size_t, Style_t);
     //void SetRiemannAttributes(Color_t, Size_t, Style_t);
 
-  private :
+  protected :
     void DrawPadPlane();
     AtTpcMap *fAtMapPtr;
     void UpdateCvsPadPlane();
@@ -61,6 +66,7 @@ class ATEventDrawTask : public FairTask
     //TClonesArray* fHitClusterArray;
     //TClonesArray* fRiemannTrackArray;
     //TClonesArray* fKalmanArray;
+    TClonesArray* fRawEventArray;
 
     ATEventManager* fEventManager;
 

@@ -55,7 +55,7 @@ ATEventDrawTask::ATEventDrawTask()
   fMaxX(-432)
 {
 
-  fAtMapPtr = new AtTpcMap(); 
+  //fAtMapPtr = new AtTpcMap(); 
 
 }
 
@@ -70,7 +70,10 @@ ATEventDrawTask::Init()
   fEventManager = ATEventManager::Instance();
 
   fHitArray = (TClonesArray*) ioMan->GetObject("ATEventH");
-  if(fHitArray) LOG(INFO)<<"Hit Found."<<FairLogger::endl;
+  if(fHitArray) LOG(INFO)<<"Hit Array Found."<<FairLogger::endl;
+    
+   fRawEventArray = (TClonesArray*) ioMan->GetObject("ATRawEvent");
+   if(fRawEventArray) LOG(INFO)<<"Raw Event Array  Found."<<FairLogger::endl;
 
   //fHitClusterArray = (TClonesArray*) ioMan->GetObject("STEventHC");
   //if(fHitClusterArray) LOG(INFO)<<"Hit Cluster Found."<<FairLogger::endl;
@@ -90,7 +93,7 @@ void
 ATEventDrawTask::Exec(Option_t* option)
 {
   Reset();
- 
+  
   if(fHitArray) DrawHitPoints();
   //if(fHitClusterArray) DrawHitClusterPoints();
   //if(fRiemannTrackArray) DrawRiemannHits();
@@ -104,21 +107,23 @@ ATEventDrawTask::DrawHitPoints()
 {
   ATEvent* event = (ATEvent*) fHitArray->At(0);
   Int_t nHits = event->GetNumHits();
-
   fHitSet = new TEvePointSet("Hit",nHits, TEvePointSelectorConsumer::kTVT_XYZ);
   fHitSet->SetOwnIds(kTRUE);
   fHitSet->SetMarkerColor(fHitColor);
   fHitSet->SetMarkerSize(fHitSize);
   fHitSet->SetMarkerStyle(fHitStyle);
+    std::cout<<" Number of hits : "<<nHits<<std::endl;
 
-  for(Int_t iHit; iHit<nHits; iHit++)
+  for(Int_t iHit=0; iHit<nHits; iHit++)
   {
+     
     ATHit hit = event->GetHitArray()->at(iHit);
+      
     if(hit.GetCharge()<fThreshold) continue;
     TVector3 position = hit.GetPosition();
-    fHitSet->SetNextPoint(position.X()/10.,position.Y()/10.,position.Z()/10.);
+    //std::cout<<"  Hit number : "<<iHit<<" Position X : "<<position.X()<<" Position Y : "<<position.Y()<<" Position Z : "<<position.Z()<<std::endl;
+    fHitSet->SetNextPoint(position.X()/10.,position.Y()/10.,position.Z()/10.); // Convert into cm
     fHitSet->SetPointId(new TNamed(Form("Hit %d",iHit),""));
-    std::cout<<position.X()<<endl;
     fPadPlane->Fill(position.X(), position.Y(), hit.GetCharge());
   }
   gEve -> AddElement(fHitSet);
