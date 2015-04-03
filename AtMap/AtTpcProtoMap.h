@@ -13,6 +13,7 @@
 #include "TH2Poly.h"
 #include <vector>
 #include <fstream>
+#include <map>
 
 class AtTpcProtoMap : public AtTpcMap
 {
@@ -37,6 +38,8 @@ class AtTpcProtoMap : public AtTpcMap
         Bool_t kIsProtoMapSet;
 
         std::ifstream *InProtoMap;
+	std::map<Int_t,std::vector<Float_t>> ProtoGeoMap;
+
 
    ClassDef(AtTpcProtoMap,1);
 

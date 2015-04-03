@@ -38,33 +38,26 @@ void run_unpack_proto(){
    rtdb -> setSecondInput(parIo1);
   
    ATDecoderTask *decoderTask = new ATDecoderTask(); 
+   //decoderTask ->SetDebugMode(kTRUE);
    decoderTask ->SetMapOpt(1); // ATTPC : 0  - Prototype: 1 |||| Default value = 0
    decoderTask -> AddData("/home/daq/Desktop/Yassid/ATTPC/Notre_Dame_data/CoBo_AsAd0_2015-01-27T15_19_34.962_0000.graw");
    decoderTask ->SetGeo(geo.Data());
    decoderTask ->SetProtoMap(protomapdir.Data());
    decoderTask ->SetMap(scriptdir.Data());
-  
-
    decoderTask -> SetPositivePolarity(kTRUE);
    decoderTask -> SetFPNPedestal();
    decoderTask -> SetNumTbs(512);
    decoderTask -> SetPersistence();
    run -> AddTask(decoderTask);
-   /*AtTpcProtoMap *c = new AtTpcProtoMap();
-   //c->SetDebugMode();
-   TString geo = "proto_geo_hires.root";
-   c->SetGeoFile(geo.Data());   
-   //c->GenerateATTPC(); // These two methods generate the pad plane from TMultiGraphs
-   //c->GetATTPCPlane(); //
-
-   c->GetATTPCPlane("ATTPC_Proto"); //This overloaded method extract the TH2Poly from the geomtry file previously created. Name of the TObject must be provided here (To Be changed). No GenerateATTPC method needed
-   c->ParseXMLMap(scriptdir.Data());
-   c->SetProtoMap(protomapdir.Data());*/
-
+   
+   ATPSATask *psaTask = new ATPSATask();
+   psaTask -> SetPersistence();
+   psaTask -> SetThreshold(20);
+   run -> AddTask(psaTask);
 
    run->Init();
 
-   run->Run(0, 1); // Number must be lower than the number of events in dummy
+   run->Run(0, 100); // Number must be lower than the number of events in dummy
 
  // -----   Finish   -------------------------------------------------------
 	timer.Stop();

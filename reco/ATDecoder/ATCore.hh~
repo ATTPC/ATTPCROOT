@@ -44,6 +44,7 @@ class ATCore : public TObject  {
      inline void SetDebugMode(Bool_t Debug){kDebug=Debug;}
      void SetInternalPedestal(Int_t startTb = 10, Int_t averageTbs = 20);
      void SetFPNPedestal(Double_t sigmaThreshold = 5);
+     
     
 
      AtTpcMap *fAtMapPtr;
@@ -64,6 +65,7 @@ class ATCore : public TObject  {
     Bool_t fIsInternalPedestal;
     Bool_t fIsFPNPedestal;
     Bool_t fIsProtoGeoSet;
+    Bool_t fIsProtoMapSet;
     Int_t fNumTbs;
     Int_t fStartTb;
     Int_t fAverageTbs;

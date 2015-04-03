@@ -261,7 +261,7 @@ void AtTpcMap::ParseMapList(TXMLNode *node){
 		
 		for(; node;node=node->GetNextNode()){
 			if(node->GetNodeType()==TXMLNode::kXMLElementNode){ //Element node
-			 if( strcmp(node->GetNodeName(),"LookupProto20150331") == 0){ //TODO Implement this as function parameter
+			 if(strcmp(node->GetNodeName(),"Lookup20141208") == 0 || strcmp(node->GetNodeName(),"LookupProto20150331") == 0){ //TODO Implement this as function parameter
 				//cout<<node->GetNodeName()<<endl;
                                 //if(strcmp(node->GetNodeName(),"Lookup20141208") == 0){
 				ParseATTPCMap(node->GetChildren());
@@ -364,7 +364,7 @@ Bool_t AtTpcMap::DumpATTPCMap(){
 
 }
 
-Int_t AtTpcMap::GetPadNum(std::vector<int> PadRef){
+Int_t AtTpcMap::GetPadNum(std::vector<int> PadRef){ //TODO Better to pass a pointer!
 
 	
                 PadRef.resize(4);
@@ -384,7 +384,7 @@ Int_t AtTpcMap::GetPadNum(std::vector<int> PadRef){
 			 //std::cout<<int(ATTPCPadMap.find(test) == ATTPCPadMap.end())<<endl;
                          Int_t kIs = int(ATTPCPadMap.find(PadRef) == ATTPCPadMap.end());
             if(kIs){
-                    if(kDebug)std::cerr<<" AtTpcMap::GetPadNum - Pad key not found - CoboID : "<<PadRef[0]<<"  AsadID : "<<PadRef[1]<<"  AgetID : "<<PadRef[2]<<"  ChannelID : "<<PadRef[3]<<endl;
+                    if(kDebug) std::cerr<<" AtTpcMap::GetPadNum - Pad key not found - CoboID : "<<PadRef[0]<<"  AsadID : "<<PadRef[1]<<"  AgetID : "<<PadRef[2]<<"  ChannelID : "<<PadRef[3]<<endl;
                     return -1;
              }
 			 //std::cout<<value<<std::endl;

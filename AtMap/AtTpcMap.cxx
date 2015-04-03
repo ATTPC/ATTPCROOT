@@ -364,7 +364,7 @@ Bool_t AtTpcMap::DumpATTPCMap(){
 
 }
 
-Int_t AtTpcMap::GetPadNum(std::vector<int> PadRef){
+Int_t AtTpcMap::GetPadNum(std::vector<int> PadRef){ //TODO Better to pass a pointer!
 
 	
                 PadRef.resize(4);
@@ -384,7 +384,7 @@ Int_t AtTpcMap::GetPadNum(std::vector<int> PadRef){
 			 //std::cout<<int(ATTPCPadMap.find(test) == ATTPCPadMap.end())<<endl;
                          Int_t kIs = int(ATTPCPadMap.find(PadRef) == ATTPCPadMap.end());
             if(kIs){
-                    if(kDebug)std::cerr<<" AtTpcMap::GetPadNum - Pad key not found - CoboID : "<<PadRef[0]<<"  AsadID : "<<PadRef[1]<<"  AgetID : "<<PadRef[2]<<"  ChannelID : "<<PadRef[3]<<endl;
+                    if(kDebug) std::cerr<<" AtTpcMap::GetPadNum - Pad key not found - CoboID : "<<PadRef[0]<<"  AsadID : "<<PadRef[1]<<"  AgetID : "<<PadRef[2]<<"  ChannelID : "<<PadRef[3]<<endl;
                     return -1;
              }
 			 //std::cout<<value<<std::endl;

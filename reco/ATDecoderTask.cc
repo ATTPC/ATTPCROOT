@@ -23,6 +23,7 @@ ATDecoderTask::ATDecoderTask()
   //fPedestalRMSFactor = 0;
   fUseFPNPedestal = kFALSE;
   fIsPositive = kFALSE;
+  fDebug = kFALSE;
 
   fNumTbs = 512;
 
@@ -52,7 +53,8 @@ void ATDecoderTask::SetFPNPedestal()                                       { fUs
 void ATDecoderTask::SetPositivePolarity(Bool_t value)                      { fIsPositive = value; }
 void ATDecoderTask::SetGeo(TString geofile)				   { fGeoFile = geofile; }
 void ATDecoderTask::SetProtoMap(TString mapfile)	                   { fProtoMapFile = mapfile;}                      
-void ATDecoderTask::SetMapOpt(Int_t value)                                 { fOpt = value; } 
+void ATDecoderTask::SetMapOpt(Int_t value)                                 { fOpt = value; }
+void ATDecoderTask::SetDebugMode(Bool_t value)                             { fDebug = value; } 
 //void ATDecoderTask::SetPedestalData(TString filename, Double_t rmsFactor)  { fPedestalFile = filename; fPedestalRMSFactor = rmsFactor; }
 //void ATDecoderTask::SetGainCalibrationData(TString filename)               { fGainCalibrationFile = filename; }
 //void ATDecoderTask::SetGainBase(Double_t constant, Double_t slope)         { fGainConstant = constant; fGainSlope = slope; }
@@ -77,6 +79,9 @@ ATDecoderTask::Init()
   fDecoder -> SetData(fDataNum);
   fDecoder -> SetNumTbs(fNumTbs);
   fDecoder -> SetPositivePolarity(fIsPositive);
+
+   if(fDebug)
+       fDecoder->SetDebugMode(fDebug);
 
    if(!fIsPositive) fLogger -> Info(MESSAGE_ORIGIN, "Negative polarity set");
    else fLogger -> Info(MESSAGE_ORIGIN, "Positive polarity set");

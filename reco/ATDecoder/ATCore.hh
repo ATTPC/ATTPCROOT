@@ -41,9 +41,11 @@ class ATCore : public TObject  {
      void SetPositivePolarity(Bool_t value = kTRUE);
      ATRawEvent *GetRawEvent(Int_t eventID = -1);// TODO It returns a pointer to ATRawEvent
      void SetNumTbs(Int_t value);
-     inline void SetDebugMode(Bool_t Debug){kDebug=Debug;}
+     //inline void SetDebugMode(Bool_t Debug){kDebug=Debug;}
+     void SetDebugMode(Bool_t Debug);
      void SetInternalPedestal(Int_t startTb = 10, Int_t averageTbs = 20);
      void SetFPNPedestal(Double_t sigmaThreshold = 5);
+     
     
 
      AtTpcMap *fAtMapPtr;
