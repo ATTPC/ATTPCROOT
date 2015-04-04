@@ -28,6 +28,7 @@ class ATEventManager : public TEveEventManager
     virtual void PrevEvent();            ///< *MENU*
     virtual void make_gui();
     virtual void SelectEvent();
+    static void DrawWave();
 
     void AddTask(FairTask* task) { fRunAna->AddTask(task); }
     //virtual void InitRiemann(Int_t option=1, Int_t level=3, Int_t nNodes=10000);
@@ -49,6 +50,7 @@ class ATEventManager : public TEveEventManager
     TGListTreeItem* fEvent;
 
     TCanvas* fCvsPadPlane;
+    TCanvas* fPadWave;
 
 
     static ATEventManager* fInstance;

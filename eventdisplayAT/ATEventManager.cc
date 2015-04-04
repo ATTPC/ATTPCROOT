@@ -23,6 +23,21 @@
 
 
 
+#include "TEveGedEditor.h"
+#include "TGLEmbeddedViewer.h"
+#include "TCanvas.h"
+#include "TROOT.h"
+#include "TStyle.h"
+#include "TObject.h"
+#include "TH2.h"
+#include "TH2Poly.h"
+#include "TMultiGraph.h"
+#include "TPolyLine.h"
+
+
+
+
+
 #include <iostream>
 
 class TGeoNode;
@@ -45,7 +60,8 @@ ATEventManager::ATEventManager()
   fEntry(0),
   fEvent(0),
   fCurrentEvent(0),
-  fCvsPadPlane(0)
+  fCvsPadPlane(0),
+  fPadWave(0)
 {
   fInstance=this;
 }
@@ -65,6 +81,8 @@ ATEventManager::InitRiemann(Int_t option, Int_t level, Int_t nNodes)
 void 
 ATEventManager::Init(Int_t option, Int_t level, Int_t nNodes)
 {
+
+  gStyle->SetOptTitle(0);
   TEveManager::Create();
     
   Int_t  dummy;
@@ -93,15 +111,49 @@ ATEventManager::Init(Int_t option, Int_t level, Int_t nNodes)
   TEveViewer* view3D = gEve->SpawnNewViewer("3D View", "");
   view3D->AddScene(gEve->GetGlobalScene());
   view3D->AddScene(gEve->GetEventScene());
+    
+    // Old arrangement
 
-
-  slot = pack->NewSlotWithWeight(1.5);
+ /* slot = pack->NewSlotWithWeight(1.5);
   TRootEmbeddedCanvas* ecvs = new TRootEmbeddedCanvas();
   TEveWindowFrame* frame = slot->MakeFrame(ecvs);
   frame->SetElementName("ATTPC Pad Plane");
   pack->GetEveFrame()->SetShowTitleBar(kFALSE);
-  fCvsPadPlane = ecvs->GetCanvas();
+  fCvsPadPlane = ecvs->GetCanvas();*/
+    
+    //New arrangement
+    
+    slot = pack->NewSlot();
+    TEveWindowPack* pack2 = slot->MakePack();
+    pack2->SetShowTitleBar(kFALSE);
+    
+    slot = pack2->NewSlot();
+    slot->StartEmbedding();
+    fPadWave = new TCanvas("ATPad Canvas");
+    fPadWave->ToggleEditor();
+    slot->StopEmbedding();
+    
+    /*slot = pack2->NewSlot();
+    slot->StartEmbedding();
+    fCvsPadPlane = new TCanvas("ATPoly");
+    fPadWave->ToggleEditor();
+    slot->StopEmbedding();
+    fCvsPadPlane->AddExec("ex","ATEventManager::DrawWave()");*/
+    
+    
+    
+    slot = pack2->NewSlotWithWeight(1.5);
+    TRootEmbeddedCanvas* ecvs = new TRootEmbeddedCanvas();
+    TEveWindowFrame* frame = slot->MakeFrame(ecvs);
+    frame->SetElementName("ATTPC Pad Plane");
+    pack->GetEveFrame()->SetShowTitleBar(kFALSE);
+    fCvsPadPlane = ecvs->GetCanvas();
+    fCvsPadPlane->AddExec("ex","ATEventManager::DrawWave()");
 
+    
+    
+    
+ 
   /**************************************************************************/
 
   fRunAna->Init();
@@ -184,10 +236,60 @@ ATEventManager::PrevEvent()
 }
 
 void
+ATEventManager::DrawWave()
+{
+    int event = gPad->GetEvent();
+    if (event != 11) return; //may be comment this line
+    TObject *select = gPad->GetSelected();
+    if (!select) return;
+    if (select->InheritsFrom(TH2::Class())) {
+        TH2Poly *h = (TH2Poly*)select;
+        gPad->GetCanvas()->FeedbackMode(kTRUE);
+       // Char_t *bin_name = h->GetBinName();
+        
+        int pyold = gPad->GetUniqueID();
+        int px = gPad->GetEventX();
+        int py = gPad->GetEventY();
+        float uxmin = gPad->GetUxmin();
+        float uxmax = gPad->GetUxmax();
+        int pxmin = gPad->XtoAbsPixel(uxmin);
+        int pxmax = gPad->XtoAbsPixel(uxmax);
+        if(pyold) gVirtualX->DrawLine(pxmin,pyold,pxmax,pyold);
+        gVirtualX->DrawLine(pxmin,py,pxmax,py);
+        gPad->SetUniqueID(py);
+        Float_t upx = gPad->AbsPixeltoX(px);
+        Float_t upy = gPad->AbsPixeltoY(py);
+        Double_t x = gPad->PadtoX(upx);
+        Double_t y = gPad->PadtoY(upy);
+        Int_t bin = h->FindBin(x,y);
+        const char *bin_name = h->GetBinName(bin);
+        std::cout<<" X : "<<x<<"  Y: "<<y<<std::endl;
+        std::cout<<bin_name<<std::endl;
+        std::cout<<" Clicked on bin : "<<bin<<std::endl;
+       
+    }
+    
+    /*int event = gPad->GetEvent();
+    if (event != 11) return; //may be comment this line
+    TObject *select = gPad->GetSelected();
+    if (!select) return;
+    if (select->InheritsFrom("TObject")) {
+        TH2PolyBin *h = (TH2PolyBin*)select;
+        gPad->GetCanvas()->FeedbackMode(kTRUE);
+        Int_t bin = h->GetBinNumber();
+        std::cout<<" Clicked on bin : "<<bin<<std::endl;
+    }*/
+
+}
+
+void
 ATEventManager::RunEvent()
 {
   fRunAna->Run((Long64_t)fEntry);
 }
+
+
+
 
 void
 ATEventManager::make_gui()
@@ -230,7 +332,7 @@ ATEventManager::make_gui()
     frmMain->AddFrame(hf);
     
     
-   /* TString Infile= "Input file : ";
+    TString Infile= "Input file : ";
     //  TFile* file =FairRunAna::Instance()->GetInputFile();
     TFile* file =FairRootManager::Instance()->GetInChain()->GetFile();
     Infile+=file->GetName();
@@ -246,7 +348,7 @@ ATEventManager::make_gui()
     TString nevent= "No of events : ";
     nevent +=Entries ;
     TGLabel* TEvent=new TGLabel(frmMain, nevent.Data());
-    frmMain->AddFrame(TEvent);*/
+    frmMain->AddFrame(TEvent);
 
 
     

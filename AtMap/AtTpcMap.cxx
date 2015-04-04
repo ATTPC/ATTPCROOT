@@ -266,6 +266,7 @@ void AtTpcMap::ParseMapList(TXMLNode *node){
                                 //if(strcmp(node->GetNodeName(),"Lookup20141208") == 0){
 				ParseATTPCMap(node->GetChildren());
 			   }
+             else std::cout<<" AtTpcMap::ParseMapList - Node not found! Check node name"<<std::endl;
 			}
 
 		}

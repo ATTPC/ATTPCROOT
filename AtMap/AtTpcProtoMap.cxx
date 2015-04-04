@@ -71,7 +71,7 @@ void AtTpcProtoMap::GenerateATTPC(){
       if (obj->InheritsFrom("TMultiGraph")) {
          mg = (TMultiGraph*)obj;
          bin = hProto->AddBin(mg);
-         std::cout<<bin<<std::endl;
+         //std::cout<<bin<<std::endl;
       }
    }
  
@@ -108,9 +108,9 @@ TH2Poly* AtTpcProtoMap::GetATTPCPlane(TString TH2Poly_name){
                 return NULL;
 	}
        hProto = (TH2Poly*)f->Get(TH2Poly_name.Data());
-       cATTPCPlane = new TCanvas("cATTPCPlane","cATTPCPlane",1000,1000);
-       gStyle->SetPalette(1);
-       hProto->Draw("Lcol");
+       //cATTPCPlane = new TCanvas("cATTPCPlane","cATTPCPlane",1000,1000);
+       //gStyle->SetPalette(1);
+       //hProto->Draw("Lcol");
        return hProto;
 }
 
