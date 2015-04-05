@@ -47,6 +47,7 @@ ATEventDrawTask::ATEventDrawTask()
   //fRiemannSize(1.5),
   //fRiemannStyle(kOpenCircle),
   fCvsPadPlane(0),
+  fCvsPadWave(0),
   fPadPlane(0),
   fAtMapPtr(0),
   fMinZ(0),
@@ -86,7 +87,9 @@ ATEventDrawTask::Init()
 
   gStyle -> SetPalette(55);
   fCvsPadPlane = fEventManager->GetCvsPadPlane();
-  DrawPadPlane(); 
+  DrawPadPlane();
+  fCvsPadWave = fEventManager->GetCvsPadWave();
+  DrawPadWave();
 }
 
 void 
@@ -106,18 +109,27 @@ void
 ATEventDrawTask::DrawHitPoints()
 {
   ATEvent* event = (ATEvent*) fHitArray->At(0);
+  ATRawEvent* rawevent = (ATRawEvent*) fRawEventArray->At(0);
+    Bool_t IsValidPad = kFALSE;
+    //std::cout<<std::endl;
+    //std::cout<<" ATHit Event ID : "<<event->GetEventID()<<std::endl;
+    //std::cout<<" ATRawEvent Event ID : "<<rawevent->GetEventID()<<std::endl;
+    if(event->GetEventID()!=rawevent->GetEventID()) std::cout<<" = ATEventDrawTask::DrawHitPoints : Warning, EventID mismatch."<<std::endl;
   Int_t nHits = event->GetNumHits();
   fHitSet = new TEvePointSet("Hit",nHits, TEvePointSelectorConsumer::kTVT_XYZ);
   fHitSet->SetOwnIds(kTRUE);
   fHitSet->SetMarkerColor(fHitColor);
   fHitSet->SetMarkerSize(fHitSize);
   fHitSet->SetMarkerStyle(fHitStyle);
-    std::cout<<" Number of hits : "<<nHits<<std::endl;
+  std::cout<<" Number of hits : "<<nHits<<std::endl;
 
   for(Int_t iHit=0; iHit<nHits; iHit++)
   {
      
     ATHit hit = event->GetHitArray()->at(iHit);
+    Int_t PadNumHit = hit.GetHitPadNum();
+    
+    //std::cout<<" Hit : "<<iHit<<" ATHit Pad Number :  "<<PadNumHit<<std::endl;
       
     if(hit.GetCharge()<fThreshold) continue;
     TVector3 position = hit.GetPosition();
@@ -126,6 +138,9 @@ ATEventDrawTask::DrawHitPoints()
     fHitSet->SetPointId(new TNamed(Form("Hit %d",iHit),""));
     fPadPlane->Fill(position.X(), position.Y(), hit.GetCharge());
   }
+    
+  ATPad *pad = rawevent->GetPad(5,IsValidPad);
+  //std::cout<<" Raw Event Pad Num "<<pad->GetPadNum()<<" Is Valid? : "<<IsValidPad<<std::endl;
   gEve -> AddElement(fHitSet);
 }
 
@@ -254,6 +269,24 @@ ATEventDrawTask::DrawPadPlane()
     fCvsPadPlane -> cd();
     fPadPlane -> Draw("col");
   
+}
+
+void
+ATEventDrawTask::DrawPadWave()
+{
+ 
+      fPadWave = new TH1I("PadWave","PadWave",512,0,511);
+  /*  if(fPadWave)
+    {
+        fPadWave->Reset(0);
+        return;
+    }*/
+    
+    
+    
+      fCvsPadWave -> cd();
+      fPadWave -> Draw();
+    
 }
 
 void 

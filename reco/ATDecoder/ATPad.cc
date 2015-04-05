@@ -57,6 +57,8 @@ void ATPad::SetPadYCoord(Double_t val)        { fPadYCoord = val;}
 Float_t ATPad::GetPadXCoord()                 { return fPadXCoord;}
 Float_t ATPad::GetPadYCoord()                 { return fPadYCoord;}
 
+Bool_t ATPad::GetValidPad()                 { return kIsValid;}
+
 ATPad &ATPad::operator= (ATPad right)
 {
   Initialize();

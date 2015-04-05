@@ -37,6 +37,7 @@ class ATEventManager : public TEveEventManager
     virtual Int_t GetCurrentEvent() {return fEntry;}
 
     TCanvas* GetCvsPadPlane() { return fCvsPadPlane; }
+    TCanvas* GetCvsPadWave() { return fPadWave; }
 
     void RunEvent();
     

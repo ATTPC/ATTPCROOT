@@ -263,9 +263,9 @@ ATEventManager::DrawWave()
         Double_t y = gPad->PadtoY(upy);
         Int_t bin = h->FindBin(x,y);
         const char *bin_name = h->GetBinName(bin);
-        std::cout<<" X : "<<x<<"  Y: "<<y<<std::endl;
-        std::cout<<bin_name<<std::endl;
-        std::cout<<" Clicked on bin : "<<bin<<std::endl;
+        //std::cout<<" X : "<<x<<"  Y: "<<y<<std::endl;
+        //std::cout<<bin_name<<std::endl;
+        std::cout<<" Bin number selected : "<<bin<<" Bin name :"<<bin_name<<std::endl;
        
     }
     

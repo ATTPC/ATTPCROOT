@@ -40,6 +40,7 @@ class ATPad : public TObject  {
     Int_t *GetRawADC();
     Int_t GetRawADC(Int_t idx);
     Int_t GetMaxADCIdx();
+    Bool_t GetValidPad();
    
     Double_t *GetADC();
     Double_t GetADC(Int_t idx);

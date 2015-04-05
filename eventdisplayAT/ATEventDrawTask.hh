@@ -16,7 +16,8 @@
 #include "TVector3.h"
 
 #include "TCanvas.h"
-#include "TH2D.h"
+#include "TH2.h"
+#include "TH1.h"
 #include "TGraph.h"
 #include "TH2Poly.h"
 
@@ -53,6 +54,7 @@ class ATEventDrawTask : public FairTask
 
   protected :
     virtual void DrawPadPlane();
+    virtual void DrawPadWave();
     AtTpcMap *fAtMapPtr;
     void UpdateCvsPadPlane();
 
@@ -89,6 +91,8 @@ class ATEventDrawTask : public FairTask
 
     TCanvas* fCvsPadPlane;
     TH2Poly* fPadPlane;
+    TCanvas* fCvsPadWave;
+    TH1I*  fPadWave;
     Int_t fMinZ;
     Int_t fMaxZ;
     Int_t fMinX;

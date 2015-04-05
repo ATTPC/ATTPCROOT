@@ -18,7 +18,7 @@ ATRawEvent::ATRawEvent()
 :TNamed("ATRawEvent", "Raw event container")
 {
     fEventID = -1;
-    fPadArray.reserve(10240);
+    fPadArray.reserve(10240);// TODO Prototype size is smaller we do not need such size
     
     fIsGood = kTRUE;
 }
@@ -58,4 +58,24 @@ Int_t  ATRawEvent::GetNumPads()         { return fPadArray.size(); }
 Bool_t  ATRawEvent::IsGood()             { return fIsGood; }
 std::vector<ATPad> *ATRawEvent::GetPads()            { return &fPadArray; }
 ATPad *ATRawEvent::GetPad(Int_t padNo)  { return (padNo < GetNumPads() ? &fPadArray[padNo] : NULL); }
+
+ATPad *ATRawEvent::GetPad(Int_t PadNum, Bool_t& IsValid)
+{
+    for(std::vector<ATPad>::iterator it = fPadArray.begin(); it != fPadArray.end(); ++it) {
+        
+        //std::cout<<" ATRawEvent::GetPad : "<<(*it).GetPadNum()<<std::endl;
+        
+        if((*it).GetPadNum()==PadNum){
+            
+            IsValid = kTRUE;
+            return &(*it);
+            
+        }
+        
+    }
+    return NULL;
+
+}
+
+
 

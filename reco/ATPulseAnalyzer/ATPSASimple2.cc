@@ -22,6 +22,8 @@ ATPSASimple2::Analyze(ATRawEvent *rawEvent, ATEvent *event)
 
   for (Int_t iPad = 0; iPad < numPads; iPad++) {
     ATPad *pad = rawEvent -> GetPad(iPad);
+      Int_t PadNum = pad->GetPadNum();
+      
     
     //Double_t xPos = CalculateX(pad -> GetRow()); //Obsolete
     //Double_t zPos = CalculateZ(pad -> GetLayer());
@@ -61,7 +63,7 @@ ATPSASimple2::Analyze(ATRawEvent *rawEvent, ATEvent *event)
       if (zPos < 0 || zPos > fMaxDriftLength)
         continue;
 
-      ATHit *hit = new ATHit(hitNum, xPos, yPos, zPos, charge);
+      ATHit *hit = new ATHit(PadNum,hitNum, xPos, yPos, zPos, charge);
       event -> AddHit(hit);
       delete hit;
 

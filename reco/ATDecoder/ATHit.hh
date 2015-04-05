@@ -13,6 +13,7 @@ class ATHit : public TObject {
     ATHit(ATHit *hit);
     ATHit(Int_t hitID, TVector3 vec, Double_t charge);
     ATHit(Int_t hitID, Double_t x, Double_t y, Double_t z, Double_t charge);
+    ATHit(Int_t PadNum,Int_t hitID, Double_t x, Double_t y, Double_t z, Double_t charge);
     ~ATHit();
 
     //!< Track ID setter
@@ -22,6 +23,7 @@ class ATHit : public TObject {
     //!< Hit setter
     void SetHit(Int_t hitID, TVector3 vec, Double_t charge);
     void SetHit(Int_t hitID, Double_t x, Double_t y, Double_t z, Double_t charge);
+    void SetHit(Int_t PadNum,Int_t hitID, Double_t x, Double_t y, Double_t z, Double_t charge);
     //!< Position setter
     void SetPosition(TVector3 vec);
     void SetPosition(Double_t x, Double_t y, Double_t z);
@@ -49,6 +51,8 @@ class ATHit : public TObject {
     Bool_t IsClustered();
     //!< Cluster ID getter
     Int_t GetClusterID();
+    
+    Int_t GetHitPadNum();
 
   private:
     //!< Track ID having this hit
@@ -65,6 +69,8 @@ class ATHit : public TObject {
     Bool_t fIsClustered;
     //!< Cluster ID having this hit
     Int_t fClusterID;
+    
+    Int_t fPadNum;
 
   ClassDef(ATHit, 1);
 };

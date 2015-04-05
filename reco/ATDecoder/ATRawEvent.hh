@@ -39,6 +39,7 @@ public:
     std::vector<ATPad> *GetPads();
     
     ATPad *GetPad(Int_t padNo);
+    ATPad *GetPad(Int_t PadNum,Bool_t& IsValid);
     
     
 private:

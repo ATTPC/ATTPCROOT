@@ -7,6 +7,7 @@ ATHit::ATHit()
 
   fIsClustered = kFALSE;
   fClusterID = -1;
+    fPadNum = -1;
 }
 
 ATHit::ATHit(Int_t hitID, TVector3 vec, Double_t charge)
@@ -16,6 +17,7 @@ ATHit::ATHit(Int_t hitID, TVector3 vec, Double_t charge)
 
   fIsClustered = kFALSE;
   fClusterID = -1;
+    fPadNum = -1;
 }
 
 ATHit::ATHit(Int_t hitID, Double_t x, Double_t y, Double_t z, Double_t charge)
@@ -25,6 +27,17 @@ ATHit::ATHit(Int_t hitID, Double_t x, Double_t y, Double_t z, Double_t charge)
 
   fIsClustered = kFALSE;
   fClusterID = -1;
+    fPadNum = -1;
+}
+
+ATHit::ATHit(Int_t PadNum,Int_t hitID, Double_t x, Double_t y, Double_t z, Double_t charge)
+{
+    fTrackID = -1;
+    SetHit(PadNum,hitID, x, y, z, charge);
+    
+    fIsClustered = kFALSE;
+    fClusterID = -1;
+    
 }
 
 ATHit::ATHit(ATHit *hit)
@@ -43,6 +56,7 @@ void ATHit::SetTrackID(Int_t trackID)                                   { fTrack
 void ATHit::SetHitID(Int_t hitID)                                       { fHitID = hitID; }
 void ATHit::SetHit(Int_t hitID, TVector3 vec, Double_t charge)                       { fHitID = hitID; fPosition = vec; fCharge = charge; }
 void ATHit::SetHit(Int_t hitID, Double_t x, Double_t y, Double_t z, Double_t charge) { fHitID = hitID; fPosition = TVector3(x, y, z); fCharge = charge; }
+void ATHit::SetHit(Int_t PadNum,Int_t hitID, Double_t x, Double_t y, Double_t z, Double_t charge) { fPadNum= PadNum ; fHitID = hitID; fPosition = TVector3(x, y, z); fCharge = charge; }
 
 void ATHit::SetPosition(TVector3 vec)                                   { fPosition = vec; }
 void ATHit::SetPosition(Double_t x, Double_t y, Double_t z)             { fPosition = TVector3(x, y, z); }
@@ -55,6 +69,7 @@ void ATHit::SetClusterID(Int_t clusterID)                               { fClust
 
 Int_t ATHit::GetTrackID()                                               { return fTrackID; }
 Int_t ATHit::GetHitID()                                                 { return fHitID; }
+Int_t ATHit::GetHitPadNum()                                                 { return fPadNum; }
 TVector3 ATHit::GetPosition()                                           { return fPosition; }
 TVector3 ATHit::GetPosSigma()                                           { return fPositionSigma; }
 Double_t ATHit::GetCharge()                                             { return fCharge; }
