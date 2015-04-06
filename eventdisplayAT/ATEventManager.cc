@@ -148,7 +148,7 @@ ATEventManager::Init(Int_t option, Int_t level, Int_t nNodes)
     frame->SetElementName("ATTPC Pad Plane");
     pack->GetEveFrame()->SetShowTitleBar(kFALSE);
     fCvsPadPlane = ecvs->GetCanvas();
-    fCvsPadPlane->AddExec("ex","ATEventManager::DrawWave()");
+    //fCvsPadPlane->AddExec("ex","ATEventManager::DrawWave()");
 
     
     
@@ -268,6 +268,8 @@ ATEventManager::DrawWave()
         std::cout<<" Bin number selected : "<<bin<<" Bin name :"<<bin_name<<std::endl;
        
     }
+    
+    
     
     /*int event = gPad->GetEvent();
     if (event != 11) return; //may be comment this line

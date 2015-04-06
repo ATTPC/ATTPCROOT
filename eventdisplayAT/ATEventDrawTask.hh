@@ -51,12 +51,20 @@ class ATEventDrawTask : public FairTask
     void SetHitAttributes(Color_t, Size_t, Style_t);
     //void SetHitClusterAttributes(Color_t, Size_t, Style_t);
     //void SetRiemannAttributes(Color_t, Size_t, Style_t);
+    
+    static void SelectPad();
+    void DrawWave(Int_t PadNum);
+    
+    
+    
 
   protected :
     virtual void DrawPadPlane();
     virtual void DrawPadWave();
+    
     AtTpcMap *fAtMapPtr;
     void UpdateCvsPadPlane();
+    void UpdateCvsPadWave();
 
     void DrawHitPoints();
     //void DrawHitClusterPoints();
@@ -71,6 +79,7 @@ class ATEventDrawTask : public FairTask
     TClonesArray* fRawEventArray;
 
     ATEventManager* fEventManager;
+    ATRawEvent* fRawevent;
 
     Int_t fThreshold;
 

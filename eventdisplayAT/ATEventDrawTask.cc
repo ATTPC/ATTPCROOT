@@ -8,6 +8,7 @@
 
 #include "ATEventDrawTask.hh"
 
+
 #include "TEveManager.h"
 #include "TPaletteAxis.h"
 #include "TStyle.h"
@@ -32,6 +33,7 @@ ATEventDrawTask::ATEventDrawTask()
   //fRiemannTrackArray(0),
   //fKalmanArray(0),
   fEventManager(0),
+  fRawevent(0),
   fThreshold(0),
   fHitSet(0),
   fHitColor(kPink),
@@ -47,8 +49,9 @@ ATEventDrawTask::ATEventDrawTask()
   //fRiemannSize(1.5),
   //fRiemannStyle(kOpenCircle),
   fCvsPadPlane(0),
-  fCvsPadWave(0),
   fPadPlane(0),
+  fCvsPadWave(0),
+  fPadWave(0),
   fAtMapPtr(0),
   fMinZ(0),
   fMaxZ(1344),
@@ -62,6 +65,8 @@ ATEventDrawTask::ATEventDrawTask()
 
 ATEventDrawTask::~ATEventDrawTask()
 {
+    
+    //TODO Destroy pointers
 }
 
 InitStatus 
@@ -86,10 +91,12 @@ ATEventDrawTask::Init()
   //if(fKalmanArray) LOG(INFO)<<"Kalman Track Found."<<FairLogger::endl;
 
   gStyle -> SetPalette(55);
-  fCvsPadPlane = fEventManager->GetCvsPadPlane();
-  DrawPadPlane();
   fCvsPadWave = fEventManager->GetCvsPadWave();
   DrawPadWave();
+  fCvsPadPlane = fEventManager->GetCvsPadPlane();// There is a problem if the pad plane is drawn first
+  fCvsPadPlane->AddExec("ex","ATEventDrawTask::SelectPad()");
+  DrawPadPlane();
+  
 }
 
 void 
@@ -102,19 +109,21 @@ ATEventDrawTask::Exec(Option_t* option)
   //if(fRiemannTrackArray) DrawRiemannHits();
 
   gEve -> Redraw3D(kFALSE);
+    
   UpdateCvsPadPlane();
+  UpdateCvsPadWave();
 }
 
 void 
 ATEventDrawTask::DrawHitPoints()
 {
   ATEvent* event = (ATEvent*) fHitArray->At(0);
-  ATRawEvent* rawevent = (ATRawEvent*) fRawEventArray->At(0);
-    Bool_t IsValidPad = kFALSE;
+  fRawevent = (ATRawEvent*) fRawEventArray->At(0);
+    //Bool_t IsValidPad = kFALSE;
     //std::cout<<std::endl;
     //std::cout<<" ATHit Event ID : "<<event->GetEventID()<<std::endl;
     //std::cout<<" ATRawEvent Event ID : "<<rawevent->GetEventID()<<std::endl;
-    if(event->GetEventID()!=rawevent->GetEventID()) std::cout<<" = ATEventDrawTask::DrawHitPoints : Warning, EventID mismatch."<<std::endl;
+    //if(event->GetEventID()!=rawevent->GetEventID()) std::cout<<" = ATEventDrawTask::DrawHitPoints : Warning, EventID mismatch."<<std::endl;
   Int_t nHits = event->GetNumHits();
   fHitSet = new TEvePointSet("Hit",nHits, TEvePointSelectorConsumer::kTVT_XYZ);
   fHitSet->SetOwnIds(kTRUE);
@@ -139,9 +148,7 @@ ATEventDrawTask::DrawHitPoints()
     fPadPlane->Fill(position.X(), position.Y(), hit.GetCharge());
   }
     
-  ATPad *pad = rawevent->GetPad(5,IsValidPad);
-  //std::cout<<" Raw Event Pad Num "<<pad->GetPadNum()<<" Is Valid? : "<<IsValidPad<<std::endl;
-  gEve -> AddElement(fHitSet);
+    gEve -> AddElement(fHitSet);
 }
 
 /*void 
@@ -261,8 +268,6 @@ ATEventDrawTask::DrawPadPlane()
     return;
   }
 
-   
-    
     fAtMapPtr->GenerateATTPC();
  // fAtMapPtr->SetGUIMode();// This method does not need to be called since it generates the Canvas we do not want
     fPadPlane = fAtMapPtr->GetATTPCPlane();
@@ -275,17 +280,16 @@ void
 ATEventDrawTask::DrawPadWave()
 {
  
-      fPadWave = new TH1I("PadWave","PadWave",512,0,511);
-  /*  if(fPadWave)
+    
+   /*  if(fPadWave)
     {
         fPadWave->Reset(0);
         return;
-    }*/
-    
-    
-    
-      fCvsPadWave -> cd();
-      fPadWave -> Draw();
+    }
+    **/
+      fPadWave = new TH1I("PadWave","PadWave",512,0,511);
+      fCvsPadWave->cd();
+     fPadWave -> Draw();
     
 }
 
@@ -314,6 +318,18 @@ ATEventDrawTask::UpdateCvsPadPlane()
   }*/
 }
 
+
+void
+ATEventDrawTask::UpdateCvsPadWave()
+{
+    fCvsPadWave -> Modified();
+    fCvsPadWave -> Update();
+    
+    TPaletteAxis *paxis
+    = (TPaletteAxis *) fPadPlane->GetListOfFunctions()->FindObject("palette");
+
+}
+
 void 
 ATEventDrawTask::SetHitAttributes(Color_t color, Size_t size, Style_t style)
 {
@@ -337,3 +353,69 @@ ATEventDrawTask::SetRiemannAttributes(Color_t color, Size_t size, Style_t style)
   fRiemannSize = size;
   fRiemannStyle = style;
 }*/
+
+void
+ATEventDrawTask::SelectPad()
+{
+    int event = gPad->GetEvent();
+    if (event != 11) return; //may be comment this line
+    TObject *select = gPad->GetSelected();
+    if (!select) return;
+    if (select->InheritsFrom(TH2Poly::Class())) {
+        TH2Poly *h = (TH2Poly*)select;
+        gPad->GetCanvas()->FeedbackMode(kTRUE);
+        // Char_t *bin_name = h->GetBinName();
+        
+        int pyold = gPad->GetUniqueID();
+        int px = gPad->GetEventX();
+        int py = gPad->GetEventY();
+        float uxmin = gPad->GetUxmin();
+        float uxmax = gPad->GetUxmax();
+        int pxmin = gPad->XtoAbsPixel(uxmin);
+        int pxmax = gPad->XtoAbsPixel(uxmax);
+        if(pyold) gVirtualX->DrawLine(pxmin,pyold,pxmax,pyold);
+        gVirtualX->DrawLine(pxmin,py,pxmax,py);
+        gPad->SetUniqueID(py);
+        Float_t upx = gPad->AbsPixeltoX(px);
+        Float_t upy = gPad->AbsPixeltoY(py);
+        Double_t x = gPad->PadtoX(upx);
+        Double_t y = gPad->PadtoY(upy);
+        Int_t bin = h->FindBin(x,y);
+        const char *bin_name = h->GetBinName(bin);
+        //std::cout<<" X : "<<x<<"  Y: "<<y<<std::endl;
+        //std::cout<<bin_name<<std::endl;
+        std::cout<<" Bin number selected : "<<bin<<" Bin name :"<<bin_name<<std::endl;
+        //ATEventDrawTask test;
+        //test.DrawWave(bin);
+        //ATEventDrawTask::DrawWave(bin);
+       
+    }
+    
+    
+    
+    /*int event = gPad->GetEvent();
+     if (event != 11) return; //may be comment this line
+     TObject *select = gPad->GetSelected();
+     if (!select) return;
+     if (select->InheritsFrom("TObject")) {
+     TH2PolyBin *h = (TH2PolyBin*)select;
+     gPad->GetCanvas()->FeedbackMode(kTRUE);
+     Int_t bin = h->GetBinNumber();
+     std::cout<<" Clicked on bin : "<<bin<<std::endl;
+     }*/
+    
+}
+
+
+
+void
+ATEventDrawTask::DrawWave(Int_t PadNum)
+{
+    
+    //Bool_t IsValid=kFALSE;
+    //ATPad *pad = fRawevent->GetPad(0);
+    //ATPad *pad= fRawevent->GetPad(PadNum,IsValid);
+    //std::cout<<" Raw Event Pad Num "<<pad->GetPadNum()<<" Is Valid? : "<<IsValidPad<<std::endl;
+
+    
+}
