@@ -52,7 +52,7 @@ class ATEventDrawTask : public FairTask
     //void SetHitClusterAttributes(Color_t, Size_t, Style_t);
     //void SetRiemannAttributes(Color_t, Size_t, Style_t);
     
-    static void SelectPad();
+    static void SelectPad(const char *rawevt);
     void DrawWave(Int_t PadNum);
     
     

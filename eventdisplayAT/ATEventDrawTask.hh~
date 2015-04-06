@@ -16,7 +16,8 @@
 #include "TVector3.h"
 
 #include "TCanvas.h"
-#include "TH2D.h"
+#include "TH2.h"
+#include "TH1.h"
 #include "TGraph.h"
 #include "TH2Poly.h"
 
@@ -50,11 +51,20 @@ class ATEventDrawTask : public FairTask
     void SetHitAttributes(Color_t, Size_t, Style_t);
     //void SetHitClusterAttributes(Color_t, Size_t, Style_t);
     //void SetRiemannAttributes(Color_t, Size_t, Style_t);
+    
+    static void SelectPad(const char *rawevt);
+    void DrawWave(Int_t PadNum);
+    
+    
+    
 
   protected :
-    void DrawPadPlane();
+    virtual void DrawPadPlane();
+    virtual void DrawPadWave();
+    
     AtTpcMap *fAtMapPtr;
     void UpdateCvsPadPlane();
+    void UpdateCvsPadWave();
 
     void DrawHitPoints();
     //void DrawHitClusterPoints();
@@ -69,6 +79,7 @@ class ATEventDrawTask : public FairTask
     TClonesArray* fRawEventArray;
 
     ATEventManager* fEventManager;
+    ATRawEvent* fRawevent;
 
     Int_t fThreshold;
 
@@ -89,6 +100,8 @@ class ATEventDrawTask : public FairTask
 
     TCanvas* fCvsPadPlane;
     TH2Poly* fPadPlane;
+    TCanvas* fCvsPadWave;
+    static TH1I*  fPadWave;
     Int_t fMinZ;
     Int_t fMaxZ;
     Int_t fMinX;

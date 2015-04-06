@@ -72,6 +72,8 @@ ATEventDrawTask::~ATEventDrawTask()
 InitStatus 
 ATEventDrawTask::Init()
 {
+
+  gROOT->Reset();
   FairRootManager* ioMan = FairRootManager::Instance();
   fEventManager = ATEventManager::Instance();
 
@@ -80,6 +82,7 @@ ATEventDrawTask::Init()
     
    fRawEventArray = (TClonesArray*) ioMan->GetObject("ATRawEvent");
    if(fRawEventArray) LOG(INFO)<<"Raw Event Array  Found."<<FairLogger::endl;
+ 
 
   //fHitClusterArray = (TClonesArray*) ioMan->GetObject("STEventHC");
   //if(fHitClusterArray) LOG(INFO)<<"Hit Cluster Found."<<FairLogger::endl;
@@ -90,11 +93,15 @@ ATEventDrawTask::Init()
   //fKalmanArray = (TClonesArray*) ioMan->GetObject("STKalmanTrack");
   //if(fKalmanArray) LOG(INFO)<<"Kalman Track Found."<<FairLogger::endl;
 
+ // gROOT->GetListOfSpecials()->Add(fRawEventArray);
+  //fRawEventArray->SetName("ATRawEvent");
+
   gStyle -> SetPalette(55);
   fCvsPadWave = fEventManager->GetCvsPadWave();
   DrawPadWave();
   fCvsPadPlane = fEventManager->GetCvsPadPlane();// There is a problem if the pad plane is drawn first
-  fCvsPadPlane->AddExec("ex","ATEventDrawTask::SelectPad()");
+  fCvsPadPlane -> ToggleEventStatus();
+  fCvsPadPlane->AddExec("ex","ATEventDrawTask::SelectPad(\"fRawEvent\")");
   DrawPadPlane();
   
 }
@@ -117,9 +124,12 @@ ATEventDrawTask::Exec(Option_t* option)
 void 
 ATEventDrawTask::DrawHitPoints()
 {
+  
   ATEvent* event = (ATEvent*) fHitArray->At(0);
   fRawevent = (ATRawEvent*) fRawEventArray->At(0);
-    //Bool_t IsValidPad = kFALSE;
+  fRawevent->SetName("fRawEvent");
+   gROOT->GetListOfSpecials()->Add(fRawevent);
+  
     //std::cout<<std::endl;
     //std::cout<<" ATHit Event ID : "<<event->GetEventID()<<std::endl;
     //std::cout<<" ATRawEvent Event ID : "<<rawevent->GetEventID()<<std::endl;
@@ -287,9 +297,10 @@ ATEventDrawTask::DrawPadWave()
         return;
     }
     **/
-      fPadWave = new TH1I("PadWave","PadWave",512,0,511);
+      fPadWave = new TH1I("fPadWave","fPadWave",512,0,511);
+      gROOT->GetListOfSpecials()->Add(fPadWave);
       fCvsPadWave->cd();
-     fPadWave -> Draw();
+      fPadWave -> Draw();
     
 }
 
@@ -355,7 +366,7 @@ ATEventDrawTask::SetRiemannAttributes(Color_t color, Size_t size, Style_t style)
 }*/
 
 void
-ATEventDrawTask::SelectPad()
+ATEventDrawTask::SelectPad(const char *rawevt)
 {
     int event = gPad->GetEvent();
     if (event != 11) return; //may be comment this line
@@ -364,8 +375,13 @@ ATEventDrawTask::SelectPad()
     if (select->InheritsFrom(TH2Poly::Class())) {
         TH2Poly *h = (TH2Poly*)select;
         gPad->GetCanvas()->FeedbackMode(kTRUE);
-        // Char_t *bin_name = h->GetBinName();
-        
+         ATRawEvent* tRawEvent = NULL;
+         tRawEvent = (ATRawEvent*)gROOT->GetListOfSpecials()->FindObject(rawevt);
+         if(tRawEvent == NULL){ 
+		std::cout<<" = ATEventDrawTask::SelectPad NULL pointer for the ATRawEvent! Please select an event first "<<std::endl;
+		return;
+	}
+
         int pyold = gPad->GetUniqueID();
         int px = gPad->GetEventX();
         int py = gPad->GetEventY();
@@ -385,24 +401,28 @@ ATEventDrawTask::SelectPad()
         //std::cout<<" X : "<<x<<"  Y: "<<y<<std::endl;
         //std::cout<<bin_name<<std::endl;
         std::cout<<" Bin number selected : "<<bin<<" Bin name :"<<bin_name<<std::endl;
-        //ATEventDrawTask test;
-        //test.DrawWave(bin);
-        //ATEventDrawTask::DrawWave(bin);
-       
+        Bool_t IsValid = kFALSE;
+	ATPad *tPad = tRawEvent->GetPad(bin,IsValid);
+        std::cout<<" Event ID with the trick : "<<tRawEvent->GetEventID()<<std::endl;
+        std::cout<<" Raw Event Pad Num "<<tPad->GetPadNum()<<" Is Valid? : "<<IsValid<<std::endl;
+        // TODO The bin and the PadRef are not the same! Mapping is needed here!
+        
+	TH1I* tPadWave = NULL;
+        tPadWave = (TH1I*)gROOT->GetListOfSpecials()->FindObject("fPadWave");
+        Int_t *rawadc = tPad->GetRawADC();
+        if(tPadWave == NULL){ 
+		std::cout<<" = ATEventDrawTask::SelectPad NULL pointer for the TH1I! Please select an event first "<<std::endl;
+		return;
+	}
+       // tPadWave->Reset(0);
+              for(Int_t i=0;i<512;i++){
+			
+			tPadWave->SetBinContent(i,rawadc[i]);
+
+		}
+ 
     }
-    
-    
-    
-    /*int event = gPad->GetEvent();
-     if (event != 11) return; //may be comment this line
-     TObject *select = gPad->GetSelected();
-     if (!select) return;
-     if (select->InheritsFrom("TObject")) {
-     TH2PolyBin *h = (TH2PolyBin*)select;
-     gPad->GetCanvas()->FeedbackMode(kTRUE);
-     Int_t bin = h->GetBinNumber();
-     std::cout<<" Clicked on bin : "<<bin<<std::endl;
-     }*/
+        
     
 }
 
