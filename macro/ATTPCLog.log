@@ -1,4 +1,4 @@
-[INFO   ] [FairRootManager.cxx::OpenOutFile:723] FairRootManager::OpenOutFile("output_proto.root")
+[INFO   ] [FairRootManager.cxx::OpenOutFile:723] FairRootManager::OpenOutFile("output.root")
 [INFO   ] [FairRootManager.cxx::PrintFriendList:563] The input consists out of the following trees and files: 
 [INFO   ] [FairRootManager.cxx::PrintFriendList:565]  - cbmsim 
 [INFO   ] [FairRootManager.cxx::PrintFriendList:570]     - mc.dummy.root 

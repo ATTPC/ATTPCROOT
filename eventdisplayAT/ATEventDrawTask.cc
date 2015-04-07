@@ -98,6 +98,8 @@ ATEventDrawTask::Init()
 
   gStyle -> SetPalette(55);
   fCvsPadWave = fEventManager->GetCvsPadWave();
+  fCvsPadWave->SetName("fCvsPadWave");
+  gROOT->GetListOfSpecials()->Add(fCvsPadWave);
   DrawPadWave();
   fCvsPadPlane = fEventManager->GetCvsPadPlane();// There is a problem if the pad plane is drawn first
   fCvsPadPlane -> ToggleEventStatus();
@@ -128,7 +130,7 @@ ATEventDrawTask::DrawHitPoints()
   ATEvent* event = (ATEvent*) fHitArray->At(0);
   fRawevent = (ATRawEvent*) fRawEventArray->At(0);
   fRawevent->SetName("fRawEvent");
-   gROOT->GetListOfSpecials()->Add(fRawevent);
+  gROOT->GetListOfSpecials()->Add(fRawevent);
   
     //std::cout<<std::endl;
     //std::cout<<" ATHit Event ID : "<<event->GetEventID()<<std::endl;
@@ -402,25 +404,34 @@ ATEventDrawTask::SelectPad(const char *rawevt)
         //std::cout<<bin_name<<std::endl;
         std::cout<<" Bin number selected : "<<bin<<" Bin name :"<<bin_name<<std::endl;
         Bool_t IsValid = kFALSE;
-	ATPad *tPad = tRawEvent->GetPad(bin,IsValid);
+        ATPad *tPad = tRawEvent->GetPad(bin,IsValid);
         std::cout<<" Event ID with the trick : "<<tRawEvent->GetEventID()<<std::endl;
         std::cout<<" Raw Event Pad Num "<<tPad->GetPadNum()<<" Is Valid? : "<<IsValid<<std::endl;
         // TODO The bin and the PadRef are not the same! Mapping is needed here!
         
-	TH1I* tPadWave = NULL;
+        TH1I* tPadWave = NULL;
         tPadWave = (TH1I*)gROOT->GetListOfSpecials()->FindObject("fPadWave");
         Int_t *rawadc = tPad->GetRawADC();
         if(tPadWave == NULL){ 
-		std::cout<<" = ATEventDrawTask::SelectPad NULL pointer for the TH1I! Please select an event first "<<std::endl;
-		return;
-	}
+            std::cout<<" = ATEventDrawTask::SelectPad NULL pointer for the TH1I! Please select an event first "<<std::endl;
+            return;
+	     }
        // tPadWave->Reset(0);
-              for(Int_t i=0;i<512;i++){
+        for(Int_t i=0;i<512;i++){
 			
 			tPadWave->SetBinContent(i,rawadc[i]);
 
 		}
- 
+        
+        TCanvas *tCvsPadWave = NULL;
+        tCvsPadWave = (TCanvas*)gROOT->GetListOfSpecials()->FindObject("fCvsPadWave");
+        if(tCvsPadWave == NULL){
+            std::cout<<" = ATEventDrawTask::SelectPad NULL pointer for the TCanvas! Please select an event first "<<std::endl;
+            return;
+        }
+        tCvsPadWave->cd();
+        tPadWave->Draw();
+        tCvsPadWave->Update();
     }
         
     
