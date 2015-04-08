@@ -161,33 +161,60 @@ std::vector<Float_t> AtTpcProtoMap::CalcPadCenter(Int_t PadRef){
 
 Bool_t AtTpcProtoMap::SetProtoMap(TString file){
 
-
+  /* Sets a map for the prototype containing the Pad Number*/ 
 	TString PadName;
 	Int_t PadNum=-1;
         Float_t pad_xcoord=-1;
         Float_t pad_ycoord=-1;
+        Int_t bin_num =-1;
         std::vector<Float_t> PadCoord;
 	PadCoord.reserve(2);
 	InProtoMap = new ifstream(file.Data());
-        if(InProtoMap->fail()){
-		 std::cout<<" ATTPC Proto Map : No Prototype Map file found! "<<std::endl;
-		 return kFALSE;
-	}
+            
+            if(InProtoMap->fail()){
+              std::cout<<" = AtTpcProtoMap::SetProtoMap : No Prototype Map file found! Please, check the path. Current :"<<file.Data()<<std::endl;
+              return -1;
+             }
+             else kIsProtoMapSet=kTRUE;
 
 
 		    while(!InProtoMap->eof()){
          
-     			   *InProtoMap>>PadNum>>PadName>>pad_xcoord>>pad_ycoord;
+     		*InProtoMap>>PadNum>>PadName>>pad_xcoord>>pad_ycoord>>bin_num;
 			   PadCoord.push_back(pad_xcoord);
 			   PadCoord.push_back(pad_ycoord);
 			    if(kDebug)
-		             if(!PadName.IsNull()) std::cout<<" PadNum : "<<PadNum<<" - PadName : "<<PadName.Data()<<" - Pad X coord : "<<pad_xcoord<<" - Pad Y coord : "<<pad_ycoord<<std::endl;
-			   ProtoGeoMap.insert(std::pair<Int_t,std::vector<Float_t>>(PadNum,PadCoord));
+		             if(!PadName.IsNull()) std::cout<<" PadNum : "<<PadNum<<" - PadName : "<<PadName.Data()<<" - Pad X coord : "<<pad_xcoord<<" - Pad Y coord : "<<pad_ycoord<<" - Bin number : "<<bin_num<<std::endl;
+			         ProtoGeoMap.insert(std::pair<Int_t,std::vector<Float_t>>(PadNum,PadCoord));
+               ProtoBinMap.insert(std::pair<Int_t,Int_t>(bin_num,PadNum));
          		   PadCoord.clear();
    		     }
  
-        kIsProtoMapSet=kTRUE;
+        
         return kTRUE;
+
+}
+
+Int_t AtTpcProtoMap::BinToPad(Int_t binval){
+
+             if(!kIsProtoMapSet){
+              std::cout<<" = AtTpcProtoMap::BinToPad : No Prototype Map file found! Please, use the SetProtoMap method first."<<std::endl;
+              return -1;
+             }
+             
+
+             std::map<Int_t,Int_t>::const_iterator its =ProtoBinMap.find(binval);
+             Int_t padval = (*its).second;
+             Int_t kIs = int(ProtoBinMap.find(binval) == ProtoBinMap.end());
+             if(kIs){
+                    if(kDebug) std::cerr<<" = AtTpcProtoMap::BinToPad - Bin not found : "<<binval<<std::endl;
+                    return -1;
+             }else if(binval>257 || binval<0){
+
+              std::cout<<" = AtTpcProtoMap::BinToPad - Warning: Bin value out of expected boundaries for prototype bin mapping : "<<binval<<std::endl;
+
+             }else return padval;
+
 
 }
 

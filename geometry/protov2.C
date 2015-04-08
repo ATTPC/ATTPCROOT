@@ -55,6 +55,8 @@ void protov2(){
 	Float_t LL = 1.0;//mm
 	Float_t SS = 0.5;//mm
 	Float_t DD = 0.25; //mm
+
+  Int_t bin_num[257]={0};
     
     TMultiGraph *mg1[128];
     TMultiGraph *mg2[128];
@@ -197,8 +199,8 @@ void protov2(){
       // cout<<" Coordinates - X : "<< x_r2c[k]<<"  Y :"<< y_r2c[k]<<endl;
       //sector1_name<<"sector1_"<<k;
   // std::cout<<sector1_name.str()<<std::endl;
-        map<<sector1_name<<"	"<<x_r1c[k]<<"	"<<y_r1c[k]<<std::endl;
-	map<<sector2_name<<"	"<<x_r2c[k]<<"	"<<y_r2c[k]<<std::endl;
+  //map<<sector1_name<<"	"<<x_r1c[k]<<"	"<<y_r1c[k]<<std::endl;
+	//map<<sector2_name<<"	"<<x_r2c[k]<<"	"<<y_r2c[k]<<std::endl;
         //map<<endl;
 	//map << "Writing this to a file.\n";
     
@@ -233,8 +235,13 @@ void protov2(){
     //  sec_center->Draw("P");       
 
       // Filling the TH2Poly
-      bin = h2p->AddBin(mg1[k]);
-      bin = h2p->AddBin(mg2[k]);
+    //  bin = h2p->AddBin(mg1[k]);
+    //  bin = h2p->AddBin(mg2[k]);
+    bin_num[2*k] = h2p->AddBin(mg1[k]);
+    bin_num[2*k+1] = h2p->AddBin(mg2[k]);
+
+  map<<sector1_name<<" "<<x_r1c[k]<<"  "<<y_r1c[k]<<" "<<bin_num[2*k]<<std::endl;
+  map<<sector2_name<<"  "<<x_r2c[k]<<"  "<<y_r2c[k]<<" "<<bin_num[2*k+1]<<std::endl;
 
   } //K Loop - Number of strips in one section
     
@@ -257,8 +264,8 @@ void protov2(){
         }
            sprintf(sector1_name,"sector1_%d",k);
            sprintf(sector2_name,"sector2_%d",k);
-	   map<<sector1_name<<"	"<<x_r1c[k]<<"	"<<y_r1c[k]<<std::endl;
-	   map<<sector2_name<<"	"<<x_r2c[k]<<"	"<<y_r2c[k]<<std::endl;
+	  // map<<sector1_name<<"	"<<x_r1c[k]<<"	"<<y_r1c[k]<<std::endl;
+	  // map<<sector2_name<<"	"<<x_r2c[k]<<"	"<<y_r2c[k]<<std::endl;
 	   
            
            mg1[k] = new TMultiGraph(sector1_name,sector1_name);
@@ -273,8 +280,13 @@ void protov2(){
            mg2[k]->Write();
 
            
-           bin = h2p->AddBin(mg1[k]);
-           bin = h2p->AddBin(mg2[k]);
+           //bin = h2p->AddBin(mg1[k]);
+           //bin = h2p->AddBin(mg2[k]);
+           bin_num[2*k] = h2p->AddBin(mg1[k]);
+           bin_num[2*k+1]  = h2p->AddBin(mg2[k]);
+
+            map<<sector1_name<<" "<<x_r1c[k]<<"  "<<y_r1c[k]<<" "<<bin_num[2*k]<<std::endl;
+            map<<sector2_name<<" "<<x_r2c[k]<<"  "<<y_r2c[k]<<" "<<bin_num[2*k+1]<<std::endl;
        }
     
     std::cout<<std::endl;
@@ -294,8 +306,8 @@ void protov2(){
         }
         sprintf(sector1_name,"sector1_%d",k);
         sprintf(sector2_name,"sector2_%d",k);
-        map<<sector1_name<<"	"<<x_r1c[k]<<"	"<<y_r1c[k]<<std::endl;
-	map<<sector2_name<<"	"<<x_r2c[k]<<"	"<<y_r2c[k]<<std::endl;
+        //map<<sector1_name<<"	"<<x_r1c[k]<<"	"<<y_r1c[k]<<std::endl;
+      //	map<<sector2_name<<"	"<<x_r2c[k]<<"	"<<y_r2c[k]<<std::endl;
         
         mg1[k] = new TMultiGraph(sector1_name,sector1_name);
         sec1[k]= new TGraph(1820,x_r1[k],y_r1[k]);
@@ -309,8 +321,12 @@ void protov2(){
         mg2[k]->Write();
         
         
-        bin = h2p->AddBin(mg1[k]);
-        bin = h2p->AddBin(mg2[k]);
+        //bin = h2p->AddBin(mg1[k]);
+        //bin = h2p->AddBin(mg2[k]);
+        bin_num[2*k] = h2p->AddBin(mg1[k]);
+        bin_num[2*k+1]  = h2p->AddBin(mg2[k]);
+         map<<sector1_name<<" "<<x_r1c[k]<<"  "<<y_r1c[k]<<" "<<bin_num[2*k]<<std::endl;
+          map<<sector2_name<<" "<<x_r2c[k]<<"  "<<y_r2c[k]<<" "<<bin_num[2*k+1]<<std::endl;
     }
     
     std::cout<<std::endl;
@@ -330,8 +346,8 @@ void protov2(){
         }
         sprintf(sector1_name,"sector1_%d",k);
         sprintf(sector2_name,"sector2_%d",k);
-        map<<sector1_name<<"	"<<x_r1c[k]<<"	"<<y_r1c[k]<<std::endl;
-	map<<sector2_name<<"	"<<x_r2c[k]<<"	"<<y_r2c[k]<<std::endl;
+     //   map<<sector1_name<<"	"<<x_r1c[k]<<"	"<<y_r1c[k]<<std::endl;
+//	map<<sector2_name<<"	"<<x_r2c[k]<<"	"<<y_r2c[k]<<std::endl;
         
         mg1[k] = new TMultiGraph(sector1_name,sector1_name);
         sec1[k]= new TGraph(1820,x_r1[k],y_r1[k]);
@@ -349,8 +365,12 @@ void protov2(){
        // mg2[k]->Draw("ALP");
        // mg1[k]->Draw("LP");
         
-        bin = h2p->AddBin(mg1[k]);
-        bin = h2p->AddBin(mg2[k]);
+        //bin = h2p->AddBin(mg1[k]);
+        //bin = h2p->AddBin(mg2[k]);
+        bin_num[2*k] = h2p->AddBin(mg1[k]);
+        bin_num[2*k+1]  = h2p->AddBin(mg2[k]);
+         map<<sector1_name<<" "<<x_r1c[k]<<"  "<<y_r1c[k]<<" "<<bin_num[2*k]<<std::endl;
+            map<<sector2_name<<" "<<x_r2c[k]<<"  "<<y_r2c[k]<<" "<<bin_num[2*k+1]<<std::endl;
         
     }
     
@@ -369,7 +389,9 @@ void protov2(){
     mgc = new TMultiGraph("sector_center","sector_center");
     secc= new TGraph(3600,x_rc,y_rc);
     mgc->Add(secc);
-    bin = h2p->AddBin(mgc);
+   // bin = h2p->AddBin(mgc);
+    bin_num[256] = h2p->AddBin(mgc);
+          
     mgc->Write();
 
    // Float_t px,py;
@@ -380,7 +402,12 @@ void protov2(){
         
         //std::cout<<" px : "<<px*30.0<<" py : "<<py*30.0<<std::endl;
     }*/
-    
+     /*   for (Int_t i = 0; i <256; i++) {
+
+          std::cout<<"bin["<<i<<"] = "<<bin_num[i]<<std::endl;
+
+        }*/
+
 
 	TCanvas *c2 = new TCanvas("c2", "c2");
 	c2->Draw();

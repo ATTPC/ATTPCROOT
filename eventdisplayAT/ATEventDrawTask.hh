@@ -55,7 +55,7 @@ class ATEventDrawTask : public FairTask
     static void SelectPad(const char *rawevt);
     void DrawWave(Int_t PadNum);
     
-    
+    void SetGeoOption(Option_t *option) {fGeoOption = option;}
     
 
   protected :
@@ -66,9 +66,11 @@ class ATEventDrawTask : public FairTask
     void UpdateCvsPadPlane();
     void UpdateCvsPadWave();
 
+
     void DrawHitPoints();
     //void DrawHitClusterPoints();
     //void DrawRiemannHits();
+
 
     Bool_t fIs2DPlotRange;
 
@@ -80,8 +82,11 @@ class ATEventDrawTask : public FairTask
 
     ATEventManager* fEventManager;
     ATRawEvent* fRawevent;
+    AtTpcMap *fDetmap;
 
     Int_t fThreshold;
+    Option_t* fGeoOption; //Chose Geometry of the detector: ATTPC (Default)-  Prototype 
+
 
     TEvePointSet* fHitSet;
     Color_t fHitColor;

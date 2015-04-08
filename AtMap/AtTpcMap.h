@@ -14,6 +14,7 @@
 
 #include <cassert>
 #include "TObject.h"
+#include "TROOT.h"
 #include "TMath.h"
 #include "TCanvas.h"
 #include "TH2Poly.h"
@@ -27,7 +28,7 @@
 
 
 
-class AtTpcMap : public TObject
+class AtTpcMap : public TNamed
 {
 
   public:
@@ -61,9 +62,12 @@ class AtTpcMap : public TObject
      void ParseATTPCMap(TXMLNode *node);
      Bool_t DumpATTPCMap();
      Int_t  GetPadNum(std::vector<int> PadRef);
+     // This is to use polymorphism of the derived class for Prototype. We need the definition here as well for pointers of the base class to the derived ie: TAtTpcMap *foo = new TAtpProtoMap()
      virtual Bool_t SetGeoFile(TString geofile){std::cout<<" = AtTpcMap Warning: SetGeoFile method from Base invoked"<<std::endl;return kFALSE;} // TODO This is a non-pure virtual function overriden by the method in AtTpcProtoMap. Make it pure by creating another derived class for ATTPC 
      virtual TH2Poly* GetATTPCPlane(TString TH2Poly_name){std::cout<<" = AtTpcMap Warning: GetATTPCPlane overloaded method from Base invoked"<<std::endl;return NULL;}
-     virtual Bool_t SetProtoMap(TString file){std::cout<<" = AtTpcMap Warning: SetProtoMap method from Base invoked"<<std::endl;return kFALSE;};
+     virtual Bool_t SetProtoMap(TString file){std::cout<<" = AtTpcMap Warning: SetProtoMap method from Base invoked"<<std::endl;return kFALSE;}
+     virtual Int_t BinToPad(Int_t binval){std::cout<<" = AtTpcMap Warning: SetProtoMap method from Base invoked"<<std::endl;return binval;}
+
 	
 
      virtual TH2Poly* GetATTPCPlane();

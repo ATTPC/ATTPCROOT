@@ -14,6 +14,7 @@
 #include "TStyle.h"
 
 #include "AtTpcMap.h"
+#include "AtTpcProtoMap.h"
 #include "TH2Poly.h"
 
 #ifndef __CINT__ // Boost 
@@ -34,6 +35,7 @@ ATEventDrawTask::ATEventDrawTask()
   //fKalmanArray(0),
   fEventManager(0),
   fRawevent(0),
+  fDetmap(0),
   fThreshold(0),
   fHitSet(0),
   fHitColor(kPink),
@@ -60,6 +62,7 @@ ATEventDrawTask::ATEventDrawTask()
 {
 
   //fAtMapPtr = new AtTpcMap(); 
+  fGeoOption="ATTPC";
 
 }
 
@@ -73,9 +76,24 @@ InitStatus
 ATEventDrawTask::Init()
 {
 
+  TString option = fGeoOption;
+  std::cout<<" =====  ATEventDrawTask::Init ====="<<std::endl;
+  std::cout<<" =====  Current detector : "<<option.Data()<<std::endl;
   gROOT->Reset();
   FairRootManager* ioMan = FairRootManager::Instance();
   fEventManager = ATEventManager::Instance();
+
+    if(option=="Prototype"){
+      
+      fDetmap  =  new AtTpcProtoMap();
+      TString map = "/Users/yassidayyad/fair_install/ATTPCROOT_v2_06042015/scripts/proto.map"; //TODO Put it as input of the run macro
+      fDetmap->SetProtoMap(map.Data());
+    }else{
+      fDetmap  =  new AtTpcMap();
+     }
+
+     fDetmap->SetName("fMap");
+     gROOT->GetListOfSpecials()->Add(fDetmap);
 
   fHitArray = (TClonesArray*) ioMan->GetObject("ATEventH");
   if(fHitArray) LOG(INFO)<<"Hit Array Found."<<FairLogger::endl;
@@ -404,8 +422,16 @@ ATEventDrawTask::SelectPad(const char *rawevt)
         //std::cout<<bin_name<<std::endl;
         std::cout<<" Bin number selected : "<<bin<<" Bin name :"<<bin_name<<std::endl;
         Bool_t IsValid = kFALSE;
-        ATPad *tPad = tRawEvent->GetPad(bin,IsValid);
-        std::cout<<" Event ID with the trick : "<<tRawEvent->GetEventID()<<std::endl;
+
+        AtTpcMap *tmap = NULL;
+        tmap = (AtTpcMap*)gROOT->GetListOfSpecials()->FindObject("fMap");
+        //new AtTpcProtoMap();
+        //TString map = "/Users/yassidayyad/fair_install/ATTPCROOT_v2_06042015/scripts/proto.map";
+        //tmap->SetProtoMap(map.Data());
+        Int_t tPadNum =tmap->BinToPad(bin);
+        std::cout<<" Bin : "<<bin<<" to Pad : "<<tPadNum<<std::endl;
+        ATPad *tPad = tRawEvent->GetPad(tPadNum,IsValid);
+        std::cout<<" Event ID (Select Pad) : "<<tRawEvent->GetEventID()<<std::endl;
         std::cout<<" Raw Event Pad Num "<<tPad->GetPadNum()<<" Is Valid? : "<<IsValid<<std::endl;
         // TODO The bin and the PadRef are not the same! Mapping is needed here!
         
@@ -416,7 +442,7 @@ ATEventDrawTask::SelectPad(const char *rawevt)
             std::cout<<" = ATEventDrawTask::SelectPad NULL pointer for the TH1I! Please select an event first "<<std::endl;
             return;
 	     }
-       // tPadWave->Reset(0);
+         tPadWave->Reset();
         for(Int_t i=0;i<512;i++){
 			
 			tPadWave->SetBinContent(i,rawadc[i]);

@@ -295,7 +295,7 @@ void AtTpcMap::ParseATTPCMap(TXMLNode *node){
 				fAsadID = atoi(node->GetText());
 				if (strcmp(node->GetNodeName(), "AgetID") == 0)
 				fAgetID = atoi(node->GetText());
-                                if (strcmp(node->GetNodeName(), "ChannelID") == 0)
+        if (strcmp(node->GetNodeName(), "ChannelID") == 0)
 				fChannelID = atoi(node->GetText());
 				if (strcmp(node->GetNodeName(), "PadID") == 0)
 				fPadID = atoi(node->GetText());
@@ -308,8 +308,8 @@ void AtTpcMap::ParseATTPCMap(TXMLNode *node){
 		}
 
 		PadKey.push_back(fCoboID);
-                PadKey.push_back(fAsadID);
-                PadKey.push_back(fAgetID);
+    PadKey.push_back(fAsadID);
+    PadKey.push_back(fAgetID);
 		PadKey.push_back(fChannelID);
                 
 		ATTPCPadMap.insert(std::pair<std::vector<int>,int>(PadKey,fPadID));
@@ -383,7 +383,7 @@ Int_t AtTpcMap::GetPadNum(std::vector<int> PadRef){ //TODO Better to pass a poin
 			 std::map<std::vector<int>,int>::const_iterator its =ATTPCPadMap.find(PadRef);
 			 int value = (*its).second;
 			 //std::cout<<int(ATTPCPadMap.find(test) == ATTPCPadMap.end())<<endl;
-                         Int_t kIs = int(ATTPCPadMap.find(PadRef) == ATTPCPadMap.end());
+      Int_t kIs = int(ATTPCPadMap.find(PadRef) == ATTPCPadMap.end());
             if(kIs){
                     if(kDebug) std::cerr<<" AtTpcMap::GetPadNum - Pad key not found - CoboID : "<<PadRef[0]<<"  AsadID : "<<PadRef[1]<<"  AgetID : "<<PadRef[2]<<"  ChannelID : "<<PadRef[3]<<endl;
                     return -1;
@@ -395,7 +395,7 @@ Int_t AtTpcMap::GetPadNum(std::vector<int> PadRef){ //TODO Better to pass a poin
 			// std::cout << "x: " << (int)its->second << "\n";
 			
 			
-			else return value;
+			       else return value;
 
 
 		/*for (auto& m : ATTPCPadMap){ //C+11 style
