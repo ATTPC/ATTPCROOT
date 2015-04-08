@@ -86,8 +86,8 @@ ATEventDrawTask::Init()
     if(option=="Prototype"){
       
       fDetmap  =  new AtTpcProtoMap();
-      TString map = "/Users/yassidayyad/fair_install/ATTPCROOT_v2_06042015/scripts/proto.map"; //TODO Put it as input of the run macro
-      fDetmap->SetProtoMap(map.Data());
+      //TString fMap = "/Users/yassidayyad/fair_install/ATTPCROOT_v2_06042015/scripts/proto.map"; //TODO Put it as input of the run macro
+      fDetmap->SetProtoMap(fMap.Data());
     }else{
       fDetmap  =  new AtTpcMap();
      }
@@ -172,10 +172,11 @@ ATEventDrawTask::DrawHitPoints()
       
     if(hit.GetCharge()<fThreshold) continue;
     TVector3 position = hit.GetPosition();
-    //std::cout<<"  Hit number : "<<iHit<<" Position X : "<<position.X()<<" Position Y : "<<position.Y()<<" Position Z : "<<position.Z()<<std::endl;
+    
     fHitSet->SetNextPoint(position.X()/10.,position.Y()/10.,position.Z()/10.); // Convert into cm
     fHitSet->SetPointId(new TNamed(Form("Hit %d",iHit),""));
-    fPadPlane->Fill(position.X(), position.Y(), hit.GetCharge());
+    Int_t Atbin = fPadPlane->Fill(position.X(), position.Y(), hit.GetCharge());
+    //std::cout<<"  Hit number : "<<iHit<<" - Position X : "<<position.X()<<" - Position Y : "<<position.Y()<<" - Position Z : "<<position.Z()<<" - ATHit Pad Number :  "<<PadNumHit<<" - Pad bin :"<<Atbin<<std::endl;
   }
     
     gEve -> AddElement(fHitSet);
@@ -420,6 +421,7 @@ ATEventDrawTask::SelectPad(const char *rawevt)
         const char *bin_name = h->GetBinName(bin);
         //std::cout<<" X : "<<x<<"  Y: "<<y<<std::endl;
         //std::cout<<bin_name<<std::endl;
+        std::cout<<" =========================="<<std::endl;
         std::cout<<" Bin number selected : "<<bin<<" Bin name :"<<bin_name<<std::endl;
         Bool_t IsValid = kFALSE;
 
@@ -433,6 +435,7 @@ ATEventDrawTask::SelectPad(const char *rawevt)
         ATPad *tPad = tRawEvent->GetPad(tPadNum,IsValid);
         std::cout<<" Event ID (Select Pad) : "<<tRawEvent->GetEventID()<<std::endl;
         std::cout<<" Raw Event Pad Num "<<tPad->GetPadNum()<<" Is Valid? : "<<IsValid<<std::endl;
+        std::cout<<std::endl;
         // TODO The bin and the PadRef are not the same! Mapping is needed here!
         
         TH1I* tPadWave = NULL;

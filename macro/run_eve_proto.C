@@ -1,5 +1,11 @@
 void run_eve_proto() 
 {
+
+   TString dir = getenv("VMCWORKDIR");
+   TString protomapfile = "proto.map";
+   TString protomapdir = dir + "/scripts/"+ protomapfile;
+ 
+
   FairLogger *fLogger = FairLogger::GetLogger();
   fLogger -> SetLogToScreen(kTRUE);
   fLogger->SetLogVerbosityLevel("MEDIUM");
@@ -18,6 +24,7 @@ void run_eve_proto()
   ATEventManager *eveMan = new ATEventManager();
   ATEventDrawTask* eve = new ATEventProtoDrawTask();
   eve->SetGeoOption("Prototype"); // Options: "ATTPC" - "Prototype"
+  eve->SetProtoMap(protomapdir.Data());
 
   eveMan->AddTask(eve);
   eveMan->Init();                    

@@ -69,7 +69,7 @@ void ATHit::SetClusterID(Int_t clusterID)                               { fClust
 
 Int_t ATHit::GetTrackID()                                               { return fTrackID; }
 Int_t ATHit::GetHitID()                                                 { return fHitID; }
-Int_t ATHit::GetHitPadNum()                                                 { return fPadNum; }
+Int_t ATHit::GetHitPadNum()                                             { return fPadNum; }
 TVector3 ATHit::GetPosition()                                           { return fPosition; }
 TVector3 ATHit::GetPosSigma()                                           { return fPositionSigma; }
 Double_t ATHit::GetCharge()                                             { return fCharge; }

@@ -56,6 +56,8 @@ class ATEventDrawTask : public FairTask
     void DrawWave(Int_t PadNum);
     
     void SetGeoOption(Option_t *option) {fGeoOption = option;}
+
+    void SetProtoMap(TString map) {fMap = map;}
     
 
   protected :
@@ -86,7 +88,7 @@ class ATEventDrawTask : public FairTask
 
     Int_t fThreshold;
     Option_t* fGeoOption; //Chose Geometry of the detector: ATTPC (Default)-  Prototype 
-
+    TString fMap;
 
     TEvePointSet* fHitSet;
     Color_t fHitColor;
