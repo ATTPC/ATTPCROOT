@@ -62,14 +62,14 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
   
 
     // Pythia8
-    /*Pythia8Generator* P8gen = new Pythia8Generator();
+    Pythia8Generator* P8gen = new Pythia8Generator();
     P8gen->UseRandom3(); //# TRandom1 or TRandom3 ?
     P8gen->SetParameters("SoftQCD:inelastic = on");
     P8gen->SetParameters("PhotonCollision:gmgm2mumu = on");
     P8gen->SetParameters("PromptPhoton:all = on");
     P8gen->SetParameters("WeakBosonExchange:all = on");
     P8gen->SetMom(40);  //# beam momentum in GeV
-    primGen->AddGenerator(P8gen);*/
+    primGen->AddGenerator(P8gen);
 
  
     // Add a box generator also to the run
@@ -99,7 +99,7 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
 	          // add the ion generator
 	          primGen->AddGenerator(ionGen);*/
 
-		  Int_t z = 2;  // Atomic number
+		/*  Int_t z = 2;  // Atomic number
 	          Int_t a = 4; // Mass number
 	          Int_t q = 0;   // Charge State
 	          Int_t m = 1;   // Multiplicity
@@ -109,7 +109,7 @@ void run_sim(Int_t nEvents = 100, TString mcEngine = "TGeant4")
 	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator(z,a,q,m,px,py,pz);
 	          ionGen->SetSpotRadius(1,-20,0);
 	          // add the ion generator
-	          primGen->AddGenerator(ionGen);
+	          primGen->AddGenerator(ionGen);*/
   
  
     run->SetGenerator(primGen);

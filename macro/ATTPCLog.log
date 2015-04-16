@@ -1,15 +1,18 @@
-[INFO   ] [FairRootManager.cxx::OpenOutFile:723] FairRootManager::OpenOutFile("output_proto.root")
-[INFO   ] [FairRootManager.cxx::PrintFriendList:563] The input consists out of the following trees and files: 
-[INFO   ] [FairRootManager.cxx::PrintFriendList:565]  - cbmsim 
-[INFO   ] [FairRootManager.cxx::PrintFriendList:570]     - mc.dummy.root 
-[INFO   ] [FairRunAna.cxx::Init:238] Parameter and input file are available, Assure that basic info is there for the run! 
-[INFO   ] [FairRootManager.cxx::ReadEvent:1115] The number of entries in chain is 20000 
-[INFO   ] [FairRootManager.cxx::ActivateBranch:1638]  Branch: EventHeader.  not found in Tree  
-[INFO   ] [FairRootManager.cxx::ActivateBranch:1638]  Branch: EventHeader.  not found in Tree  
-[INFO   ] [FairRootManager.cxx::ReadEvent:1129]  No event Header was found!!! 
-[INFO   ] [FairRootManager.cxx::ActivateBranch:1638]  Branch: EventHeader.  not found in Tree  
-[INFO   ] [FairRootManager.cxx::ActivateBranch:1638]  Branch: EventHeader.  not found in Tree  
+[INFO   ] [FairRootManager.cxx::OpenOutFile:407] FairRootManager::OpenOutFile("output.root")
+[INFO   ] [FairFileSource.cxx::PrintFriendList:334] The input consists out of the following trees and files: 
+[INFO   ] [FairFileSource.cxx::PrintFriendList:336]  - cbmsim 
+[INFO   ] [FairFileSource.cxx::PrintFriendList:341]     - mc.dummy.root 
+[INFO   ] [FairRunAna.cxx::Init:219] Parameter and input file are available, Assure that basic info is there for the run! 
+[INFO   ] [FairRootManager.cxx::ReadEvent:786] The number of entries in the tree is 20000 
+[INFO   ] [FairRootManager.cxx::ReadEvent:787] FairRootManager::ReadEvent(0): The tree has 20000 entries
+[INFO   ] [FairRootManager.cxx::ActivateBranch:1284]  Branch: EventHeader.  not found in Tree  
+[INFO   ] [FairRootManager.cxx::ActivateBranch:1284]  Branch: EventHeader.  not found in Tree  
+[INFO   ] [FairRootManager.cxx::ReadEvent:790]  No event Header was found!!! 
+[INFO   ] [FairRootManager.cxx::ActivateBranch:1284]  Branch: EventHeader.  not found in Tree  
+[INFO   ] [FairRootManager.cxx::ActivateBranch:1284]  Branch: EventHeader.  not found in Tree  
 [INFO   ] [ATDecoderTask.cc::Init:87] Positive polarity set 
 [INFO   ] [ATPSATask.cc::Init:56] Use ATPSASimple2! 
-[INFO   ] [FairRootManager.cxx::ReadEvent:1115] The number of entries in chain is 20000 
-[INFO   ] [FairRootManager.cxx::ReadEvent:1115] The number of entries in chain is 20000 
+[INFO   ] [FairRootManager.cxx::ReadEvent:786] The number of entries in the tree is 20000 
+[INFO   ] [FairRootManager.cxx::ReadEvent:787] FairRootManager::ReadEvent(0): The tree has 20000 entries
+[INFO   ] [FairRootManager.cxx::ReadEvent:786] The number of entries in the tree is 20000 
+[INFO   ] [FairRootManager.cxx::ReadEvent:787] FairRootManager::ReadEvent(1): The tree has 20000 entries

@@ -1,7 +1,8 @@
  # Create a library called "libAtData" 
 
 set(INCLUDE_DIRECTORIES
-${ROOT_INCLUDE_DIR} 
+${ROOT_INCLUDE_DIR}
+${Boost_INCLUDE_DIRS}
 ${BASE_INCLUDE_DIRECTORIES}
 ${CMAKE_SOURCE_DIR}/AtData
 )

@@ -1,12 +1,13 @@
 # Create a library called "libSTEventDisplay" which includes the source files given in the array .
 
 set(INCLUDE_DIRECTORIES
-${ROOT_INCLUDE_DIR} 
+${ROOT_INCLUDE_DIR}
+${Boost_INCLUDE_DIRS}
 ${BASE_INCLUDE_DIRECTORIES}
-${CMAKE_SOURCE_DIR}/fairtools
-${CMAKE_SOURCE_DIR}/parbase
-${CMAKE_SOURCE_DIR}/geobase
-${CMAKE_SOURCE_DIR}/eventdisplay
+#${CMAKE_SOURCE_DIR}/fairtools
+#${CMAKE_SOURCE_DIR}/parbase
+#${CMAKE_SOURCE_DIR}/geobase
+#${CMAKE_SOURCE_DIR}/eventdisplay
 # Add all the folders having header files you used in the code.
 ${CMAKE_SOURCE_DIR}/AtMap
 ${CMAKE_SOURCE_DIR}/eventdisplayAT
@@ -19,6 +20,7 @@ include_directories(${INCLUDE_DIRECTORIES})
 
 set(LINK_DIRECTORIES
 ${ROOT_LIBRARY_DIR}
+${FAIRROOT_LIBRARY_DIR}
 ) 
 
 link_directories(${LINK_DIRECTORIES})

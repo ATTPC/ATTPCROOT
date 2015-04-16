@@ -1,7 +1,8 @@
-# Create a library called "libSTReco" which includes the source files given in the array .
+# Create a library called "libATReco" which includes the source files given in the array .
 
 set(INCLUDE_DIRECTORIES
-${ROOT_INCLUDE_DIR} 
+${ROOT_INCLUDE_DIR}
+${Boost_INCLUDE_DIRS}
 ${BASE_INCLUDE_DIRECTORIES}
 # Add all the folders having header files you used in the code.
 #${CMAKE_SOURCE_DIR}/mcstack
@@ -18,6 +19,7 @@ include_directories(${INCLUDE_DIRECTORIES})
 
 set(LINK_DIRECTORIES
 ${ROOT_LIBRARY_DIR}
+${FAIRROOT_LIBRARY_DIR}
 ) 
 
 link_directories(${LINK_DIRECTORIES})

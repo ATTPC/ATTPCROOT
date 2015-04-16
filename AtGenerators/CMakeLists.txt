@@ -3,7 +3,8 @@
 # The extension is already found.  Any number of sources could be listed here.
 
 set(INCLUDE_DIRECTORIES
-${ROOT_INCLUDE_DIR} 
+${ROOT_INCLUDE_DIR}
+${Boost_INCLUDE_DIRS}
 ${PYTHIA8_INCLUDE_DIR}
 ${SIMPATH}/include
 ${BASE_INCLUDE_DIRECTORIES} 
@@ -25,7 +26,6 @@ link_directories( ${LINK_DIRECTORIES})
 set(SRCS
 Pythia6Generator.cxx
 Pythia8Generator.cxx
-ATTPCIonGenerator.cxx
 )
 
 set(LINKDEF  GenLinkDef.h)

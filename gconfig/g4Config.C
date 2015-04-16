@@ -9,10 +9,6 @@
 // Configuration macro for Geant4 VirtualMC
 void Config()
 {
-
-  cout << "-I- ATTPC Config(): Loading G4 User Defined Physics List " << endl;
-  gSystem->Load("libAtTpcPlist.so");
-  cout<<endl;
 ///    Create the run configuration
 /// In constructor user has to specify the geometry input
 /// and select geometry navigation via the following options:
@@ -45,8 +41,7 @@ void Config()
 
 /// Create the G4 VMC 
    TGeant4* geant4 = new TGeant4("TGeant4", "The Geant4 Monte Carlo", runConfiguration);
-   cout << "-I- ATTPC Config(): Geant4 with R3B dedicated Physics list " << endl;
-   cout << "-I- ATTPC Config(): has been created..." << endl;
+   cout << "Geant4 has been created." << endl;
 
 /// create the Specific stack
    AtStack *stack = new AtStack(1000);

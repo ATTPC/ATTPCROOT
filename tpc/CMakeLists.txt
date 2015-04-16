@@ -10,7 +10,8 @@
 # The extension is already found.  Any number of sources could be listed here.
 
 set(INCLUDE_DIRECTORIES
-${ROOT_INCLUDE_DIR} 
+${ROOT_INCLUDE_DIR}
+${Boost_INCLUDE_DIRS}
 ${BASE_INCLUDE_DIRECTORIES}
 #put here all directories where header files are located
 ${CMAKE_SOURCE_DIR}/AtData

@@ -45,9 +45,9 @@ void run_unpack(){
   decoderTask ->SetMap(scriptdir.Data());
   decoderTask ->SetMapOpt(0); // ATTPC : 0  - Prototype: 1 |||| Default value = 0 
  // decoderTask ->SetMap("/home/daq/fair_install_2015/ATTPCROOT_09032015/scripts/Lookup20141208.xml");
-  decoderTask -> AddData("/home/daq/Desktop/Yassid/ATTPC/run_0225/test");
+  //decoderTask -> AddData("/home/daq/Desktop/Yassid/ATTPC/run_0225/test");
   //decoderTask ->SetMap("/Users/yassidayyad/fair_install/ATTPCROOT_Apr/scripts/Lookup20141208.xml");
- // decoderTask -> AddData("/Users/yassidayyad/Desktop/ATTPC/Data/run_0225/test");
+  decoderTask -> AddData("/Users/yassidayyad/Desktop/ATTPC/Data/run_0225/test");
   decoderTask -> SetPositivePolarity(kTRUE);
   
   //decoderTask -> SetData(0);
