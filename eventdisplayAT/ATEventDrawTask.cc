@@ -436,8 +436,8 @@ ATEventDrawTask::SelectPad(const char *rawevt)
         std::cout<<" Event ID (Select Pad) : "<<tRawEvent->GetEventID()<<std::endl;
         std::cout<<" Raw Event Pad Num "<<tPad->GetPadNum()<<" Is Valid? : "<<IsValid<<std::endl;
         std::cout<<std::endl;
-        // TODO The bin and the PadRef are not the same! Mapping is needed here!
-        TH1D* tPadWaveSub = new TH1D("tPadWaveSub","tPadWaveSub",512.0,0.0,511.0);
+        TH1D* tPadWaveSub = NULL;
+        tPadWaveSub = new TH1D("tPadWaveSub","tPadWaveSub",512.0,0.0,511.0);
         tPadWaveSub->SetLineColor(kRed);
         TH1I* tPadWave = NULL;
         tPadWave = (TH1I*)gROOT->GetListOfSpecials()->FindObject("fPadWave");
@@ -452,7 +452,7 @@ ATEventDrawTask::SelectPad(const char *rawevt)
         for(Int_t i=0;i<512;i++){
 			
 			   tPadWave->SetBinContent(i,rawadc[i]);
-         tPadWaveSub->SetBinContent(i,adc[i]);
+         		   tPadWaveSub->SetBinContent(i,adc[i]);
 
 		    }
         
