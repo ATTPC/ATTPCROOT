@@ -54,6 +54,7 @@ ATEventDrawTask::ATEventDrawTask()
   fPadPlane(0),
   fCvsPadWave(0),
   fPadWave(0),
+  fCvsPadAll(0),
   fAtMapPtr(0),
   fMinZ(0),
   fMaxZ(1344),
@@ -63,6 +64,18 @@ ATEventDrawTask::ATEventDrawTask()
 
   //fAtMapPtr = new AtTpcMap(); 
   fGeoOption="ATTPC";
+    
+    Char_t padhistname[256];
+    
+    
+    for(Int_t i=0;i<300;i++){
+        sprintf(padhistname,"pad_%d",i);
+          fPadAll[i] = new TH1I(padhistname,padhistname,512,0,511);
+        
+       // fPadAll[i] = NULL;
+    }
+
+  
 
 }
 
@@ -123,13 +136,16 @@ ATEventDrawTask::Init()
   fCvsPadPlane -> ToggleEventStatus();
   fCvsPadPlane->AddExec("ex","ATEventDrawTask::SelectPad(\"fRawEvent\")");
   DrawPadPlane();
-  
+  fCvsPadAll = fEventManager->GetCvsPadAll();
+  DrawPadAll();
+    
 }
 
 void 
 ATEventDrawTask::Exec(Option_t* option)
 {
   Reset();
+  ResetPadAll();
   
   if(fHitArray) DrawHitPoints();
   //if(fHitClusterArray) DrawHitClusterPoints();
@@ -139,6 +155,7 @@ ATEventDrawTask::Exec(Option_t* option)
     
   UpdateCvsPadPlane();
   UpdateCvsPadWave();
+  UpdateCvsPadAll();
 }
 
 void 
@@ -178,6 +195,30 @@ ATEventDrawTask::DrawHitPoints()
     Int_t Atbin = fPadPlane->Fill(position.X(), position.Y(), hit.GetCharge());
     //std::cout<<"  Hit number : "<<iHit<<" - Position X : "<<position.X()<<" - Position Y : "<<position.Y()<<" - Position Z : "<<position.Z()<<" - ATHit Pad Number :  "<<PadNumHit<<" - Pad bin :"<<Atbin<<std::endl;
   }
+    
+    Int_t nPads = fRawevent->GetNumPads();
+    std::cout<<"Num of pads : "<<nPads<<std::endl;
+  
+    for(Int_t iPad = 0;iPad<nPads;iPad++){
+    
+        
+        ATPad *fPad = fRawevent->GetPad(iPad);
+        //std::cout<<"Pad num : "<<iPad<<" Is Valid? : "<<fPad->GetValidPad()<<" Pad num in pad object :"<<fPad->GetPadNum()<<std::endl;
+        Int_t *rawadc = fPad->GetRawADC();
+        
+        
+        for(Int_t j=0;j<512;j++){
+            
+            if (fPad->GetValidPad() && iPad<256) fPadAll[iPad]->SetBinContent(j,rawadc[j]);
+        
+            
+        }
+
+        //delete fPad;
+        //fPad= NULL;
+        
+     }
+    
     
     gEve -> AddElement(fHitSet);
 }
@@ -325,7 +366,24 @@ ATEventDrawTask::DrawPadWave()
     
 }
 
-void 
+
+void
+ATEventDrawTask::DrawPadAll()
+{
+
+    fCvsPadAll->cd();
+    
+    for(Int_t i=0;i<300;i++){
+    //fPadAll[i]->Reset(0);
+    //fPadAll[i] = new TH1I("fPadAll","fPadAll",512,0,511);
+    fPadAll[i]->GetYaxis()->SetRangeUser(0,2500);
+    fPadAll[i] -> Draw("SAME");
+    
+    }
+    
+}
+
+void
 ATEventDrawTask::UpdateCvsPadPlane()
 {
   fCvsPadPlane -> Modified();
@@ -357,9 +415,21 @@ ATEventDrawTask::UpdateCvsPadWave()
     fCvsPadWave -> Modified();
     fCvsPadWave -> Update();
     
-    TPaletteAxis *paxis
-    = (TPaletteAxis *) fPadPlane->GetListOfFunctions()->FindObject("palette");
+  //  TPaletteAxis *paxis
+  //  = (TPaletteAxis *) fPadPlane->GetListOfFunctions()->FindObject("palette");
 
+}
+
+
+void
+ATEventDrawTask::UpdateCvsPadAll()
+{
+    fCvsPadAll -> Modified();
+    fCvsPadAll -> Update();
+    
+  //  TPaletteAxis *paxis
+   // = (TPaletteAxis *) fPadPlane->GetListOfFunctions()->FindObject("palette");
+    
 }
 
 void 
@@ -451,7 +521,7 @@ ATEventDrawTask::SelectPad(const char *rawevt)
          tPadWaveSub->Reset();
         for(Int_t i=0;i<512;i++){
 			
-			   tPadWave->SetBinContent(i,rawadc[i]);
+			       tPadWave->SetBinContent(i,rawadc[i]);
          		   tPadWaveSub->SetBinContent(i,adc[i]);
 
 		    }
@@ -482,5 +552,17 @@ ATEventDrawTask::DrawWave(Int_t PadNum)
     //ATPad *pad= fRawevent->GetPad(PadNum,IsValid);
     //std::cout<<" Raw Event Pad Num "<<pad->GetPadNum()<<" Is Valid? : "<<IsValidPad<<std::endl;
 
+    
+}
+
+void
+ATEventDrawTask::ResetPadAll()
+{
+    
+    for(Int_t i=0;i<300;i++){
+        fPadAll[i]->Reset(0);
+    }
+
+    
     
 }

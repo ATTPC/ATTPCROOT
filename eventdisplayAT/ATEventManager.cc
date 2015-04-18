@@ -103,7 +103,7 @@ ATEventManager::Init(Int_t option, Int_t level, Int_t nNodes)
   // 3D
   slot = TEveWindow::CreateWindowInTab(gEve->GetBrowser()->GetTabRight());
   pack = slot->MakePack();
-  pack->SetElementName("Overview");
+  pack->SetElementName("ATTPC 3D/Pad plane views");
   pack->SetHorizontal();
   pack->SetShowTitleBar(kFALSE);
 
@@ -141,17 +141,53 @@ ATEventManager::Init(Int_t option, Int_t level, Int_t nNodes)
     fCvsPadPlane->AddExec("ex","ATEventManager::DrawWave()");*/
     
     
-    
+    // Pad Plane
     slot = pack2->NewSlotWithWeight(1.5);
     TRootEmbeddedCanvas* ecvs = new TRootEmbeddedCanvas();
     TEveWindowFrame* frame = slot->MakeFrame(ecvs);
     frame->SetElementName("ATTPC Pad Plane");
     pack->GetEveFrame()->SetShowTitleBar(kFALSE);
     fCvsPadPlane = ecvs->GetCanvas();
-    //fCvsPadPlane->AddExec("ex","ATEventManager::DrawWave()");
+    //fCvsPadPlane->AddExec("ex","ATEventManager::DrawWave()"); //OBSOLETE DO NOT USE
 
+    //A test
+    /*slot = pack2->NewSlotWithWeight(1.5);
+    TRootEmbeddedCanvas* ecvs2 = new TRootEmbeddedCanvas();
+    TEveWindowFrame* frame2 = slot->MakeFrame(ecvs2);
+    frame2->SetElementName("ATTPC Pad Plane All");
+    fPadAll = ecvs2->GetCanvas();*/
     
     
+    //Third tab
+    TEveWindowSlot* slot2 =
+    TEveWindow::CreateWindowInTab(gEve->GetBrowser()->GetTabRight());
+    TEveWindowPack* pack3 = slot2->MakePack();
+    pack3->SetShowTitleBar(kFALSE);
+    pack3->SetElementName("Pad plane raw signals");
+    
+    slot2 = pack3->NewSlotWithWeight(1.5);
+    TRootEmbeddedCanvas* ecvs3 = new TRootEmbeddedCanvas();
+    TEveWindowFrame* frame3 = slot2->MakeFrame(ecvs3);
+    frame3->SetElementName("ATTPC Pad Plane All");
+    fPadAll = ecvs3->GetCanvas();
+   /* TEveWindowSlot* slot2 =
+    TEveWindow::CreateWindowInTab(gEve->GetBrowser()->GetTabRight());
+    TEveWindowPack* pack3;
+    pack3 = slot2->MakePack();
+    //pack3->SetShowTitleBar(kFALSE);
+    pack3->SetHorizontal();
+    pack3->SetElementName("Pad Plane Raw Signals");
+    TRootEmbeddedCanvas* ecvs2 = new TRootEmbeddedCanvas();
+    
+    
+    //TEveWindowFrame* frame2 = slot2->MakeFrame(ecvs2);
+    
+    
+    
+    fPadAll = ecvs2->GetCanvas();*/
+    
+    //fPadAll = new TCanvas();
+   
     
  
   /**************************************************************************/

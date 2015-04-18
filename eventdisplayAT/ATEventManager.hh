@@ -38,6 +38,7 @@ class ATEventManager : public TEveEventManager
 
     TCanvas* GetCvsPadPlane() { return fCvsPadPlane; }
     TCanvas* GetCvsPadWave() { return fPadWave; }
+    TCanvas* GetCvsPadAll() { return fPadAll; }
 
     void RunEvent();
     
@@ -52,6 +53,7 @@ class ATEventManager : public TEveEventManager
 
     TCanvas* fCvsPadPlane;
     TCanvas* fPadWave;
+    TCanvas* fPadAll;
 
 
     static ATEventManager* fInstance;
