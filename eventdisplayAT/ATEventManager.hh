@@ -29,6 +29,7 @@ class ATEventManager : public TEveEventManager
     virtual void make_gui();
     virtual void SelectEvent();
     static void DrawWave();
+    void ChangeDrawAllPads();
 
     void AddTask(FairTask* task) { fRunAna->AddTask(task); }
     //virtual void InitRiemann(Int_t option=1, Int_t level=3, Int_t nNodes=10000);
@@ -39,6 +40,7 @@ class ATEventManager : public TEveEventManager
     TCanvas* GetCvsPadPlane() { return fCvsPadPlane; }
     TCanvas* GetCvsPadWave() { return fPadWave; }
     TCanvas* GetCvsPadAll() { return fPadAll; }
+    Bool_t GetDrawAllPad() { return kDrawAllOn; }
 
     void RunEvent();
     
@@ -46,15 +48,18 @@ class ATEventManager : public TEveEventManager
   private :
     FairRootManager* fRootManager;
     FairRunAna* fRunAna;
-    TGNumberEntry*  fCurrentEvent;
+    
     
     Int_t fEntry;
     TGListTreeItem* fEvent;
-
+    TGNumberEntry*  fCurrentEvent;
     TCanvas* fCvsPadPlane;
     TCanvas* fPadWave;
     TCanvas* fPadAll;
 
+    TGTextButton *drawallpad;
+    Bool_t kDrawAllOn;
+    Bool_t kDrawAllOff;
 
     static ATEventManager* fInstance;
 

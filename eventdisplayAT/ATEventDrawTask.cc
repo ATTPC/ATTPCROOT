@@ -199,25 +199,28 @@ ATEventDrawTask::DrawHitPoints()
     Int_t nPads = fRawevent->GetNumPads();
     std::cout<<"Num of pads : "<<nPads<<std::endl;
   
-    for(Int_t iPad = 0;iPad<nPads;iPad++){
+    if(fEventManager->GetDrawAllPad()){
+    
+        for(Int_t iPad = 0;iPad<nPads;iPad++){
     
         
-        ATPad *fPad = fRawevent->GetPad(iPad);
-        //std::cout<<"Pad num : "<<iPad<<" Is Valid? : "<<fPad->GetValidPad()<<" Pad num in pad object :"<<fPad->GetPadNum()<<std::endl;
-        Int_t *rawadc = fPad->GetRawADC();
+            ATPad *fPad = fRawevent->GetPad(iPad);
+            //std::cout<<"Pad num : "<<iPad<<" Is Valid? : "<<fPad->GetValidPad()<<" Pad num in pad object :"<<fPad->GetPadNum()<<std::endl;
+            Int_t *rawadc = fPad->GetRawADC();
         
         
-        for(Int_t j=0;j<512;j++){
+            for(Int_t j=0;j<512;j++){
             
-            if (fPad->GetValidPad() && iPad<256) fPadAll[iPad]->SetBinContent(j,rawadc[j]);
+                if (fPad->GetValidPad() && iPad<256) fPadAll[iPad]->SetBinContent(j,rawadc[j]);
         
             
-        }
+            }
 
-        //delete fPad;
-        //fPad= NULL;
+            //delete fPad;
+            //fPad= NULL;
         
-     }
+        }
+    }
     
     
     gEve -> AddElement(fHitSet);

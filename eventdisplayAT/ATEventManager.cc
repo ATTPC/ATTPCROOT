@@ -61,7 +61,12 @@ ATEventManager::ATEventManager()
   fEvent(0),
   fCurrentEvent(0),
   fCvsPadPlane(0),
-  fPadWave(0)
+  fPadWave(0),
+  fPadAll(0),
+  drawallpad(0),
+  kDrawAllOn(0),
+  kDrawAllOff(0)
+
 {
   fInstance=this;
 }
@@ -361,6 +366,11 @@ ATEventManager::make_gui()
         hf->AddFrame(b);
         b->Connect("Clicked()", "ATEventManager", fInstance, "NextEvent()");
         
+        drawallpad = new TGTextButton(hf, "&Enable Draw All Pads");
+        drawallpad->Connect("Clicked()", "ATEventManager", fInstance, "ChangeDrawAllPads()");
+        hf->AddFrame(drawallpad, new TGLayoutHints(kLHintsCenterX, 5, 5, 3, 4));
+
+        
         
        // b = new TGPictureButton(hf, gClient->GetPicture(icondir+"goto.gif"));
        // hf->AddFrame(b);
@@ -412,4 +422,18 @@ ATEventManager::make_gui()
     
     browser->StopEmbedding();
     browser->SetTabTitle("ATTPC Event Control", 0);
+}
+
+void
+ATEventManager::ChangeDrawAllPads()
+{
+    drawallpad->SetState(kButtonDown);
+    if (!kDrawAllOn) {
+        drawallpad->SetText("&Disable Draw All Pads");
+        kDrawAllOn = kTRUE;
+    } else {
+        drawallpad->SetText("&Enable Draw All Pads");
+        kDrawAllOn = kFALSE;
+    }
+    drawallpad->SetState(kButtonUp);
 }
