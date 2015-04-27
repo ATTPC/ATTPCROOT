@@ -16,7 +16,7 @@ void run_eve_proto()
 
   FairRuntimeDb* rtdb = fRun->GetRuntimeDb();
   FairParRootFileIo* parIo1 = new FairParRootFileIo();
-  parIo1->open("param.dummy.root");
+  parIo1->open("param.dummy_proto.root");
   rtdb->setFirstInput(parIo1);
 
   FairRootManager* ioman = FairRootManager::Instance();

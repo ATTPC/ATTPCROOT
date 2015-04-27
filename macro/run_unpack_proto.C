@@ -24,7 +24,7 @@ void run_unpack_proto(){
 
 
    FairRunAna* run = new FairRunAna();
-  run -> SetInputFile("mc.dummy.root");
+  run -> SetInputFile("mc.dummy_proto.root");
   run -> SetOutputFile("output_proto.root");
     
     TString file = "../parameters/AT.parameters.par";
@@ -33,7 +33,7 @@ void run_unpack_proto(){
    FairParAsciiFileIo* parIo1 = new FairParAsciiFileIo();
    parIo1 -> open(file.Data(), "in");
    FairParRootFileIo* parIo2 = new FairParRootFileIo();
-   parIo2 -> open("param.dummy.root");
+   parIo2 -> open("param.dummy_proto.root");
    rtdb -> setFirstInput(parIo2);
    rtdb -> setSecondInput(parIo1);
   

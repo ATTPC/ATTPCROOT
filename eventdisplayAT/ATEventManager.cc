@@ -206,7 +206,7 @@ ATEventManager::Init(Int_t option, Int_t level, Int_t nNodes)
     gEve->AddGlobalElement(topNode);
 
     Int_t transparency = 80;
-
+     
     //gGeoManager -> DefaultColors();
     //gGeoManager -> GetVolume("field_cage_in")     -> SetVisibility(kFALSE); //active
     gGeoManager -> GetVolume("drift_volume")         -> SetTransparency(transparency);

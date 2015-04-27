@@ -209,7 +209,7 @@ ATEventDrawTask::DrawHitPoints()
             Int_t *rawadc = fPad->GetRawADC();
         
         
-            for(Int_t j=0;j<512;j++){
+            for(Int_t j=0;j<512;j++){ // TODO: This is limited to 256 pads only. Increment the size of the array and put another option for ATTPC
             
                 if (fPad->GetValidPad() && iPad<256) fPadAll[iPad]->SetBinContent(j,rawadc[j]);
         
