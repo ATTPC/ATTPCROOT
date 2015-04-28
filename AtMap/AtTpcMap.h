@@ -86,7 +86,7 @@ class AtTpcMap : public TNamed
      
  
      TCanvas *cATTPCPlane; 
-     TH2Poly *hPlane = new TH2Poly();
+     TH2Poly *hPlane = new TH2Poly(); //TODO Only allowed by C+11, change the initialization to the cxx
 
       /*  friend ostream & operator << (ostream& out, const AtTpcMap& p){
 

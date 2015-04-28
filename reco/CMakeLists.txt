@@ -12,6 +12,7 @@ ${CMAKE_SOURCE_DIR}/reco
 ${CMAKE_SOURCE_DIR}/reco/GETDecoder
 ${CMAKE_SOURCE_DIR}/reco/ATDecoder
 ${CMAKE_SOURCE_DIR}/reco/ATPulseAnalyzer
+${CMAKE_SOURCE_DIR}/reco/HoughTransformation
 
 )
 
@@ -41,6 +42,9 @@ ATPulseAnalyzer/ATPSA.cc
 ATPulseAnalyzer/ATPSASimple.cc
 ATPulseAnalyzer/ATPSASimple2.cc
 #ATPulseAnalyzer/STPSALayer.cc
+
+HoughTransformation/ATHoughSpace.cc
+HoughTransformation/ATHoughSpaceLine.cc
 
 ATDecoderTask.cc
 ATPSATask.cc
