@@ -8,6 +8,7 @@ ATHit::ATHit()
   fIsClustered = kFALSE;
   fClusterID = -1;
     fPadNum = -1;
+    fQhit = -100.0;
 }
 
 ATHit::ATHit(Int_t hitID, TVector3 vec, Double_t charge)
@@ -18,6 +19,7 @@ ATHit::ATHit(Int_t hitID, TVector3 vec, Double_t charge)
   fIsClustered = kFALSE;
   fClusterID = -1;
     fPadNum = -1;
+    fQhit = -100.0;
 }
 
 ATHit::ATHit(Int_t hitID, Double_t x, Double_t y, Double_t z, Double_t charge)
@@ -28,6 +30,7 @@ ATHit::ATHit(Int_t hitID, Double_t x, Double_t y, Double_t z, Double_t charge)
   fIsClustered = kFALSE;
   fClusterID = -1;
     fPadNum = -1;
+    fQhit = -100.0;
 }
 
 ATHit::ATHit(Int_t PadNum,Int_t hitID, Double_t x, Double_t y, Double_t z, Double_t charge)
@@ -37,6 +40,7 @@ ATHit::ATHit(Int_t PadNum,Int_t hitID, Double_t x, Double_t y, Double_t z, Doubl
     
     fIsClustered = kFALSE;
     fClusterID = -1;
+    fQhit = -100.0;
     
 }
 
@@ -47,6 +51,7 @@ ATHit::ATHit(ATHit *hit)
 
   fIsClustered = hit -> IsClustered();
   fClusterID = hit -> GetClusterID();
+    fQhit = -100.0;
 }
 
 ATHit::~ATHit()
@@ -63,6 +68,9 @@ void ATHit::SetPosition(Double_t x, Double_t y, Double_t z)             { fPosit
 void ATHit::SetPosSigma(TVector3 vec)                                   { fPositionSigma = vec; }
 void ATHit::SetPosSigma(Double_t dx, Double_t dy, Double_t dz)          { fPositionSigma = TVector3(dx, dy, dz); }
 void ATHit::SetCharge(Double_t charge)                                  { fCharge = charge; }
+
+void ATHit::SetQHit(Double_t Qhit)                                      { fQhit = Qhit;}
+Double_t ATHit::GetQHit()                                               { return fQhit;}
 
 void ATHit::SetIsClustered(Bool_t value)                                { fIsClustered = value; }
 void ATHit::SetClusterID(Int_t clusterID)                               { fClusterID = clusterID; fIsClustered = kTRUE; }

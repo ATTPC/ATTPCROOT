@@ -162,7 +162,8 @@ void
 ATEventDrawTask::DrawHitPoints()
 {
   
-  ATEvent* event = (ATEvent*) fHitArray->At(0);
+  
+  ATEvent* event = (ATEvent*) fHitArray->At(0); // TODO: Why this confusing name? It should be fEventArray
   fRawevent = (ATRawEvent*) fRawEventArray->At(0);
   fRawevent->SetName("fRawEvent");
   gROOT->GetListOfSpecials()->Add(fRawevent);
@@ -194,7 +195,16 @@ ATEventDrawTask::DrawHitPoints()
     fHitSet->SetPointId(new TNamed(Form("Hit %d",iHit),""));
     Int_t Atbin = fPadPlane->Fill(position.X(), position.Y(), hit.GetCharge());
     //std::cout<<"  Hit number : "<<iHit<<" - Position X : "<<position.X()<<" - Position Y : "<<position.Y()<<" - Position Z : "<<position.Z()<<" - ATHit Pad Number :  "<<PadNumHit<<" - Pad bin :"<<Atbin<<std::endl;
+      
+      
+      
+     
+      
   }
+    
+    
+    
+    
     
     Int_t nPads = fRawevent->GetNumPads();
     std::cout<<"Num of pads : "<<nPads<<std::endl;
@@ -207,19 +217,29 @@ ATEventDrawTask::DrawHitPoints()
             ATPad *fPad = fRawevent->GetPad(iPad);
             //std::cout<<"Pad num : "<<iPad<<" Is Valid? : "<<fPad->GetValidPad()<<" Pad num in pad object :"<<fPad->GetPadNum()<<std::endl;
             Int_t *rawadc = fPad->GetRawADC();
-        
+            Double_t *adc = fPad->GetADC();
         
             for(Int_t j=0;j<512;j++){ // TODO: This is limited to 256 pads only. Increment the size of the array and put another option for ATTPC
             
-                if (fPad->GetValidPad() && iPad<256) fPadAll[iPad]->SetBinContent(j,rawadc[j]);
-        
+                if (fPad->GetValidPad() && iPad<256){
+                    
+                    
+                    fPadAll[iPad]->SetBinContent(j,rawadc[j]);
+                    
+                }
             
+               
+                
             }
 
+            
+            
             //delete fPad;
             //fPad= NULL;
         
         }
+        
+       
     }
     
     
@@ -509,9 +529,9 @@ ATEventDrawTask::SelectPad(const char *rawevt)
         std::cout<<" Event ID (Select Pad) : "<<tRawEvent->GetEventID()<<std::endl;
         std::cout<<" Raw Event Pad Num "<<tPad->GetPadNum()<<" Is Valid? : "<<IsValid<<std::endl;
         std::cout<<std::endl;
-        TH1D* tPadWaveSub = NULL;
-        tPadWaveSub = new TH1D("tPadWaveSub","tPadWaveSub",512.0,0.0,511.0);
-        tPadWaveSub->SetLineColor(kRed);
+        //TH1D* tPadWaveSub = NULL;
+        //tPadWaveSub = new TH1D("tPadWaveSub","tPadWaveSub",512.0,0.0,511.0);
+        //tPadWaveSub->SetLineColor(kRed);
         TH1I* tPadWave = NULL;
         tPadWave = (TH1I*)gROOT->GetListOfSpecials()->FindObject("fPadWave");
         Int_t *rawadc = tPad->GetRawADC();
@@ -521,13 +541,16 @@ ATEventDrawTask::SelectPad(const char *rawevt)
             return;
 	     }
          tPadWave->Reset();
-         tPadWaveSub->Reset();
+         //tPadWaveSub->Reset();
         for(Int_t i=0;i<512;i++){
 			
-			       tPadWave->SetBinContent(i,rawadc[i]);
-         		   tPadWaveSub->SetBinContent(i,adc[i]);
+			      // tPadWave->SetBinContent(i,rawadc[i]);
+                   tPadWave->SetBinContent(i,adc[i]);
+         		   //tPadWaveSub->SetBinContent(i,adc[i]);
 
 		    }
+        
+       
         
         TCanvas *tCvsPadWave = NULL;
         tCvsPadWave = (TCanvas*)gROOT->GetListOfSpecials()->FindObject("fCvsPadWave");
@@ -537,7 +560,7 @@ ATEventDrawTask::SelectPad(const char *rawevt)
         }
         tCvsPadWave->cd();
         tPadWave->Draw();
-        tPadWaveSub->Draw("SAME");
+        //tPadWaveSub->Draw("SAME");
         tCvsPadWave->Update();
     }
         

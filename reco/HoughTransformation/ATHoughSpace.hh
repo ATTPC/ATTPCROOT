@@ -27,7 +27,7 @@ class ATHoughSpace{
 	public:
 
 		ATHoughSpace();
-		~ATHoughSpace();
+		virtual ~ATHoughSpace();
 
                virtual TH2F* GetHoughSpace(TString ProjPlane)=0;
 	       virtual void CalcHoughSpace(ATEvent* event,Bool_t YZplane,Bool_t XYplane, Bool_t XZplane)=0;

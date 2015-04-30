@@ -15,13 +15,15 @@ ATEvent::ATEvent(Bool_t isClustered, Bool_t isTracked, Bool_t isChanged)
   fIsChanged = isChanged;
 
   fIsGood = kFALSE;
+    fQevent = -100.0;
 }
 
 ATEvent::ATEvent(ATEvent *object)
 :TNamed("ATEvent", "Event container")
 {
   fEventID = object -> GetEventID();
-
+  fQevent = -100.0;
+    
   fIsClustered = object -> IsClustered();
   fIsTracked = object -> IsTracked();
   fIsChanged = object -> IsChanged();
@@ -101,3 +103,13 @@ vector<ATHit> *ATEvent::GetHitArray()
 {
   return &fClusterArray;
 }*/
+
+Double_t ATEvent::SetEventCharge(Double_t Qevent)
+{
+    
+    
+    fQevent = Qevent;
+    
+    
+}
+

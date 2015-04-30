@@ -36,6 +36,8 @@ class ATHit : public TObject {
     void SetIsClustered(Bool_t value = kTRUE);
     //!< Cluster stter
     void SetClusterID(Int_t clusterID);
+    
+    void SetQHit(Double_t Qhit);
 
     //!< Track ID getter
     Int_t GetTrackID();
@@ -53,6 +55,7 @@ class ATHit : public TObject {
     Int_t GetClusterID();
     
     Int_t GetHitPadNum();
+    Double_t GetQHit();
 
   private:
     //!< Track ID having this hit
@@ -66,6 +69,7 @@ class ATHit : public TObject {
     //!< Charge
     Double_t fCharge;
     //!< Clustered flag
+    Double_t fQhit;
     Bool_t fIsClustered;
     //!< Cluster ID having this hit
     Int_t fClusterID;

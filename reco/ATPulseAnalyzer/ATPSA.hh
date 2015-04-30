@@ -21,7 +21,7 @@ class ATPSA
 {
   public:
     ATPSA();
-    ~ATPSA();
+    virtual ~ATPSA();
 
     //! Setting threshold
     void SetThreshold(Int_t threshold);
