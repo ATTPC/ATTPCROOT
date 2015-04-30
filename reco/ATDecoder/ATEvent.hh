@@ -51,7 +51,8 @@ class ATEvent : public TNamed {
 //    STTrack *RemoveTrack(Int_t trackNo);
 //    vector<STTrack> *GetTrackArray();
     
-    Double_t SetEventCharge(Double_t Qevent);
+    void SetEventCharge(Double_t Qevent);
+    Double_t GetEventCharge();
 
     Bool_t IsClustered();
     Bool_t IsTracked();

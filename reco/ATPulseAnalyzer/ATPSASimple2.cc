@@ -68,7 +68,7 @@ ATPSASimple2::Analyze(ATRawEvent *rawEvent, ATEvent *event)
         continue;
         
     
-      if(iPeak=0) QEventTot+=QHitTot; //Sum only if Hit is valid - We only sum once to account for the whole spectrum.
+      if(iPeak==0) QEventTot+=QHitTot; //Sum only if Hit is valid - We only sum once to account for the whole spectrum.
 
       ATHit *hit = new ATHit(PadNum,hitNum, xPos, yPos, zPos, charge);
       hit->SetQHit(QHitTot); // TODO: The charge of each hit is the total charge of the spectrum, so for double structures this is unrealistic.

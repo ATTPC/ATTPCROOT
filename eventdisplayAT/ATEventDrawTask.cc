@@ -55,6 +55,8 @@ ATEventDrawTask::ATEventDrawTask()
   fCvsPadWave(0),
   fPadWave(0),
   fCvsPadAll(0),
+  fCvsQEvent(0),
+  fQEventHist(0),
   fAtMapPtr(0),
   fMinZ(0),
   fMaxZ(1344),
@@ -108,12 +110,15 @@ ATEventDrawTask::Init()
      fDetmap->SetName("fMap");
      gROOT->GetListOfSpecials()->Add(fDetmap);
 
-  fHitArray = (TClonesArray*) ioMan->GetObject("ATEventH");
+  fHitArray = (TClonesArray*) ioMan->GetObject("ATEventH"); // TODO: Why this confusing name? It should be fEventArray
   if(fHitArray) LOG(INFO)<<"Hit Array Found."<<FairLogger::endl;
+
+ 
     
    fRawEventArray = (TClonesArray*) ioMan->GetObject("ATRawEvent");
    if(fRawEventArray) LOG(INFO)<<"Raw Event Array  Found."<<FairLogger::endl;
  
+   
 
   //fHitClusterArray = (TClonesArray*) ioMan->GetObject("STEventHC");
   //if(fHitClusterArray) LOG(INFO)<<"Hit Cluster Found."<<FairLogger::endl;
@@ -138,6 +143,8 @@ ATEventDrawTask::Init()
   DrawPadPlane();
   fCvsPadAll = fEventManager->GetCvsPadAll();
   DrawPadAll();
+  fCvsQEvent = new TCanvas();
+  DrawQEvent();
     
 }
 
@@ -156,6 +163,7 @@ ATEventDrawTask::Exec(Option_t* option)
   UpdateCvsPadPlane();
   UpdateCvsPadWave();
   UpdateCvsPadAll();
+  UpdateCvsQEvent();
 }
 
 void 
@@ -164,6 +172,8 @@ ATEventDrawTask::DrawHitPoints()
   
   
   ATEvent* event = (ATEvent*) fHitArray->At(0); // TODO: Why this confusing name? It should be fEventArray
+  Double_t Qevent=event->GetEventCharge();
+  fQEventHist->Fill(Qevent);
   fRawevent = (ATRawEvent*) fRawEventArray->At(0);
   fRawevent->SetName("fRawEvent");
   gROOT->GetListOfSpecials()->Add(fRawevent);
@@ -406,6 +416,15 @@ ATEventDrawTask::DrawPadAll()
     
 }
 
+
+void
+ATEventDrawTask::DrawQEvent()
+{
+   fCvsQEvent->cd();
+   fQEventHist = new TH1D("fQEventHist","fQEventHist",300,0.,2000000.);
+   fQEventHist -> Draw();   
+}
+
 void
 ATEventDrawTask::UpdateCvsPadPlane()
 {
@@ -452,6 +471,16 @@ ATEventDrawTask::UpdateCvsPadAll()
     
   //  TPaletteAxis *paxis
    // = (TPaletteAxis *) fPadPlane->GetListOfFunctions()->FindObject("palette");
+    
+}
+
+
+void
+ATEventDrawTask::UpdateCvsQEvent()
+{
+    fCvsQEvent -> Modified();
+    fCvsQEvent -> Update();
+ 
     
 }
 

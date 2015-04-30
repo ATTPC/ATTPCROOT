@@ -64,11 +64,13 @@ class ATEventDrawTask : public FairTask
     virtual void DrawPadPlane();
     virtual void DrawPadWave();
     virtual void DrawPadAll();
+    virtual void DrawQEvent();
     
     AtTpcMap *fAtMapPtr;
     void UpdateCvsPadPlane();
     void UpdateCvsPadWave();
     void UpdateCvsPadAll();
+    void UpdateCvsQEvent();
     
     void ResetPadAll();
 
@@ -115,6 +117,8 @@ class ATEventDrawTask : public FairTask
     TH1I*  fPadWave;
     TCanvas* fCvsPadAll;
     TH1I*  fPadAll[300];
+    TCanvas* fCvsQEvent;
+    TH1D* fQEventHist;
     
     
     Int_t fMinZ;

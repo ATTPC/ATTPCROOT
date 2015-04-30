@@ -104,12 +104,9 @@ vector<ATHit> *ATEvent::GetHitArray()
   return &fClusterArray;
 }*/
 
-Double_t ATEvent::SetEventCharge(Double_t Qevent)
-{
-    
-    
-    fQevent = Qevent;
-    
-    
-}
+void ATEvent::SetEventCharge(Double_t Qevent)  {fQevent = Qevent;}
+Double_t ATEvent::GetEventCharge()  {return fQevent;}
+
+
+
 
