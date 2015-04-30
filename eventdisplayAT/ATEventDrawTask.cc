@@ -57,6 +57,7 @@ ATEventDrawTask::ATEventDrawTask()
   fCvsPadAll(0),
   fCvsQEvent(0),
   fQEventHist(0),
+  fQEventHist_H(0),
   fAtMapPtr(0),
   fMinZ(0),
   fMaxZ(1344),
@@ -170,10 +171,11 @@ void
 ATEventDrawTask::DrawHitPoints()
 {
   
-  
+  fQEventHist_H->Reset(0);
   ATEvent* event = (ATEvent*) fHitArray->At(0); // TODO: Why this confusing name? It should be fEventArray
   Double_t Qevent=event->GetEventCharge();
   fQEventHist->Fill(Qevent);
+  fQEventHist_H->Fill(Qevent);
   fRawevent = (ATRawEvent*) fRawEventArray->At(0);
   fRawevent->SetName("fRawEvent");
   gROOT->GetListOfSpecials()->Add(fRawevent);
@@ -422,7 +424,11 @@ ATEventDrawTask::DrawQEvent()
 {
    fCvsQEvent->cd();
    fQEventHist = new TH1D("fQEventHist","fQEventHist",300,0.,2000000.);
-   fQEventHist -> Draw();   
+   fQEventHist_H = new TH1D("fQEventHist_H","fQEventHist_H",300,0.,2000000.);
+   fQEventHist_H -> SetLineColor(kRed);
+   fQEventHist_H -> SetFillStyle(1);
+   fQEventHist -> Draw();
+   fQEventHist_H -> Draw("SAMES");
 }
 
 void

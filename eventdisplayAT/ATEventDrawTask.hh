@@ -119,6 +119,7 @@ class ATEventDrawTask : public FairTask
     TH1I*  fPadAll[300];
     TCanvas* fCvsQEvent;
     TH1D* fQEventHist;
+    TH1D* fQEventHist_H;
     
     
     Int_t fMinZ;
