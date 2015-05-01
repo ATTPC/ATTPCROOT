@@ -40,8 +40,9 @@ void run_unpack_proto(){
    ATDecoderTask *decoderTask = new ATDecoderTask(); 
    //decoderTask ->SetDebugMode(kTRUE);
    decoderTask ->SetMapOpt(1); // ATTPC : 0  - Prototype: 1 |||| Default value = 0
-   decoderTask -> AddData("/home/ayyadlim/Desktop/Yassid/ATTPC/Data/Notre_Dame_data/CoBo_AsAd0_2015-01-27T15_19_34.962_0000.graw");
+   //decoderTask -> AddData("/home/ayyadlim/Desktop/Yassid/ATTPC/Data/Notre_Dame_data/CoBo_AsAd0_2015-01-27T15_19_34.962_0000.graw");//12B
    //decoderTask -> AddData("/Users/yassidayyad/Desktop/ATTPC/Data/Notre_Dame_data/CoBo_AsAd0_2015-01-27T15_19_34.962_0000.graw");
+   decoderTask ->AddData("/home/ayyadlim/Desktop/Yassid/ATTPC/Data/Notre_Dame_data/CoBo_AsAd0_2015-01-26T19_33_23.451_0003.graw"); //12N
    decoderTask ->SetGeo(geo.Data());
    decoderTask ->SetProtoMap(protomapdir.Data());
    decoderTask ->SetMap(scriptdir.Data());
@@ -53,12 +54,12 @@ void run_unpack_proto(){
    
    ATPSATask *psaTask = new ATPSATask();
    psaTask -> SetPersistence();
-   psaTask -> SetThreshold(20);
+   psaTask -> SetThreshold(30);
    run -> AddTask(psaTask);
 
    run->Init();
 
-   run->Run(0, 100); // Number must be lower than the number of events in dummy
+   run->Run(0, 1000); // Number must be lower than the number of events in dummy
 
  // -----   Finish   -------------------------------------------------------
 	timer.Stop();

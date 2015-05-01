@@ -19,6 +19,7 @@
 #include "TGWindow.h"
 #include "TGButton.h"
 #include "TGLabel.h"
+#include "TGWidget.h"
 
 
 
@@ -63,12 +64,15 @@ ATEventManager::ATEventManager()
   fCvsPadPlane(0),
   fPadWave(0),
   fPadAll(0),
+  fCvsQEvent(0),
   drawallpad(0),
   kDrawAllOn(0),
-  kDrawAllOff(0)
+  kDrawAllOff(0),
+  kEraseQ(0)
 
 {
   fInstance=this;
+   kEraseQ = kFALSE;
 }
 
 ATEventManager::~ATEventManager()
@@ -110,13 +114,16 @@ ATEventManager::Init(Int_t option, Int_t level, Int_t nNodes)
   pack = slot->MakePack();
   pack->SetElementName("ATTPC 3D/Pad plane views");
   pack->SetHorizontal();
+  //pack->SetVertical();
   pack->SetShowTitleBar(kFALSE);
 
   pack->NewSlot()->MakeCurrent();
   TEveViewer* view3D = gEve->SpawnNewViewer("3D View", "");
   view3D->AddScene(gEve->GetGlobalScene());
   view3D->AddScene(gEve->GetEventScene());
-    
+ 
+  
+
     // Old arrangement
 
  /* slot = pack->NewSlotWithWeight(1.5);
@@ -131,7 +138,7 @@ ATEventManager::Init(Int_t option, Int_t level, Int_t nNodes)
     slot = pack->NewSlot();
     TEveWindowPack* pack2 = slot->MakePack();
     pack2->SetShowTitleBar(kFALSE);
-    
+    pack2->SetVertical();
     slot = pack2->NewSlot();
     slot->StartEmbedding();
     fPadWave = new TCanvas("ATPad Canvas");
@@ -349,37 +356,64 @@ ATEventManager::make_gui()
     frmMain->SetWindowName("XX GUI");
     frmMain->SetCleanup(kDeepCleanup);
     
-    TGHorizontalFrame* hf = new TGHorizontalFrame(frmMain);
+    TGVerticalFrame* hf = new TGVerticalFrame(frmMain);
     {
         
-        TString icondir( Form("%s/icons/", gSystem->Getenv("VMCWORKDIR")) );
-        TGPictureButton* b = 0;
-        //EvNavHandler    *fh = new EvNavHandler;
+       // TString icondir( Form("%s/icons/", gSystem->Getenv("VMCWORKDIR")) );
+      //  TGPictureButton* b = 0;
+       
+           //EvNavHandler    *fh = new EvNavHandler;
         //ATEventManager *fh = new ATEventManager; //Wrong!! Another instance produces different events
         
         
-        b = new TGPictureButton(hf, gClient->GetPicture(icondir+"arrow_left.gif"));
+     
+        
+        drawallpad = new TGTextButton(hf, "&Enable Draw All Pads");
+        drawallpad -> SetToolTipText("Press to Enable/Disble drawing of all pads signal\n (Display on ATTPC Pad Plane Raw Signals tab) ",400);
+        drawallpad->Connect("Clicked()", "ATEventManager", fInstance, "ChangeDrawAllPads()");
+        hf->AddFrame(drawallpad, new TGLayoutHints(kLHintsCenterX, 5, 5, 3, 4));
+
+        eraseQevent = new TGTextButton(hf, "&Erase Q Event Pad");
+        eraseQevent -> SetToolTipText("Press to erase Event Q histogram upon calling the next event",400);
+        eraseQevent->Connect("Clicked()", "ATEventManager", fInstance, "EraseQEvent()");
+        hf->AddFrame(eraseQevent, new TGLayoutHints(kLHintsCenterX, 5, 5, 3, 4));
+
+
+
+      /*  b = new TGPictureButton(hf, gClient->GetPicture(icondir+"arrow_left.gif"));
         hf->AddFrame(b);
         b->Connect("Clicked()", "ATEventManager", fInstance, "PrevEvent()");
       
         b = new TGPictureButton(hf, gClient->GetPicture(icondir+"arrow_right.gif"));
         hf->AddFrame(b);
-        b->Connect("Clicked()", "ATEventManager", fInstance, "NextEvent()");
-        
-        drawallpad = new TGTextButton(hf, "&Enable Draw All Pads");
-        drawallpad->Connect("Clicked()", "ATEventManager", fInstance, "ChangeDrawAllPads()");
-        hf->AddFrame(drawallpad, new TGLayoutHints(kLHintsCenterX, 5, 5, 3, 4));
-
-        
+        b->Connect("Clicked()", "ATEventManager", fInstance, "NextEvent()");*/
         
        // b = new TGPictureButton(hf, gClient->GetPicture(icondir+"goto.gif"));
        // hf->AddFrame(b);
        // b->Connect("Clicked()", "ATEventManager", fInstance, "GotoEvent(Int_t)");
     }
+
+    TGHorizontalFrame* hf_2 = new TGHorizontalFrame(frmMain);
+    {
+
+	 TString icondir( Form("%s/icons/", gSystem->Getenv("VMCWORKDIR")) );
+         TGPictureButton* b = 0;
+
+         b = new TGPictureButton(hf_2, gClient->GetPicture(icondir+"arrow_left.gif"));
+        hf_2->AddFrame(b);
+        b->Connect("Clicked()", "ATEventManager", fInstance, "PrevEvent()");
+      
+        b = new TGPictureButton(hf_2, gClient->GetPicture(icondir+"arrow_right.gif"));
+        hf_2->AddFrame(b);
+        b->Connect("Clicked()", "ATEventManager", fInstance, "NextEvent()");
+
+    }
     
     frmMain->AddFrame(hf);
+    frmMain->AddFrame(hf_2);
     
-    
+
+
     TString Infile= "Input file : ";
     //  TFile* file =FairRunAna::Instance()->GetInputFile();
     TFile* file =FairRootManager::Instance()->GetInChain()->GetFile();
@@ -437,3 +471,25 @@ ATEventManager::ChangeDrawAllPads()
     }
     drawallpad->SetState(kButtonUp);
 }
+
+void
+ATEventManager::EraseQEvent()
+{
+   
+    kEraseQ=kTRUE;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -144,7 +144,7 @@ ATEventDrawTask::Init()
   DrawPadPlane();
   fCvsPadAll = fEventManager->GetCvsPadAll();
   DrawPadAll();
-  fCvsQEvent = new TCanvas();
+  fCvsQEvent = new TCanvas("Satellite Canvas","Satellite Canvas");
   DrawQEvent();
     
 }
@@ -174,6 +174,7 @@ ATEventDrawTask::DrawHitPoints()
   fQEventHist_H->Reset(0);
   ATEvent* event = (ATEvent*) fHitArray->At(0); // TODO: Why this confusing name? It should be fEventArray
   Double_t Qevent=event->GetEventCharge();
+  if(fEventManager->GetEraseQEvent()) fQEventHist->Reset();
   fQEventHist->Fill(Qevent);
   fQEventHist_H->Fill(Qevent);
   fRawevent = (ATRawEvent*) fRawEventArray->At(0);
