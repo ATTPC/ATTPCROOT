@@ -65,6 +65,7 @@ ATEventManager::ATEventManager()
   fPadWave(0),
   fPadAll(0),
   fCvsQEvent(0),
+  fCvsHough(0),
   drawallpad(0),
   kDrawAllOn(0),
   kDrawAllOff(0),
@@ -201,6 +202,18 @@ ATEventManager::Init(Int_t option, Int_t level, Int_t nNodes)
     //fPadAll = new TCanvas();
    
     
+     //Forth tab Reconstruction
+    TEveWindowSlot* slot3 =
+    TEveWindow::CreateWindowInTab(gEve->GetBrowser()->GetTabRight());
+    TEveWindowPack* pack4 = slot3->MakePack();
+    pack4->SetShowTitleBar(kFALSE);
+    pack4->SetElementName("Reconstruction");
+    slot3 = pack4->NewSlotWithWeight(1.5);
+    TRootEmbeddedCanvas* ecvs4 = new TRootEmbeddedCanvas();
+    TEveWindowFrame* frame4 = slot3->MakeFrame(ecvs4);
+    frame4->SetElementName("Hough Space");
+    fCvsHough = ecvs4->GetCanvas();
+   
  
   /**************************************************************************/
 

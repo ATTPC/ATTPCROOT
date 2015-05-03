@@ -25,5 +25,6 @@
 #pragma link C++ class ATHoughSpaceLine+;
 
 #pragma link C++ class ATPSATask+;
+#pragma link C++ class ATHoughTask+;
 
 #endif

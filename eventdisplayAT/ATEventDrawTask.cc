@@ -29,12 +29,14 @@ ClassImp(ATEventDrawTask);
 
 ATEventDrawTask::ATEventDrawTask()
 : fIs2DPlotRange(kFALSE),
+  fUnpackHough(kFALSE),
   fHitArray(0),
   //fHitClusterArray(0),
   //fRiemannTrackArray(0),
   //fKalmanArray(0),
   fEventManager(0),
   fRawevent(0),
+  fHoughSpaceArray(0),
   fDetmap(0),
   fThreshold(0),
   fHitSet(0),
@@ -58,6 +60,8 @@ ATEventDrawTask::ATEventDrawTask()
   fCvsQEvent(0),
   fQEventHist(0),
   fQEventHist_H(0),
+  fCvsHoughSpace(0),
+  fHoughSpace(0),
   fAtMapPtr(0),
   fMinZ(0),
   fMaxZ(1344),
@@ -67,6 +71,7 @@ ATEventDrawTask::ATEventDrawTask()
 
   //fAtMapPtr = new AtTpcMap(); 
   fGeoOption="ATTPC";
+  
     
     Char_t padhistname[256];
     
@@ -113,13 +118,15 @@ ATEventDrawTask::Init()
 
   fHitArray = (TClonesArray*) ioMan->GetObject("ATEventH"); // TODO: Why this confusing name? It should be fEventArray
   if(fHitArray) LOG(INFO)<<"Hit Array Found."<<FairLogger::endl;
-
  
-    
-   fRawEventArray = (TClonesArray*) ioMan->GetObject("ATRawEvent");
-   if(fRawEventArray) LOG(INFO)<<"Raw Event Array  Found."<<FairLogger::endl;
+     
+  fRawEventArray = (TClonesArray*) ioMan->GetObject("ATRawEvent");
+  if(fRawEventArray) LOG(INFO)<<"Raw Event Array  Found."<<FairLogger::endl;
  
-   
+  
+  fHoughSpaceArray =  (TClonesArray*) ioMan->GetObject("ATHough");
+  if(fHoughSpaceArray) LOG(INFO)<<"Hough Array Found."<<FairLogger::endl;
+  
 
   //fHitClusterArray = (TClonesArray*) ioMan->GetObject("STEventHC");
   //if(fHitClusterArray) LOG(INFO)<<"Hit Cluster Found."<<FairLogger::endl;
@@ -146,7 +153,11 @@ ATEventDrawTask::Init()
   DrawPadAll();
   fCvsQEvent = new TCanvas("Satellite Canvas","Satellite Canvas");
   DrawQEvent();
-    
+  
+  
+  fCvsHoughSpace = fEventManager->GetCvsHoughSpace();
+  DrawHoughSpace();
+  
 }
 
 void 
@@ -156,6 +167,8 @@ ATEventDrawTask::Exec(Option_t* option)
   ResetPadAll();
   
   if(fHitArray) DrawHitPoints();
+  if(fHoughSpaceArray && fUnpackHough) DrawHSpace();
+  
   //if(fHitClusterArray) DrawHitClusterPoints();
   //if(fRiemannTrackArray) DrawRiemannHits();
 
@@ -165,6 +178,7 @@ ATEventDrawTask::Exec(Option_t* option)
   UpdateCvsPadWave();
   UpdateCvsPadAll();
   UpdateCvsQEvent();
+  if(fUnpackHough) UpdateCvsHoughSpace();
 }
 
 void 
@@ -180,6 +194,8 @@ ATEventDrawTask::DrawHitPoints()
   fRawevent = (ATRawEvent*) fRawEventArray->At(0);
   fRawevent->SetName("fRawEvent");
   gROOT->GetListOfSpecials()->Add(fRawevent);
+ 
+  
   
     //std::cout<<std::endl;
     //std::cout<<" ATHit Event ID : "<<event->GetEventID()<<std::endl;
@@ -257,6 +273,16 @@ ATEventDrawTask::DrawHitPoints()
     
     
     gEve -> AddElement(fHitSet);
+}
+
+void 
+ATEventDrawTask::DrawHSpace()
+{
+
+   
+    ATHoughSpaceLine* HoughSpace = (ATHoughSpaceLine*) fHoughSpaceArray->At(0);
+    fHoughSpace = HoughSpace->GetHoughSpace("XZ");
+
 }
 
 /*void 
@@ -432,9 +458,19 @@ ATEventDrawTask::DrawQEvent()
    fQEventHist_H -> Draw("SAMES");
 }
 
+
+void
+ATEventDrawTask::DrawHoughSpace()
+{
+   fCvsHoughSpace->cd();
+   fHoughSpace = new TH2F();
+   fHoughSpace->Draw("zcol");
+}
+
 void
 ATEventDrawTask::UpdateCvsPadPlane()
 {
+  fHoughSpace->Draw("zcol");
   fCvsPadPlane -> Modified();
   fCvsPadPlane -> Update();
 
@@ -487,6 +523,16 @@ ATEventDrawTask::UpdateCvsQEvent()
 {
     fCvsQEvent -> Modified();
     fCvsQEvent -> Update();
+ 
+    
+}
+
+
+void
+ATEventDrawTask::UpdateCvsHoughSpace()
+{
+    fCvsHoughSpace -> Modified();
+    fCvsHoughSpace -> Update();
  
     
 }

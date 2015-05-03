@@ -48,6 +48,7 @@ HoughTransformation/ATHoughSpaceLine.cc
 
 ATDecoderTask.cc
 ATPSATask.cc
+ATHoughTask.cc
 
 )
 

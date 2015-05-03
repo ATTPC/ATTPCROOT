@@ -12,7 +12,8 @@ ${BASE_INCLUDE_DIRECTORIES}
 ${CMAKE_SOURCE_DIR}/AtMap
 ${CMAKE_SOURCE_DIR}/eventdisplayAT
 ${CMAKE_SOURCE_DIR}/reco/ATDecoder
-
+${CMAKE_SOURCE_DIR}/reco/HoughTransformation
+${CMAKE_SOURCE_DIR}/par
 
 )
 

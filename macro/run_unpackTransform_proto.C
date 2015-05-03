@@ -1,4 +1,4 @@
-void run_unpack_proto(){
+void run_unpackTransform_proto(){
 
 
     // -----   Timer   --------------------------------------------------------
@@ -57,9 +57,13 @@ void run_unpack_proto(){
    psaTask -> SetThreshold(30);
    run -> AddTask(psaTask);
 
+   ATHoughTask *HoughTask = new ATHoughTask(); 
+   HoughTask ->SetPersistence();
+   run -> AddTask(HoughTask);
+
    run->Init();
 
-   run->Run(0, 100); // Number must be lower than the number of events in dummy
+   run->Run(0, 10); // Number must be lower than the number of events in dummy
 
  // -----   Finish   -------------------------------------------------------
 	timer.Stop();

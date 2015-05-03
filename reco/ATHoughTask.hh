@@ -9,6 +9,7 @@
 #include "ATEvent.hh"
 #include "ATDigiPar.hh"
 #include "ATHoughSpaceLine.hh"
+#include "ATHoughSpace.hh"
 
 // ROOT classes
 #include "TClonesArray.h" 

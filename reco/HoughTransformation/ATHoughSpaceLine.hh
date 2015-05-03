@@ -12,10 +12,10 @@ class ATHoughSpaceLine : public ATHoughSpace{
 
       public:
 	ATHoughSpaceLine();
-    ~ATHoughSpaceLine();
+        ~ATHoughSpaceLine();
 
 	TH2F* GetHoughSpace(TString ProjPlane);
-    void CalcHoughSpace(ATEvent* event,Bool_t YZplane,Bool_t XYplane, Bool_t XZplane);
+        void CalcHoughSpace(ATEvent* event,Bool_t YZplane,Bool_t XYplane, Bool_t XZplane);
 
       protected:
         Int_t fThreshold;

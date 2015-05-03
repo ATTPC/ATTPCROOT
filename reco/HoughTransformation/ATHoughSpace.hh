@@ -22,7 +22,10 @@
 #include "TH2F.h"
 #include "TMath.h"
 
-class ATHoughSpace{
+#include "TObject.h"
+
+class ATHoughSpace : public TObject
+{
 
 	public:
 

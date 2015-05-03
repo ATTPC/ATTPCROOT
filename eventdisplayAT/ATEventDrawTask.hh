@@ -26,6 +26,8 @@
 //#include "ATRiemannHit.hh"
 #include "ATRawEvent.hh"
 #include "ATEvent.hh"
+#include "ATHoughSpaceLine.hh"
+#include "ATHoughSpace.hh"
 #include "ATHit.hh"
 #include "AtTpcMap.h"
 
@@ -47,7 +49,7 @@ class ATEventDrawTask : public FairTask
 
     //void Set2DPlotRange(Int_t uaIdx);
     void SetThreshold(Int_t val) { fThreshold=val; }
-
+    void UnpackHoughSpace()      { fUnpackHough=kTRUE; }
     void SetHitAttributes(Color_t, Size_t, Style_t);
     //void SetHitClusterAttributes(Color_t, Size_t, Style_t);
     //void SetRiemannAttributes(Color_t, Size_t, Style_t);
@@ -65,31 +67,37 @@ class ATEventDrawTask : public FairTask
     virtual void DrawPadWave();
     virtual void DrawPadAll();
     virtual void DrawQEvent();
+    virtual void DrawHoughSpace();
     
     AtTpcMap *fAtMapPtr;
     void UpdateCvsPadPlane();
     void UpdateCvsPadWave();
     void UpdateCvsPadAll();
     void UpdateCvsQEvent();
+    void UpdateCvsHoughSpace();
     
     void ResetPadAll();
 
 
     void DrawHitPoints();
+    void DrawHSpace();
     //void DrawHitClusterPoints();
     //void DrawRiemannHits();
 
 
     Bool_t fIs2DPlotRange;
+    Bool_t fUnpackHough;
 
     TClonesArray* fHitArray;
     //TClonesArray* fHitClusterArray;
     //TClonesArray* fRiemannTrackArray;
     //TClonesArray* fKalmanArray;
     TClonesArray* fRawEventArray;
+    TClonesArray* fHoughSpaceArray;
 
     ATEventManager* fEventManager;
     ATRawEvent* fRawevent;
+    
     AtTpcMap *fDetmap;
 
     Int_t fThreshold;
@@ -120,6 +128,8 @@ class ATEventDrawTask : public FairTask
     TCanvas* fCvsQEvent;
     TH1D* fQEventHist;
     TH1D* fQEventHist_H;
+    TCanvas* fCvsHoughSpace;
+    TH2F* fHoughSpace;
     
     
     Int_t fMinZ;

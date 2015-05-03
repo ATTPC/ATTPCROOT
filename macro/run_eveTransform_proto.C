@@ -1,4 +1,4 @@
-void run_eve_proto() 
+void run_eveTransform_proto() 
 {
 
    TString dir = getenv("VMCWORKDIR");
@@ -23,7 +23,6 @@ void run_eve_proto()
 
   ATEventManager *eveMan = new ATEventManager();
   ATEventDrawTask* eve = new ATEventProtoDrawTask();
- // eve->UnpackHoughSpace(); // Allows extract the Hough Space from root file. Disable it for a faster performance
   eve->SetGeoOption("Prototype"); // Options: "ATTPC" - "Prototype"
   eve->SetProtoMap(protomapdir.Data());
 

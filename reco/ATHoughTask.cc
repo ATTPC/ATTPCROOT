@@ -9,6 +9,8 @@
 
 #include <iostream>
 
+#include "ATHoughTask.hh"
+
 ClassImp(ATHoughTask);
 
 ATHoughTask::ATHoughTask()
@@ -18,7 +20,7 @@ ATHoughTask::ATHoughTask()
 
   fIsPersistence = kFALSE;
   
-  fHoughArray = new TClonesArray("ATHough");
+  fHoughArray = new TClonesArray("ATHoughSpaceLine");
 }
 
 ATHoughTask::~ATHoughTask()
@@ -32,28 +34,36 @@ void ATHoughTask::SetThreshold(Double_t threshold) { fThreshold = threshold; }
 InitStatus
 ATHoughTask::Init()
 {
+
+  
+
   FairRootManager *ioMan = FairRootManager::Instance();
   if (ioMan == 0) {
     fLogger -> Error(MESSAGE_ORIGIN, "Cannot find RootManager!");
     return kERROR;
   }
 
-  fEventArray = (TClonesArray *) ioMan -> GetObject("ATEventH");
-  if (fRawEventArray == 0) {
-    fLogger -> Error(MESSAGE_ORIGIN, "Cannot find ATRawEvent array!");
+  fEventHArray = (TClonesArray *) ioMan -> GetObject("ATEventH");
+  if (fEventHArray == 0) {
+    fLogger -> Error(MESSAGE_ORIGIN, "Cannot find ATEvent array!");
     return kERROR;
   }
 
    //fPSA -> SetThreshold((Int_t)fThreshold);
 
-  ioMan -> Register("ATHoughH", "ATTPC_Hough", fHoughArray, fIsPersistence);
+    ioMan -> Register("ATHough", "ATTPC", fHoughArray, fIsPersistence);
+
+   
 
   return kSUCCESS;
 }
 
 void
-ATPSATask::SetParContainers()
+ATHoughTask::SetParContainers()
 {
+
+  
+  
   FairRun *run = FairRun::Instance();
   if (!run)
     fLogger -> Fatal(MESSAGE_ORIGIN, "No analysis run!");
@@ -68,19 +78,24 @@ ATPSATask::SetParContainers()
 }
 
 void
-ATPSATask::Exec(Option_t *opt)
+ATHoughTask::Exec(Option_t *opt)
 {
-  fHoughArray -> Delete();
+   fHoughArray -> Delete();
 
-  if (fEventArray -> GetEntriesFast() == 0)
-    return;
+ 
 
-  ATEvent *Event = (ATEvent *) fEventArray -> At(0);
-  std::cout << "  Event Number :  " << Event -> GetEventID() << std::endl;
+  if (fEventHArray -> GetEntriesFast() == 0)
+     return;
 
-  /*ATEvent *event = (ATEvent *) new ((*fEventHArray)[0]) ATEvent();
+     ATEvent *Event = (ATEvent *) fEventHArray -> At(0);
+     //std::cout << "  Event Number :  " << Event -> GetEventID() << std::endl;
+
+    ATHoughSpaceLine *HoughSpace = (ATHoughSpaceLine *) new ((*fHoughArray)[0]) ATHoughSpaceLine();
+    HoughSpace ->CalcHoughSpace(Event,kTRUE,kTRUE,kTRUE);
+
+  //(ATHoughSpaceLine *) new ((*fHoughArray)[0]) ATHoughSpaceLine();
   //event -> SetEventID(event -> GetEventID());
-    event -> SetEventID(rawEvent -> GetEventID());
+   /* event -> SetEventID(rawEvent -> GetEventID());
 
   if (!(rawEvent -> IsGood()))
     event -> SetIsGood(kFALSE);

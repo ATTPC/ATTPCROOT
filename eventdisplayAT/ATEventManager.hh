@@ -42,6 +42,7 @@ class ATEventManager : public TEveEventManager
     TCanvas* GetCvsPadWave() { return fPadWave; }
     TCanvas* GetCvsPadAll() { return fPadAll; }
     TCanvas* GetCvsQEvent() { return fCvsQEvent; }
+    TCanvas* GetCvsHoughSpace() { return fCvsHough; }
     Bool_t GetDrawAllPad() { return kDrawAllOn; }
     Bool_t GetEraseQEvent() {Bool_t EraseBuff = kEraseQ; kEraseQ=kFALSE; return EraseBuff; }
 
@@ -60,6 +61,7 @@ class ATEventManager : public TEveEventManager
     TCanvas* fPadWave;
     TCanvas* fPadAll;
     TCanvas* fCvsQEvent;
+    TCanvas* fCvsHough;
 
     TGTextButton *drawallpad;
     TGTextButton *eraseQevent;
