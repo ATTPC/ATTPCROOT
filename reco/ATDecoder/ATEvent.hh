@@ -26,6 +26,8 @@ class ATEvent : public TNamed {
     //void SetClusterArray(vector<ATHitCluster> *clusterArray);
 //    void AddTrack(STTrack *track);
 //    void SetTrackArray(vector<STTrack> &trackArray);
+    void SetEventCharge(Double_t Qevent);
+    void SetRhoVariance(Double_t RhoVariance);
 
     void SetIsClustered(Bool_t value);
     void SetIsTracked(Bool_t value);
@@ -51,8 +53,9 @@ class ATEvent : public TNamed {
 //    STTrack *RemoveTrack(Int_t trackNo);
 //    vector<STTrack> *GetTrackArray();
     
-    void SetEventCharge(Double_t Qevent);
+   
     Double_t GetEventCharge();
+    Double_t GetRhoVariance();
 
     Bool_t IsClustered();
     Bool_t IsTracked();
@@ -73,6 +76,7 @@ class ATEvent : public TNamed {
     //vector<ATHitCluster> fClusterArray;
 //    vector<STTrack> fTrackArray;
     Double_t fQevent;
+    Double_t fRhoVariance;
    
 
   ClassDef(ATEvent, 2);

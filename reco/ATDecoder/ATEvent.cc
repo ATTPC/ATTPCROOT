@@ -16,6 +16,7 @@ ATEvent::ATEvent(Bool_t isClustered, Bool_t isTracked, Bool_t isChanged)
 
   fIsGood = kFALSE;
     fQevent = -100.0;
+    fRhoVariance = 0.0;
 }
 
 ATEvent::ATEvent(ATEvent *object)
@@ -23,6 +24,7 @@ ATEvent::ATEvent(ATEvent *object)
 {
   fEventID = object -> GetEventID();
   fQevent = -100.0;
+  fRhoVariance = 0.0;
     
   fIsClustered = object -> IsClustered();
   fIsTracked = object -> IsTracked();
@@ -106,6 +108,8 @@ vector<ATHit> *ATEvent::GetHitArray()
 
 void ATEvent::SetEventCharge(Double_t Qevent)  {fQevent = Qevent;}
 Double_t ATEvent::GetEventCharge()  {return fQevent;}
+void ATEvent::SetRhoVariance(Double_t RhoVariance) { fRhoVariance = RhoVariance;}
+Double_t ATEvent::GetRhoVariance()  { return fRhoVariance;}
 
 
 

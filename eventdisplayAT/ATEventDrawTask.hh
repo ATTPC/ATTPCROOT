@@ -67,6 +67,7 @@ class ATEventDrawTask : public FairTask
     virtual void DrawPadWave();
     virtual void DrawPadAll();
     virtual void DrawQEvent();
+    virtual void DrawRhoVariance();
     virtual void DrawHoughSpace();
     
     AtTpcMap *fAtMapPtr;
@@ -74,6 +75,7 @@ class ATEventDrawTask : public FairTask
     void UpdateCvsPadWave();
     void UpdateCvsPadAll();
     void UpdateCvsQEvent();
+    void UpdateCvsRhoVariance();
     void UpdateCvsHoughSpace();
     
     void ResetPadAll();
@@ -130,6 +132,8 @@ class ATEventDrawTask : public FairTask
     TH1D* fQEventHist_H;
     TCanvas* fCvsHoughSpace;
     TH2F* fHoughSpace;
+    TCanvas* fCvsRhoVariance;
+    TH1D* fRhoVariance;
     
     
     Int_t fMinZ;

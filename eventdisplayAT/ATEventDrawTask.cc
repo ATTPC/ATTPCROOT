@@ -62,6 +62,8 @@ ATEventDrawTask::ATEventDrawTask()
   fQEventHist_H(0),
   fCvsHoughSpace(0),
   fHoughSpace(0),
+  fCvsRhoVariance(0),
+  fRhoVariance(0),
   fAtMapPtr(0),
   fMinZ(0),
   fMaxZ(1344),
@@ -151,12 +153,14 @@ ATEventDrawTask::Init()
   DrawPadPlane();
   fCvsPadAll = fEventManager->GetCvsPadAll();
   DrawPadAll();
-  fCvsQEvent = new TCanvas("Satellite Canvas","Satellite Canvas");
+  fCvsRhoVariance = new TCanvas("fCvsRhoVariance","fCvsRhoVariance");
+  DrawRhoVariance();
+  fCvsQEvent = new TCanvas("fCvsQEvent","fCvsQEvent");
   DrawQEvent();
-  
-  
+  //******* NO CALLS TO TCANVAS BELOW HOUGHSPACE ONE
   fCvsHoughSpace = fEventManager->GetCvsHoughSpace();
   DrawHoughSpace();
+ 
   
 }
 
@@ -178,6 +182,7 @@ ATEventDrawTask::Exec(Option_t* option)
   UpdateCvsPadWave();
   UpdateCvsPadAll();
   UpdateCvsQEvent();
+  UpdateCvsRhoVariance();
   if(fUnpackHough) UpdateCvsHoughSpace();
 }
 
@@ -188,9 +193,15 @@ ATEventDrawTask::DrawHitPoints()
   fQEventHist_H->Reset(0);
   ATEvent* event = (ATEvent*) fHitArray->At(0); // TODO: Why this confusing name? It should be fEventArray
   Double_t Qevent=event->GetEventCharge();
-  if(fEventManager->GetEraseQEvent()) fQEventHist->Reset();
+  Double_t RhoVariance=event->GetRhoVariance();
+  if(fEventManager->GetEraseQEvent()){ 
+	fQEventHist->Reset();
+        fRhoVariance->Reset();
+  }
+  
   fQEventHist->Fill(Qevent);
   fQEventHist_H->Fill(Qevent);
+  fRhoVariance->Fill(RhoVariance);
   fRawevent = (ATRawEvent*) fRawEventArray->At(0);
   fRawevent->SetName("fRawEvent");
   gROOT->GetListOfSpecials()->Add(fRawevent);
@@ -449,13 +460,27 @@ ATEventDrawTask::DrawPadAll()
 void
 ATEventDrawTask::DrawQEvent()
 {
-   fCvsQEvent->cd();
+
+   
+   
    fQEventHist = new TH1D("fQEventHist","fQEventHist",300,0.,2000000.);
    fQEventHist_H = new TH1D("fQEventHist_H","fQEventHist_H",300,0.,2000000.);
    fQEventHist_H -> SetLineColor(kRed);
    fQEventHist_H -> SetFillStyle(1);
+   fCvsQEvent->cd();
    fQEventHist -> Draw();
    fQEventHist_H -> Draw("SAMES");
+
+}
+
+
+void
+ATEventDrawTask::DrawRhoVariance()
+{
+  
+   fCvsRhoVariance->cd();
+   fRhoVariance = new TH1D("fRhoVariance","fRhoVariance",300,0.,2000000000.);
+   fRhoVariance -> Draw();
 }
 
 
@@ -523,6 +548,15 @@ ATEventDrawTask::UpdateCvsQEvent()
 {
     fCvsQEvent -> Modified();
     fCvsQEvent -> Update();
+ 
+    
+}
+
+void
+ATEventDrawTask::UpdateCvsRhoVariance()
+{
+    fCvsRhoVariance -> Modified();
+    fCvsRhoVariance -> Update();
  
     
 }
