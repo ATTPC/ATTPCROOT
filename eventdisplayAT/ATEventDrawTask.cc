@@ -197,6 +197,7 @@ ATEventDrawTask::DrawHitPoints()
   if(fEventManager->GetEraseQEvent()){ 
 	fQEventHist->Reset();
         fRhoVariance->Reset();
+   
   }
   
   fQEventHist->Fill(Qevent);
@@ -479,8 +480,10 @@ ATEventDrawTask::DrawRhoVariance()
 {
   
    fCvsRhoVariance->cd();
-   fRhoVariance = new TH1D("fRhoVariance","fRhoVariance",300,0.,2000000000.);
+   fRhoVariance = new TH1D("fRhoVariance","fRhoVariance",4000,0.,1000000.);
    fRhoVariance -> Draw();
+   fRhoVariance -> SetLineColor(kRed);
+   
 }
 
 

@@ -134,6 +134,7 @@ class ATEventDrawTask : public FairTask
     TH2F* fHoughSpace;
     TCanvas* fCvsRhoVariance;
     TH1D* fRhoVariance;
+  
     
     
     Int_t fMinZ;

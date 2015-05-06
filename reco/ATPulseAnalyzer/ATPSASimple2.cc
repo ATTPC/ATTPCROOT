@@ -78,7 +78,12 @@ ATPSASimple2::Analyze(ATRawEvent *rawEvent, ATEvent *event)
       hit->SetQHit(QHitTot); // TODO: The charge of each hit is the total charge of the spectrum, so for double structures this is unrealistic.
       HitPos =  hit->GetPosition();
       Rho2+= HitPos.Mag2();
-      RhoMean+=HitPos.Mag();     
+      RhoMean+=HitPos.Mag();
+      if(xPos<-9000 || yPos<-9000) std::cout<<" ATPSASimple2::Analyze Warning! Wrong Coordinates por Pad : "<<pad->GetPadNum()<<std::endl;
+      //std::cout<<"  =============== Next Hit Variance Info  =============== "<<std::endl; 
+      //std::cout<<" Hit Num : "<<hitNum<<"  - Hit Pos Rho2 : "<<HitPos.Mag2()<<"  - Hit Pos Rho : "<<HitPos.Mag()<<std::endl;
+      //std::cout<<" Hit Coordinates : "<<xPos<<"  -  "<<yPos<<" - "<<zPos<<"  -  "<<std::endl;
+      //std::cout<<" Is Pad"<<pad->GetPadNum()<<" Valid? "<<pad->GetValidPad()<<std::endl;
       event -> AddHit(hit);
       delete hit;
 
@@ -86,8 +91,11 @@ ATPSASimple2::Analyze(ATRawEvent *rawEvent, ATEvent *event)
     }// Peak loop
      
   }// Pad loop
-    
+    // std::cout<<"  --------------------------------- "<<std::endl;
+     //std::cout<<" Rho2 : "<<Rho2<<" - RhoMean : "<<RhoMean<<" Num of Hits : "<<event->GetNumHits()<<std::endl;
      RhoVariance = Rho2 - ( pow(RhoMean,2)/(event->GetNumHits()) );
+     RhoVariance = Rho2 - ( event->GetNumHits()*pow((RhoMean/event->GetNumHits()),2) ) ;
+     //std::cout<<" Rho Variance : "<<RhoVariance<<std::endl;
      event -> SetRhoVariance(RhoVariance);
      event -> SetEventCharge(QEventTot);
 }

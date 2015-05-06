@@ -332,11 +332,11 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
 				                
          			           if (!good) {
            				         delete pad;
-                                   iAget = 4;
-                                   iCh = 68;
+                                   		 iAget = 4;
+                                  		 iCh = 68;
 
 				                 continue;
-                                }
+                                	}
 
           			                   Double_t *adc = frame -> GetADC(iAget, iCh); //DEBUG Chrasih because SetPedestalSubstracted is not done!!!
 						   
