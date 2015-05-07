@@ -25,12 +25,15 @@ class ATPSA
 
     //! Setting threshold
     void SetThreshold(Int_t threshold);
+    void SetBackGroundSuppression();
 
     virtual void Analyze(ATRawEvent *rawEvent, ATEvent *event) = 0;
 
   protected:
     FairLogger *fLogger;      ///< logger pointer
     ATDigiPar *fPar;          ///< parameter container
+
+    Bool_t fBackGroundSuppression;
 
     Int_t fPadPlaneX;         ///< pad plane size x in mm
     Int_t fPadSizeX;          ///< pad size x in mm

@@ -19,6 +19,7 @@ ATPSATask::ATPSATask()
   fPar = NULL;
 
   fIsPersistence = kFALSE;
+  fIsBGPK = kFALSE;
   
   fEventHArray = new TClonesArray("ATEvent");
 
@@ -29,9 +30,10 @@ ATPSATask::~ATPSATask()
 {
 }
 
-void ATPSATask::SetPSAMode(Int_t value)          { fPSAMode = value; }
-void ATPSATask::SetPersistence(Bool_t value)     { fIsPersistence = value; }
-void ATPSATask::SetThreshold(Double_t threshold) { fThreshold = threshold; }
+void ATPSATask::SetPSAMode(Int_t value)               { fPSAMode = value; }
+void ATPSATask::SetPersistence(Bool_t value)          { fIsPersistence = value; }
+void ATPSATask::SetThreshold(Double_t threshold)      { fThreshold = threshold; }
+void ATPSATask::SetBackGroundPeakFinder(Bool_t value) { fIsBGPK = value;}
 
 InitStatus
 ATPSATask::Init()
@@ -58,11 +60,17 @@ ATPSATask::Init()
     fPSA = new ATPSASimple2();
   /*} else if (fPSAMode == 2) {
     fLogger -> Info(MESSAGE_ORIGIN, "Use STPSALayer!");
-
+SetBackGroundPeakFinder
     fPSA = new STPSALayer();*/
   }
 
   fPSA -> SetThreshold((Int_t)fThreshold);
+
+   if(fIsBGPK){
+	 fLogger -> Info(MESSAGE_ORIGIN, "Suppression of background in Peak Finder Enabled");
+         fPSA -> SetBackGroundSuppression();
+   }
+
 
   ioMan -> Register("ATEventH", "ATTPC", fEventHArray, fIsPersistence);
 
@@ -107,3 +115,4 @@ ATPSATask::Exec(Option_t *opt)
     event -> SetIsGood(kTRUE);
   }
 }
+

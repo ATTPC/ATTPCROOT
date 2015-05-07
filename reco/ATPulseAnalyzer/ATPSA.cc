@@ -41,6 +41,8 @@ ATPSA::ATPSA()
   fTBTime = fPar -> GetTBTime();
   fDriftVelocity = fPar -> GetDriftVelocity();
   fMaxDriftLength = fPar -> GetDriftLength();
+  
+  fBackGroundSuppression = kFALSE;
 
   fThreshold = -1;
 }
@@ -73,4 +75,9 @@ Double_t
 ATPSA::CalculateY(Double_t layer)
 {
   return (layer + 0.5)*fPadSizeZ;
+}
+
+void
+ATPSA::SetBackGroundSuppression(){
+  fBackGroundSuppression = kTRUE; 
 }

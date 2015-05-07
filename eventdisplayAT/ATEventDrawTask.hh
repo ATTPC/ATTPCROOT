@@ -12,6 +12,7 @@
 
 // ROOT classes
 #include "TEvePointSet.h"
+#include "TEveGeoShape.h"
 #include "TClonesArray.h"
 #include "TVector3.h"
 
@@ -107,6 +108,8 @@ class ATEventDrawTask : public FairTask
     TString fMap;
 
     TEvePointSet* fHitSet;
+    TEveGeoShape* x;
+    std::vector<TEveGeoShape*> hitSphereArray;
     Color_t fHitColor;
     Size_t  fHitSize;
     Style_t fHitStyle;

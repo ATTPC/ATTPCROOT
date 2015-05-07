@@ -21,6 +21,7 @@ class ATPSATask : public FairTask {
     void SetPSAMode(Int_t value = 0);
     void SetPersistence(Bool_t value = kTRUE);
     void SetThreshold(Double_t threshold);
+    void SetBackGroundPeakFinder(Bool_t value);
 
     virtual InitStatus Init();
     virtual void SetParContainers();
@@ -37,6 +38,7 @@ class ATPSATask : public FairTask {
     Int_t fPSAMode;
 
     Bool_t fIsPersistence;
+    Bool_t fIsBGPK;
     
     Double_t fThreshold;
 

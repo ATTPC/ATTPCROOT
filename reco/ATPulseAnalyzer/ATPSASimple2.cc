@@ -52,10 +52,12 @@ ATPSASimple2::Analyze(ATRawEvent *rawEvent, ATEvent *event)
           QHitTot+=adc[iTb];
       }
       
-    Int_t numPeaks = fPeakFinder -> SearchHighRes(floatADC, dummy, fNumTbs, 4.7, 5, kFALSE, 3, kTRUE, 3);
+    Int_t numPeaks = fPeakFinder -> SearchHighRes(floatADC, dummy, fNumTbs, 4.7, 5, fBackGroundSuppression, 3, kTRUE, 3);
 
     if (numPeaks == 0)
-      continue;
+       continue;
+  
+     
 
     for (Int_t iPeak = 0; iPeak < numPeaks; iPeak++) {
       Int_t maxAdcIdx = (Int_t)(ceil((fPeakFinder -> GetPositionX())[iPeak]));
@@ -63,6 +65,8 @@ ATPSASimple2::Analyze(ATRawEvent *rawEvent, ATEvent *event)
       zPos = CalculateZ(maxAdcIdx);
       charge = adc[maxAdcIdx];
         //std::cout<<zPos<<std::endl;
+
+     // std::cout<<" Pad Num : "<<PadNum<<" Peak : "<<iPeak<<"/"<<numPeaks<<" - Charge : "<<charge<<" - zPos : "<<zPos<<std::endl; 
 
       if (fThreshold > 0 && charge < fThreshold) // TODO: Does this work when the polarity is negative??
         continue;

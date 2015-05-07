@@ -10,8 +10,12 @@
 
 
 #include "TEveManager.h"
+#include "TEveGeoShape.h"
+#include "TGeoSphere.h"
+#include "TEveTrans.h"
 #include "TPaletteAxis.h"
 #include "TStyle.h"
+#include "TRandom.h"
 
 #include "AtTpcMap.h"
 #include "AtTpcProtoMap.h"
@@ -93,6 +97,9 @@ ATEventDrawTask::~ATEventDrawTask()
 {
     
     //TODO Destroy pointers
+    for(Int_t i=0;i<hitSphereArray.size();i++) delete hitSphereArray[i];
+    delete x;
+    hitSphereArray.clear();
 }
 
 InitStatus 
@@ -170,6 +177,7 @@ ATEventDrawTask::Exec(Option_t* option)
   Reset();
   ResetPadAll();
   
+  
   if(fHitArray) DrawHitPoints();
   if(fHoughSpaceArray && fUnpackHough) DrawHSpace();
   
@@ -189,7 +197,7 @@ ATEventDrawTask::Exec(Option_t* option)
 void 
 ATEventDrawTask::DrawHitPoints()
 {
-  
+  hitSphereArray.clear();
   fQEventHist_H->Reset(0);
   ATEvent* event = (ATEvent*) fHitArray->At(0); // TODO: Why this confusing name? It should be fEventArray
   Double_t Qevent=event->GetEventCharge();
@@ -228,23 +236,31 @@ ATEventDrawTask::DrawHitPoints()
     Int_t PadNumHit = hit.GetHitPadNum();
     
     //std::cout<<" Hit : "<<iHit<<" ATHit Pad Number :  "<<PadNumHit<<std::endl;
-      
+    //std::cout<<"  Hit number : "<<iHit<<" - ATHit Pad Number :  "<<PadNumHit<<" - Hit Charge : "<<hit.GetCharge()<<std::endl;
     if(hit.GetCharge()<fThreshold) continue;
     TVector3 position = hit.GetPosition();
     
     fHitSet->SetNextPoint(position.X()/10.,position.Y()/10.,position.Z()/10.); // Convert into cm
     fHitSet->SetPointId(new TNamed(Form("Hit %d",iHit),""));
     Int_t Atbin = fPadPlane->Fill(position.X(), position.Y(), hit.GetCharge());
-    //std::cout<<"  Hit number : "<<iHit<<" - Position X : "<<position.X()<<" - Position Y : "<<position.Y()<<" - Position Z : "<<position.Z()<<" - ATHit Pad Number :  "<<PadNumHit<<" - Pad bin :"<<Atbin<<std::endl;
+    //std::cout<<"  Hit number : "<<iHit<<" - Position X : "<<position.X()<<" - Position Y : "<<position.Y()<<" - Position Z : "<<position.Z()<<" - ATHit Pad Number :  "<<PadNumHit<<" - Pad bin :"<<Atbin<<" - Hit Charge : "<<hit.GetCharge()<<std::endl;
       
-      
-      
+   
+     /*x = new TEveGeoShape("SS"); 
+     x->SetShape(new TGeoSphere(0, 0.1*hit.GetCharge()/300.));
+     x->RefMainTrans().SetPos(position.X()/10.,
+                             position.Y()/10.,
+                             position.Z()/10.);
+     x->SetMainColor(TColor::GetColorPalette
+                    (gRandom->Integer(TColor::GetNumberOfColors()))); 
+     hitSphereArray.push_back(x);*/
      
-      
+    
+     
   }
     
     
-    
+    //for(Int_t i=0;i<hitSphereArray.size();i++) gEve->AddElement(hitSphereArray[i]);
     
     
     Int_t nPads = fRawevent->GetNumPads();
@@ -365,7 +381,14 @@ ATEventDrawTask::Reset()
   if(fHitSet) {
     fHitSet->Reset();
     gEve->RemoveElement(fHitSet, fEventManager);
+    
   }
+
+   for(Int_t i=0;i<hitSphereArray.size();i++)  gEve->RemoveElement(hitSphereArray[i],fEventManager);
+		// delete hitSphereArray[i];
+		
+   
+
 
   /*if(fHitClusterSet) {
     fHitClusterSet->Reset();
