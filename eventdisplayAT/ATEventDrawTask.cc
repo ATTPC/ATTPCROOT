@@ -11,6 +11,7 @@
 
 #include "TEveManager.h"
 #include "TEveGeoShape.h"
+#include "TEveTrans.h"
 #include "TGeoSphere.h"
 #include "TEveTrans.h"
 #include "TPaletteAxis.h"
@@ -44,6 +45,9 @@ ATEventDrawTask::ATEventDrawTask()
   fDetmap(0),
   fThreshold(0),
   fHitSet(0),
+  //x(0),
+  //hitSphereArray(0),
+  fhitBoxSet(0),
   fHitColor(kPink),
   fHitSize(1),
   fHitStyle(kFullDotMedium),
@@ -97,9 +101,9 @@ ATEventDrawTask::~ATEventDrawTask()
 {
     
     //TODO Destroy pointers
-    for(Int_t i=0;i<hitSphereArray.size();i++) delete hitSphereArray[i];
-    delete x;
-    hitSphereArray.clear();
+    //for(Int_t i=0;i<hitSphereArray.size();i++) delete hitSphereArray[i];
+    //delete x;
+    //hitSphereArray.clear();
 }
 
 InitStatus 
@@ -197,7 +201,8 @@ ATEventDrawTask::Exec(Option_t* option)
 void 
 ATEventDrawTask::DrawHitPoints()
 {
-  hitSphereArray.clear();
+  
+  TRandom r(0);
   fQEventHist_H->Reset(0);
   ATEvent* event = (ATEvent*) fHitArray->At(0); // TODO: Why this confusing name? It should be fEventArray
   Double_t Qevent=event->GetEventCharge();
@@ -229,6 +234,9 @@ ATEventDrawTask::DrawHitPoints()
   fHitSet->SetMarkerStyle(fHitStyle);
   std::cout<<" Number of hits : "<<nHits<<std::endl;
 
+  fhitBoxSet = new TEveBoxSet("hitBox");
+  fhitBoxSet->Reset(TEveBoxSet::kBT_AABox, kTRUE, 64);
+
   for(Int_t iHit=0; iHit<nHits; iHit++)
   {
      
@@ -246,21 +254,34 @@ ATEventDrawTask::DrawHitPoints()
     //std::cout<<"  Hit number : "<<iHit<<" - Position X : "<<position.X()<<" - Position Y : "<<position.Y()<<" - Position Z : "<<position.Z()<<" - ATHit Pad Number :  "<<PadNumHit<<" - Pad bin :"<<Atbin<<" - Hit Charge : "<<hit.GetCharge()<<std::endl;
       
    
-     /*x = new TEveGeoShape("SS"); 
+   /*  x = new TEveGeoShape(Form("hitShape_%d",iHit)); 
      x->SetShape(new TGeoSphere(0, 0.1*hit.GetCharge()/300.));
      x->RefMainTrans().SetPos(position.X()/10.,
                              position.Y()/10.,
                              position.Z()/10.);
-     x->SetMainColor(TColor::GetColorPalette
-                    (gRandom->Integer(TColor::GetNumberOfColors()))); 
      hitSphereArray.push_back(x);*/
+
+    
+    // Float_t HitBoxYDim = TMath::Log(hit.GetCharge())*0.05;
+        Float_t HitBoxYDim = hit.GetCharge()*0.001;
+        Float_t HitBoxZDim = 0.05;
+        Float_t HitBoxXDim = 0.05;
+    
+     fhitBoxSet->AddBox(position.X()/10. - HitBoxXDim/2.0, position.Y()/10., position.Z()/10. - HitBoxZDim/2.0,
+                HitBoxXDim,HitBoxYDim,HitBoxZDim); //This coordinates are x,y,z in our system
+     fhitBoxSet->DigitColor(r.Uniform(20, 255), r.Uniform(20, 255),
+                    r.Uniform(20, 255), r.Uniform(20, 255));
+ 
      
     
      
   }
     
-    
-    //for(Int_t i=0;i<hitSphereArray.size();i++) gEve->AddElement(hitSphereArray[i]);
+    fhitBoxSet->RefitPlex();
+    TEveTrans& tHitBoxPos = fhitBoxSet->RefMainTrans();
+    tHitBoxPos.SetPos(0.0, 0.0, 0.0);
+   
+   //for(Int_t i=0;i<hitSphereArray.size();i++) gEve->AddElement(hitSphereArray[i]);
     
     
     Int_t nPads = fRawevent->GetNumPads();
@@ -301,6 +322,8 @@ ATEventDrawTask::DrawHitPoints()
     
     
     gEve -> AddElement(fHitSet);
+    gEve -> AddElement(fhitBoxSet);
+   
 }
 
 void 
@@ -384,8 +407,22 @@ ATEventDrawTask::Reset()
     
   }
 
-   for(Int_t i=0;i<hitSphereArray.size();i++)  gEve->RemoveElement(hitSphereArray[i],fEventManager);
-		// delete hitSphereArray[i];
+   if(fhitBoxSet) {
+    fhitBoxSet->Reset();
+    gEve->RemoveElement(fhitBoxSet, fEventManager);
+    
+  }
+  
+
+ /* TEveGeoShape* hitShape; 
+  if(hitSphereArray.size()>0)
+    for(Int_t i=0;i<hitSphereArray.size();i++){
+    hitShape = hitSphereArray[i]; 
+    gEve->RemoveElement(hitShape,fEventManager);
+  }*/
+
+   
+   //hitSphereArray.clear();
 		
    
 
