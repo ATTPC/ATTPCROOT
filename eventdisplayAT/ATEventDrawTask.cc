@@ -48,6 +48,7 @@ ATEventDrawTask::ATEventDrawTask()
   //x(0),
   //hitSphereArray(0),
   fhitBoxSet(0),
+  fPadPlanePal(0),
   fHitColor(kPink),
   fHitSize(1),
   fHitStyle(kFullDotMedium),
@@ -203,6 +204,7 @@ ATEventDrawTask::DrawHitPoints()
 {
   
   TRandom r(0);
+  
   fQEventHist_H->Reset(0);
   ATEvent* event = (ATEvent*) fHitArray->At(0); // TODO: Why this confusing name? It should be fEventArray
   Double_t Qevent=event->GetEventCharge();
@@ -254,6 +256,8 @@ ATEventDrawTask::DrawHitPoints()
     //std::cout<<"  Hit number : "<<iHit<<" - Position X : "<<position.X()<<" - Position Y : "<<position.Y()<<" - Position Z : "<<position.Z()<<" - ATHit Pad Number :  "<<PadNumHit<<" - Pad bin :"<<Atbin<<" - Hit Charge : "<<hit.GetCharge()<<std::endl;
       
    
+      
+      
    /*  x = new TEveGeoShape(Form("hitShape_%d",iHit)); 
      x->SetShape(new TGeoSphere(0, 0.1*hit.GetCharge()/300.));
      x->RefMainTrans().SetPos(position.X()/10.,
@@ -261,27 +265,88 @@ ATEventDrawTask::DrawHitPoints()
                              position.Z()/10.);
      hitSphereArray.push_back(x);*/
 
-    
+      
     // Float_t HitBoxYDim = TMath::Log(hit.GetCharge())*0.05;
-        Float_t HitBoxYDim = hit.GetCharge()*0.001;
-        Float_t HitBoxZDim = 0.05;
-        Float_t HitBoxXDim = 0.05;
+     //   Float_t HitBoxYDim = hit.GetCharge()*0.001;
+     //   Float_t HitBoxZDim = 0.05;
+      //  Float_t HitBoxXDim = 0.05;
     
-     fhitBoxSet->AddBox(position.X()/10. - HitBoxXDim/2.0, position.Y()/10., position.Z()/10. - HitBoxZDim/2.0,
-                HitBoxXDim,HitBoxYDim,HitBoxZDim); //This coordinates are x,y,z in our system
-     fhitBoxSet->DigitColor(r.Uniform(20, 255), r.Uniform(20, 255),
-                    r.Uniform(20, 255), r.Uniform(20, 255));
+    // fhitBoxSet->AddBox(position.X()/10. - HitBoxXDim/2.0, position.Y()/10., position.Z()/10. - HitBoxZDim/2.0,
+      //          HitBoxXDim,HitBoxYDim,HitBoxZDim); //This coordinates are x,y,z in our system
+   
+      
+  //   Float_t xrgb=255,yrgb=0,zrgb=0;
+    /*  if(fPadPlanePal){
+          
+       //  Int_t cHit = fPadPlanePal->GetValueColor();
+         // Int_t cHit = 100;
+         //TColor *hitBoxColor = gROOT->GetColor(cHit);
+          //hitBoxColor->GetRGB(xrgb,yrgb,zrgb);
+        
+          std::cout<<" xrgb : "<<xrgb<<std::endl;
+           std::cout<<" yrgb : "<<yrgb<<std::endl;
+           std::cout<<" zrgb : "<<zrgb<<std::endl;
+          
+      }*/
+    
+   //  fhitBoxSet->DigitColor(xrgb,yrgb,zrgb, 0);
  
      
     
      
   }
     
+    //////////////////////// Colored Box Drawing ////////////////
+    
+    fPadPlane -> Draw("zcol");
+    gPad ->Update();
+    fPadPlanePal
+    = (TPaletteAxis *) fPadPlane->GetListOfFunctions()->FindObject("palette");
+    
+    
+    
+    
+    
+    for(Int_t iHit=0; iHit<nHits; iHit++)
+    {
+        
+    ATHit hit = event->GetHitArray()->at(iHit);
+    TVector3 position = hit.GetPosition();
+          Float_t HitBoxYDim = hit.GetCharge()*0.001;
+          Float_t HitBoxZDim = 0.05;
+          Float_t HitBoxXDim = 0.05;
+        
+         fhitBoxSet->AddBox(position.X()/10. - HitBoxXDim/2.0, position.Y()/10., position.Z()/10. - HitBoxZDim/2.0,
+                  HitBoxXDim,HitBoxYDim,HitBoxZDim); //This coordinates are x,y,z in our system
+        
+        
+    Float_t xrgb=255,yrgb=0,zrgb=0;
+    if(fPadPlanePal){
+        
+        Int_t cHit = fPadPlanePal->GetValueColor(hit.GetCharge());
+        TColor *hitBoxColor = gROOT->GetColor(cHit);
+        hitBoxColor->GetRGB(xrgb,yrgb,zrgb);
+        
+        //std::cout<<" xrgb : "<<xrgb<<std::endl;
+        //std::cout<<" yrgb : "<<yrgb<<std::endl;
+        //std::cout<<" zrgb : "<<zrgb<<std::endl;
+        //std::cout<<fPadPlanePal<<std::endl;
+        
+    }
+    
+         fhitBoxSet->DigitColor(xrgb*255,yrgb*255,zrgb*255, 0);
+       
+    }
+    
+     /////////////////////// End of colored box drawing ////////////////////////////
+    
     fhitBoxSet->RefitPlex();
     TEveTrans& tHitBoxPos = fhitBoxSet->RefMainTrans();
     tHitBoxPos.SetPos(0.0, 0.0, 0.0);
    
    //for(Int_t i=0;i<hitSphereArray.size();i++) gEve->AddElement(hitSphereArray[i]);
+    
+  
     
     
     Int_t nPads = fRawevent->GetNumPads();
@@ -478,7 +543,27 @@ ATEventDrawTask::DrawPadPlane()
  // fAtMapPtr->SetGUIMode();// This method does not need to be called since it generates the Canvas we do not want
     fPadPlane = fAtMapPtr->GetATTPCPlane();
     fCvsPadPlane -> cd();
-    fPadPlane -> Draw("col");
+    fPadPlane -> Draw("COLZ");
+    gPad ->Update();
+    
+    
+  /*  fPadPlanePal
+    = (TPaletteAxis *) fPadPlane->GetListOfFunctions()->FindObject("palette");
+    
+    
+    
+    
+    if(fPadPlanePal){
+        
+        Int_t cHit = fPadPlanePal->GetValueColor(30.0);
+        TColor *hitBoxColor = gROOT->GetColor(cHit);
+        Float_t xrgb,yrgb,zrgb;
+        std::cout<<" xrgb : "<<xrgb<<std::endl;
+        hitBoxColor->GetRGB(xrgb,yrgb,zrgb);
+        
+        
+    }*/
+
   
 }
 
@@ -562,8 +647,7 @@ ATEventDrawTask::UpdateCvsPadPlane()
   fCvsPadPlane -> Modified();
   fCvsPadPlane -> Update();
 
-  TPaletteAxis *paxis 
-    = (TPaletteAxis *) fPadPlane->GetListOfFunctions()->FindObject("palette");
+ 
 
   /*if (paxis) {
     if(fIs2DPlotRange) {

@@ -1,5 +1,6 @@
 #include "ATEventProtoDrawTask.hh"
 #include "AtTpcProtoMap.h"
+#include "TPaletteAxis.h"
 
 ClassImp(ATEventProtoDrawTask)
 
@@ -29,6 +30,9 @@ ATEventProtoDrawTask::DrawPadPlane()
     fAtMapPtr->SetGeoFile("proto_geo_hires.root");
     fPadPlane = fAtMapPtr->GetATTPCPlane("ATTPC_Proto");
     fCvsPadPlane -> cd();
-    fPadPlane -> Draw("col");
+    fPadPlane -> Draw("zcol");
+    
+   
+
   
 }

@@ -16,6 +16,7 @@
 #include "TEveBoxSet.h"
 #include "TClonesArray.h"
 #include "TVector3.h"
+#include "TPaletteAxis.h"
 
 #include "TCanvas.h"
 #include "TH2.h"
@@ -113,6 +114,8 @@ class ATEventDrawTask : public FairTask
    // std::vector<TEveGeoShape*> hitSphereArray;
 
     TEveBoxSet* fhitBoxSet;
+    
+    TPaletteAxis *fPadPlanePal;
     
     Color_t fHitColor;
     Size_t  fHitSize;
