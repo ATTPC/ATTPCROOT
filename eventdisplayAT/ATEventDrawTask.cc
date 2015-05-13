@@ -637,13 +637,13 @@ ATEventDrawTask::DrawHoughSpace()
 {
    fCvsHoughSpace->cd();
    fHoughSpace = new TH2F();
-   fHoughSpace->Draw("zcol");
+   fHoughSpace->Draw("LEGO2Z");
 }
 
 void
 ATEventDrawTask::UpdateCvsPadPlane()
 {
-  fHoughSpace->Draw("zcol");
+  fHoughSpace->Draw("LEGO2Z");
   fCvsPadPlane -> Modified();
   fCvsPadPlane -> Update();
 

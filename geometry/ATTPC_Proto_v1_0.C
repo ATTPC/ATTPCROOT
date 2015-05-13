@@ -183,13 +183,13 @@ TGeoVolume* create_detector()
   TGeoVolume *fc_outer_ring = gGeoManager->MakeTorus("fc_outer_ring", fc_rings_med,fc_outer_ring_diam/2.0,fc_outer_ring_idiam/2.0,fc_outer_ring_odiam/2.0);
     fc_outer_ring->SetLineColor(kRed+2);
   
-    for(Int_t i=0;i<50;i++){
+  /*  for(Int_t i=0;i<50;i++){
         gGeoMan->GetVolume(geoVersion)->AddNode(fc_inner_ring,i, new TGeoTranslation(0,0,0.5+i));
         fc_inner_ring->SetTransparency(50);
         gGeoMan->GetVolume(geoVersion)->AddNode(fc_outer_ring,i, new TGeoTranslation(0,0,0.5+i));
         fc_outer_ring->SetTransparency(50);
 
-    }
+    }*/
     
   // Single detector_layer
  /* TGeoBBox* det_plane = new TGeoBBox("", Module_Size_X/2., Module_Size_Y/2., Module_Size_Z/2.);
