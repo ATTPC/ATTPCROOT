@@ -5,7 +5,7 @@ ClassImp(ATHoughSpaceLine)
 ATHoughSpaceLine::ATHoughSpaceLine()
 {
     HoughPar.clear();
-    HistHoughXZ = new TH2F("HistHoughXZ","HistHoughXZ",200,0,3.15,200,0,300);
+    HistHoughXZ = new TH2F("HistHoughXZ","HistHoughXZ",500,0,3.15,500,0,300);
 }
 
 ATHoughSpaceLine::~ATHoughSpaceLine()

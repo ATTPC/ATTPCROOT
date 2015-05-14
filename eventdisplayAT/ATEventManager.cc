@@ -67,9 +67,12 @@ ATEventManager::ATEventManager()
   fCvsQEvent(0),
   fCvsHough(0),
   drawallpad(0),
+  eraseQevent(0),
+  drawHoughSpace(0),
   kDrawAllOn(0),
   kDrawAllOff(0),
-  kEraseQ(0)
+  kEraseQ(0),
+  kDrawHoughOn(0)
 
 {
   fInstance=this;
@@ -391,6 +394,10 @@ ATEventManager::make_gui()
         eraseQevent->Connect("Clicked()", "ATEventManager", fInstance, "EraseQEvent()");
         hf->AddFrame(eraseQevent, new TGLayoutHints(kLHintsCenterX, 5, 5, 3, 4));
 
+        drawHoughSpace = new TGTextButton(hf, "&Enable Hough Space");
+        drawHoughSpace -> SetToolTipText("Press to enable Hough Space visualization",400);
+        drawHoughSpace ->Connect("Clicked()", "ATEventManager", fInstance, "EnableDrawHoughSpace()");
+        hf->AddFrame(drawHoughSpace, new TGLayoutHints(kLHintsCenterX, 5, 5, 3, 4));
 
 
       /*  b = new TGPictureButton(hf, gClient->GetPicture(icondir+"arrow_left.gif"));
@@ -483,6 +490,21 @@ ATEventManager::ChangeDrawAllPads()
         kDrawAllOn = kFALSE;
     }
     drawallpad->SetState(kButtonUp);
+}
+
+void
+ATEventManager::EnableDrawHoughSpace(){
+
+     drawHoughSpace->SetState(kButtonDown);
+     if (!kDrawHoughOn){
+	 drawHoughSpace->SetText("&Disable Hough Space");
+         kDrawHoughOn = kTRUE;
+    } else {
+        drawHoughSpace->SetText("&Enable Hough Space");
+        kDrawHoughOn = kFALSE;
+    }
+       drawHoughSpace->SetState(kButtonUp);
+
 }
 
 void

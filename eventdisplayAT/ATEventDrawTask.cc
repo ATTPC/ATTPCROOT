@@ -184,7 +184,7 @@ ATEventDrawTask::Exec(Option_t* option)
   
   
   if(fHitArray) DrawHitPoints();
-  if(fHoughSpaceArray && fUnpackHough) DrawHSpace();
+  if(fHoughSpaceArray && fUnpackHough ) DrawHSpace();
   
   //if(fHitClusterArray) DrawHitClusterPoints();
   //if(fRiemannTrackArray) DrawRiemannHits();
@@ -196,7 +196,7 @@ ATEventDrawTask::Exec(Option_t* option)
   UpdateCvsPadAll();
   UpdateCvsQEvent();
   UpdateCvsRhoVariance();
-  if(fUnpackHough) UpdateCvsHoughSpace();
+  if(fUnpackHough && fEventManager->GetDrawHoughSpace() ) UpdateCvsHoughSpace();
 }
 
 void 
@@ -395,9 +395,12 @@ void
 ATEventDrawTask::DrawHSpace()
 {
 
-   
-    ATHoughSpaceLine* HoughSpace = (ATHoughSpaceLine*) fHoughSpaceArray->At(0);
+   ATHoughSpaceLine* HoughSpace = (ATHoughSpaceLine*) fHoughSpaceArray->At(0);
+   if(fEventManager->GetDrawHoughSpace()){
+    
     fHoughSpace = HoughSpace->GetHoughSpace("XZ");
+   }
+   else fHoughSpace = new TH2F();
 
 }
 
@@ -637,13 +640,13 @@ ATEventDrawTask::DrawHoughSpace()
 {
    fCvsHoughSpace->cd();
    fHoughSpace = new TH2F();
-   fHoughSpace->Draw("LEGO2Z");
+   fHoughSpace->Draw("contz");
 }
 
 void
 ATEventDrawTask::UpdateCvsPadPlane()
 {
-  fHoughSpace->Draw("LEGO2Z");
+  fHoughSpace->Draw("contz");
   fCvsPadPlane -> Modified();
   fCvsPadPlane -> Update();
 

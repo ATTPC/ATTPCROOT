@@ -30,6 +30,7 @@ class ATEventManager : public TEveEventManager
     virtual void SelectEvent();
     static void DrawWave();
     void ChangeDrawAllPads();
+    void EnableDrawHoughSpace();
     void EraseQEvent();
 
     void AddTask(FairTask* task) { fRunAna->AddTask(task); }
@@ -44,6 +45,7 @@ class ATEventManager : public TEveEventManager
     TCanvas* GetCvsQEvent() { return fCvsQEvent; }
     TCanvas* GetCvsHoughSpace() { return fCvsHough; }
     Bool_t GetDrawAllPad() { return kDrawAllOn; }
+    Bool_t GetDrawHoughSpace() { return kDrawHoughOn; }
     Bool_t GetEraseQEvent() {Bool_t EraseBuff = kEraseQ; kEraseQ=kFALSE; return EraseBuff; }
 
     void RunEvent();
@@ -65,9 +67,11 @@ class ATEventManager : public TEveEventManager
 
     TGTextButton *drawallpad;
     TGTextButton *eraseQevent;
+    TGTextButton *drawHoughSpace;
     Bool_t kDrawAllOn;
     Bool_t kDrawAllOff;
     Bool_t kEraseQ;
+    Bool_t kDrawHoughOn;
 
     static ATEventManager* fInstance;
 
