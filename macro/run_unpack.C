@@ -48,6 +48,7 @@ void run_unpack(){
   //decoderTask -> AddData("/home/daq/Desktop/Yassid/ATTPC/run_0225/test");
   //decoderTask ->SetMap("/Users/yassidayyad/fair_install/ATTPCROOT_Apr/scripts/Lookup20141208.xml");
   decoderTask -> AddData("/Users/yassidayyad/Desktop/ATTPC/Data/run_0225/test");
+  decoderTask -> AddData("/home/ayyadlim/Desktop/Yassid/ATTPC/Data/run_0141/run_0141.graw");
   decoderTask -> SetPositivePolarity(kTRUE);
   
   //decoderTask -> SetData(0);
@@ -90,7 +91,7 @@ void run_unpack(){
 
   run->Init();
 
-  run->Run(0, 10); // Number must be lower than the number of events in dummy
+  run->Run(0, 150); // Number must be lower than the number of events in dummy
 
   // -----   Finish   -------------------------------------------------------
 	timer.Stop();

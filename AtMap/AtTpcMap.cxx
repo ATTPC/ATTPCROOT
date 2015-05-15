@@ -170,7 +170,7 @@ void AtTpcMap::GenerateATTPC(){
 
 	   for(Int_t i =0;i<pad_index;i++){
         	for(Int_t j=0;j<3;j++){
-           		 AtPadCoord[i+pad_index][j][0]=-AtPadCoord[i][j][0];
+           		 AtPadCoord[i+pad_index][j][0]=AtPadCoord[i][j][0];
            		 AtPadCoord[i+pad_index][j][1]=-AtPadCoord[i][j][1];
             
              
@@ -295,7 +295,7 @@ void AtTpcMap::ParseATTPCMap(TXMLNode *node){
 				fAsadID = atoi(node->GetText());
 				if (strcmp(node->GetNodeName(), "AgetID") == 0)
 				fAgetID = atoi(node->GetText());
-        if (strcmp(node->GetNodeName(), "ChannelID") == 0)
+       			        if (strcmp(node->GetNodeName(), "ChannelID") == 0)
 				fChannelID = atoi(node->GetText());
 				if (strcmp(node->GetNodeName(), "PadID") == 0)
 				fPadID = atoi(node->GetText());
@@ -308,8 +308,8 @@ void AtTpcMap::ParseATTPCMap(TXMLNode *node){
 		}
 
 		PadKey.push_back(fCoboID);
-    PadKey.push_back(fAsadID);
-    PadKey.push_back(fAgetID);
+                PadKey.push_back(fAsadID);
+                PadKey.push_back(fAgetID);
 		PadKey.push_back(fChannelID);
                 
 		ATTPCPadMap.insert(std::pair<std::vector<int>,int>(PadKey,fPadID));
