@@ -1,4 +1,4 @@
-void run_unpack_proto(){
+void run_unpack_proto_10Be(){
 
 
     // -----   Timer   --------------------------------------------------------
@@ -9,7 +9,7 @@ void run_unpack_proto(){
 
    gSystem->Load("libXMLParser.so");
 
-   TString scriptfile = "LookupProto20150331.xml";
+   TString scriptfile = "LookupProto10Be.xml";
    TString protomapfile = "proto.map";
    TString dir = getenv("VMCWORKDIR");
    TString scriptdir = dir + "/scripts/"+ scriptfile;
@@ -45,7 +45,7 @@ void run_unpack_proto(){
    //decoderTask -> AddData("/Users/yassidayyad/Desktop/ATTPC/Data/Notre_Dame_data/CoBo_AsAd0_2015-01-27T15_19_34.962_0000.graw");
    //decoderTask ->AddData("/home/ayyadlim/Desktop/Yassid/ATTPC/Data/Notre_Dame_data/CoBo_AsAd0_2015-01-26T19_33_23.451_0003.graw"); //12N
    //decoderTask -> AddData("/home/ayyadlim/Desktop/Yassid/ATTPC/Data/Notre_Dame_data/CoBo_AsAd0_2015-01-28T07:02:50.291_0000.graw");//12B High Pressure
-   decoderTask -> AddData("/home/ayyadlim/Desktop/Yassid/ATTPC/Data/Notre_Dame_data/CoBo_AsAd0_2015-01-28T16:56:24.135_0000.graw");//12B Low Pressure
+   decoderTask -> AddData("/home/ayyadlim/Desktop/Yassid/ATTPC/Data/Notre_Dame_data/10Be/CoBo_2013-02-21_12-52-57_0006.graw");//10Be experiment
    decoderTask ->SetGeo(geo.Data());
    decoderTask ->SetProtoMap(protomapdir.Data());
    decoderTask ->SetMap(scriptdir.Data());
@@ -63,7 +63,7 @@ void run_unpack_proto(){
 
    run->Init();
 
-   run->Run(0,1000); // Number must be lower than the number of events in dummy
+   run->Run(0,2000); // Number must be lower than the number of events in dummy
 
  // -----   Finish   -------------------------------------------------------
 	timer.Stop();

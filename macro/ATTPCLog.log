@@ -1,7 +1,7 @@
-[INFO   ] [FairRootManager.cxx::OpenOutFile:407] FairRootManager::OpenOutFile("output.root")
+[INFO   ] [FairRootManager.cxx::OpenOutFile:407] FairRootManager::OpenOutFile("output_proto.root")
 [INFO   ] [FairFileSource.cxx::PrintFriendList:334] The input consists out of the following trees and files: 
 [INFO   ] [FairFileSource.cxx::PrintFriendList:336]  - cbmsim 
-[INFO   ] [FairFileSource.cxx::PrintFriendList:341]     - mc.dummy.root 
+[INFO   ] [FairFileSource.cxx::PrintFriendList:341]     - mc.dummy_proto.root 
 [INFO   ] [FairRunAna.cxx::Init:219] Parameter and input file are available, Assure that basic info is there for the run! 
 [INFO   ] [FairRootManager.cxx::ReadEvent:786] The number of entries in the tree is 20000 
 [INFO   ] [FairRootManager.cxx::ReadEvent:787] FairRootManager::ReadEvent(0): The tree has 20000 entries

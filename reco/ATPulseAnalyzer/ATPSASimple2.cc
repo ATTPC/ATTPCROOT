@@ -83,7 +83,7 @@ ATPSASimple2::Analyze(ATRawEvent *rawEvent, ATEvent *event)
       HitPos =  hit->GetPosition();
       Rho2+= HitPos.Mag2();
       RhoMean+=HitPos.Mag();
-      if(xPos<-9000 || yPos<-9000) std::cout<<" ATPSASimple2::Analyze Warning! Wrong Coordinates por Pad : "<<pad->GetPadNum()<<std::endl;
+      if(xPos<-9000 || yPos<-9000) std::cout<<" ATPSASimple2::Analysis Warning! Wrong Coordinates for Pad : "<<pad->GetPadNum()<<std::endl;
       //std::cout<<"  =============== Next Hit Variance Info  =============== "<<std::endl; 
       //std::cout<<" Hit Num : "<<hitNum<<"  - Hit Pos Rho2 : "<<HitPos.Mag2()<<"  - Hit Pos Rho : "<<HitPos.Mag()<<std::endl;
       //std::cout<<" Hit Coordinates : "<<xPos<<"  -  "<<yPos<<" - "<<zPos<<"  -  "<<std::endl;
