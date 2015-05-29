@@ -1,5 +1,3 @@
-
-// SpiRITROOT classes
 #include "ATPSA.hh"
 
 // FairRoot classes

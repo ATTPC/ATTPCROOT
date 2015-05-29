@@ -207,7 +207,7 @@ ATEventDrawTask::DrawHitPoints()
   
   fQEventHist_H->Reset(0);
   ATEvent* event = (ATEvent*) fHitArray->At(0); // TODO: Why this confusing name? It should be fEventArray
-  event->SortHitArray();
+  //event->SortHitArray(); // Works surprisingly well
   Double_t Qevent=event->GetEventCharge();
   Double_t RhoVariance=event->GetRhoVariance();
   if(fEventManager->GetEraseQEvent()){ 
@@ -247,8 +247,8 @@ ATEventDrawTask::DrawHitPoints()
     Int_t PadNumHit = hit.GetHitPadNum();
     Int_t PadMultHit = event->GetHitPadMult(PadNumHit);
     
-    std::cout<<" Hit : "<<iHit<<" ATHit Pad Number :  "<<PadNumHit<<" Pad Hit Mult : "<<PadMultHit<<std::endl;
-    std::cout<<"  Hit number : "<<iHit<<" - ATHit Pad Number :  "<<PadNumHit<<" - Hit Charge : "<<hit.GetCharge()<<std::endl;
+    //std::cout<<" Hit : "<<iHit<<" ATHit Pad Number :  "<<PadNumHit<<" Pad Hit Mult : "<<PadMultHit<<std::endl;
+    //std::cout<<"  Hit number : "<<iHit<<" - ATHit Pad Number :  "<<PadNumHit<<" - Hit Charge : "<<hit.GetCharge()<<std::endl;
     if(hit.GetCharge()<fThreshold) continue;
     TVector3 position = hit.GetPosition();
     

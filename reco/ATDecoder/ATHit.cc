@@ -1,5 +1,7 @@
 #include "ATHit.hh"
 
+ClassImp(ATHit)
+
 ATHit::ATHit()
 {
   fTrackID = -1;

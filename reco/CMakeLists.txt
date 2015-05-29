@@ -13,6 +13,7 @@ ${CMAKE_SOURCE_DIR}/reco/GETDecoder
 ${CMAKE_SOURCE_DIR}/reco/ATDecoder
 ${CMAKE_SOURCE_DIR}/reco/ATPulseAnalyzer
 ${CMAKE_SOURCE_DIR}/reco/HoughTransformation
+${CMAKE_SOURCE_DIR}/reco/ATProtoPhiReco
 
 )
 
@@ -37,6 +38,7 @@ ATDecoder/ATPad.cc
 ATDecoder/ATRawEvent.cc
 ATDecoder/ATHit.cc
 ATDecoder/ATEvent.cc
+ATDecoder/ATProtoQuadrant.cc
 
 ATPulseAnalyzer/ATPSA.cc
 ATPulseAnalyzer/ATPSASimple.cc
@@ -46,8 +48,12 @@ ATPulseAnalyzer/ATPSASimple2.cc
 HoughTransformation/ATHoughSpace.cc
 HoughTransformation/ATHoughSpaceLine.cc
 
+ATProtoPhiReco/ATPhiReco.cc
+ATProtoPhiReco/ATPhiRecoSimple.cc
+
 ATDecoderTask.cc
 ATPSATask.cc
+ATPhiRecoTask.cc
 ATHoughTask.cc
 
 )

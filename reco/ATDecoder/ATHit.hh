@@ -1,4 +1,3 @@
-
 #ifndef ATHIT_H
 #define ATHIT_H
 
