@@ -7,6 +7,7 @@
 #include <vector>
 
 #include "ATHit.hh"
+#include <map>
 //#include "STHitCluster.hh"
 //#include "STTrack.hh"
 
@@ -32,6 +33,7 @@ class ATEvent : public TNamed {
     void SetIsClustered(Bool_t value);
     void SetIsTracked(Bool_t value);
     void SetIsChanged(Bool_t value);
+    void SetMultiplicityMap(std::map<Int_t,Int_t> MultiMap);
 
     void SetIsGood(Bool_t value);
 
@@ -56,12 +58,16 @@ class ATEvent : public TNamed {
    
     Double_t GetEventCharge();
     Double_t GetRhoVariance();
+    Int_t GetHitPadMult(Int_t PadNum); // Returns the multiplicity of the pad where this hit belongs to
 
     Bool_t IsClustered();
     Bool_t IsTracked();
     Bool_t IsChanged();
 
     Bool_t IsGood();
+
+    static Bool_t SortHit(const ATHit &lhs, const ATHit &rhs)  { return lhs.fPadNum < rhs.fPadNum; }
+    Bool_t SortHitArray();   
 
   private:
     Bool_t fIsClustered;
@@ -74,12 +80,20 @@ class ATEvent : public TNamed {
 
     vector<ATHit> fHitArray;
     //vector<ATHitCluster> fClusterArray;
-//    vector<STTrack> fTrackArray;
+    //vector<STTrack> fTrackArray;
     Double_t fQevent;
     Double_t fRhoVariance;
+    std::map<Int_t,Int_t> fMultiMap;
+
+
+
    
 
   ClassDef(ATEvent, 2);
 };
+
+//Bool_t operator<(const ATHit &s1, const ATHit &s2);
+
+
 
 #endif

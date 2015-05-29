@@ -2,6 +2,7 @@
 
 // STL
 #include <cmath>
+#include <map>
 
 ClassImp(ATPSASimple2)
 
@@ -23,12 +24,13 @@ ATPSASimple2::Analyze(ATRawEvent *rawEvent, ATEvent *event)
   Double_t RhoVariance = 0.0;
   Double_t RhoMean = 0.0;
   Double_t Rho2 = 0.0;
-  
+  std::map<Int_t,Int_t> PadMultiplicity;
 
   for (Int_t iPad = 0; iPad < numPads; iPad++) {
     ATPad *pad = rawEvent -> GetPad(iPad);
       Int_t PadNum = pad->GetPadNum();
-      Double_t QHitTot = 0.0;      
+      Double_t QHitTot = 0.0;
+      Int_t PadHitNum = 0;   
       TVector3 HitPos;
     
     //Double_t xPos = CalculateX(pad -> GetRow()); //Obsolete
@@ -79,6 +81,7 @@ ATPSASimple2::Analyze(ATRawEvent *rawEvent, ATEvent *event)
       if(iPeak==0) QEventTot+=QHitTot; //Sum only if Hit is valid - We only sum once to account for the whole spectrum.
 
       ATHit *hit = new ATHit(PadNum,hitNum, xPos, yPos, zPos, charge);
+      PadHitNum++;
       hit->SetQHit(QHitTot); // TODO: The charge of each hit is the total charge of the spectrum, so for double structures this is unrealistic.
       HitPos =  hit->GetPosition();
       Rho2+= HitPos.Mag2();
@@ -94,12 +97,16 @@ ATPSASimple2::Analyze(ATRawEvent *rawEvent, ATEvent *event)
       hitNum++;
     }// Peak loop
      
+     PadMultiplicity.insert(std::pair<Int_t,Int_t>(PadNum,PadHitNum));
+
   }// Pad loop
     // std::cout<<"  --------------------------------- "<<std::endl;
      //std::cout<<" Rho2 : "<<Rho2<<" - RhoMean : "<<RhoMean<<" Num of Hits : "<<event->GetNumHits()<<std::endl;
      RhoVariance = Rho2 - ( pow(RhoMean,2)/(event->GetNumHits()) );
      RhoVariance = Rho2 - ( event->GetNumHits()*pow((RhoMean/event->GetNumHits()),2) ) ;
      //std::cout<<" Rho Variance : "<<RhoVariance<<std::endl;
+     event -> SetMultiplicityMap(PadMultiplicity);
      event -> SetRhoVariance(RhoVariance);
      event -> SetEventCharge(QEventTot);
+     
 }

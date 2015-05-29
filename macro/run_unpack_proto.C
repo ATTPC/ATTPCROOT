@@ -63,7 +63,7 @@ void run_unpack_proto(){
 
    run->Init();
 
-   run->Run(0,1000); // Number must be lower than the number of events in dummy
+   run->Run(0,100); // Number must be lower than the number of events in dummy
 
  // -----   Finish   -------------------------------------------------------
 	timer.Stop();

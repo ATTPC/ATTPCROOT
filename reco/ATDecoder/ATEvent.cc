@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <algorithm>
 
 #include "ATEvent.hh"
 
@@ -15,8 +16,11 @@ ATEvent::ATEvent(Bool_t isClustered, Bool_t isTracked, Bool_t isChanged)
   fIsChanged = isChanged;
 
   fIsGood = kFALSE;
-    fQevent = -100.0;
-    fRhoVariance = 0.0;
+  fQevent = -100.0;
+  fRhoVariance = 0.0;
+
+  
+ 
 }
 
 ATEvent::ATEvent(ATEvent *object)
@@ -36,10 +40,14 @@ ATEvent::ATEvent(ATEvent *object)
     //fClusterArray = *(object -> GetClusterArray());
 
   fIsGood = object -> IsGood();
+
+ 
+
 }
 
 ATEvent::~ATEvent()
 {
+
 }
 
 void ATEvent::SetIsClustered(Bool_t value)   { fIsClustered = value; }
@@ -62,6 +70,9 @@ void ATEvent::AddHit(ATHit *hit)                                  { fHitArray.pu
 void ATEvent::SetHitArray(vector<ATHit> *hitArray)                { fHitArray = *hitArray; } 
 //void ATEvent::AddCluster(ATHitCluster *cluster)                   { fClusterArray.push_back(*cluster); } 
 //void ATEvent::SetClusterArray(vector<ATHitCluster> *clusterArray) { fClusterArray = *clusterArray; }
+void ATEvent::SetEventCharge(Double_t Qevent)  			  {fQevent = Qevent;}
+void ATEvent::SetRhoVariance(Double_t RhoVariance)                { fRhoVariance = RhoVariance;}
+void ATEvent::SetMultiplicityMap(std::map<Int_t,Int_t> MultiMap)  { fMultiMap = MultiMap;}
 
 // getters
 Int_t ATEvent::GetEventID() { return fEventID; }
@@ -106,10 +117,46 @@ vector<ATHit> *ATEvent::GetHitArray()
   return &fClusterArray;
 }*/
 
-void ATEvent::SetEventCharge(Double_t Qevent)  {fQevent = Qevent;}
+
 Double_t ATEvent::GetEventCharge()  {return fQevent;}
-void ATEvent::SetRhoVariance(Double_t RhoVariance) { fRhoVariance = RhoVariance;}
 Double_t ATEvent::GetRhoVariance()  { return fRhoVariance;}
+
+Int_t ATEvent::GetHitPadMult(Int_t PadNum)
+{
+
+    std::map<Int_t,Int_t>::const_iterator its = fMultiMap.find(PadNum);
+    Int_t padval = (*its).second;
+    Int_t kIs = int(fMultiMap.find(PadNum) == fMultiMap.end());
+    if(kIs){
+                    std::cerr<<" = ATEvent::GetHitPadMulti - PadNum not found "<<PadNum<<std::endl;
+                    return -1;
+    }else return padval;
+
+
+}
+
+Bool_t ATEvent::SortHitArray()
+{
+ 
+  std::sort(fHitArray.begin(),fHitArray.end(), SortHit);
+
+}
+
+//Bool_t operator<(const ATHit &s1, const ATHit &s2){
+
+
+//}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -38,6 +38,7 @@ class ATHit : public TObject {
     void SetClusterID(Int_t clusterID);
     
     void SetQHit(Double_t Qhit);
+    void SetHitMult(Int_t HitMult);
 
     //!< Track ID getter
     Int_t GetTrackID();
@@ -56,6 +57,8 @@ class ATHit : public TObject {
     
     Int_t GetHitPadNum();
     Double_t GetQHit();
+    Int_t GetHitMult();
+    Int_t fPadNum;
 
   private:
     //!< Track ID having this hit
@@ -74,7 +77,8 @@ class ATHit : public TObject {
     //!< Cluster ID having this hit
     Int_t fClusterID;
     
-    Int_t fPadNum;
+    
+    Int_t fHitMult; // Hit multiplicity in the pad where the hit was found
 
   ClassDef(ATHit, 1);
 };

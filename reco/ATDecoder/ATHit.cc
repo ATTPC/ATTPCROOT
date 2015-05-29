@@ -9,6 +9,7 @@ ATHit::ATHit()
   fClusterID = -1;
     fPadNum = -1;
     fQhit = -100.0;
+    fHitMult = 0;
 }
 
 ATHit::ATHit(Int_t hitID, TVector3 vec, Double_t charge)
@@ -20,6 +21,7 @@ ATHit::ATHit(Int_t hitID, TVector3 vec, Double_t charge)
   fClusterID = -1;
     fPadNum = -1;
     fQhit = -100.0;
+    fHitMult = 0;
 }
 
 ATHit::ATHit(Int_t hitID, Double_t x, Double_t y, Double_t z, Double_t charge)
@@ -31,6 +33,7 @@ ATHit::ATHit(Int_t hitID, Double_t x, Double_t y, Double_t z, Double_t charge)
   fClusterID = -1;
     fPadNum = -1;
     fQhit = -100.0;
+    fHitMult = 0;
 }
 
 ATHit::ATHit(Int_t PadNum,Int_t hitID, Double_t x, Double_t y, Double_t z, Double_t charge)
@@ -41,6 +44,7 @@ ATHit::ATHit(Int_t PadNum,Int_t hitID, Double_t x, Double_t y, Double_t z, Doubl
     fIsClustered = kFALSE;
     fClusterID = -1;
     fQhit = -100.0;
+    fHitMult = 0;
     
 }
 
@@ -51,7 +55,8 @@ ATHit::ATHit(ATHit *hit)
 
   fIsClustered = hit -> IsClustered();
   fClusterID = hit -> GetClusterID();
-    fQhit = -100.0;
+  fQhit = -100.0;
+  fHitMult = 0;
 }
 
 ATHit::~ATHit()
@@ -70,7 +75,7 @@ void ATHit::SetPosSigma(Double_t dx, Double_t dy, Double_t dz)          { fPosit
 void ATHit::SetCharge(Double_t charge)                                  { fCharge = charge; }
 
 void ATHit::SetQHit(Double_t Qhit)                                      { fQhit = Qhit;}
-Double_t ATHit::GetQHit()                                               { return fQhit;}
+void ATHit::SetHitMult(Int_t HitMult)					{ fHitMult = HitMult;}
 
 void ATHit::SetIsClustered(Bool_t value)                                { fIsClustered = value; }
 void ATHit::SetClusterID(Int_t clusterID)                               { fClusterID = clusterID; fIsClustered = kTRUE; }
@@ -81,5 +86,7 @@ Int_t ATHit::GetHitPadNum()                                             { return
 TVector3 ATHit::GetPosition()                                           { return fPosition; }
 TVector3 ATHit::GetPosSigma()                                           { return fPositionSigma; }
 Double_t ATHit::GetCharge()                                             { return fCharge; }
+Double_t ATHit::GetQHit()                                               { return fQhit;}
+Int_t ATHit::GetHitMult()						{ return fHitMult;}
 Bool_t ATHit::IsClustered()                                             { return fIsClustered; }
 Int_t ATHit::GetClusterID()                                             { return (fIsClustered ? fClusterID : -1); }
