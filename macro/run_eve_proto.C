@@ -24,6 +24,8 @@ void run_eve_proto()
   ATEventManager *eveMan = new ATEventManager();
   ATEventDrawTask* eve = new ATEventProtoDrawTask();
   eve->UnpackHoughSpace(); // Allows extract the Hough Space from root file. Disable it for a faster performance
+  eve->Set3DHitStyleBox();
+   // eve->Set3DHitStyleBar();
   eve->SetGeoOption("Prototype"); // Options: "ATTPC" - "Prototype"
   eve->SetProtoMap(protomapdir.Data());
 
