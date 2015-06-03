@@ -54,6 +54,8 @@ class ATEventDrawTask : public FairTask
     void SetThreshold(Int_t val) { fThreshold=val; }
     void UnpackHoughSpace()      { fUnpackHough=kTRUE; }
     void SetHitAttributes(Color_t, Size_t, Style_t);
+    void Set3DHitStyleBar();
+    void Set3DHitStyleBox();
     //void SetHitClusterAttributes(Color_t, Size_t, Style_t);
     //void SetRiemannAttributes(Color_t, Size_t, Style_t);
     
@@ -151,6 +153,8 @@ class ATEventDrawTask : public FairTask
     Int_t fMaxZ;
     Int_t fMinX;
     Int_t fMaxX;
+    
+    Int_t f3DHitStyle;
 
     ClassDef(ATEventDrawTask,1);
 };

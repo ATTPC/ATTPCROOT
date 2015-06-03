@@ -177,7 +177,8 @@ ATDecoderTask::Exec(Option_t *opt)
 {
   fRawEventArray -> Delete();
 
-  ATRawEvent *rawEvent = fDecoder -> GetRawEvent();
-  
+    ATRawEvent *rawEvent = fDecoder -> GetRawEvent(FairRootManager::Instance()->GetEntryNr());
+    
+  if(rawEvent !=NULL)
   new ((*fRawEventArray)[0]) ATRawEvent(rawEvent);
 }

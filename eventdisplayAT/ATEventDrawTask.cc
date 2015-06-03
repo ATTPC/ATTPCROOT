@@ -77,7 +77,8 @@ ATEventDrawTask::ATEventDrawTask()
   fMinZ(0),
   fMaxZ(1344),
   fMinX(432),
-  fMaxX(-432)
+  fMaxX(-432),
+  f3DHitStyle(0)
 {
 
   //fAtMapPtr = new AtTpcMap(); 
@@ -314,13 +315,27 @@ ATEventDrawTask::DrawHitPoints()
         
     ATHit hit = event->GetHitArray()->at(iHit);
     TVector3 position = hit.GetPosition();
+        
+        if(f3DHitStyle==0){
+          
           Float_t HitBoxYDim = hit.GetCharge()*0.001;
           Float_t HitBoxZDim = 0.05;
           Float_t HitBoxXDim = 0.05;
+          
+          fhitBoxSet->AddBox(position.X()/10. - HitBoxXDim/2.0, position.Y()/10., position.Z()/10. - HitBoxZDim/2.0,
+          HitBoxXDim,HitBoxYDim,HitBoxZDim); //This coordinates are x,y,z in our system
+           
+        }else if(f3DHitStyle==1){
         
-         fhitBoxSet->AddBox(position.X()/10. - HitBoxXDim/2.0, position.Y()/10., position.Z()/10. - HitBoxZDim/2.0,
+         Float_t HitBoxYDim = hit.GetCharge()*0.0002;
+         Float_t HitBoxZDim = hit.GetCharge()*0.0002;
+         Float_t HitBoxXDim = hit.GetCharge()*0.0002;
+        
+        
+        
+         fhitBoxSet->AddBox(position.X()/10. - HitBoxXDim/2.0, position.Y()/10. - HitBoxYDim/2.0, position.Z()/10. - HitBoxZDim/2.0,
                   HitBoxXDim,HitBoxYDim,HitBoxZDim); //This coordinates are x,y,z in our system
-        
+        }
         
     Float_t xrgb=255,yrgb=0,zrgb=0;
     if(fPadPlanePal){
@@ -860,3 +875,9 @@ ATEventDrawTask::ResetPadAll()
     
     
 }
+
+void
+ATEventDrawTask::Set3DHitStyleBar() {f3DHitStyle=0;}
+
+void
+ATEventDrawTask::Set3DHitStyleBox() {f3DHitStyle=1;}
