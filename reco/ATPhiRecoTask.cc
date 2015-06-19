@@ -17,7 +17,7 @@ ATPhiRecoTask::ATPhiRecoTask()
   fIsPersistence = kFALSE;
   fPhiRecoMode = 0; // Default
   
-  //fHoughArray = new TClonesArray("ATHoughSpaceLine"); //TODO Add the TClones Array container for our new Reconstructed hits
+  fQuadrantArray = new TClonesArray("ATProtoQuadrant"); 
 }
 
 ATPhiRecoTask::~ATPhiRecoTask()
@@ -59,7 +59,7 @@ ATPhiRecoTask::Init()
 
    //fPSA -> SetThreshold((Int_t)fThreshold);
 
-   // ioMan -> Register("ATHough", "ATTPC", fHoughArray, fIsPersistence);
+   ioMan -> Register("ATProtoQuadrant", "ATTPC", fQuadrantArray, fIsPersistence);
 
    
 
@@ -88,7 +88,7 @@ ATPhiRecoTask::SetParContainers()
 void
 ATPhiRecoTask::Exec(Option_t *opt)
 {
-  // fHoughArray -> Delete();
+   fQuadrantArray -> Delete();
 
  
 

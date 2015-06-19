@@ -36,7 +36,8 @@ class ATPhiRecoTask : public FairTask {
     
     ATDigiPar *fPar;
     
-    TClonesArray *fEventHArray; //TODO: Define a new container for the Phi reconstruction
+    TClonesArray *fEventHArray;
+    TClonesArray *fQuadrantArray; 
 
     ATPhiReco *fPhiReco;
     Int_t fPhiRecoMode;

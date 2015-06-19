@@ -4,6 +4,8 @@
 #include "TROOT.h"
 #include "TObject.h"
 #include "ATHit.hh"
+#include "TH1D.h"
+#include "TH1.h"
 
 #include <vector>
 
@@ -20,6 +22,7 @@ class ATProtoQuadrant : public TObject {
         void SetHitArray(std::vector<ATHit> *hitArray);
         void SetQuadrantID(Int_t QuadrantID);
         void SetPhiQ(Double_t PhiQ);
+        void SetPhiDistribution(TH1D* PhiD);
 
 	Int_t GetQuadrantID();
         Double_t GetPhiQ();
@@ -27,6 +30,7 @@ class ATProtoQuadrant : public TObject {
         Int_t GetNumHits();
         ATHit *GetHit(Int_t hitNo);
         std::vector<ATHit> *GetHitArray();
+        TH1D* GetPhiDistribution();
       
 
   protected:
@@ -35,6 +39,7 @@ class ATProtoQuadrant : public TObject {
         Int_t fQuadrantID; //Quadrant ID : 1 (0-90) - 2 (90 - 180) -  3 (180-270) - 4 (270-360) - 0 (Central Pad) [Defined in the Phi Task]
         //TODO: A ATTrack object must be collected here...Future stuff
         Int_t fEventID;
+        TH1D* fPhiDistr;
       
 
   ClassDef(ATProtoQuadrant, 1);

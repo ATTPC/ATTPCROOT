@@ -13,6 +13,7 @@ class ATPhiRecoSimple : public ATPhiReco
 
    private:
    void PhiCalc(ATProtoQuadrant *quadrant);
+   TH1D* PhiDist; 
 
   ClassDef(ATPhiRecoSimple, 1)
 };
