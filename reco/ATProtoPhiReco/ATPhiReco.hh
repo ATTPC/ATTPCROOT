@@ -32,7 +32,7 @@ class ATPhiReco
    
    protected:
      std::vector<ATProtoQuadrant> fQuadArray; //Limited to 4 
-     Double_t PhiCalc(ATProtoQuadrant *quadrant); // Calculates Phi Angle of two neighboring strips
+     //Double_t PhiCalc(ATProtoQuadrant *quadrant); // Calculates Phi Angle of two neighboring strips
  
 
   ClassDef(ATPhiReco,1)
