@@ -45,7 +45,7 @@ void run_unpack_proto(){
    //decoderTask -> AddData("/Users/yassidayyad/Desktop/ATTPC/Data/Notre_Dame_data/CoBo_AsAd0_2015-01-27T15_19_34.962_0000.graw");
    //decoderTask ->AddData("/home/ayyadlim/Desktop/Yassid/ATTPC/Data/Notre_Dame_data/CoBo_AsAd0_2015-01-26T19_33_23.451_0003.graw"); //12N
    //decoderTask -> AddData("/home/ayyadlim/Desktop/Yassid/ATTPC/Data/Notre_Dame_data/CoBo_AsAd0_2015-01-28T07:02:50.291_0000.graw");//12B High Pressure
-   decoderTask -> AddData("/Users/yassidayyad/Desktop/ATTPC/Data/Notre_Dame_data/CoBo_AsAd0_2015-01-28T16_56_24.135_0000.graw");//12B Low Pressure
+   decoderTask -> AddData("/home/ayyadlim/Desktop/Yassid/ATTPC/Data/Notre_Dame_data/CoBo_AsAd0_2015-01-28T16:56:24.135_0000.graw");//12B Low Pressure
    decoderTask ->SetGeo(geo.Data());
    decoderTask ->SetProtoMap(protomapdir.Data());
    decoderTask ->SetMap(scriptdir.Data());
@@ -63,7 +63,7 @@ void run_unpack_proto(){
 
    run->Init();
 
-   run->Run(0,0); // Number must be lower than the number of events in dummy
+   run->Run(0,100); // Number must be lower than the number of events in dummy
 
  // -----   Finish   -------------------------------------------------------
 	timer.Stop();

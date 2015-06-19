@@ -21,9 +21,12 @@ void ATPhiRecoSimple::PhiAnalyze(ATEvent *event){
                     
                     ATProtoQuadrant *ProtoQuad1 = new ATProtoQuadrant(1); // Quadrant ID : 1 
                     ProtoQuad1->SetEventID(event->GetEventID());
+                    ATProtoQuadrant *ProtoQuad2 = new ATProtoQuadrant(2); // Quadrant ID : 1 
+                    ProtoQuad2->SetEventID(event->GetEventID());
 
 			 for(Int_t iHit=0; iHit<nHits; iHit++){
 				ATHit hit = event->GetHitArray()->at(iHit);
+                                ATHit *phit = &hit;  
     			        Int_t PadNum = hit.GetHitPadNum();
                                 //std::cout<<" Hit : "<<iHit<<" ATHit Pad Number :  "<<PadNum<<std::endl;
                                 
@@ -32,13 +35,16 @@ void ATPhiRecoSimple::PhiAnalyze(ATEvent *event){
 					 
                                           //std::cout<<" Quadrant 1 "<<std::endl;
                                          // std::cout<<" Hit : "<<iHit<<" ATHit Pad Number :  "<<PadNum<<std::endl;
+  					 ProtoQuad1 ->AddHit(phit);
+                                         
+
                                             
 
 				    }else if(PadNum>63 && PadNum<127){
 
 					  // std::cout<<" Quadrant 2 "<<std::endl;
                                           // std::cout<<" Hit : "<<iHit<<" ATHit Pad Number :  "<<PadNum<<std::endl;
-
+					  ProtoQuad2 ->AddHit(phit);
 
 				    }else if(PadNum>126 && PadNum<190){
 
@@ -61,6 +67,8 @@ void ATPhiRecoSimple::PhiAnalyze(ATEvent *event){
 
 			}
 			
+			//PhiCalc(ProtoQuad1);
+			PhiCalc(ProtoQuad2);
 			ProtoQuad1->SetPhiQ(PhiQ1);
 			fQuadArray.push_back(*ProtoQuad1);
                         delete ProtoQuad1;
