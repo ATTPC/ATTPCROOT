@@ -67,3 +67,11 @@ void ATPhiRecoSimple::PhiAnalyze(ATEvent *event){
 
 
 }
+
+void ATPhiRecoSimple::PhiCalc(ATProtoQuadrant *quadrant)
+{
+
+
+}
+
+
