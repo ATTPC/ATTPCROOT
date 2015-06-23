@@ -14,6 +14,7 @@
 #pragma link C++ class ATRawEvent+;
 #pragma link C++ class ATHit+;
 #pragma link C++ class ATEvent+;
+#pragma link C++ class ATProtoEvent+;
 #pragma link C++ class ATProtoQuadrant+;
 
 #pragma link C++ class ATDecoderTask+;

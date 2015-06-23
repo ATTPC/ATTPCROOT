@@ -4,6 +4,7 @@
 #include "ATRawEvent.hh"
 #include "ATPad.hh"
 #include "ATEvent.hh"
+#include "ATProtoEvent.hh"
 #include "ATHit.hh"
 #include "ATHoughSpace.hh"
 #include "ATProtoQuadrant.hh"
@@ -25,7 +26,7 @@ class ATPhiReco
    public:
     ATPhiReco();
     virtual ~ATPhiReco();
-    virtual void PhiAnalyze(ATEvent *event) = 0;
+    virtual void PhiAnalyze(ATEvent *event,ATProtoEvent *protoevent) = 0;
     //virtual void PhiAnalyze(ATEvent *event, ATHoughSpace *HSpace) = 0; //TODO: Overload pure virtual functions???? 
 
     //TODO Ideas : Maximum separation in time buckets between two pulses - Sort the Hit Array vector 

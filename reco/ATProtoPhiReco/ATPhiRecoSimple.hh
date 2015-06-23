@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ATPhiReco.hh"
+#include "ATProtoEvent.hh"
 
 class ATPhiRecoSimple : public ATPhiReco
 {
@@ -8,7 +9,7 @@ class ATPhiRecoSimple : public ATPhiReco
     ATPhiRecoSimple();
     ~ATPhiRecoSimple();
    
-    void PhiAnalyze(ATEvent *event);
+    void PhiAnalyze(ATEvent *event,ATProtoEvent *protoevent);
     //void PhiAnalyze(ATEvent *event, ATHoughSpace *HSpace);
 
    private:

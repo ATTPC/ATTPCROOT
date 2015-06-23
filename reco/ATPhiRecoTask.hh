@@ -7,6 +7,7 @@
 
 // ATTPCTROOT classes
 #include "ATEvent.hh"
+#include "ATProtoEvent.hh"
 #include "ATDigiPar.hh"
 #include "ATHoughSpaceLine.hh"
 #include "ATHoughSpace.hh"
@@ -37,7 +38,7 @@ class ATPhiRecoTask : public FairTask {
     ATDigiPar *fPar;
     
     TClonesArray *fEventHArray;
-    TClonesArray *fQuadrantArray; 
+    TClonesArray *fPEventArray; 
 
     ATPhiReco *fPhiReco;
     Int_t fPhiRecoMode;

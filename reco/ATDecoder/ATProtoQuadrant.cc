@@ -46,7 +46,7 @@ void ATProtoQuadrant::AddHit(ATHit *hit)                                  { fHit
 void ATProtoQuadrant::SetHitArray(std::vector<ATHit> *hitArray)           { fHitArrayQ = *hitArray; }
 void ATProtoQuadrant::SetQuadrantID(Int_t QuadrantID)                     { fQuadrantID = QuadrantID; }
 void ATProtoQuadrant::SetPhiQ(Double_t PhiQ)                              { fPhiQ = PhiQ; }
-void ATProtoQuadrant::SetPhiDistribution(TH1D* PhiD)                      { fPhiDistr = PhiD;fPhiDistr->Draw();	}
+//void ATProtoQuadrant::SetPhiDistribution(TH1D* PhiD)                    { fPhiDistr = PhiD;}
 
 Int_t ATProtoQuadrant::GetQuadrantID() { return fQuadrantID; }
 Double_t ATProtoQuadrant::GetPhiQ()       { return fPhiQ; }

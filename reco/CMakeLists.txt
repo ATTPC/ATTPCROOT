@@ -38,6 +38,7 @@ ATDecoder/ATPad.cc
 ATDecoder/ATRawEvent.cc
 ATDecoder/ATHit.cc
 ATDecoder/ATEvent.cc
+ATDecoder/ATProtoEvent.cc
 ATDecoder/ATProtoQuadrant.cc
 
 ATPulseAnalyzer/ATPSA.cc

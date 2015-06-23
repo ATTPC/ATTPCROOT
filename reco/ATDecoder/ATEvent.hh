@@ -25,8 +25,8 @@ class ATEvent : public TNamed {
     void SetHitArray(vector<ATHit> *hitArray);
     //void AddCluster(ATHitCluster *cluster); //TODO Implement clustering
     //void SetClusterArray(vector<ATHitCluster> *clusterArray);
-//    void AddTrack(STTrack *track);
-//    void SetTrackArray(vector<STTrack> &trackArray);
+    //void AddTrack(STTrack *track);
+    //void SetTrackArray(vector<STTrack> &trackArray);
     void SetEventCharge(Double_t Qevent);
     void SetRhoVariance(Double_t RhoVariance);
 

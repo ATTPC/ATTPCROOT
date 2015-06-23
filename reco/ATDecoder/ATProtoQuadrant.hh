@@ -22,7 +22,7 @@ class ATProtoQuadrant : public TObject {
         void SetHitArray(std::vector<ATHit> *hitArray);
         void SetQuadrantID(Int_t QuadrantID);
         void SetPhiQ(Double_t PhiQ);
-        void SetPhiDistribution(TH1D* PhiD);
+       // void SetPhiDistribution(TH1D* PhiD);
 
 	Int_t GetQuadrantID();
         Double_t GetPhiQ();
@@ -30,8 +30,8 @@ class ATProtoQuadrant : public TObject {
         Int_t GetNumHits();
         ATHit *GetHit(Int_t hitNo);
         std::vector<ATHit> *GetHitArray();
-        TH1D* GetPhiDistribution();
-      
+        //TH1D* GetPhiDistribution();
+        //TH1D* fPhiDistr; //TODO Cannot put a Histogram into an object into a TClonesArray?
 
   protected:
         std::vector<ATHit> fHitArrayQ; // Collection of hits in that quadrant
@@ -39,7 +39,7 @@ class ATProtoQuadrant : public TObject {
         Int_t fQuadrantID; //Quadrant ID : 1 (0-90) - 2 (90 - 180) -  3 (180-270) - 4 (270-360) - 0 (Central Pad) [Defined in the Phi Task]
         //TODO: A ATTrack object must be collected here...Future stuff
         Int_t fEventID;
-        TH1D* fPhiDistr;
+        
       
 
   ClassDef(ATProtoQuadrant, 1);

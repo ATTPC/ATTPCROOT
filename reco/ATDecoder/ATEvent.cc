@@ -65,14 +65,14 @@ Bool_t ATEvent::IsGood()                     { return fIsGood; }
 //Int_t ATEvent::GetNumClusters()              { return fClusterArray.size(); }
 
 // setters
-void ATEvent::SetEventID(Int_t evtid)                             { fEventID = evtid; } 
-void ATEvent::AddHit(ATHit *hit)                                  { fHitArray.push_back(*hit); } 
-void ATEvent::SetHitArray(vector<ATHit> *hitArray)                { fHitArray = *hitArray; } 
+void ATEvent::SetEventID(Int_t evtid)                                 { fEventID = evtid; } 
+void ATEvent::AddHit(ATHit *hit)                                      { fHitArray.push_back(*hit); } 
+void ATEvent::SetHitArray(vector<ATHit> *hitArray)                    { fHitArray = *hitArray; }  
 //void ATEvent::AddCluster(ATHitCluster *cluster)                   { fClusterArray.push_back(*cluster); } 
 //void ATEvent::SetClusterArray(vector<ATHitCluster> *clusterArray) { fClusterArray = *clusterArray; }
-void ATEvent::SetEventCharge(Double_t Qevent)  			  {fQevent = Qevent;}
-void ATEvent::SetRhoVariance(Double_t RhoVariance)                { fRhoVariance = RhoVariance;}
-void ATEvent::SetMultiplicityMap(std::map<Int_t,Int_t> MultiMap)  { fMultiMap = MultiMap;}
+void ATEvent::SetEventCharge(Double_t Qevent)  			      {fQevent = Qevent;}
+void ATEvent::SetRhoVariance(Double_t RhoVariance)                    { fRhoVariance = RhoVariance;}
+void ATEvent::SetMultiplicityMap(std::map<Int_t,Int_t> MultiMap)      { fMultiMap = MultiMap;}
 
 // getters
 Int_t ATEvent::GetEventID() { return fEventID; }

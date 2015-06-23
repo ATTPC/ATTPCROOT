@@ -17,7 +17,7 @@ ATPhiRecoTask::ATPhiRecoTask()
   fIsPersistence = kFALSE;
   fPhiRecoMode = 0; // Default
   
-  fQuadrantArray = new TClonesArray("ATProtoQuadrant"); 
+  fPEventArray = new TClonesArray("ATProtoEvent"); 
 }
 
 ATPhiRecoTask::~ATPhiRecoTask()
@@ -59,7 +59,7 @@ ATPhiRecoTask::Init()
 
    //fPSA -> SetThreshold((Int_t)fThreshold);
 
-   ioMan -> Register("ATProtoQuadrant", "ATTPC", fQuadrantArray, fIsPersistence);
+   ioMan -> Register("ATProtoEvent", "ATTPC", fPEventArray, fIsPersistence);
 
    
 
@@ -88,7 +88,7 @@ ATPhiRecoTask::SetParContainers()
 void
 ATPhiRecoTask::Exec(Option_t *opt)
 {
-   fQuadrantArray -> Delete();
+   fPEventArray -> Delete();
 
  
 
@@ -96,8 +96,12 @@ ATPhiRecoTask::Exec(Option_t *opt)
      return;
 
      ATEvent *event = (ATEvent *) fEventHArray -> At(0);
+    
      //std::cout << "  Event Number :  " << Event -> GetEventID() << std::endl;
-     fPhiReco->PhiAnalyze(event);
+     ATProtoEvent *protoevent = (ATProtoEvent *) new ((*fPEventArray)[0]) ATProtoEvent();
+     protoevent->SetEventID(event->GetEventID());
+
+     fPhiReco->PhiAnalyze(event,protoevent);
 
    // ATHoughSpaceLine *HoughSpace = (ATHoughSpaceLine *) new ((*fHoughArray)[0]) ATHoughSpaceLine();
   //  HoughSpace ->CalcHoughSpace(Event,kTRUE,kTRUE,kTRUE);

@@ -1,5 +1,5 @@
 #include "ATPhiRecoSimple.hh"
-#include "ATEvent.hh"
+
 
 
 ClassImp(ATPhiRecoSimple)
@@ -13,7 +13,7 @@ ATPhiRecoSimple::~ATPhiRecoSimple()
 {
 }
 
-void ATPhiRecoSimple::PhiAnalyze(ATEvent *event){
+void ATPhiRecoSimple::PhiAnalyze(ATEvent *event,ATProtoEvent *protoevent){
  
                     event->SortHitArray();
                     Int_t nHits = event->GetNumHits();
@@ -39,7 +39,7 @@ void ATPhiRecoSimple::PhiAnalyze(ATEvent *event){
 					 
                                           //std::cout<<" Quadrant 1 "<<std::endl;
                                          // std::cout<<" Hit : "<<iHit<<" ATHit Pad Number :  "<<PadNum<<std::endl;
-  					 ProtoQuad1 ->AddHit(phit);
+  					    ProtoQuad1 ->AddHit(phit);
                                          
 
                                             
@@ -48,19 +48,19 @@ void ATPhiRecoSimple::PhiAnalyze(ATEvent *event){
 
 					  // std::cout<<" Quadrant 2 "<<std::endl;
                                           // std::cout<<" Hit : "<<iHit<<" ATHit Pad Number :  "<<PadNum<<std::endl;
-					  ProtoQuad2 ->AddHit(phit);
+					     ProtoQuad2 ->AddHit(phit);
 
 				    }else if(PadNum>126 && PadNum<190){
 
 					   //std::cout<<" Quadrant 3 "<<std::endl;
                                           // std::cout<<" Hit : "<<iHit<<" ATHit Pad Number :  "<<PadNum<<std::endl;
-					  ProtoQuad3 ->AddHit(phit);
+					     ProtoQuad3 ->AddHit(phit);
 
 				    }else if(PadNum>189 && PadNum<253){
 
 					   //std::cout<<" Quadrant 4 "<<std::endl;
                                            //std::cout<<" Hit : "<<iHit<<" ATHit Pad Number :  "<<PadNum<<std::endl;
-					   ProtoQuad4 ->AddHit(phit);
+				             ProtoQuad4 ->AddHit(phit);
 
 				    }else if(PadNum==0){
 
@@ -77,11 +77,13 @@ void ATPhiRecoSimple::PhiAnalyze(ATEvent *event){
 			PhiCalc(ProtoQuad2);
                         PhiCalc(ProtoQuad3);
 			PhiCalc(ProtoQuad4);
-			//ProtoQuad1->SetPhiQ(PhiQ1);
+			ProtoQuad1->SetPhiQ(20);
 			fQuadArray.push_back(*ProtoQuad1);
 			fQuadArray.push_back(*ProtoQuad2);
 			fQuadArray.push_back(*ProtoQuad3);
 			fQuadArray.push_back(*ProtoQuad4);
+                        
+			protoevent->SetQuadrantArray(&fQuadArray);			
                         delete ProtoQuad1;
                         delete ProtoQuad2;
 			delete ProtoQuad3;
@@ -94,7 +96,7 @@ void ATPhiRecoSimple::PhiCalc(ATProtoQuadrant *quadrant)
 {
 
      PhiDist->Reset();
-     Double_t a=0.5; //Small size of the strip
+     Double_t a=0.5+0.125; //Small size of the strip plus half the dead area between strips
      Double_t da; //
   
      // type A: a + da - Phi/90
@@ -160,17 +162,17 @@ void ATPhiRecoSimple::PhiCalc(ATProtoQuadrant *quadrant)
 				PhiDist->Fill(phi);
                                 
 	                               
-			        /* std::cout<<" ======================================================================= "<<std::endl;
-				 std::cout<<" Prototype quadrant : "<<quadrant->GetQuadrantID()<<std::endl;
-                     		 std::cout<<" First Hit Pad : "<<PadNum_qf<<" First Pad Charge : "<<Q_f<<std::endl;
-                                 std::cout<<" Second Hit Pad : "<<PadNum_qs<<" Second Pad Charge : "<<Q_s<<std::endl;
-				 std::cout<<" Phi : "<<phi<<std::endl;*/
+			        // std::cout<<" ======================================================================= "<<std::endl;
+				 //std::cout<<" Prototype quadrant : "<<quadrant->GetQuadrantID()<<std::endl;
+                     		// std::cout<<" First Hit Pad : "<<PadNum_qf<<" First Pad Charge : "<<Q_f<<std::endl;
+                                // std::cout<<" Second Hit Pad : "<<PadNum_qs<<" Second Pad Charge : "<<Q_s<<std::endl;
+				// std::cout<<" Phi : "<<phi<<std::endl;
  
 		       }
                  }//nHits>1
-                //PhiDist->Draw();
+                PhiDist->Draw();
 
-		quadrant->SetPhiDistribution(PhiDist);
+		//quadrant->SetPhiDistribution(PhiDist);
 
 }
 
