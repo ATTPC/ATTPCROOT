@@ -68,7 +68,7 @@ void run_unpackPhi_proto(){
 
    run->Init();
 
-   run->Run(0,100); // Number must be lower than the number of events in dummy
+   run->Run(0,200); // Number must be lower than the number of events in dummy
 
  // -----   Finish   -------------------------------------------------------
 	timer.Stop();

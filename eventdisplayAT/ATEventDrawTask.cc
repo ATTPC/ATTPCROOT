@@ -103,11 +103,11 @@ ATEventDrawTask::ATEventDrawTask()
 
 	 for(Int_t i=0;i<5;i++){
 	   sprintf(phihistname,"PhiDistr_%d",i);
-	   fPhiDistr[i] = new TH1D(phihistname,phihistname,90.0,0.0,90.0);
-	   if(i==0) fPhiDistr[i]->SetLineColor(kRed+3);
+	   fPhiDistr[i] = new TH1D(phihistname,phihistname,180.0,0.0,90.0);
+	   if(i==0) fPhiDistr[i]->SetLineColor(kRed);
 	   else if(i==1) fPhiDistr[i]->SetLineColor(kBlue);
-	   else if(i==2) fPhiDistr[i]->SetLineColor(kGreen+3);
-	   else if(i==3) fPhiDistr[i]->SetLineColor(kYellow+3);
+	   else if(i==2) fPhiDistr[i]->SetLineColor(kGreen);
+	   else if(i==3) fPhiDistr[i]->SetLineColor(kCyan);
            else if(i==4) fPhiDistr[i]->SetLineColor(kMagenta);
            fPhiDistr[i]->SetLineWidth(2);
            fPhiDistr[i]->GetYaxis()->SetRangeUser(0., 20.);
