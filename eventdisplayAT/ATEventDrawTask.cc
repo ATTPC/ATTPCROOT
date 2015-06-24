@@ -453,26 +453,22 @@ ATEventDrawTask::DrawProtoSpace()
 {
     ATProtoEvent* protoevent = (ATProtoEvent*) fProtoEventArray->At(0);
     Int_t nQuads = protoevent->GetNumQuadrants();
-    ATProtoQuadrant quadrant[nQuads];
-
-   if(nQuads<6){
+    std::vector<ATProtoQuadrant> quadrant;
+   
+   if(nQuads<5){
     for(Int_t iQ=0; iQ<nQuads; iQ++)
- 	 {
+ 	  {
 
 	  //ATProtoQuadrant quadrant = protoevent->GetQuadrantArray()->at(iQ);
-	  quadrant[iQ] = protoevent->GetQuadrantArray()->at(iQ);
-          //std::cout<<quadrant.GetQuadrantID()<<std::endl;
-          //fPhiDistr = quadrant.GetPhiDistribution();
-          //std::cout<<fPhiDistr->GetLabelFont()<<std::endl;
-          std::vector<Double_t> *PhiArray =quadrant[iQ].GetPhiArray();
+	   quadrant.push_back(protoevent->GetQuadrantArray()->at(iQ));
+        std::vector<Double_t> *PhiArray =quadrant[iQ].GetPhiArray();
 			for(Int_t pval=0;pval<PhiArray->size();pval++){
-                         fPhiDistr[iQ]->Fill(PhiArray->at(pval));
-			 
-			}
-	  PhiArray->clear();
+                fPhiDistr[iQ]->Fill(PhiArray->at(pval));
+			 }
+	      PhiArray->clear();
           
-  	 } 
-     }
+  	   }
+      }
 
     
     
