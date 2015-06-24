@@ -18,6 +18,10 @@ class ATProtoEvent : public TNamed {
     void SetEventID(Int_t evtid);
     void AddQuadrant(ATProtoQuadrant *quadrant);
     void SetQuadrantArray(std::vector<ATProtoQuadrant> *quadrantArray);
+
+    ATProtoQuadrant *GetQuadrant(Int_t quadrantNo);
+    std::vector<ATProtoQuadrant> *GetQuadrantArray();
+    Int_t GetNumQuadrants();
     
     
     Int_t fEventID;

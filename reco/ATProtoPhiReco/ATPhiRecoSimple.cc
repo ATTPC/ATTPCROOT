@@ -17,7 +17,7 @@ void ATPhiRecoSimple::PhiAnalyze(ATEvent *event,ATProtoEvent *protoevent){
  
                     event->SortHitArray();
                     Int_t nHits = event->GetNumHits();
-                    Double_t PhiQ1 = 0.0;
+                   
                     
                     ATProtoQuadrant *ProtoQuad1 = new ATProtoQuadrant(1); // Quadrant ID : 1 
                     ProtoQuad1->SetEventID(event->GetEventID());
@@ -77,13 +77,18 @@ void ATPhiRecoSimple::PhiAnalyze(ATEvent *event,ATProtoEvent *protoevent){
 			PhiCalc(ProtoQuad2);
                         PhiCalc(ProtoQuad3);
 			PhiCalc(ProtoQuad4);
-			ProtoQuad1->SetPhiQ(20);
+			
 			fQuadArray.push_back(*ProtoQuad1);
 			fQuadArray.push_back(*ProtoQuad2);
 			fQuadArray.push_back(*ProtoQuad3);
 			fQuadArray.push_back(*ProtoQuad4);
                         
-			protoevent->SetQuadrantArray(&fQuadArray);			
+			protoevent->AddQuadrant(ProtoQuad1);
+			protoevent->AddQuadrant(ProtoQuad2);
+			protoevent->AddQuadrant(ProtoQuad3);
+			protoevent->AddQuadrant(ProtoQuad4);
+
+                    
                         delete ProtoQuad1;
                         delete ProtoQuad2;
 			delete ProtoQuad3;
@@ -160,7 +165,7 @@ void ATPhiRecoSimple::PhiCalc(ATProtoQuadrant *quadrant)
 
 
 				PhiDist->Fill(phi);
-                                
+                                quadrant->AddPhiVal(phi);
 	                               
 			        // std::cout<<" ======================================================================= "<<std::endl;
 				 //std::cout<<" Prototype quadrant : "<<quadrant->GetQuadrantID()<<std::endl;
@@ -170,9 +175,9 @@ void ATPhiRecoSimple::PhiCalc(ATProtoQuadrant *quadrant)
  
 		       }
                  }//nHits>1
-                PhiDist->Draw();
+                //PhiDist->Draw();
 
-		//quadrant->SetPhiDistribution(PhiDist);
+		quadrant->SetPhiDistribution(PhiDist);
 
 }
 

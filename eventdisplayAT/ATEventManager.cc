@@ -216,6 +216,19 @@ ATEventManager::Init(Int_t option, Int_t level, Int_t nNodes)
     TEveWindowFrame* frame4 = slot3->MakeFrame(ecvs4);
     frame4->SetElementName("Hough Space");
     fCvsHough = ecvs4->GetCanvas();
+
+
+       //Fifth tab Phi Reconstruction
+    TEveWindowSlot* slot4 =
+    TEveWindow::CreateWindowInTab(gEve->GetBrowser()->GetTabRight());
+    TEveWindowPack* pack5 = slot4->MakePack();
+    pack5->SetShowTitleBar(kFALSE);
+    pack5->SetElementName("Prototype Phi Recons.");
+    slot4 = pack5->NewSlotWithWeight(1.5);
+    TRootEmbeddedCanvas* ecvs5 = new TRootEmbeddedCanvas();
+    TEveWindowFrame* frame5 = slot4->MakeFrame(ecvs5);
+    frame5->SetElementName("Phi Reconstruction");
+    fCvsPhi = ecvs5->GetCanvas();
    
  
   /**************************************************************************/

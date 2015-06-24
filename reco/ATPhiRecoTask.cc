@@ -100,20 +100,7 @@ ATPhiRecoTask::Exec(Option_t *opt)
      //std::cout << "  Event Number :  " << Event -> GetEventID() << std::endl;
      ATProtoEvent *protoevent = (ATProtoEvent *) new ((*fPEventArray)[0]) ATProtoEvent();
      protoevent->SetEventID(event->GetEventID());
-
      fPhiReco->PhiAnalyze(event,protoevent);
 
-   // ATHoughSpaceLine *HoughSpace = (ATHoughSpaceLine *) new ((*fHoughArray)[0]) ATHoughSpaceLine();
-  //  HoughSpace ->CalcHoughSpace(Event,kTRUE,kTRUE,kTRUE);
-
-  //(ATHoughSpaceLine *) new ((*fHoughArray)[0]) ATHoughSpaceLine();
-  //event -> SetEventID(event -> GetEventID());
-   /* event -> SetEventID(rawEvent -> GetEventID());
-
-  if (!(rawEvent -> IsGood()))
-    event -> SetIsGood(kFALSE);
-  else {
-    fPSA -> Analyze(rawEvent, event);
-    event -> SetIsGood(kTRUE);
-  }*/
+  
 }

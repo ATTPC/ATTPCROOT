@@ -17,6 +17,7 @@
 #include "TPaletteAxis.h"
 #include "TStyle.h"
 #include "TRandom.h"
+#include "TColor.h"
 
 #include "AtTpcMap.h"
 #include "AtTpcProtoMap.h"
@@ -42,6 +43,7 @@ ATEventDrawTask::ATEventDrawTask()
   fEventManager(0),
   fRawevent(0),
   fHoughSpaceArray(0),
+  fProtoEventArray(0),
   fDetmap(0),
   fThreshold(0),
   fHitSet(0),
@@ -73,6 +75,7 @@ ATEventDrawTask::ATEventDrawTask()
   fHoughSpace(0),
   fCvsRhoVariance(0),
   fRhoVariance(0),
+  fCvsPhi(0),
   fAtMapPtr(0),
   fMinZ(0),
   fMaxZ(1344),
@@ -88,13 +91,27 @@ ATEventDrawTask::ATEventDrawTask()
     Char_t padhistname[256];
     
     
-    for(Int_t i=0;i<300;i++){
+    for(Int_t i=0;i<300;i++){ // TODO: Full-scale must be accomodated
         sprintf(padhistname,"pad_%d",i);
           fPadAll[i] = new TH1I(padhistname,padhistname,512,0,511);
         
        // fPadAll[i] = NULL;
     }
 
+      
+      Char_t phihistname[256];
+
+	 for(Int_t i=0;i<5;i++){
+	   sprintf(phihistname,"PhiDistr_%d",i);
+	   fPhiDistr[i] = new TH1D(phihistname,phihistname,90.0,0.0,90.0);
+	   if(i==0) fPhiDistr[i]->SetLineColor(kRed+3);
+	   else if(i==1) fPhiDistr[i]->SetLineColor(kBlue);
+	   else if(i==2) fPhiDistr[i]->SetLineColor(kGreen+3);
+	   else if(i==3) fPhiDistr[i]->SetLineColor(kYellow+3);
+           else if(i==4) fPhiDistr[i]->SetLineColor(kMagenta);
+           fPhiDistr[i]->SetLineWidth(2);
+           fPhiDistr[i]->GetYaxis()->SetRangeUser(0., 20.);
+	 }
   
 
 }
@@ -141,6 +158,9 @@ ATEventDrawTask::Init()
   
   fHoughSpaceArray =  (TClonesArray*) ioMan->GetObject("ATHough");
   if(fHoughSpaceArray) LOG(INFO)<<"Hough Array Found."<<FairLogger::endl;
+
+  fProtoEventArray =  (TClonesArray*) ioMan->GetObject("ATProtoEvent");
+  if(fProtoEventArray) LOG(INFO)<<"Prototype Event Array Found."<<FairLogger::endl;
   
 
   //fHitClusterArray = (TClonesArray*) ioMan->GetObject("STEventHC");
@@ -156,6 +176,7 @@ ATEventDrawTask::Init()
   //fRawEventArray->SetName("ATRawEvent");
 
   gStyle -> SetPalette(55);
+  //fPhiDistr=NULL;
   fCvsPadWave = fEventManager->GetCvsPadWave();
   fCvsPadWave->SetName("fCvsPadWave");
   gROOT->GetListOfSpecials()->Add(fCvsPadWave);
@@ -170,9 +191,12 @@ ATEventDrawTask::Init()
   DrawRhoVariance();
   fCvsQEvent = new TCanvas("fCvsQEvent","fCvsQEvent");
   DrawQEvent();
+  fCvsPhi = fEventManager->GetCvsPhi();
+  DrawPhiReco();
   //******* NO CALLS TO TCANVAS BELOW HOUGHSPACE ONE
   fCvsHoughSpace = fEventManager->GetCvsHoughSpace();
   DrawHoughSpace();
+   
  
   
 }
@@ -182,9 +206,11 @@ ATEventDrawTask::Exec(Option_t* option)
 {
   Reset();
   ResetPadAll();
+  ResetPhiDistr();
   
   
   if(fHitArray) DrawHitPoints();
+  if(fProtoEventArray) DrawProtoSpace();
   if(fHoughSpaceArray && fUnpackHough ) DrawHSpace();
   
   //if(fHitClusterArray) DrawHitClusterPoints();
@@ -197,6 +223,7 @@ ATEventDrawTask::Exec(Option_t* option)
   UpdateCvsPadAll();
   UpdateCvsQEvent();
   UpdateCvsRhoVariance();
+  UpdateCvsPhi();
   if(fUnpackHough && fEventManager->GetDrawHoughSpace() ) UpdateCvsHoughSpace();
 }
 
@@ -420,6 +447,37 @@ ATEventDrawTask::DrawHSpace()
    else fHoughSpace = new TH2F();
 
 }
+
+void 
+ATEventDrawTask::DrawProtoSpace()
+{
+    ATProtoEvent* protoevent = (ATProtoEvent*) fProtoEventArray->At(0);
+    Int_t nQuads = protoevent->GetNumQuadrants();
+    ATProtoQuadrant quadrant[nQuads];
+
+   if(nQuads<6){
+    for(Int_t iQ=0; iQ<nQuads; iQ++)
+ 	 {
+
+	  //ATProtoQuadrant quadrant = protoevent->GetQuadrantArray()->at(iQ);
+	  quadrant[iQ] = protoevent->GetQuadrantArray()->at(iQ);
+          //std::cout<<quadrant.GetQuadrantID()<<std::endl;
+          //fPhiDistr = quadrant.GetPhiDistribution();
+          //std::cout<<fPhiDistr->GetLabelFont()<<std::endl;
+          std::vector<Double_t> *PhiArray =quadrant[iQ].GetPhiArray();
+			for(Int_t pval=0;pval<PhiArray->size();pval++){
+                         fPhiDistr[iQ]->Fill(PhiArray->at(pval));
+			 
+			}
+	  PhiArray->clear();
+          
+  	 } 
+     }
+
+    
+    
+}
+
 
 /*void 
 ATEventDrawTask::DrawHitClusterPoints()
@@ -661,6 +719,16 @@ ATEventDrawTask::DrawHoughSpace()
 }
 
 void
+ATEventDrawTask::DrawPhiReco()
+{
+   fCvsPhi->cd();
+   //fPhiDistr = new TH1D("PhiDist","PhiDist",90.0,0.0,90.0);
+   for(Int_t i=0;i<5;i++){
+   	fPhiDistr[i]->Draw("SAME");
+   }
+}
+
+void
 ATEventDrawTask::UpdateCvsPadPlane()
 {
   fHoughSpace->Draw("contz");
@@ -734,6 +802,16 @@ ATEventDrawTask::UpdateCvsHoughSpace()
 {
     fCvsHoughSpace -> Modified();
     fCvsHoughSpace -> Update();
+ 
+    
+}
+
+void
+ATEventDrawTask::UpdateCvsPhi()
+{
+    //if(fPhiDistr!=NULL)fPhiDistr->Draw();
+    fCvsPhi -> Modified();
+    fCvsPhi -> Update();
  
     
 }
@@ -870,6 +948,18 @@ ATEventDrawTask::ResetPadAll()
     
     for(Int_t i=0;i<300;i++){
         fPadAll[i]->Reset(0);
+    }
+
+    
+    
+}
+
+void
+ATEventDrawTask::ResetPhiDistr()
+{
+    
+    for(Int_t i=0;i<5;i++){
+        fPhiDistr[i]->Reset(0);
     }
 
     
