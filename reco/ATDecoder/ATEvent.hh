@@ -29,11 +29,14 @@ class ATEvent : public TNamed {
     //void SetTrackArray(vector<STTrack> &trackArray);
     void SetEventCharge(Double_t Qevent);
     void SetRhoVariance(Double_t RhoVariance);
+    
 
     void SetIsClustered(Bool_t value);
     void SetIsTracked(Bool_t value);
     void SetIsChanged(Bool_t value);
     void SetMultiplicityMap(std::map<Int_t,Int_t> MultiMap);
+    void SetMeshSignal(Float_t *mesharray);
+    void SetMeshSignal(Int_t idx, Float_t val);
 
     void SetIsGood(Bool_t value);
 
@@ -59,6 +62,7 @@ class ATEvent : public TNamed {
     Double_t GetEventCharge();
     Double_t GetRhoVariance();
     Int_t GetHitPadMult(Int_t PadNum); // Returns the multiplicity of the pad where this hit belongs to
+    Float_t *GetMesh();
 
     Bool_t IsClustered();
     Bool_t IsTracked();
@@ -85,7 +89,7 @@ class ATEvent : public TNamed {
     Double_t fRhoVariance;
     std::map<Int_t,Int_t> fMultiMap;
 
-
+    Float_t fMeshSig[512];
 
    
 

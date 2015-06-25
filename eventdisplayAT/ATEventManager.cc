@@ -186,6 +186,13 @@ ATEventManager::Init(Int_t option, Int_t level, Int_t nNodes)
     TEveWindowFrame* frame3 = slot2->MakeFrame(ecvs3);
     frame3->SetElementName("ATTPC Pad Plane All");
     fPadAll = ecvs3->GetCanvas();
+
+    slot2 = pack3->NewSlotWithWeight(1.5);
+    TRootEmbeddedCanvas* ecvs31 = new TRootEmbeddedCanvas();
+    TEveWindowFrame* frame31 = slot2->MakeFrame(ecvs31);
+    frame31->SetElementName("ATTPC Mesh");
+    fCvsMesh = ecvs31->GetCanvas();
+ 
    /* TEveWindowSlot* slot2 =
     TEveWindow::CreateWindowInTab(gEve->GetBrowser()->GetTabRight());
     TEveWindowPack* pack3;

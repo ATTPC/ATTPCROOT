@@ -64,7 +64,7 @@ void run_unpack_proto_10Be(){
 
    run->Init();
 
-   run->Run(0,10); // Number must be lower than the number of events in dummy
+   run->Run(0,100); // Number must be lower than the number of events in dummy
 
  // -----   Finish   -------------------------------------------------------
 	timer.Stop();

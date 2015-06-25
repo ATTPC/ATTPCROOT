@@ -25,8 +25,10 @@ ATPSASimple2::Analyze(ATRawEvent *rawEvent, ATEvent *event)
   Double_t RhoMean = 0.0;
   Double_t Rho2 = 0.0;
   std::map<Int_t,Int_t> PadMultiplicity;
+  Float_t mesh[512] = {0};
 
   for (Int_t iPad = 0; iPad < numPads; iPad++) {
+    
     ATPad *pad = rawEvent -> GetPad(iPad);
       Int_t PadNum = pad->GetPadNum();
       Double_t QHitTot = 0.0;
@@ -49,6 +51,7 @@ ATPSASimple2::Analyze(ATRawEvent *rawEvent, ATEvent *event)
     Double_t *adc = pad -> GetADC();
     Float_t floatADC[512] = {0};
     Float_t dummy[512] = {0};
+    
       for (Int_t iTb = 0; iTb < fNumTbs; iTb++){
           floatADC[iTb] = adc[iTb];
           QHitTot+=adc[iTb];
@@ -78,7 +81,7 @@ ATPSASimple2::Analyze(ATRawEvent *rawEvent, ATEvent *event)
         continue;
         
     
-      if(iPeak==0) QEventTot+=QHitTot; //Sum only if Hit is valid - We only sum once to account for the whole spectrum.
+      if(iPeak==0) QEventTot+=QHitTot; //Sum only if Hit is valid - We only sum once (iPeak==0) to account for the whole spectrum.
 
       ATHit *hit = new ATHit(PadNum,hitNum, xPos, yPos, zPos, charge);
       PadHitNum++;
@@ -95,8 +98,21 @@ ATPSASimple2::Analyze(ATRawEvent *rawEvent, ATEvent *event)
       delete hit;
 
       hitNum++;
+
+	for (Int_t iTb = 0; iTb < fNumTbs; iTb++){
+		mesh[iTb]+=floatADC[iTb];
+		/* if(iTb==511){
+		 std::cout<<" IPad : "<<iPad<<std::endl;
+		 std::cout<<" iTb : "<<iTb<<" FloatADC : "<<floatADC[iTb]<<" mesh : "<<mesh[iTb]<<std::endl;
+		}*/
+		 
+	}
+
+
     }// Peak loop
      
+      
+
      PadMultiplicity.insert(std::pair<Int_t,Int_t>(PadNum,PadHitNum));
 
   }// Pad loop
@@ -105,6 +121,7 @@ ATPSASimple2::Analyze(ATRawEvent *rawEvent, ATEvent *event)
      RhoVariance = Rho2 - ( pow(RhoMean,2)/(event->GetNumHits()) );
      RhoVariance = Rho2 - ( event->GetNumHits()*pow((RhoMean/event->GetNumHits()),2) ) ;
      //std::cout<<" Rho Variance : "<<RhoVariance<<std::endl;
+     for (Int_t iTb = 0; iTb < fNumTbs; iTb++) event -> SetMeshSignal(iTb,mesh[iTb]);
      event -> SetMultiplicityMap(PadMultiplicity);
      event -> SetRhoVariance(RhoVariance);
      event -> SetEventCharge(QEventTot);

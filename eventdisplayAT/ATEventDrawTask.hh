@@ -77,6 +77,7 @@ class ATEventDrawTask : public FairTask
     virtual void DrawRhoVariance();
     virtual void DrawHoughSpace();
     virtual void DrawPhiReco();
+    virtual void DrawMesh();
     
     AtTpcMap *fAtMapPtr;
     void UpdateCvsPadPlane();
@@ -86,6 +87,7 @@ class ATEventDrawTask : public FairTask
     void UpdateCvsRhoVariance();
     void UpdateCvsHoughSpace();
     void UpdateCvsPhi();
+    void UpdateCvsMesh();
     
     void ResetPadAll();
     void ResetPhiDistr();
@@ -94,6 +96,7 @@ class ATEventDrawTask : public FairTask
     void DrawHitPoints();
     void DrawHSpace();
     void DrawProtoSpace();
+    void DrawMeshSpace();
     //void DrawHitClusterPoints();
     //void DrawRiemannHits();
 
@@ -155,6 +158,8 @@ class ATEventDrawTask : public FairTask
     TH1D* fRhoVariance;
     TCanvas* fCvsPhi;
     TH1D* fPhiDistr[5];
+    TCanvas* fCvsMesh;
+    TH1F* fMesh;
 
     Int_t fNQuads;
     

@@ -76,6 +76,8 @@ ATEventDrawTask::ATEventDrawTask()
   fCvsRhoVariance(0),
   fRhoVariance(0),
   fCvsPhi(0),
+  fCvsMesh(0),
+  fMesh(0),
   fAtMapPtr(0),
   fMinZ(0),
   fMaxZ(1344),
@@ -193,6 +195,8 @@ ATEventDrawTask::Init()
   DrawQEvent();
   fCvsPhi = fEventManager->GetCvsPhi();
   DrawPhiReco();
+  fCvsMesh = fEventManager->GetCvsMesh();
+  DrawMesh();
   //******* NO CALLS TO TCANVAS BELOW HOUGHSPACE ONE
   fCvsHoughSpace = fEventManager->GetCvsHoughSpace();
   DrawHoughSpace();
@@ -209,7 +213,7 @@ ATEventDrawTask::Exec(Option_t* option)
   ResetPhiDistr();
   
   
-  if(fHitArray) DrawHitPoints();
+  if(fHitArray){ DrawHitPoints(); DrawMeshSpace();}
   if(fProtoEventArray) DrawProtoSpace();
   if(fHoughSpaceArray && fUnpackHough ) DrawHSpace();
   
@@ -224,6 +228,7 @@ ATEventDrawTask::Exec(Option_t* option)
   UpdateCvsQEvent();
   UpdateCvsRhoVariance();
   UpdateCvsPhi();
+  UpdateCvsMesh();
   if(fUnpackHough && fEventManager->GetDrawHoughSpace() ) UpdateCvsHoughSpace();
 }
 
@@ -231,6 +236,8 @@ void
 ATEventDrawTask::DrawHitPoints()
 {
   
+  Float_t *MeshArray;
+  fMesh->Reset(0);
   TRandom r(0);
   
   fQEventHist_H->Reset(0);
@@ -238,6 +245,7 @@ ATEventDrawTask::DrawHitPoints()
   //event->SortHitArray(); // Works surprisingly well
   Double_t Qevent=event->GetEventCharge();
   Double_t RhoVariance=event->GetRhoVariance();
+  MeshArray = event->GetMesh();
   if(fEventManager->GetEraseQEvent()){ 
 	fQEventHist->Reset();
         fRhoVariance->Reset();
@@ -247,6 +255,14 @@ ATEventDrawTask::DrawHitPoints()
   fQEventHist->Fill(Qevent);
   fQEventHist_H->Fill(Qevent);
   fRhoVariance->Fill(RhoVariance);
+
+    for(Int_t i=0;i<512;i++){
+
+		fMesh->SetBinContent(i,MeshArray[i]);
+
+	}
+
+
   fRawevent = (ATRawEvent*) fRawEventArray->At(0);
   fRawevent->SetName("fRawEvent");
   gROOT->GetListOfSpecials()->Add(fRawevent);
@@ -461,17 +477,28 @@ ATEventDrawTask::DrawProtoSpace()
 
 	  //ATProtoQuadrant quadrant = protoevent->GetQuadrantArray()->at(iQ);
 	   quadrant.push_back(protoevent->GetQuadrantArray()->at(iQ));
-        std::vector<Double_t> *PhiArray =quadrant[iQ].GetPhiArray();
+           std::vector<Double_t> *PhiArray =quadrant[iQ].GetPhiArray();
 			for(Int_t pval=0;pval<PhiArray->size();pval++){
-                fPhiDistr[iQ]->Fill(PhiArray->at(pval));
+               			 fPhiDistr[iQ]->Fill(PhiArray->at(pval));
 			 }
-	      PhiArray->clear();
+	   PhiArray->clear();
           
   	   }
       }
 
     
     
+}
+
+
+void 
+ATEventDrawTask::DrawMeshSpace()
+{
+
+   
+  
+   
+
 }
 
 
@@ -725,6 +752,16 @@ ATEventDrawTask::DrawPhiReco()
 }
 
 void
+ATEventDrawTask::DrawMesh()
+{
+
+    fCvsMesh->cd();
+    fMesh = new TH1F("Mesh","Mesh",512,0,511);
+    fMesh -> Draw();
+    
+}
+
+void
 ATEventDrawTask::UpdateCvsPadPlane()
 {
   fHoughSpace->Draw("contz");
@@ -808,6 +845,16 @@ ATEventDrawTask::UpdateCvsPhi()
     //if(fPhiDistr!=NULL)fPhiDistr->Draw();
     fCvsPhi -> Modified();
     fCvsPhi -> Update();
+ 
+    
+}
+
+void
+ATEventDrawTask::UpdateCvsMesh()
+{
+    
+    fCvsMesh -> Modified();
+    fCvsMesh -> Update();
  
     
 }
