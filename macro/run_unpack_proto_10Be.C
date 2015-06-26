@@ -62,9 +62,13 @@ void run_unpack_proto_10Be(){
    psaTask -> SetThreshold(30);
    run -> AddTask(psaTask);
 
+   ATPhiRecoTask *phirecoTask = new ATPhiRecoTask();
+   phirecoTask -> SetPersistence();
+   run -> AddTask(phirecoTask);
+
    run->Init();
 
-   run->Run(0,100); // Number must be lower than the number of events in dummy
+   run->Run(0,2000); // Number must be lower than the number of events in dummy
 
  // -----   Finish   -------------------------------------------------------
 	timer.Stop();

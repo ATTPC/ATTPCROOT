@@ -91,7 +91,7 @@ void run_unpack(){
 
   run->Init();
 
-  run->Run(0, 150); // Number must be lower than the number of events in dummy
+  run->Run(0, 10); // Number must be lower than the number of events in dummy
 
   // -----   Finish   -------------------------------------------------------
 	timer.Stop();

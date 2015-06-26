@@ -105,7 +105,7 @@ ATEventDrawTask::ATEventDrawTask()
 
 	 for(Int_t i=0;i<5;i++){
 	   sprintf(phihistname,"PhiDistr_%d",i);
-	   fPhiDistr[i] = new TH1D(phihistname,phihistname,180.0,0.0,90.0);
+	   fPhiDistr[i] = new TH1D(phihistname,phihistname,180.0,-180.0,180.0);
 	   if(i==0) fPhiDistr[i]->SetLineColor(kRed);
 	   else if(i==1) fPhiDistr[i]->SetLineColor(kBlue);
 	   else if(i==2) fPhiDistr[i]->SetLineColor(kGreen);
@@ -427,7 +427,7 @@ ATEventDrawTask::DrawHitPoints()
                 if (fPad->GetValidPad() && iPad<256){
                     
                     
-                    fPadAll[iPad]->SetBinContent(j,rawadc[j]);
+                    fPadAll[iPad]->SetBinContent(j,adc[j]);
                     
                 }
             

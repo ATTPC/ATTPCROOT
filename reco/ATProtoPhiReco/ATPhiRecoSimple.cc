@@ -133,8 +133,8 @@ void ATPhiRecoSimple::PhiCalc(ATProtoQuadrant *quadrant)
 						//std::cout<<" "<<std::endl;
 						//std::cout<<" Inside an odd quadrant ID : "<<quadrant->GetQuadrantID()<<std::endl;
 						phi= (1.0 - (Q_f-Q_s)/(Q_f+Q_s)*2.0*a/da - (Q_f-Q_s)/(Q_f+Q_s) )*45 ;
-						if(PadNum_qf%2==1 && PadNum_qs%2==0) phi= (1.0 - (Q_f-Q_s)/(Q_f+Q_s)*2.0*a/da - (Q_f-Q_s)/(Q_f+Q_s) )*45 ;
-						else if(PadNum_qf%2==0 && PadNum_qs%2==1) phi = 90.0-phi;
+			/*TYPE A*/		if(PadNum_qf%2==1 && PadNum_qs%2==0) phi= (1.0 - (Q_f-Q_s)/(Q_f+Q_s)*2.0*a/da - (Q_f-Q_s)/(Q_f+Q_s) )*45 ;
+			/*TYPE B*/		else if(PadNum_qf%2==0 && PadNum_qs%2==1) phi=( ( (Q_f-Q_s)/(Q_f+Q_s)*2.0*a/da + (Q_f-Q_s)/(Q_f+Q_s) -1 )*45) ;//phi = 90.0-phi;
 						else{ std::cout<<" ======================================================================= "<<std::endl;
 						      std::cout<<" Warning, even-odd sttagering not found. "<<std::endl;
 						}
@@ -147,7 +147,7 @@ void ATPhiRecoSimple::PhiCalc(ATProtoQuadrant *quadrant)
 						//std::cout<<" Inside an even quadrant ID : "<<quadrant->GetQuadrantID()<<std::endl;
                                                 phi= (1.0 - (Q_f-Q_s)/(Q_f+Q_s)*2.0*a/da - (Q_f-Q_s)/(Q_f+Q_s) )*45 ;
 						if(PadNum_qf%2==0 && PadNum_qs%2==1) phi= (1.0 - (Q_f-Q_s)/(Q_f+Q_s)*2.0*a/da - (Q_f-Q_s)/(Q_f+Q_s) )*45 ;
-						else if(PadNum_qf%2==1 && PadNum_qs%2==0) phi = 90.0-phi;
+						else if(PadNum_qf%2==1 && PadNum_qs%2==0) phi= (( (Q_f-Q_s)/(Q_f+Q_s)*2.0*a/da + (Q_f-Q_s)/(Q_f+Q_s) -1 )*45);//phi = 90.0-phi;
 						else{ std::cout<<" ======================================================================= "<<std::endl;
 						      std::cout<<" Warning, even-odd sttagering not found. "<<std::endl;
 						}
@@ -163,15 +163,17 @@ void ATPhiRecoSimple::PhiCalc(ATProtoQuadrant *quadrant)
 
 				 } //Adjacent strips
 
-
+				//if(phi>90 || phi<0) std::cout<<" Phi out of boundaries!: "<<phi<<std::endl;
 				PhiDist->Fill(phi);
                                 quadrant->AddPhiVal(phi);
-	                               
-			        // std::cout<<" ======================================================================= "<<std::endl;
-				 //std::cout<<" Prototype quadrant : "<<quadrant->GetQuadrantID()<<std::endl;
-                     		// std::cout<<" First Hit Pad : "<<PadNum_qf<<" First Pad Charge : "<<Q_f<<std::endl;
-                                // std::cout<<" Second Hit Pad : "<<PadNum_qs<<" Second Pad Charge : "<<Q_s<<std::endl;
-				// std::cout<<" Phi : "<<phi<<std::endl;
+	                        
+		                //if(quadrant->GetEventID()==4){      
+			       /* std::cout<<" ======================================================================= "<<std::endl;
+				std::cout<<" Prototype quadrant : "<<quadrant->GetQuadrantID()<<std::endl;
+                     		std::cout<<" First Hit Pad : "<<PadNum_qf<<" First Pad Charge : "<<Q_f<<std::endl;
+                                std::cout<<" Second Hit Pad : "<<PadNum_qs<<" Second Pad Charge : "<<Q_s<<std::endl;
+				std::cout<<" Phi : "<<phi<<std::endl;*/
+				//}
  
 		       }
                  }//nHits>1
