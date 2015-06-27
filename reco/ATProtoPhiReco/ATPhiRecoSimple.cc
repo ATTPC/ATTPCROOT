@@ -73,10 +73,10 @@ void ATPhiRecoSimple::PhiAnalyze(ATEvent *event,ATProtoEvent *protoevent){
 
 			}
 			
-			PhiCalc(ProtoQuad1);
-			PhiCalc(ProtoQuad2);
-                        PhiCalc(ProtoQuad3);
-			PhiCalc(ProtoQuad4);
+			PhiCalc(ProtoQuad1,event);
+			PhiCalc(ProtoQuad2,event);
+                        PhiCalc(ProtoQuad3,event);
+			PhiCalc(ProtoQuad4,event);
 			
 			fQuadArray.push_back(*ProtoQuad1);
 			fQuadArray.push_back(*ProtoQuad2);
@@ -97,7 +97,7 @@ void ATPhiRecoSimple::PhiAnalyze(ATEvent *event,ATProtoEvent *protoevent){
 
 }
 
-void ATPhiRecoSimple::PhiCalc(ATProtoQuadrant *quadrant)
+void ATPhiRecoSimple::PhiCalc(ATProtoQuadrant *quadrant,ATEvent *event)
 {
 
      PhiDist->Reset();
@@ -119,12 +119,17 @@ void ATPhiRecoSimple::PhiCalc(ATProtoQuadrant *quadrant)
 			  Int_t PadNum_qf = qhit_f.GetHitPadNum();
 			  Int_t PadNum_qs = qhit_s.GetHitPadNum();
 			  Double_t Q_f = qhit_f.GetCharge(); //TODO: For the moment we asume the charge to be the amplitude
-			  Double_t Q_s = qhit_s.GetCharge(); 
+			  Double_t Q_s = qhit_s.GetCharge();
+			  Int_t M_f = event->GetHitPadMult(PadNum_qf);
+                          Int_t M_s = event->GetHitPadMult(PadNum_qs); 
                          	 if(PadNum_qf<11) da=1.0-a;
 			  	 else da=3.2-a;
                                  if(PadNum_qs<11) da=1.0-a;
 			  	 else da=3.2-a;
-                             
+
+			if(quadrant->GetEventID()==12382  && quadrant->GetQuadrantID()==1){
+			  if(PadNum_qf==PadNum_qs && M_f==M_s){std::cout<<" Multihit "<<M_f<<" in Pads Num : "<<PadNum_qf<<" - "<<PadNum_qs<<std::endl;}
+                             }
 
 			        if(PadNum_qs==PadNum_qf+1){
 
@@ -167,13 +172,14 @@ void ATPhiRecoSimple::PhiCalc(ATProtoQuadrant *quadrant)
 				PhiDist->Fill(phi);
                                 quadrant->AddPhiVal(phi);
 	                        
-		                //if(quadrant->GetEventID()==4){      
-			       /* std::cout<<" ======================================================================= "<<std::endl;
+
+		                if(quadrant->GetEventID()==12382  && quadrant->GetQuadrantID()==1){      
+			        std::cout<<" ======================================================================= "<<std::endl;
 				std::cout<<" Prototype quadrant : "<<quadrant->GetQuadrantID()<<std::endl;
                      		std::cout<<" First Hit Pad : "<<PadNum_qf<<" First Pad Charge : "<<Q_f<<std::endl;
                                 std::cout<<" Second Hit Pad : "<<PadNum_qs<<" Second Pad Charge : "<<Q_s<<std::endl;
-				std::cout<<" Phi : "<<phi<<std::endl;*/
-				//}
+				std::cout<<" Phi : "<<phi<<std::endl;
+				}
  
 		       }
                  }//nHits>1

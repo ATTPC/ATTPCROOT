@@ -44,6 +44,7 @@ ATDecoder/ATProtoQuadrant.cc
 ATPulseAnalyzer/ATPSA.cc
 ATPulseAnalyzer/ATPSASimple.cc
 ATPulseAnalyzer/ATPSASimple2.cc
+ATPulseAnalyzer/ATPSAProto.cc
 #ATPulseAnalyzer/STPSALayer.cc
 
 HoughTransformation/ATHoughSpace.cc

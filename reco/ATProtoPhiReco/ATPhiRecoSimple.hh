@@ -13,7 +13,7 @@ class ATPhiRecoSimple : public ATPhiReco
     //void PhiAnalyze(ATEvent *event, ATHoughSpace *HSpace);
 
    private:
-   void PhiCalc(ATProtoQuadrant *quadrant);
+   void PhiCalc(ATProtoQuadrant *quadrant,ATEvent *event);
    TH1D* PhiDist; 
 
   ClassDef(ATPhiRecoSimple, 1)

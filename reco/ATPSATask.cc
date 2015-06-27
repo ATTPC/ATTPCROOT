@@ -2,6 +2,7 @@
 #include "ATPSA.hh"
 #include "ATPSASimple.hh"
 #include "ATPSASimple2.hh"
+#include "ATPSAProto.hh"
 //#include "STPSALayer.hh" //TODO???
 
 // FAIRROOT classes
@@ -23,7 +24,7 @@ ATPSATask::ATPSATask()
   
   fEventHArray = new TClonesArray("ATEvent");
 
-  fPSAMode = 1;
+  fPSAMode = 2;
 }
 
 ATPSATask::~ATPSATask()
@@ -51,17 +52,17 @@ ATPSATask::Init()
   }
 
   if (fPSAMode == 0) {
-    fLogger -> Info(MESSAGE_ORIGIN, "Use ATPSASimple!");
+    fLogger -> Info(MESSAGE_ORIGIN, "Using ATPSASimple!");
 
     fPSA = new ATPSASimple();
   } else if (fPSAMode == 1) {
-    fLogger -> Info(MESSAGE_ORIGIN, "Use ATPSASimple2!");
+    fLogger -> Info(MESSAGE_ORIGIN, "Using ATPSASimple2!");
 
-    fPSA = new ATPSASimple2();
-  /*} else if (fPSAMode == 2) {
-    fLogger -> Info(MESSAGE_ORIGIN, "Use STPSALayer!");
-SetBackGroundPeakFinder
-    fPSA = new STPSALayer();*/
+    fPSA = new ATPSAProto();
+
+  } else if (fPSAMode == 2) {
+    fLogger -> Info(MESSAGE_ORIGIN, "Using ATPSAProto!");
+    fPSA = new ATPSAProto();
   }
 
   fPSA -> SetThreshold((Int_t)fThreshold);

@@ -38,6 +38,7 @@ class ATHit : public TObject {
     
     void SetQHit(Double_t Qhit);
     void SetHitMult(Int_t HitMult);
+    void SetTimeStamp(Int_t Time);
 
     //!< Track ID getter
     Int_t GetTrackID();
@@ -53,10 +54,11 @@ class ATHit : public TObject {
     Bool_t IsClustered();
     //!< Cluster ID getter
     Int_t GetClusterID();
-    
     Int_t GetHitPadNum();
     Double_t GetQHit();
     Int_t GetHitMult();
+    Int_t GetTimeStamp();
+
     Int_t fPadNum;
 
   private:
@@ -75,9 +77,9 @@ class ATHit : public TObject {
     Bool_t fIsClustered;
     //!< Cluster ID having this hit
     Int_t fClusterID;
-    
-    
+       
     Int_t fHitMult; // Hit multiplicity in the pad where the hit was found
+    Int_t fTimeStamp; // Time Stamp of the Hit
 
   ClassDef(ATHit, 1);
 };
