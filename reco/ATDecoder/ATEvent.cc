@@ -74,7 +74,7 @@ void ATEvent::SetEventCharge(Double_t Qevent)  			      {fQevent = Qevent;}
 void ATEvent::SetRhoVariance(Double_t RhoVariance)                    { fRhoVariance = RhoVariance;}
 void ATEvent::SetMultiplicityMap(std::map<Int_t,Int_t> MultiMap)      { fMultiMap = MultiMap;}
 void ATEvent::SetMeshSignal(Float_t *mesharray)			      { memcpy(fMeshSig, mesharray, sizeof(fMeshSig));}
-void ATEvent::SetMeshSignal(Int_t idx, Float_t val)                  { fMeshSig[idx] = val; }
+void ATEvent::SetMeshSignal(Int_t idx, Float_t val)                   { fMeshSig[idx] = val; }
 
 // getters
 Int_t ATEvent::GetEventID() { return fEventID; }

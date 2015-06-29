@@ -2,6 +2,7 @@
 
 #include "ATPhiReco.hh"
 #include "ATProtoEvent.hh"
+#include "ATProtoQuadrant.hh"
 
 class ATPhiRecoSimple : public ATPhiReco
 {
@@ -14,6 +15,7 @@ class ATPhiRecoSimple : public ATPhiReco
 
    private:
    void PhiCalc(ATProtoQuadrant *quadrant,ATEvent *event);
+   void PhiCalcMulti(std::vector<ATHit> *multihit_Array,ATProtoQuadrant *quadrant);
    TH1D* PhiDist; 
 
   ClassDef(ATPhiRecoSimple, 1)

@@ -1,0 +1,538 @@
+ Multihit 2 in Pads Num : 1 - 1
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 1 First Pad Charge : 118 First Pad TimeStamp : 363
+ Second Hit Pad : 1 Second Pad Charge : 110 Second Pad TimeStamp : 344
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 1 First Pad Charge : 110 First Pad TimeStamp : 344
+ Second Hit Pad : 2 Second Pad Charge : 154.8 Second Pad TimeStamp : 344
+ Phi : 77.9909
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 2 First Pad Charge : 154.8 First Pad TimeStamp : 344
+ Second Hit Pad : 3 Second Pad Charge : 114.4 Second Pad TimeStamp : 342
+ Phi : -15.7355
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 3 First Pad Charge : 114.4 First Pad TimeStamp : 342
+ Second Hit Pad : 4 Second Pad Charge : 141.1 Second Pad TimeStamp : 339
+ Phi : 65.3777
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 4 First Pad Charge : 141.1 First Pad TimeStamp : 339
+ Second Hit Pad : 5 Second Pad Charge : 105.2 Second Pad TimeStamp : 338
+ Phi : -16.5773
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 5 First Pad Charge : 105.2 First Pad TimeStamp : 338
+ Second Hit Pad : 6 Second Pad Charge : 113.2 Second Pad TimeStamp : 336
+ Phi : 52.1429
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 6 First Pad Charge : 113.2 First Pad TimeStamp : 336
+ Second Hit Pad : 7 Second Pad Charge : 87.7 Second Pad TimeStamp : 335
+ Phi : -20.2489
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 7 First Pad Charge : 87.7 First Pad TimeStamp : 335
+ Second Hit Pad : 8 Second Pad Charge : 77 Second Pad TimeStamp : 334
+ Phi : 32.3315
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 8 First Pad Charge : 77 First Pad TimeStamp : 334
+ Second Hit Pad : 9 Second Pad Charge : 74.7 Second Pad TimeStamp : 333
+ Phi : -42.0435
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 9 First Pad Charge : 74.7 First Pad TimeStamp : 333
+ Second Hit Pad : 10 Second Pad Charge : 54.4 Second Pad TimeStamp : 331
+ Phi : 14.3377
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 10 First Pad Charge : 54.4 First Pad TimeStamp : 331
+ Second Hit Pad : 11 Second Pad Charge : 173.4 Second Pad TimeStamp : 332
+ Phi : -79.9189
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 11 First Pad Charge : 173.4 First Pad TimeStamp : 332
+ Second Hit Pad : 12 Second Pad Charge : 71.9 Second Pad TimeStamp : 327
+ Phi : 17.3411
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 12 First Pad Charge : 71.9 First Pad TimeStamp : 327
+ Second Hit Pad : 13 Second Pad Charge : 184.4 Second Pad TimeStamp : 328
+ Phi : -74.3407
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 13 First Pad Charge : 184.4 First Pad TimeStamp : 328
+ Second Hit Pad : 14 Second Pad Charge : 176.8 Second Pad TimeStamp : 314
+ Phi : 43.5935
+ Multihit 2 in Pads Num : 14 - 14
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 14 First Pad Charge : 176.8 First Pad TimeStamp : 314
+ Second Hit Pad : 14 Second Pad Charge : 200.8 Second Pad TimeStamp : 326
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 14 First Pad Charge : 200.8 First Pad TimeStamp : 326
+ Second Hit Pad : 16 Second Pad Charge : 182.2 Second Pad TimeStamp : 307
+ Phi : 0
+ Multihit 2 in Pads Num : 16 - 16
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 16 First Pad Charge : 182.2 First Pad TimeStamp : 307
+ Second Hit Pad : 16 Second Pad Charge : 94.2 Second Pad TimeStamp : 324
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 16 First Pad Charge : 94.2 First Pad TimeStamp : 324
+ Second Hit Pad : 17 Second Pad Charge : 163.8 Second Pad TimeStamp : 321
+ Phi : -63.0325
+ Multihit 2 in Pads Num : 17 - 17
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 17 First Pad Charge : 163.8 First Pad TimeStamp : 321
+ Second Hit Pad : 17 Second Pad Charge : 46.8 Second Pad TimeStamp : 302
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 17 First Pad Charge : 46.8 First Pad TimeStamp : 302
+ Second Hit Pad : 18 Second Pad Charge : 194.1 Second Pad TimeStamp : 299
+ Phi : 85.8726
+ Multihit 2 in Pads Num : 18 - 18
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 18 First Pad Charge : 194.1 First Pad TimeStamp : 299
+ Second Hit Pad : 18 Second Pad Charge : 110.1 Second Pad TimeStamp : 320
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 18 First Pad Charge : 110.1 First Pad TimeStamp : 320
+ Second Hit Pad : 19 Second Pad Charge : 63 Second Pad TimeStamp : 295
+ Phi : -26.8118
+ Multihit 2 in Pads Num : 19 - 19
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 19 First Pad Charge : 63 First Pad TimeStamp : 295
+ Second Hit Pad : 19 Second Pad Charge : 176 Second Pad TimeStamp : 317
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 19 First Pad Charge : 176 First Pad TimeStamp : 317
+ Second Hit Pad : 20 Second Pad Charge : 187.2 Second Pad TimeStamp : 315
+ Phi : 47.0613
+ Multihit 2 in Pads Num : 20 - 20
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 20 First Pad Charge : 187.2 First Pad TimeStamp : 315
+ Second Hit Pad : 20 Second Pad Charge : 213.2 Second Pad TimeStamp : 293
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 20 First Pad Charge : 213.2 First Pad TimeStamp : 293
+ Second Hit Pad : 21 Second Pad Charge : 51.4 Second Pad TimeStamp : 288
+ Phi : -4.12522
+ Multihit 2 in Pads Num : 21 - 21
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 21 First Pad Charge : 51.4 First Pad TimeStamp : 288
+ Second Hit Pad : 21 Second Pad Charge : 207.4 Second Pad TimeStamp : 313
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 21 First Pad Charge : 207.4 First Pad TimeStamp : 313
+ Second Hit Pad : 22 Second Pad Charge : 197.4 Second Pad TimeStamp : 311
+ Phi : 43.3487
+ Multihit 2 in Pads Num : 22 - 22
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 22 First Pad Charge : 197.4 First Pad TimeStamp : 311
+ Second Hit Pad : 22 Second Pad Charge : 244.4 Second Pad TimeStamp : 285
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 22 First Pad Charge : 244.4 First Pad TimeStamp : 285
+ Second Hit Pad : 23 Second Pad Charge : 191.5 Second Pad TimeStamp : 310
+ Phi : -36.8879
+ Multihit 2 in Pads Num : 23 - 23
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 23 First Pad Charge : 191.5 First Pad TimeStamp : 310
+ Second Hit Pad : 23 Second Pad Charge : 55.5 Second Pad TimeStamp : 282
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 23 First Pad Charge : 55.5 First Pad TimeStamp : 282
+ Second Hit Pad : 24 Second Pad Charge : 166.6 Second Pad TimeStamp : 308
+ Phi : 78.4374
+ Multihit 2 in Pads Num : 24 - 24
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 24 First Pad Charge : 166.6 First Pad TimeStamp : 308
+ Second Hit Pad : 24 Second Pad Charge : 205.6 Second Pad TimeStamp : 278
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 24 First Pad Charge : 205.6 First Pad TimeStamp : 278
+ Second Hit Pad : 25 Second Pad Charge : 65 Second Pad TimeStamp : 275
+ Phi : -10.2684
+ Multihit 2 in Pads Num : 25 - 25
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 25 First Pad Charge : 65 First Pad TimeStamp : 275
+ Second Hit Pad : 25 Second Pad Charge : 192 Second Pad TimeStamp : 306
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 25 First Pad Charge : 192 First Pad TimeStamp : 306
+ Second Hit Pad : 26 Second Pad Charge : 156 Second Pad TimeStamp : 304
+ Phi : 38.085
+ Multihit 2 in Pads Num : 26 - 26
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 26 First Pad Charge : 156 First Pad TimeStamp : 304
+ Second Hit Pad : 26 Second Pad Charge : 255 Second Pad TimeStamp : 271
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 26 First Pad Charge : 255 First Pad TimeStamp : 271
+ Second Hit Pad : 27 Second Pad Charge : 65.6 Second Pad TimeStamp : 267
+ Phi : -5.51036
+ Multihit 2 in Pads Num : 27 - 27
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 27 First Pad Charge : 65.6 First Pad TimeStamp : 267
+ Second Hit Pad : 27 Second Pad Charge : 180.6 Second Pad TimeStamp : 302
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 27 First Pad Charge : 180.6 First Pad TimeStamp : 302
+ Second Hit Pad : 28 Second Pad Charge : 154.5 Second Pad TimeStamp : 300
+ Phi : 39.7937
+ Multihit 2 in Pads Num : 28 - 28
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 28 First Pad Charge : 154.5 First Pad TimeStamp : 300
+ Second Hit Pad : 28 Second Pad Charge : 257.5 Second Pad TimeStamp : 264
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 28 First Pad Charge : 257.5 First Pad TimeStamp : 264
+ Second Hit Pad : 29 Second Pad Charge : 71.8 Second Pad TimeStamp : 260
+ Phi : -7.30473
+ Multihit 2 in Pads Num : 29 - 29
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 29 First Pad Charge : 71.8 First Pad TimeStamp : 260
+ Second Hit Pad : 29 Second Pad Charge : 168.8 Second Pad TimeStamp : 298
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 29 First Pad Charge : 168.8 First Pad TimeStamp : 298
+ Second Hit Pad : 30 Second Pad Charge : 145.9 Second Pad TimeStamp : 297
+ Phi : 40.1359
+ Multihit 2 in Pads Num : 30 - 30
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 30 First Pad Charge : 145.9 First Pad TimeStamp : 297
+ Second Hit Pad : 30 Second Pad Charge : 242.9 Second Pad TimeStamp : 257
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 30 First Pad Charge : 242.9 First Pad TimeStamp : 257
+ Second Hit Pad : 31 Second Pad Charge : 55.6 Second Pad TimeStamp : 253
+ Phi : -3.05694
+ Multihit 2 in Pads Num : 31 - 31
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 31 First Pad Charge : 55.6 First Pad TimeStamp : 253
+ Second Hit Pad : 31 Second Pad Charge : 193.6 Second Pad TimeStamp : 295
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 31 First Pad Charge : 193.6 First Pad TimeStamp : 295
+ Second Hit Pad : 32 Second Pad Charge : 165.6 Second Pad TimeStamp : 293
+ Phi : 39.7894
+ Multihit 2 in Pads Num : 32 - 32
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 32 First Pad Charge : 165.6 First Pad TimeStamp : 293
+ Second Hit Pad : 32 Second Pad Charge : 261.6 Second Pad TimeStamp : 249
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 32 First Pad Charge : 261.6 First Pad TimeStamp : 249
+ Second Hit Pad : 33 Second Pad Charge : 74 Second Pad TimeStamp : 246
+ Phi : -7.63391
+ Multihit 2 in Pads Num : 33 - 33
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 33 First Pad Charge : 74 First Pad TimeStamp : 246
+ Second Hit Pad : 33 Second Pad Charge : 175 Second Pad TimeStamp : 292
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 33 First Pad Charge : 175 First Pad TimeStamp : 292
+ Second Hit Pad : 34 Second Pad Charge : 238.9 Second Pad TimeStamp : 242
+ Phi : 55.3198
+ Multihit 2 in Pads Num : 34 - 34
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 34 First Pad Charge : 238.9 First Pad TimeStamp : 242
+ Second Hit Pad : 34 Second Pad Charge : 174.9 Second Pad TimeStamp : 290
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 34 First Pad Charge : 174.9 First Pad TimeStamp : 290
+ Second Hit Pad : 35 Second Pad Charge : 87.6 Second Pad TimeStamp : 238
+ Phi : -22.7694
+ Multihit 2 in Pads Num : 35 - 35
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 35 First Pad Charge : 87.6 First Pad TimeStamp : 238
+ Second Hit Pad : 35 Second Pad Charge : 198.6 Second Pad TimeStamp : 288
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 35 First Pad Charge : 198.6 First Pad TimeStamp : 288
+ Second Hit Pad : 36 Second Pad Charge : 145.2 Second Pad TimeStamp : 287
+ Phi : 34.6175
+ Multihit 2 in Pads Num : 36 - 36
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 36 First Pad Charge : 145.2 First Pad TimeStamp : 287
+ Second Hit Pad : 36 Second Pad Charge : 283.2 Second Pad TimeStamp : 235
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 36 First Pad Charge : 283.2 First Pad TimeStamp : 235
+ Second Hit Pad : 37 Second Pad Charge : 77 Second Pad TimeStamp : 231
+ Phi : -6.73412
+ Multihit 2 in Pads Num : 37 - 37
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 37 First Pad Charge : 77 First Pad TimeStamp : 231
+ Second Hit Pad : 37 Second Pad Charge : 186 Second Pad TimeStamp : 285
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 37 First Pad Charge : 186 First Pad TimeStamp : 285
+ Second Hit Pad : 38 Second Pad Charge : 164.3 Second Pad TimeStamp : 283
+ Phi : 40.8592
+ Multihit 2 in Pads Num : 38 - 38
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 38 First Pad Charge : 164.3 First Pad TimeStamp : 283
+ Second Hit Pad : 38 Second Pad Charge : 280.3 Second Pad TimeStamp : 227
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 38 First Pad Charge : 280.3 First Pad TimeStamp : 227
+ Second Hit Pad : 39 Second Pad Charge : 70.4 Second Pad TimeStamp : 223
+ Phi : -4.99232
+ Multihit 2 in Pads Num : 39 - 39
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 39 First Pad Charge : 70.4 First Pad TimeStamp : 223
+ Second Hit Pad : 39 Second Pad Charge : 184.4 Second Pad TimeStamp : 282
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 39 First Pad Charge : 184.4 First Pad TimeStamp : 282
+ Second Hit Pad : 40 Second Pad Charge : 166 Second Pad TimeStamp : 280
+ Phi : 41.4899
+ Multihit 2 in Pads Num : 40 - 40
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 40 First Pad Charge : 166 First Pad TimeStamp : 280
+ Second Hit Pad : 40 Second Pad Charge : 284 Second Pad TimeStamp : 220
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 40 First Pad Charge : 284 First Pad TimeStamp : 220
+ Second Hit Pad : 41 Second Pad Charge : 78.1 Second Pad TimeStamp : 216
+ Phi : -6.99029
+ Multihit 2 in Pads Num : 41 - 41
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 41 First Pad Charge : 78.1 First Pad TimeStamp : 216
+ Second Hit Pad : 41 Second Pad Charge : 188.1 Second Pad TimeStamp : 279
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 41 First Pad Charge : 188.1 First Pad TimeStamp : 279
+ Second Hit Pad : 42 Second Pad Charge : 314.8 Second Pad TimeStamp : 212
+ Phi : 61.8408
+ Multihit 2 in Pads Num : 42 - 42
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 42 First Pad Charge : 314.8 First Pad TimeStamp : 212
+ Second Hit Pad : 42 Second Pad Charge : 162.8 Second Pad TimeStamp : 277
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 42 First Pad Charge : 162.8 First Pad TimeStamp : 277
+ Second Hit Pad : 43 Second Pad Charge : 81.3 Second Pad TimeStamp : 208
+ Phi : -22.6819
+ Multihit 2 in Pads Num : 43 - 43
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 43 First Pad Charge : 81.3 First Pad TimeStamp : 208
+ Second Hit Pad : 43 Second Pad Charge : 176.3 Second Pad TimeStamp : 276
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 43 First Pad Charge : 176.3 First Pad TimeStamp : 276
+ Second Hit Pad : 44 Second Pad Charge : 181.3 Second Pad TimeStamp : 274
+ Phi : 45.9346
+ Multihit 2 in Pads Num : 44 - 44
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 44 First Pad Charge : 181.3 First Pad TimeStamp : 274
+ Second Hit Pad : 44 Second Pad Charge : 348.3 Second Pad TimeStamp : 204
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 44 First Pad Charge : 348.3 First Pad TimeStamp : 204
+ Second Hit Pad : 45 Second Pad Charge : 72.8 Second Pad TimeStamp : 201
+ Phi : -1.26762
+ Multihit 2 in Pads Num : 45 - 45
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 45 First Pad Charge : 72.8 First Pad TimeStamp : 201
+ Second Hit Pad : 45 Second Pad Charge : 189.8 Second Pad TimeStamp : 273
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 45 First Pad Charge : 189.8 First Pad TimeStamp : 273
+ Second Hit Pad : 46 Second Pad Charge : 150.6 Second Pad TimeStamp : 272
+ Phi : 37.3023
+ Multihit 2 in Pads Num : 46 - 46
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 46 First Pad Charge : 150.6 First Pad TimeStamp : 272
+ Second Hit Pad : 46 Second Pad Charge : 298.6 Second Pad TimeStamp : 197
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 46 First Pad Charge : 298.6 First Pad TimeStamp : 197
+ Second Hit Pad : 47 Second Pad Charge : 88.8 Second Pad TimeStamp : 193
+ Phi : -8.79967
+ Multihit 2 in Pads Num : 47 - 47
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 47 First Pad Charge : 88.8 First Pad TimeStamp : 193
+ Second Hit Pad : 47 Second Pad Charge : 203.8 Second Pad TimeStamp : 270
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 47 First Pad Charge : 203.8 First Pad TimeStamp : 270
+ Second Hit Pad : 48 Second Pad Charge : 164.6 Second Pad TimeStamp : 269
+ Phi : 37.8873
+ Multihit 2 in Pads Num : 48 - 48
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 48 First Pad Charge : 164.6 First Pad TimeStamp : 269
+ Second Hit Pad : 48 Second Pad Charge : 352.6 Second Pad TimeStamp : 189
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 48 First Pad Charge : 352.6 First Pad TimeStamp : 189
+ Second Hit Pad : 49 Second Pad Charge : 100.9 Second Pad TimeStamp : 185
+ Phi : -7.90011
+ Multihit 2 in Pads Num : 49 - 49
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 49 First Pad Charge : 100.9 First Pad TimeStamp : 185
+ Second Hit Pad : 49 Second Pad Charge : 185.9 Second Pad TimeStamp : 268
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 49 First Pad Charge : 185.9 First Pad TimeStamp : 268
+ Second Hit Pad : 53 Second Pad Charge : 174.5 Second Pad TimeStamp : 264
+ Phi : 0
+ Multihit 2 in Pads Num : 53 - 53
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 53 First Pad Charge : 174.5 First Pad TimeStamp : 264
+ Second Hit Pad : 53 Second Pad Charge : 159.5 Second Pad TimeStamp : 168
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 53 First Pad Charge : 159.5 First Pad TimeStamp : 168
+ Second Hit Pad : 54 Second Pad Charge : 487.7 Second Pad TimeStamp : 120
+ Phi : 78.8974
+ Multihit 3 in Pads Num : 54 - 54
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 54 First Pad Charge : 487.7 First Pad TimeStamp : 120
+ Second Hit Pad : 54 Second Pad Charge : 462.7 Second Pad TimeStamp : 162
+ Phi : 0
+ Multihit 3 in Pads Num : 54 - 54
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 54 First Pad Charge : 462.7 First Pad TimeStamp : 162
+ Second Hit Pad : 54 Second Pad Charge : 128.7 Second Pad TimeStamp : 263
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 54 First Pad Charge : 128.7 First Pad TimeStamp : 263
+ Second Hit Pad : 55 Second Pad Charge : 195.6 Second Pad TimeStamp : 155
+ Phi : -58.7894
+ Multihit 3 in Pads Num : 55 - 55
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 55 First Pad Charge : 195.6 First Pad TimeStamp : 155
+ Second Hit Pad : 55 Second Pad Charge : 406.6 Second Pad TimeStamp : 132
+ Phi : 0
+ Multihit 3 in Pads Num : 55 - 55
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 55 First Pad Charge : 406.6 First Pad TimeStamp : 132
+ Second Hit Pad : 55 Second Pad Charge : 130.6 Second Pad TimeStamp : 263
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 55 First Pad Charge : 130.6 First Pad TimeStamp : 263
+ Second Hit Pad : 56 Second Pad Charge : 127.2 Second Pad TimeStamp : 262
+ Phi : 44.1184
+ Multihit 2 in Pads Num : 56 - 56
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 56 First Pad Charge : 127.2 First Pad TimeStamp : 262
+ Second Hit Pad : 56 Second Pad Charge : 534.2 Second Pad TimeStamp : 143
+ Phi : 0
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 56 First Pad Charge : 534.2 First Pad TimeStamp : 143
+ Second Hit Pad : 57 Second Pad Charge : 142.5 Second Pad TimeStamp : 262
+ Phi : -6.30774
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 57 First Pad Charge : 142.5 First Pad TimeStamp : 262
+ Second Hit Pad : 58 Second Pad Charge : 101.5 Second Pad TimeStamp : 262
+ Phi : 33.7679
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 58 First Pad Charge : 101.5 First Pad TimeStamp : 262
+ Second Hit Pad : 59 Second Pad Charge : 128.1 Second Pad TimeStamp : 262
+ Phi : -52.7442
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 59 First Pad Charge : 128.1 First Pad TimeStamp : 262
+ Second Hit Pad : 60 Second Pad Charge : 65.5 Second Pad TimeStamp : 263
+ Phi : 23.386
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 60 First Pad Charge : 65.5 First Pad TimeStamp : 263
+ Second Hit Pad : 61 Second Pad Charge : 80.4 Second Pad TimeStamp : 264
+ Phi : -51.8265
+ ======================================================================= 
+ Prototype quadrant : 1
+ First Hit Pad : 61 First Pad Charge : 80.4 First Pad TimeStamp : 264
+ Second Hit Pad : 62 Second Pad Charge : 57.3 Second Pad TimeStamp : 265
+ Phi : 33.7864
+
