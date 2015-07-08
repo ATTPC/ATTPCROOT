@@ -13,6 +13,7 @@
 #include "ATHoughSpace.hh"
 #include "ATPhiReco.hh"
 #include "ATPhiRecoSimple.hh"
+#include "ATPhiRecoTriple.hh"
 
 
 // ROOT classes

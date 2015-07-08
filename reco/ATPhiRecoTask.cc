@@ -52,9 +52,9 @@ ATPhiRecoTask::Init()
 
     fPhiReco = new ATPhiRecoSimple();
   } else if (fPhiRecoMode == 1) {
-    fLogger -> Info(MESSAGE_ORIGIN, "Using NOTHING!");
+    fLogger -> Info(MESSAGE_ORIGIN, "Using ATPhiRecoTriple!");
 
-  
+    fPhiReco = new ATPhiRecoTriple();
   }
 
    //fPSA -> SetThreshold((Int_t)fThreshold);

@@ -43,7 +43,7 @@ class ATHit : public TObject {
     //!< Track ID getter
     Int_t GetTrackID();
     //!< Hit ID getter
-    Int_t GetHitID();
+    Int_t GetHitID() const;
     //!< Position getter
     TVector3 GetPosition();
     //!< Position sigma getter
@@ -81,7 +81,7 @@ class ATHit : public TObject {
     Int_t fHitMult; // Hit multiplicity in the pad where the hit was found
     Int_t fTimeStamp; // Time Stamp of the Hit
 
-  ClassDef(ATHit, 1);
+  ClassDef(ATHit, 2);
 };
 
 #endif

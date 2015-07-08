@@ -15,6 +15,7 @@
 
 // STL
 #include <vector>
+#include <algorithm>
 
 // ROOT classes
 #include "TClonesArray.h"

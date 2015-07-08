@@ -35,6 +35,7 @@
 #include "ATHit.hh"
 #include "AtTpcMap.h"
 #include "ATProtoQuadrant.hh"
+#include <fstream>
 
 #ifndef __CINT__ // Boost 
 #include <boost/multi_array.hpp>

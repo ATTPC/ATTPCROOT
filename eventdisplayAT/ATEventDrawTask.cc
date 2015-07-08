@@ -406,8 +406,12 @@ ATEventDrawTask::DrawHitPoints()
    
    //for(Int_t i=0;i<hitSphereArray.size();i++) gEve->AddElement(hitSphereArray[i]);
     
-  
-    
+     std::ofstream dumpEvent;
+     dumpEvent.open ("event.dat");
+     Int_t eventID=event->GetEventID();
+     TString TSevt =" Event ID : ";
+     TString TSpad =" Pad ID : ";
+     dumpEvent<<TSevt<<eventID<<std::endl;
     
     Int_t nPads = fRawevent->GetNumPads();
     std::cout<<"Num of pads : "<<nPads<<std::endl;
@@ -421,6 +425,7 @@ ATEventDrawTask::DrawHitPoints()
             //std::cout<<"Pad num : "<<iPad<<" Is Valid? : "<<fPad->GetValidPad()<<" Pad num in pad object :"<<fPad->GetPadNum()<<std::endl;
             Int_t *rawadc = fPad->GetRawADC();
             Double_t *adc = fPad->GetADC();
+	   // dumpEvent<<TSpad<<fPad->GetPadNum()<<std::endl;
         
             for(Int_t j=0;j<512;j++){ // TODO: This is limited to 256 pads only. Increment the size of the array and put another option for ATTPC
             
@@ -428,6 +433,7 @@ ATEventDrawTask::DrawHitPoints()
                     
                     
                     fPadAll[iPad]->SetBinContent(j,adc[j]);
+		   // dumpEvent<<adc[j]<<"     "<<j<<"     "<<fPad->GetPadNum()<<std::endl;
                     
                 }
             
@@ -448,6 +454,7 @@ ATEventDrawTask::DrawHitPoints()
     
     gEve -> AddElement(fHitSet);
     gEve -> AddElement(fhitBoxSet);
+  
    
 }
 

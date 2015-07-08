@@ -89,7 +89,7 @@ void ATHit::SetIsClustered(Bool_t value)                                { fIsClu
 void ATHit::SetClusterID(Int_t clusterID)                               { fClusterID = clusterID; fIsClustered = kTRUE; }
 
 Int_t ATHit::GetTrackID()                                               { return fTrackID; }
-Int_t ATHit::GetHitID()                                                 { return fHitID; }
+Int_t ATHit::GetHitID() const                                           { return fHitID; }
 Int_t ATHit::GetHitPadNum()                                             { return fPadNum; }
 TVector3 ATHit::GetPosition()                                           { return fPosition; }
 TVector3 ATHit::GetPosSigma()                                           { return fPositionSigma; }

@@ -52,6 +52,7 @@ HoughTransformation/ATHoughSpaceLine.cc
 
 ATProtoPhiReco/ATPhiReco.cc
 ATProtoPhiReco/ATPhiRecoSimple.cc
+ATProtoPhiReco/ATPhiRecoTriple.cc
 
 ATDecoderTask.cc
 ATPSATask.cc

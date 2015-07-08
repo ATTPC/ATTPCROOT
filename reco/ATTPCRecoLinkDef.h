@@ -29,6 +29,7 @@
 
 #pragma link C++ class ATPhiReco+;
 #pragma link C++ class ATPhiRecoSimple+;
+#pragma link C++ class ATPhiRecoTriple+;
 
 #pragma link C++ class ATPSATask+;
 #pragma link C++ class ATPhiRecoTask+;
