@@ -1,4 +1,4 @@
-void run_sim_proto(Int_t nEvents = 100, TString mcEngine = "TGeant4")
+void run_sim_proto(Int_t nEvents = 1, TString mcEngine = "TGeant4")
 {
     
   TString dir = getenv("VMCWORKDIR");
@@ -48,11 +48,11 @@ void run_sim_proto(Int_t nEvents = 100, TString mcEngine = "TGeant4")
 
     // -----   Magnetic field   -------------------------------------------
     // Constant Field
-    AtConstField  *fMagField = new AtConstField();
+   /* AtConstField  *fMagField = new AtConstField();
     fMagField->SetField(0., 0. ,20. ); // values are in kG
     fMagField->SetFieldRegion(-50, 50,-50, 50, -10,230); // values are in cm
                           //  (xmin,xmax,ymin,ymax,zmin,zmax)
-    run->SetField(fMagField);
+    run->SetField(fMagField);*/
     // --------------------------------------------------------------------
 
     
@@ -99,13 +99,13 @@ void run_sim_proto(Int_t nEvents = 100, TString mcEngine = "TGeant4")
 	          // add the ion generator
 	          primGen->AddGenerator(ionGen);*/
 
-		      Int_t z = 2;  // Atomic number
-	          Int_t a = 4; // Mass number
+		  Int_t z = 4;  // Atomic number
+	          Int_t a = 10; // Mass number
 	          Int_t q = 0;   // Charge State
 	          Int_t m = 1;   // Multiplicity
-	          Double_t px = 0.01/a;  // X-Momentum / per nucleon!!!!!!
-	          Double_t py = 0.01/a;  // Y-Momentum / per nucleon!!!!!!
-	          Double_t pz = 0.300/a;  // Z-Momentum / per nucleon!!!!!!
+	          Double_t px = 0.001/a;  // X-Momentum / per nucleon!!!!!!
+	          Double_t py = 0.001/a;  // Y-Momentum / per nucleon!!!!!!
+	          Double_t pz = 0.809/a;  // Z-Momentum / per nucleon!!!!!!
 	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator(z,a,q,m,px,py,pz);
 	          ionGen->SetSpotRadius(1,-20,0);
 	          // add the ion generator
