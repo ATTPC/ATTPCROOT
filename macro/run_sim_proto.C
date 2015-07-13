@@ -109,10 +109,24 @@ void run_sim_proto(Int_t nEvents = 1, TString mcEngine = "TGeant4")
 	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator(z,a,q,m,px,py,pz);
 	          ionGen->SetSpotRadius(1,-20,0);
 	          // add the ion generator
+		 
 	          primGen->AddGenerator(ionGen);
-  
+		  
+  		  //primGen->SetBeam(1,1,0,0); //These parameters change the position of the vertex of every track added to the Primary Generator
+		  // primGen->SetTarget(30,0);
  
-    run->SetGenerator(primGen);
+                  run->SetGenerator(primGen);
+
+
+	//FairPrimaryGenerator* primGen2 = new FairPrimaryGenerator();
+
+         FairBoxGenerator* boxGen = new FairBoxGenerator(13, 2); // 13 = muon; 1 = multipl.
+         boxGen->SetPRange(20,25); // GeV/c
+         boxGen->SetPhiRange(0., 360.); // Azimuth angle range [degree]
+         boxGen->SetThetaRange(0., 90.); // Polar angle in lab system range [degree]
+         boxGen->SetXYZ(0., 0., 40.); // cm
+         primGen->AddGenerator(boxGen);
+
     
 // ------------------------------------------------------------------------
  

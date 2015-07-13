@@ -231,10 +231,12 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 		       fLength,
 		       fELoss);
 
-		 
+	//std::cout<<" Energy Loss : "<<fELoss*1000<<std::endl;	 
 
-		
-
+	if(fELoss*1000>10.0){
+		 std::cout<<" Energy Loss : "<<fELoss*1000<<std::endl;
+		 gMC->StopTrack();	
+	}
 		// Increment number of AtTpc det points in TParticle
 	    	AtStack* stack = (AtStack*) gMC->GetStack();
 	    	stack->AddPoint(kAtTpc);
@@ -243,6 +245,7 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 
        // ResetParameters();
          // Reset();
+    
     
 
     return kTRUE;
