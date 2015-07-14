@@ -27,6 +27,7 @@ set(SRCS
 Pythia6Generator.cxx
 Pythia8Generator.cxx
 ATTPCIonGenerator.cxx
+ATTPCIonPhaseSpace.cxx
 )
 
 set(LINKDEF  GenLinkDef.h)

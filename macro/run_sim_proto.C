@@ -80,12 +80,7 @@ void run_sim_proto(Int_t nEvents = 1, TString mcEngine = "TGeant4")
     boxGen->SetXYZ(0., 0., 0.); // cm
     primGen->AddGenerator(boxGen);*/
 
-      // Box Generator
- /* FairBoxGenerator* boxGen = new FairBoxGenerator(2212, 10); // 13 = muon; 1 = multipl.
-  boxGen->SetPRange(2., 2.); // GeV/c //setPRange vs setPtRange
-  boxGen->SetPhiRange(0, 360); // Azimuth angle range [degree]
-  boxGen->SetThetaRange(3, 10); // Polar angle in lab system range [degree]
-  boxGen->SetCosTheta();//uniform generation on all the solid angle(default)*/
+
 
                 /*  Int_t z = 18;  // Atomic number
 	          Int_t a = 34; // Mass number
@@ -99,13 +94,17 @@ void run_sim_proto(Int_t nEvents = 1, TString mcEngine = "TGeant4")
 	          // add the ion generator
 	          primGen->AddGenerator(ionGen);*/
 
-		  Int_t z = 4;  // Atomic number
+		 
+                  // Beam Information
+                  Int_t z = 4;  // Atomic number
 	          Int_t a = 10; // Mass number
 	          Int_t q = 0;   // Charge State
 	          Int_t m = 1;   // Multiplicity
 	          Double_t px = 0.001/a;  // X-Momentum / per nucleon!!!!!!
 	          Double_t py = 0.001/a;  // Y-Momentum / per nucleon!!!!!!
 	          Double_t pz = 0.809/a;  // Z-Momentum / per nucleon!!!!!!
+
+
 	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator(z,a,q,m,px,py,pz);
 	          ionGen->SetSpotRadius(1,-20,0);
 	          // add the ion generator
@@ -115,19 +114,57 @@ void run_sim_proto(Int_t nEvents = 1, TString mcEngine = "TGeant4")
   		  //primGen->SetBeam(1,1,0,0); //These parameters change the position of the vertex of every track added to the Primary Generator
 		  // primGen->SetTarget(30,0);
  
-                  run->SetGenerator(primGen);
+                  
 
 
-	//FairPrimaryGenerator* primGen2 = new FairPrimaryGenerator();
+		 // Variable definition for Phase Space Calculation
+                  std::vector<Int_t> Zp; // Zp of the reaction products      
+		  std::vector<Int_t> Ap; // Ap of the reaction products
+                  std::vector<Int_t> Qp;//Electric charge of gthe reaction products
+                  Int_t mult;  //Number of decaying particles        
+ 		  std::vector<Double_t> Pxp; //Px momentum X
+		  std::vector<Double_t> Pyp; //Py momentum Y
+		  std::vector<Double_t> Pzp; //Pz momentum Z
+		  Double_t ResEner; // Residual energy of the beam
+		  // Note: Momentum will be calculated from the phase Space according to the residual energy of the beam
 
-         FairBoxGenerator* boxGen = new FairBoxGenerator(13, 2); // 13 = muon; 1 = multipl.
-         boxGen->SetPRange(20,25); // GeV/c
-         boxGen->SetPhiRange(0., 360.); // Azimuth angle range [degree]
-         boxGen->SetThetaRange(0., 90.); // Polar angle in lab system range [degree]
-         boxGen->SetXYZ(0., 0., 40.); // cm
-         primGen->AddGenerator(boxGen);
+                  //Initialization of variables for physic case (10Be + 4He -> 6He + 4He + 4He)
+	          mult = 3; //THIS DEFINITION IS MANDATORY (and the number of particles must be the same)
+                  ResEner = 35.0;
+
+                   //--- Particle 1 -----
+		  Zp.push_back(2); // 6He 
+		  Ap.push_back(6); // 		  
+		  Qp.push_back(0); // 
+		  Pxp.push_back(0.0);
+	          Pyp.push_back(0.0);
+		  Pzp.push_back(0.0);
+		 
+		  // ---- Particle 2 -----
+		  Zp.push_back(2); // 4He 
+		  Ap.push_back(2); // 
+		  Qp.push_back(0); 
+		  Pxp.push_back(0.0);
+		  Pyp.push_back(0.0);
+		  Pzp.push_back(0.0);
+
+		  // ----- Particle 3 -----
+		  Zp.push_back(2); // 4He 
+		  Ap.push_back(2); // 
+		  Qp.push_back(0); // 
+		  Pxp.push_back(0.0);
+		  Pyp.push_back(0.0);
+		  Pzp.push_back(0.0);
+
+		 
+		 
+                  
+        ATTPCIonPhaseSpace* ReacDecay = new ATTPCIonPhaseSpace(&Zp,&Ap,&Qp,mult,&Pxp,&Pyp,&Pzp,ResEner,z,a,px,py,pz); 
+        primGen->AddGenerator(ReacDecay);
 
     
+	run->SetGenerator(primGen);
+
 // ------------------------------------------------------------------------
  
   //---Store the visualiztion info of the tracks, this make the output file very large!!
