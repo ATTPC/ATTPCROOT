@@ -1,4 +1,4 @@
-void run_sim_proto(Int_t nEvents = 1, TString mcEngine = "TGeant4")
+void run_sim_proto(Int_t nEvents = 20, TString mcEngine = "TGeant4")
 {
     
   TString dir = getenv("VMCWORKDIR");
@@ -109,7 +109,7 @@ void run_sim_proto(Int_t nEvents = 1, TString mcEngine = "TGeant4")
 	          ionGen->SetSpotRadius(1,-20,0);
 	          // add the ion generator
 		 
-	          primGen->AddGenerator(ionGen);
+	         // primGen->AddGenerator(ionGen);
 		  
   		  //primGen->SetBeam(1,1,0,0); //These parameters change the position of the vertex of every track added to the Primary Generator
 		  // primGen->SetTarget(30,0);
@@ -142,7 +142,7 @@ void run_sim_proto(Int_t nEvents = 1, TString mcEngine = "TGeant4")
 		 
 		  // ---- Particle 2 -----
 		  Zp.push_back(2); // 4He 
-		  Ap.push_back(2); // 
+		  Ap.push_back(4); // 
 		  Qp.push_back(0); 
 		  Pxp.push_back(0.0);
 		  Pyp.push_back(0.0);
@@ -150,7 +150,7 @@ void run_sim_proto(Int_t nEvents = 1, TString mcEngine = "TGeant4")
 
 		  // ----- Particle 3 -----
 		  Zp.push_back(2); // 4He 
-		  Ap.push_back(2); // 
+		  Ap.push_back(4); // 
 		  Qp.push_back(0); // 
 		  Pxp.push_back(0.0);
 		  Pyp.push_back(0.0);

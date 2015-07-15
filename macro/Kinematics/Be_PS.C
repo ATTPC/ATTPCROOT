@@ -96,6 +96,7 @@ void Be_PS(double Energy = 35.0)//BeamEnergy in MeV
         mass_1[1] = mass_4He;
 	mass_1[2] = mass_4He;
         
+        std::cout<<" S : "<<s<<" Pow(M) "<<pow(mass_1[0]+mass_1[1]+mass_1[2],2)<<std::endl;
        
         if(s>pow(mass_6He+mass_4He+mass_4He,2)){
             
