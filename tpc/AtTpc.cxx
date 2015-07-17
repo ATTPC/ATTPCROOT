@@ -30,6 +30,7 @@
 #include "TGeoTube.h"
 #include "TGeoMaterial.h"
 #include "TGeoMedium.h"
+#include "TParticle.h"
 
 #include <iostream>
 using std::cout;
@@ -153,6 +154,14 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
   return kTRUE;*/
 //============================================================================//
 
+
+	AtStack* stack = (AtStack*) gMC->GetStack();
+
+
+       /* std::cout<<" Current Track Number : "<<stack->GetCurrentTrackNumber()<<std::endl;
+	TParticle* beam_part0 = stack->GetParticle(stack->GetCurrentTrackNumber());
+        std::cout<<" Current particle mass  "<<beam_part0->GetMass()<<std::endl;*/
+
    if (gMC->IsTrackEntering())
     {
         fELoss = 0.;
@@ -238,8 +247,19 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 		 gMC->StopTrack();	
 	}
 		// Increment number of AtTpc det points in TParticle
-	    	AtStack* stack = (AtStack*) gMC->GetStack();
+	    	
 	    	stack->AddPoint(kAtTpc);
+		/*std::cout<<" Current Track Number : "<<stack->GetCurrentTrackNumber()<<std::endl;
+		stack->Print(1);
+		TParticle* beam_part0 = stack->GetParticle(0);
+                std::cout<<" Beam particle 0 mass  "<<beam_part0->GetMass()<<std::endl;
+		TParticle* beam_part1 = stack->GetParticle(1);
+                std::cout<<" Beam particle 1 mass  "<<beam_part1->GetMass()<<std::endl;
+		TParticle* beam_part2 = stack->GetParticle(2);
+                std::cout<<" Beam particle 2 mass  "<<beam_part2->GetMass()<<std::endl;	
+		TParticle* beam_part3 = stack->GetParticle(3);
+                std::cout<<" Beam particle 3 mass  "<<beam_part3->GetMass()<<std::endl;*/
+		
 
 		//Print();
 

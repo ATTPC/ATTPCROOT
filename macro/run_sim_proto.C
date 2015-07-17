@@ -1,4 +1,4 @@
-void run_sim_proto(Int_t nEvents = 20, TString mcEngine = "TGeant4")
+void run_sim_proto(Int_t nEvents = 2, TString mcEngine = "TGeant4")
 {
     
   TString dir = getenv("VMCWORKDIR");
@@ -13,6 +13,9 @@ void run_sim_proto(Int_t nEvents = 20, TString mcEngine = "TGeant4")
   TStopwatch timer;
   timer.Start();
   // ------------------------------------------------------------------------
+
+  ATVertexPropagator* vertex_prop = new ATVertexPropagator();
+  
 
   // -----   Create simulation run   ----------------------------------------
   FairRunSim* run = new FairRunSim();
@@ -80,6 +83,7 @@ void run_sim_proto(Int_t nEvents = 20, TString mcEngine = "TGeant4")
     boxGen->SetXYZ(0., 0., 0.); // cm
     primGen->AddGenerator(boxGen);*/
 
+  
 
 
                 /*  Int_t z = 18;  // Atomic number
@@ -105,16 +109,16 @@ void run_sim_proto(Int_t nEvents = 20, TString mcEngine = "TGeant4")
 	          Double_t pz = 0.809/a;  // Z-Momentum / per nucleon!!!!!!
 
 
-	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator(z,a,q,m,px,py,pz);
+	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator("Ion",z,a,q,m,px,py,pz);
 	          ionGen->SetSpotRadius(1,-20,0);
 	          // add the ion generator
 		 
-	         // primGen->AddGenerator(ionGen);
+	          primGen->AddGenerator(ionGen);
 		  
   		  //primGen->SetBeam(1,1,0,0); //These parameters change the position of the vertex of every track added to the Primary Generator
 		  // primGen->SetTarget(30,0);
  
-                  
+                 
 
 
 		 // Variable definition for Phase Space Calculation
@@ -159,7 +163,7 @@ void run_sim_proto(Int_t nEvents = 20, TString mcEngine = "TGeant4")
 		 
 		 
                   
-        ATTPCIonPhaseSpace* ReacDecay = new ATTPCIonPhaseSpace(&Zp,&Ap,&Qp,mult,&Pxp,&Pyp,&Pzp,ResEner,z,a,px,py,pz); 
+        ATTPCIonPhaseSpace* ReacDecay = new ATTPCIonPhaseSpace("Phase",&Zp,&Ap,&Qp,mult,&Pxp,&Pyp,&Pzp,ResEner,z,a,px,py,pz); 
         primGen->AddGenerator(ReacDecay);
 
     

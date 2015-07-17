@@ -1,9 +1,13 @@
 #include "ATTPCIonPhaseSpace.h"
 
 #include "FairPrimaryGenerator.h"
+#include "FairRootManager.h"
+#include "FairLogger.h"
+#include "FairMCEventHeader.h"
 
 #include "FairIon.h"
 #include "FairRunSim.h"
+#include "FairRunAna.h"
 
 #include "TDatabasePDG.h"
 #include "TParticlePDG.h"
@@ -14,11 +18,19 @@
 #include "TLorentzVector.h"
 #include "TVector3.h"
 #include "TGenPhaseSpace.h"
+#include "TVirtualMC.h"
+#include "TParticle.h"
+#include "TClonesArray.h"
+
   
 #include "FairRunSim.h"
 #include "FairIon.h"
 #include <iostream>
 #include "TParticle.h"
+
+#include "AtStack.h"
+#include "AtTpcPoint.h"
+#include "ATVertexPropagator.h"
 
 Int_t ATTPCIonPhaseSpace::fgNIon = 0;
 
@@ -34,7 +46,7 @@ ATTPCIonPhaseSpace::ATTPCIonPhaseSpace()
 }
 
 // -----   Default constructor   ------------------------------------------
-ATTPCIonPhaseSpace::ATTPCIonPhaseSpace(std::vector<Int_t> *z,std::vector<Int_t> *a,std::vector<Int_t> *q, Int_t mult, std::vector<Double_t> *px, 
+ATTPCIonPhaseSpace::ATTPCIonPhaseSpace(const char* name,std::vector<Int_t> *z,std::vector<Int_t> *a,std::vector<Int_t> *q, Int_t mult, std::vector<Double_t> *px, 
 		  std::vector<Double_t>* py,std::vector<Double_t> *pz,Double_t ResEner,Int_t ZB, Int_t AB, Double_t PxB, Double_t PyB, Double_t PzB)
   : fMult(0),          
     fPx(0.), fPy(0.), fPz(0.),
@@ -140,6 +152,39 @@ Bool_t ATTPCIonPhaseSpace::ReadEvent(FairPrimaryGenerator* primGen) {
    TLorentzVector *p3;
    TGenPhaseSpace event1;
    
+   AtStack* stack = (AtStack*) gMC->GetStack();
+   
+   gATVP->Test();
+   
+
+//FairMCEventHeader* MCEventHeader = primGen->GetEvent();
+   //std::cout<<" Event ID : "<<MCEventHeader->GetRunID()<<std::cout;
+   
+  // gMC->CurrentMedium();
+    //TVirtualMC* vMC =gMC->GetMC();
+    //if(!vMC->CurrentEvent()) std::cout<<" No events!"<<std::endl;
+
+   //std::cout<<" Current Track Number : "<<stack->GetCurrentTrackNumber()<<std::endl;
+  //stack->Print(1);
+ 
+ // TParticle* beam_part = stack->GetParticle(0);
+   /* TParticle* beam_part0 = stack->GetParticle(0);
+    std::cout<<" Beam particle 0 mass  "<<beam_part0->GetMass()<<std::endl;
+    std::cout<<" Beam particle 0 Energy  "<<beam_part0->Energy()<<std::endl;
+    std::cout<<" Beam particle 0 Pz  "<<beam_part0->Pz()<<std::endl;
+    stack->Print(1);*/
+
+    //std::cout<<" gMC Current Event : "<<gMC->CurrentEvent()<<std::cout;
+    
+    FairRootManager* ioMan = FairRootManager::Instance();
+ 
+    TClonesArray* fPointArray = (TClonesArray*) ioMan->GetObject("AtTpcPoint"); // TODO: Why this confusing name? It should be fEventArray
+    if(fPointArray) LOG(INFO)<<"-I- ATTPCIonPhaseSpace : AtTpcPoint Array Found with size : "<<fPointArray->GetSize()<<FairLogger::endl;
+    if(fPointArray->IsEmpty()) std::cout<<" AtTpcPoint TClonesArray Empty !!!"<<std::endl;
+    
+  //  AtTpcPoint* SimPoint = (AtTpcPoint*) fPointArray->At(0);
+   // SimPoint->GetXIn();
+   
 
    fBeamEnergy = fBeamEnergy_buff/1000.0; //GeV
    Double_t beta;
@@ -240,7 +285,7 @@ Bool_t ATTPCIonPhaseSpace::ReadEvent(FairPrimaryGenerator* primGen) {
    
   
         primGen->AddTrack(pdgType, fPx.at(i), fPy.at(i), fPz.at(i), fVx, fVy, fVz);
-    //  primGen->AddTrack(0, 0, 0, 0,0, 0, 0);
+   
 
   }       
         

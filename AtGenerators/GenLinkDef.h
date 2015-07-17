@@ -20,5 +20,6 @@
 #pragma link C++ class  Pythia8Generator+;
 #pragma link C++ class  ATTPCIonGenerator+;
 #pragma link C++ class  ATTPCIonPhaseSpace+;
+#pragma link C++ class  ATVertexPropagator+;
 
 #endif

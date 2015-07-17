@@ -94,7 +94,7 @@ ATTPCIonGenerator::ATTPCIonGenerator(const Char_t* ionName, Int_t mult,
 
 
 // -----   Default constructor   ------------------------------------------
-ATTPCIonGenerator::ATTPCIonGenerator(Int_t z, Int_t a, Int_t q, Int_t mult,
+ATTPCIonGenerator::ATTPCIonGenerator(const char* name,Int_t z, Int_t a, Int_t q, Int_t mult,
 				 Double_t px, Double_t py, Double_t pz)
   : fMult(0),          
     fPx(0.), fPy(0.), fPz(0.),

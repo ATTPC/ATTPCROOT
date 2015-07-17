@@ -40,7 +40,7 @@ class ATTPCIonPhaseSpace : public FairGenerator
    **@param px,py,pz  Momentum components [GeV] per nucleon!
    **@param vx,vy,vz  Vertex coordinates [cm]
    **/
-  ATTPCIonPhaseSpace(std::vector<Int_t> *z,std::vector<Int_t> *a,std::vector<Int_t> *q, Int_t mult, std::vector<Double_t> *px, 
+  ATTPCIonPhaseSpace(const char* name,std::vector<Int_t> *z,std::vector<Int_t> *a,std::vector<Int_t> *q, Int_t mult, std::vector<Double_t> *px, 
 		  std::vector<Double_t>* py,std::vector<Double_t> *pz, Double_t ResEner, Int_t ZB, Int_t AB, Double_t PxB, Double_t PyB, Double_t PzB);
 
 

@@ -51,7 +51,7 @@ class ATTPCIonGenerator : public FairGenerator
    **@param px,py,pz  Momentum components [GeV] per nucleon!
    **@param vx,vy,vz  Vertex coordinates [cm]
    **/
-  ATTPCIonGenerator(Int_t z, Int_t a, Int_t q, Int_t mult, Double_t px, 
+  ATTPCIonGenerator(const char* name,Int_t z, Int_t a, Int_t q, Int_t mult, Double_t px, 
 		  Double_t py, Double_t pz);
 
 

@@ -10,6 +10,8 @@ ${SIMPATH}/include
 ${BASE_INCLUDE_DIRECTORIES} 
 ${CMAKE_SOURCE_DIR}/AtGenerators
 ${CMAKE_SOURCE_DIR}/generators
+${CMAKE_SOURCE_DIR}/AtData
+${CMAKE_SOURCE_DIR}/tpc
 
 )
 
@@ -28,6 +30,7 @@ Pythia6Generator.cxx
 Pythia8Generator.cxx
 ATTPCIonGenerator.cxx
 ATTPCIonPhaseSpace.cxx
+ATVertexPropagator.cxx
 )
 
 set(LINKDEF  GenLinkDef.h)
