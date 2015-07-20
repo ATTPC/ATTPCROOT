@@ -13,9 +13,12 @@
 #include "TVector3.h"
 #include "TLorentzVector.h"
 
+#include "ATVertexPropagator.h"
+
 class AtTpcPoint;
 class FairVolume;
 class TClonesArray;
+class ATVertexPropagator;
 
 class AtTpc: public FairDetector
 {

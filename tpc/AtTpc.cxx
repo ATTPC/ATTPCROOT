@@ -10,6 +10,7 @@
 #include "AtTpcPoint.h"
 #include "AtTpcGeo.h"
 #include "AtTpcGeoPar.h"
+#include "ATVertexPropagator.h"
 
 #include "FairVolume.h"
 #include "FairGeoVolume.h"
@@ -229,6 +230,13 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 
 	}// if track 
 
+	    if( (gATVP->GetBeamEvtCnt()%2!=0 && fTrackID==0) || (gATVP->GetDecayEvtCnt()%2==0 && fTrackID>0)){ // We assume that the beam-like particle is fTrackID zero since it is the first one added
+														//  in the Primary Generator 
+
+               // std::cout<<" Current Decay particle count : "<<gATVP->GetDecayEvtCnt()<<std::endl; 
+		//std::cout<<" Current Beam particle count :  "<<gATVP->GetBeamEvtCnt()<<std::endl;
+               // std::cout<<" fTrackID : "<<fTrackID<<std::endl;
+
 		AddHit(fTrackID,
 		       fVolumeID,
 		       fDetCopyID, 
@@ -240,15 +248,30 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 		       fLength,
 		       fELoss);
 
+	}
+
 	//std::cout<<" Energy Loss : "<<fELoss*1000<<std::endl;	 
 
-	if(fELoss*1000>10.0){
+	if(fELoss*1000>10.0  &&   (gATVP->GetBeamEvtCnt()%2!=0 && fTrackID==0)){
 		 std::cout<<" Energy Loss : "<<fELoss*1000<<std::endl;
-		 gMC->StopTrack();	
+		 gMC->StopTrack();
+                 gATVP->ResetVertex();
+                 TLorentzVector StopPos;
+		 TLorentzVector StopMom;
+                 gMC->TrackPosition(StopPos);
+		 gMC->TrackMomentum(StopMom);
+
+                 gATVP->SetVertex(StopPos.X(),StopPos.Y(),StopPos.Z(),StopMom.Px(),StopMom.Py(),StopMom.Pz(),35.0);
 	}
 		// Increment number of AtTpc det points in TParticle
 	    	
+	
 	    	stack->AddPoint(kAtTpc);
+
+		
+
+
+
 		/*std::cout<<" Current Track Number : "<<stack->GetCurrentTrackNumber()<<std::endl;
 		stack->Print(1);
 		TParticle* beam_part0 = stack->GetParticle(0);
@@ -266,6 +289,8 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
        // ResetParameters();
          // Reset();
     
+       
+      
     
 
     return kTRUE;

@@ -3,6 +3,7 @@
 // -----            Created 30/01/15  by Y. Ayyad                      -----
 // -------------------------------------------------------------------------
 #include "ATTPCIonGenerator.h"
+#include "ATVertexPropagator.h"
 
 #include "FairPrimaryGenerator.h"
 
@@ -200,6 +201,8 @@ Bool_t ATTPCIonGenerator::ReadEvent(FairPrimaryGenerator* primGen) {
   cout << "    Momentum (" << fPx << ", " << fPy << ", " << fPz 
        << ") Gev from vertex (" << fVx << ", " << fVy
        << ", " << fVz << ") cm" << endl;
+
+  gATVP->IncBeamEvtCnt(); 
 
   for(Int_t i=0; i<fMult; i++)
     primGen->AddTrack(pdgType, fPx, fPy, fPz, fVx, fVy, fVz);

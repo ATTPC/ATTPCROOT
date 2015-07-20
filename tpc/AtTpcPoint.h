@@ -10,9 +10,12 @@
 
 
 #include "FairMCPoint.h"
+#include "ATVertexPropagator.h"
 
 #include "TObject.h"
 #include "TVector3.h"
+
+class ATVertexPropagator;
 
 class AtTpcPoint : public FairMCPoint
 {

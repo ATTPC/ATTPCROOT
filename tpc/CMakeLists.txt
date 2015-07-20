@@ -16,6 +16,7 @@ ${BASE_INCLUDE_DIRECTORIES}
 #put here all directories where header files are located
 ${CMAKE_SOURCE_DIR}/AtData
 ${CMAKE_SOURCE_DIR}/tpc
+${CMAKE_SOURCE_DIR}/AtGenerators
 
 )
 
@@ -41,7 +42,7 @@ AtTpcPoint.cxx
 Set(LINKDEF AtTpcLinkDef.h)
 Set(LIBRARY_NAME AtTpc)
 Set(DEPENDENCIES
-    Base
+    Base Core Cint AtGen 
 )
 
 GENERATE_LIBRARY()

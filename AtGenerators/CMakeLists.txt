@@ -26,8 +26,8 @@ ${SIMPATH}/lib
 link_directories( ${LINK_DIRECTORIES})
 
 set(SRCS
-Pythia6Generator.cxx
-Pythia8Generator.cxx
+#Pythia6Generator.cxx
+#Pythia8Generator.cxx
 ATTPCIonGenerator.cxx
 ATTPCIonPhaseSpace.cxx
 ATVertexPropagator.cxx
@@ -36,6 +36,7 @@ ATVertexPropagator.cxx
 set(LINKDEF  GenLinkDef.h)
 set(LIBRARY_NAME AtGen)
 
-set(DEPENDENCIES  Base AtData pythia8 Pythia6)
+#set(DEPENDENCIES  Base AtData pythia8 Pythia6)
+set(DEPENDENCIES  Base AtData )
 
 GENERATE_LIBRARY()

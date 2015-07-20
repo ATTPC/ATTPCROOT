@@ -154,7 +154,7 @@ Bool_t ATTPCIonPhaseSpace::ReadEvent(FairPrimaryGenerator* primGen) {
    
    AtStack* stack = (AtStack*) gMC->GetStack();
    
-   gATVP->Test();
+   //gATVP->Test();
    
 
 //FairMCEventHeader* MCEventHeader = primGen->GetEvent();
@@ -176,17 +176,19 @@ Bool_t ATTPCIonPhaseSpace::ReadEvent(FairPrimaryGenerator* primGen) {
 
     //std::cout<<" gMC Current Event : "<<gMC->CurrentEvent()<<std::cout;
     
-    FairRootManager* ioMan = FairRootManager::Instance();
+  /*  FairRootManager* ioMan = FairRootManager::Instance();
  
     TClonesArray* fPointArray = (TClonesArray*) ioMan->GetObject("AtTpcPoint"); // TODO: Why this confusing name? It should be fEventArray
     if(fPointArray) LOG(INFO)<<"-I- ATTPCIonPhaseSpace : AtTpcPoint Array Found with size : "<<fPointArray->GetSize()<<FairLogger::endl;
-    if(fPointArray->IsEmpty()) std::cout<<" AtTpcPoint TClonesArray Empty !!!"<<std::endl;
+    if(fPointArray->IsEmpty()) std::cout<<" AtTpcPoint TClonesArray Empty !!!"<<std::endl;*/
     
   //  AtTpcPoint* SimPoint = (AtTpcPoint*) fPointArray->At(0);
    // SimPoint->GetXIn();
    
 
-   fBeamEnergy = fBeamEnergy_buff/1000.0; //GeV
+   //fBeamEnergy = fBeamEnergy_buff/1000.0; //GeV
+
+   fBeamEnergy = gATVP->GetEnergy()/1000.0;
    Double_t beta;
    Double_t s=0.0;
    Double_t mass_1[3];
@@ -276,6 +278,13 @@ Bool_t ATTPCIonPhaseSpace::ReadEvent(FairPrimaryGenerator* primGen) {
 
      int pdgType = thisPart->PdgCode(); 
 
+     // Propagate the vertex of the previous event
+
+         fVx = gATVP->GetVx();
+         fVy = gATVP->GetVy();
+         fVz = gATVP->GetVz();
+ 
+
   std::cout << "-I- FairIonGenerator: Generating " << fMult << " ions of type "
        << fIon.at(i)->GetName() << " (PDG code " << pdgType << ")" << std::endl;
   std::cout << "    Momentum (" << fPx.at(i) << ", " << fPy.at(i) << ", " << fPz.at(i) 
@@ -285,12 +294,13 @@ Bool_t ATTPCIonPhaseSpace::ReadEvent(FairPrimaryGenerator* primGen) {
    
   
         primGen->AddTrack(pdgType, fPx.at(i), fPy.at(i), fPz.at(i), fVx, fVy, fVz);
-   
+        
+
 
   }       
         
 
-
+  gATVP->IncDecayEvtCnt();  
   
   return kTRUE;
 

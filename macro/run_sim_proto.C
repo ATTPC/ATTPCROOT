@@ -1,4 +1,4 @@
-void run_sim_proto(Int_t nEvents = 2, TString mcEngine = "TGeant4")
+void run_sim_proto(Int_t nEvents = 10, TString mcEngine = "TGeant4")
 {
     
   TString dir = getenv("VMCWORKDIR");
@@ -13,6 +13,8 @@ void run_sim_proto(Int_t nEvents = 2, TString mcEngine = "TGeant4")
   TStopwatch timer;
   timer.Start();
   // ------------------------------------------------------------------------
+
+  //gSystem->Load("libAtGen.so");
 
   ATVertexPropagator* vertex_prop = new ATVertexPropagator();
   
