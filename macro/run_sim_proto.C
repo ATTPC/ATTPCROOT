@@ -66,40 +66,7 @@ void run_sim_proto(Int_t nEvents = 10, TString mcEngine = "TGeant4")
   FairPrimaryGenerator* primGen = new FairPrimaryGenerator();
   
 
-    // Pythia8
-    /* Pythia8Generator* P8gen = new Pythia8Generator();
-    P8gen->UseRandom3(); //# TRandom1 or TRandom3 ?
-    P8gen->SetParameters("SoftQCD:inelastic = on");
-    P8gen->SetParameters("PhotonCollision:gmgm2mumu = on");
-    P8gen->SetParameters("PromptPhoton:all = on");
-    P8gen->SetParameters("WeakBosonExchange:all = on");
-    P8gen->SetMom(40);  //# beam momentum in GeV
-    primGen->AddGenerator(P8gen);*/
-
- 
-    // Add a box generator also to the run
-   /* FairBoxGenerator* boxGen = new FairBoxGenerator(13, 5); // 13 = muon; 1 = multipl.
-    boxGen->SetPRange(20,25); // GeV/c
-    boxGen->SetPhiRange(0., 360.); // Azimuth angle range [degree]
-    boxGen->SetThetaRange(0., 90.); // Polar angle in lab system range [degree]
-    boxGen->SetXYZ(0., 0., 0.); // cm
-    primGen->AddGenerator(boxGen);*/
-
-  
-
-
-                /*  Int_t z = 18;  // Atomic number
-	          Int_t a = 34; // Mass number
-	          Int_t q = 0;   // Charge State
-	          Int_t m = 1;   // Multiplicity
-	          Double_t px = 0.01/a;  // X-Momentum / per nucleon!!!!!!
-	          Double_t py = 0.01/a;  // Y-Momentum / per nucleon!!!!!!
-	          Double_t pz = 4./a;  // Z-Momentum / per nucleon!!!!!!
-	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator(z,a,q,m,px,py,pz);
-	          ionGen->SetSpotRadius(1,1,0);
-	          // add the ion generator
-	          primGen->AddGenerator(ionGen);*/
-
+   
 		 
                   // Beam Information
                   Int_t z = 4;  // Atomic number
@@ -109,9 +76,11 @@ void run_sim_proto(Int_t nEvents = 10, TString mcEngine = "TGeant4")
 	          Double_t px = 0.001/a;  // X-Momentum / per nucleon!!!!!!
 	          Double_t py = 0.001/a;  // Y-Momentum / per nucleon!!!!!!
 	          Double_t pz = 0.809/a;  // Z-Momentum / per nucleon!!!!!!
+  		  Double_t ExcEner = 0.0;
+                  Double_t Bmass = 9.32755; //Mass in GeV
 
 
-	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator("Ion",z,a,q,m,px,py,pz);
+	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator("Ion",z,a,q,m,px,py,pz,ExcEner,Bmass);
 	          ionGen->SetSpotRadius(1,-20,0);
 	          // add the ion generator
 		 
@@ -131,7 +100,10 @@ void run_sim_proto(Int_t nEvents = 10, TString mcEngine = "TGeant4")
  		  std::vector<Double_t> Pxp; //Px momentum X
 		  std::vector<Double_t> Pyp; //Py momentum Y
 		  std::vector<Double_t> Pzp; //Pz momentum Z
-		  Double_t ResEner; // Residual energy of the beam
+                  std::vector<Double_t> Mass; // Masses of the reaction products
+ 		  Double_t ResEner; // Energy of the beam 
+	          
+
 		  // Note: Momentum will be calculated from the phase Space according to the residual energy of the beam
 
                   //Initialization of variables for physic case (10Be + 4He -> 6He + 4He + 4He)
@@ -145,6 +117,7 @@ void run_sim_proto(Int_t nEvents = 10, TString mcEngine = "TGeant4")
 		  Pxp.push_back(0.0);
 	          Pyp.push_back(0.0);
 		  Pzp.push_back(0.0);
+                  Mass.push_back(5606.56); //In MeV
 		 
 		  // ---- Particle 2 -----
 		  Zp.push_back(2); // 4He 
@@ -153,6 +126,7 @@ void run_sim_proto(Int_t nEvents = 10, TString mcEngine = "TGeant4")
 		  Pxp.push_back(0.0);
 		  Pyp.push_back(0.0);
 		  Pzp.push_back(0.0);
+		  Mass.push_back(3728.40);
 
 		  // ----- Particle 3 -----
 		  Zp.push_back(2); // 4He 
@@ -161,11 +135,12 @@ void run_sim_proto(Int_t nEvents = 10, TString mcEngine = "TGeant4")
 		  Pxp.push_back(0.0);
 		  Pyp.push_back(0.0);
 		  Pzp.push_back(0.0);
+		  Mass.push_back(3728.40);
 
 		 
 		 
                   
-        ATTPCIonPhaseSpace* ReacDecay = new ATTPCIonPhaseSpace("Phase",&Zp,&Ap,&Qp,mult,&Pxp,&Pyp,&Pzp,ResEner,z,a,px,py,pz); 
+        ATTPCIonPhaseSpace* ReacDecay = new ATTPCIonPhaseSpace("Phase",&Zp,&Ap,&Qp,mult,&Pxp,&Pyp,&Pzp,&Mass,ResEner,z,a,px,py,pz); 
         primGen->AddGenerator(ReacDecay);
 
     

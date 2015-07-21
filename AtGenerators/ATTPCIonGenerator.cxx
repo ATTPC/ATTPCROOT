@@ -96,7 +96,7 @@ ATTPCIonGenerator::ATTPCIonGenerator(const Char_t* ionName, Int_t mult,
 
 // -----   Default constructor   ------------------------------------------
 ATTPCIonGenerator::ATTPCIonGenerator(const char* name,Int_t z, Int_t a, Int_t q, Int_t mult,
-				 Double_t px, Double_t py, Double_t pz)
+				 Double_t px, Double_t py, Double_t pz, Double_t Ex, Double_t m)
   : fMult(0),          
     fPx(0.), fPy(0.), fPz(0.),
     fR(0.), fz(0.), fOffset(0.),
@@ -113,7 +113,9 @@ ATTPCIonGenerator::ATTPCIonGenerator(const char* name,Int_t z, Int_t a, Int_t q,
   //fVz   = vz; 
   char buffer[20];
   sprintf(buffer, "FairIon%d", fgNIon);
-  fIon= new FairIon(buffer, z, a, q);
+  fIon= new FairIon(buffer, z, a, q,Ex,m);
+  cout <<" Beam Ion mass : "<<fIon->GetMass()<<endl;
+  gATVP->SetBeamMass(fIon->GetMass());
   FairRunSim* run = FairRunSim::Instance();
   if ( ! run ) {
     cout << "-E- FairIonGenerator: No FairRun instantised!" << endl;

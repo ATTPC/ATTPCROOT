@@ -47,7 +47,7 @@ ATTPCIonPhaseSpace::ATTPCIonPhaseSpace()
 
 // -----   Default constructor   ------------------------------------------
 ATTPCIonPhaseSpace::ATTPCIonPhaseSpace(const char* name,std::vector<Int_t> *z,std::vector<Int_t> *a,std::vector<Int_t> *q, Int_t mult, std::vector<Double_t> *px, 
-		  std::vector<Double_t>* py,std::vector<Double_t> *pz,Double_t ResEner,Int_t ZB, Int_t AB, Double_t PxB, Double_t PyB, Double_t PzB)
+		  std::vector<Double_t>* py,std::vector<Double_t> *pz, std::vector<Double_t> *mass,Double_t ResEner,Int_t ZB, Int_t AB, Double_t PxB, Double_t PyB, Double_t PzB)
   : fMult(0),          
     fPx(0.), fPy(0.), fPz(0.),
     fVx(0.), fVy(0.), fVz(0.),
@@ -75,6 +75,7 @@ ATTPCIonPhaseSpace::ATTPCIonPhaseSpace(const char* name,std::vector<Int_t> *z,st
   	fPx.push_back( Double_t(a->at(i)) * px->at(i) );
 	fPy.push_back( Double_t(a->at(i)) * py->at(i) );
 	fPz.push_back( Double_t(a->at(i)) * pz->at(i) );
+	Masses.push_back(mass->at(i));
          
         
         sprintf(buffer, "Product_Ion%d", i); 
@@ -189,24 +190,29 @@ Bool_t ATTPCIonPhaseSpace::ReadEvent(FairPrimaryGenerator* primGen) {
    //fBeamEnergy = fBeamEnergy_buff/1000.0; //GeV
 
    fBeamEnergy = gATVP->GetEnergy()/1000.0;
+   fPxBeam = gATVP->GetPx();
+   fPyBeam = gATVP->GetPy();
+   fPzBeam = gATVP->GetPz();
+
    Double_t beta;
    Double_t s=0.0;
    Double_t mass_1[3];
 
-       /* mass_1[0] = (fIon.at(0)->GetMass();
+    /*    mass_1[0] = (fIon.at(0)->GetMass());
         mass_1[1] = (fIon.at(1)->GetMass());
 	mass_1[2] = (fIon.at(2)->GetMass());*/
 
-       mass_1[0] = 5606.56/1000.0;
-        mass_1[1] = 3728.40/1000.0;
-        mass_1[2] = 3728.40/1000.0;
+        mass_1[0] = Masses.at(0)/1000.0;
+        mass_1[1] = Masses.at(1)/1000.0;
+        mass_1[2] = Masses.at(2)/1000.0;
 
 	std::cout<<" Mass 1 : "<<mass_1[0]<<" Mass 2 : "<<mass_1[1]<<"  Mass 3 : "<<mass_1[2]<<std::endl;
 
 
    //std::cout<<" Beam Z momentum : "<<fABeam*fPzBeam<<std::endl;
 
-   fImpulsionLab_beam = TVector3(fABeam*fPxBeam,fABeam*fPyBeam,fABeam*fPzBeam);
+   //fImpulsionLab_beam = TVector3(fABeam*fPxBeam,fABeam*fPyBeam,fABeam*fPzBeam);
+   fImpulsionLab_beam = TVector3(fPxBeam,fPyBeam,fPzBeam);
    fEnergyImpulsionLab_beam = TLorentzVector(fImpulsionLab_beam,9327.55/1000.0+fBeamEnergy);
   
    fEnergyImpulsionLab_target = TLorentzVector(TVector3(0,0,0),3728.40/1000.0);

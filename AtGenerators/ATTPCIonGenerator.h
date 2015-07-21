@@ -52,7 +52,7 @@ class ATTPCIonGenerator : public FairGenerator
    **@param vx,vy,vz  Vertex coordinates [cm]
    **/
   ATTPCIonGenerator(const char* name,Int_t z, Int_t a, Int_t q, Int_t mult, Double_t px, 
-		  Double_t py, Double_t pz);
+		  Double_t py, Double_t pz, Double_t Ex, Double_t m);
 
 
   ATTPCIonGenerator(const ATTPCIonGenerator&);

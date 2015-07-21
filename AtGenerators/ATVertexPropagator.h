@@ -27,11 +27,13 @@ class ATVertexPropagator : public TObject
    Int_t fDecayEvtCnt;
  
    void SetVertex(Double_t vx,Double_t vy,Double_t vz,Double_t px,Double_t py, Double_t pz, Double_t E);
+   void SetBeamMass(Double_t m);
    void ResetVertex();
  
    Int_t GetGlobalEvtCnt();
    Int_t GetBeamEvtCnt();
    Int_t GetDecayEvtCnt();
+   Double_t GetBeamMass();
    Double_t GetVx();
    Double_t GetVy();
    Double_t GetVz();
@@ -54,6 +56,7 @@ class ATVertexPropagator : public TObject
    Double_t fPy;
    Double_t fPz;
    Double_t fE;
+   Double_t fBeamMass;
  
 };
 
