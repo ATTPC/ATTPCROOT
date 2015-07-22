@@ -41,7 +41,7 @@ class ATTPCIonPhaseSpace : public FairGenerator
    **@param vx,vy,vz  Vertex coordinates [cm]
    **/
   ATTPCIonPhaseSpace(const char* name,std::vector<Int_t> *z,std::vector<Int_t> *a,std::vector<Int_t> *q, Int_t mult, std::vector<Double_t> *px, 
-		  std::vector<Double_t>* py,std::vector<Double_t> *pz, std::vector<Double_t> *mass , Double_t ResEner, Int_t ZB, Int_t AB, Double_t PxB, Double_t PyB, Double_t PzB);
+          std::vector<Double_t>* py,std::vector<Double_t> *pz, std::vector<Double_t> *mass , Double_t ResEner, Int_t ZB, Int_t AB, Double_t PxB, Double_t PyB, Double_t PzB, Double_t BMass, Double_t TMass);
 
 
   ATTPCIonPhaseSpace(const ATTPCIonPhaseSpace&);
@@ -74,6 +74,8 @@ private:
   Double_t fPyBeam;
   Double_t fPzBeam;
   Bool_t fIsDecay;
+  Double_t fBeamMass;
+  Double_t fTargetMass;
  
 
 

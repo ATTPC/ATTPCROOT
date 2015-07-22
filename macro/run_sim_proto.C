@@ -1,4 +1,4 @@
-void run_sim_proto(Int_t nEvents = 20, TString mcEngine = "TGeant4")
+void run_sim_proto(Int_t nEvents = 100, TString mcEngine = "TGeant4")
 {
     
   TString dir = getenv("VMCWORKDIR");
@@ -72,13 +72,14 @@ void run_sim_proto(Int_t nEvents = 20, TString mcEngine = "TGeant4")
                   Int_t z = 4;  // Atomic number
 	          Int_t a = 10; // Mass number
 	          Int_t q = 0;   // Charge State
-	          Int_t m = 1;   // Multiplicity
+	          Int_t m = 1;   // Multiplicity  NOTE: Due the limitation of the TGenPhaseSpace accepting only pointers/arrays the maximum multiplicity has been set to 10 particles.
 	          Double_t px = 0.001/a;  // X-Momentum / per nucleon!!!!!!
 	          Double_t py = 0.001/a;  // Y-Momentum / per nucleon!!!!!!
 	          Double_t pz = 0.809/a;  // Z-Momentum / per nucleon!!!!!!
   		  Double_t ExcEner = 0.0;
                   Double_t Bmass = 9.32755; //Mass in GeV
-                  Double_t NomEnergy = 35.0; //Nominal Energy of the beam: Only used for cross section calculation (Tracking energy is determined with momentum)
+                  Double_t NomEnergy = 35.0; //Nominal Energy of the beam: Only used for cross section calculation (Tracking energy is determined with momentum). Must be consistent with pz
+                  Double_t TargetMass = 3.72840;//Mass in GeV
 
 
 	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator("Ion",z,a,q,m,px,py,pz,ExcEner,Bmass,NomEnergy);
@@ -141,7 +142,7 @@ void run_sim_proto(Int_t nEvents = 20, TString mcEngine = "TGeant4")
 		 
 		 
                   
-        ATTPCIonPhaseSpace* ReacDecay = new ATTPCIonPhaseSpace("Phase",&Zp,&Ap,&Qp,mult,&Pxp,&Pyp,&Pzp,&Mass,ResEner,z,a,px,py,pz); 
+        ATTPCIonPhaseSpace* ReacDecay = new ATTPCIonPhaseSpace("Phase",&Zp,&Ap,&Qp,mult,&Pxp,&Pyp,&Pzp,&Mass,ResEner,z,a,px,py,pz,Bmass,TargetMass); 
         primGen->AddGenerator(ReacDecay);
 
     
