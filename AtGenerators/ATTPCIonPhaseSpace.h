@@ -73,6 +73,7 @@ private:
   Double_t fPxBeam;
   Double_t fPyBeam;
   Double_t fPzBeam;
+  Bool_t fIsDecay;
  
 
 

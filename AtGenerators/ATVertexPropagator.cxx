@@ -5,7 +5,7 @@ ATVertexPropagator *gATVP = (ATVertexPropagator *)0;
 
 // -----   Default constructor   -------------------------------------------
 ATVertexPropagator::ATVertexPropagator():fGlobalEvtCnt(0),fBeamEvtCnt(0),fDecayEvtCnt(0),
-fVx(0.),fVy(0.),fVz(0.),fPx(0.),fPy(0.),fPz(0.),fE(0.),fBeamMass(0)
+fVx(0.),fVy(0.),fVz(0.),fPx(0.),fPy(0.),fPz(0.),fE(0.),fBeamMass(0),fRndELoss(0),fBeamNomE(0)
 {
 
    if(gATVP)
@@ -46,6 +46,16 @@ void ATVertexPropagator::SetVertex(Double_t vx,Double_t vy,Double_t vz,Double_t 
     fE=E;
 }
 
+void ATVertexPropagator::SetRndELoss(Double_t eloss)
+{
+    fRndELoss=eloss;
+}
+
+void ATVertexPropagator::SetBeamNomE(Double_t nome)
+{
+    fBeamNomE=nome;
+}
+
 void ATVertexPropagator::ResetVertex()
 {
 
@@ -70,7 +80,9 @@ Double_t ATVertexPropagator::GetPx()				{ return fPx;}
 Double_t ATVertexPropagator::GetPy()				{ return fPy;}
 Double_t ATVertexPropagator::GetPz()				{ return fPz;}
 Double_t ATVertexPropagator::GetEnergy()			{ return fE;}
-Double_t ATVertexPropagator::GetBeamMass()                      { return fBeamMass;}       
+Double_t ATVertexPropagator::GetBeamMass()                      { return fBeamMass;}  
+Double_t ATVertexPropagator::GetRndELoss()                      { return fRndELoss; } 
+Double_t ATVertexPropagator::GetBeamNomE()                      { return fBeamNomE; }    
 
 void ATVertexPropagator::IncGlobalEvtCnt()                      {  fGlobalEvtCnt++;    }
 void ATVertexPropagator::IncBeamEvtCnt()                        {  fBeamEvtCnt++;    }

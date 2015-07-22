@@ -32,6 +32,8 @@
 #include "TGeoMaterial.h"
 #include "TGeoMedium.h"
 #include "TParticle.h"
+#include "TRandom.h"
+#include "TRandom3.h"
 
 #include <iostream>
 using std::cout;
@@ -171,9 +173,9 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
          fLength = gMC->TrackLength();
          gMC->TrackPosition(fPosIn);
          gMC->TrackMomentum(fMomIn);
-         /*LOG(INFO) << "ATTPC: Position of the first hit" << FairLogger::endl;
-         LOG(INFO)<<" Mass of the Tracked particle : "<<gMC->TrackMass()<<std::endl;
-	 LOG(INFO)<<" Total energy of the current track : "<<((gMC->Etot() - gMC->TrackMass()) * 1000.)<<FairLogger::endl;// Relativistic Mass*/
+         //LOG(INFO) << "ATTPC: Position of the first hit" << FairLogger::endl;
+         //LOG(INFO)<<" Mass of the Tracked particle : "<<gMC->TrackMass()<<std::endl;
+	// LOG(INFO)<<" Total energy of the current track : "<<((gMC->Etot() - gATVP->GetBeamMass()) * 1000.)<<FairLogger::endl;// Relativistic Mass
         
     }
 
@@ -265,8 +267,24 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
          std::cout<<" Energy Loss : "<<fELoss*1000<<std::endl;*/
 
 
-	if(fELoss*1000>9.0  &&   (gATVP->GetBeamEvtCnt()%2!=0 && fTrackID==0)){
-		// std::cout<<" Energy Loss : "<<fELoss*1000<<std::endl;
+        /*  TRandom3 r;
+	  Double_t Er = r.Rndm();
+          std::cout<<" Random Energy : "<<Er<<std::endl;*/
+
+	  /*TRandom* r = gMC->GetRandom();
+          Double_t Er = r->Rndm();
+	  Double_t ErBeam = Er*35.0;*/
+          //std::cout<<" Random Energy in AtTpc  : "<<gATVP->GetRndELoss()<<std::endl;
+
+		//Double_t Er = gRandom->Uniform(0.,gATVP->GetBeamNomE());
+  		//std::cout<<" Nominal energy of the beam : "<<gATVP->GetBeamNomE()<<std::endl;
+                //std::cout<<" Random Stopping Energy  : "<<Er<<std::endl;
+   
+		
+
+
+	if(fELoss*1000>gATVP->GetRndELoss()  &&   (gATVP->GetBeamEvtCnt()%2!=0 && fTrackID==0)){
+		 std::cout<<" Energy Loss : "<<fELoss*1000<<std::endl;
 		 gMC->StopTrack();
                  gATVP->ResetVertex();
                  TLorentzVector StopPos;
@@ -282,10 +300,11 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 	}
 		// Increment number of AtTpc det points in TParticle
 	    	
+	 
 	
 	    	stack->AddPoint(kAtTpc);
 
-		
+	  
 
 
 

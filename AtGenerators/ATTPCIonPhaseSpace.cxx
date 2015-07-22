@@ -57,6 +57,7 @@ ATTPCIonPhaseSpace::ATTPCIonPhaseSpace(const char* name,std::vector<Int_t> *z,st
   fgNIon++;
   fMult = mult;
   fIon.reserve(fMult);
+  
 
 
   char buffer[20];
@@ -154,6 +155,8 @@ Bool_t ATTPCIonPhaseSpace::ReadEvent(FairPrimaryGenerator* primGen) {
    TGenPhaseSpace event1;
    
    AtStack* stack = (AtStack*) gMC->GetStack();
+
+    fIsDecay = kFALSE;
    
    //gATVP->Test();
    
@@ -190,6 +193,7 @@ Bool_t ATTPCIonPhaseSpace::ReadEvent(FairPrimaryGenerator* primGen) {
    //fBeamEnergy = fBeamEnergy_buff/1000.0; //GeV
 
    fBeamEnergy = gATVP->GetEnergy()/1000.0;
+   std::cout<<" Residual energy in ATTPCIonPhaseSpace : "<<gATVP->GetEnergy()<<std::endl;
    fPxBeam = gATVP->GetPx();
    fPyBeam = gATVP->GetPy();
    fPzBeam = gATVP->GetPz();
@@ -227,7 +231,8 @@ Bool_t ATTPCIonPhaseSpace::ReadEvent(FairPrimaryGenerator* primGen) {
 
          if(s>pow(mass_1[0]+mass_1[1]+mass_1[2],2)){
             
-            
+               fIsDecay=kTRUE;            
+
                event1.SetDecay(fEnergyImpulsionLab_Total,3, mass_1);
                Double_t weight1 = event1.Generate();
             
@@ -298,9 +303,9 @@ Bool_t ATTPCIonPhaseSpace::ReadEvent(FairPrimaryGenerator* primGen) {
        << ", " << fVz << ") cm" << std::endl; 
 
    
-  
+      if(fIsDecay){
         primGen->AddTrack(pdgType, fPx.at(i), fPy.at(i), fPz.at(i), fVx, fVy, fVz);
-        
+      }
 
 
   }       

@@ -52,7 +52,7 @@ class ATTPCIonGenerator : public FairGenerator
    **@param vx,vy,vz  Vertex coordinates [cm]
    **/
   ATTPCIonGenerator(const char* name,Int_t z, Int_t a, Int_t q, Int_t mult, Double_t px, 
-		  Double_t py, Double_t pz, Double_t Ex, Double_t m);
+		  Double_t py, Double_t pz, Double_t Ex, Double_t m, Double_t ener);
 
 
   ATTPCIonGenerator(const ATTPCIonGenerator&);
@@ -90,6 +90,7 @@ private:
   Double_t fVx, fVy, fVz;   // Vertex coordinates [cm]
   FairIon   *fIon;          // Pointer to the FairIon to be generated
   Int_t    fQ;		    // Electric charge [e]
+  Int_t fNomEner;           
 
   Bool_t fBeamSpotIsSet;    // True if point beamspot is set
     

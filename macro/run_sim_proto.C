@@ -1,4 +1,4 @@
-void run_sim_proto(Int_t nEvents = 10, TString mcEngine = "TGeant4")
+void run_sim_proto(Int_t nEvents = 20, TString mcEngine = "TGeant4")
 {
     
   TString dir = getenv("VMCWORKDIR");
@@ -78,9 +78,10 @@ void run_sim_proto(Int_t nEvents = 10, TString mcEngine = "TGeant4")
 	          Double_t pz = 0.809/a;  // Z-Momentum / per nucleon!!!!!!
   		  Double_t ExcEner = 0.0;
                   Double_t Bmass = 9.32755; //Mass in GeV
+                  Double_t NomEnergy = 35.0; //Nominal Energy of the beam: Only used for cross section calculation (Tracking energy is determined with momentum)
 
 
-	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator("Ion",z,a,q,m,px,py,pz,ExcEner,Bmass);
+	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator("Ion",z,a,q,m,px,py,pz,ExcEner,Bmass,NomEnergy);
 	          ionGen->SetSpotRadius(1,-20,0);
 	          // add the ion generator
 		 

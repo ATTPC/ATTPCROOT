@@ -28,6 +28,8 @@ class ATVertexPropagator : public TObject
  
    void SetVertex(Double_t vx,Double_t vy,Double_t vz,Double_t px,Double_t py, Double_t pz, Double_t E);
    void SetBeamMass(Double_t m);
+   void SetRndELoss(Double_t eloss);
+   void SetBeamNomE(Double_t ener);
    void ResetVertex();
  
    Int_t GetGlobalEvtCnt();
@@ -41,6 +43,9 @@ class ATVertexPropagator : public TObject
    Double_t GetPy();
    Double_t GetPz();
    Double_t GetEnergy();
+   Double_t GetRndELoss();
+   Double_t GetBeamNomE();
+   
    
 
    void IncGlobalEvtCnt();
@@ -57,6 +62,8 @@ class ATVertexPropagator : public TObject
    Double_t fPz;
    Double_t fE;
    Double_t fBeamMass;
+   Double_t fRndELoss;
+   Double_t fBeamNomE;
  
 };
 

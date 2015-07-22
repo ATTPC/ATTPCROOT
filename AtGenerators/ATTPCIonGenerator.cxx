@@ -16,6 +16,7 @@
                     
 #include "TRandom.h"
 #include "TMath.h"
+#include "TLorentzVector.h"
   
 #include "FairRunSim.h"
 #include "FairIon.h"
@@ -96,18 +97,19 @@ ATTPCIonGenerator::ATTPCIonGenerator(const Char_t* ionName, Int_t mult,
 
 // -----   Default constructor   ------------------------------------------
 ATTPCIonGenerator::ATTPCIonGenerator(const char* name,Int_t z, Int_t a, Int_t q, Int_t mult,
-				 Double_t px, Double_t py, Double_t pz, Double_t Ex, Double_t m)
+				 Double_t px, Double_t py, Double_t pz, Double_t Ex, Double_t m, Double_t ener)
   : fMult(0),          
     fPx(0.), fPy(0.), fPz(0.),
     fR(0.), fz(0.), fOffset(0.),
     fVx(0.), fVy(0.), fVz(0.),
-    fIon(NULL),  fQ(0), fBeamSpotIsSet(kFALSE)
+    fIon(NULL),  fQ(0), fBeamSpotIsSet(kFALSE), fNomEner(0.)
  {
   fgNIon++;
   fMult = mult;
   fPx   = Double_t(a) * px;
   fPy   = Double_t(a) * py;
   fPz   = Double_t(a) * pz;
+  fNomEner = ener;
   //fVx   = vx; 
   //fVy   = vy; 
   //fVz   = vz; 
@@ -116,6 +118,7 @@ ATTPCIonGenerator::ATTPCIonGenerator(const char* name,Int_t z, Int_t a, Int_t q,
   fIon= new FairIon(buffer, z, a, q,Ex,m);
   cout <<" Beam Ion mass : "<<fIon->GetMass()<<endl;
   gATVP->SetBeamMass(fIon->GetMass());
+  gATVP->SetBeamNomE(ener);
   FairRunSim* run = FairRunSim::Instance();
   if ( ! run ) {
     cout << "-E- FairIonGenerator: No FairRun instantised!" << endl;
@@ -205,6 +208,13 @@ Bool_t ATTPCIonGenerator::ReadEvent(FairPrimaryGenerator* primGen) {
        << ", " << fVz << ") cm" << endl;
 
   gATVP->IncBeamEvtCnt(); 
+
+
+       if(gATVP->GetBeamEvtCnt()%2!=0){
+	  Double_t Er = gRandom->Uniform(0.,fNomEner);
+  	  gATVP->SetRndELoss(Er);
+           std::cout<<" Random Energy ATTPCIonGenerator : "<<Er<<std::endl;
+	}
 
   for(Int_t i=0; i<fMult; i++)
     primGen->AddTrack(pdgType, fPx, fPy, fPz, fVx, fVy, fVz);
