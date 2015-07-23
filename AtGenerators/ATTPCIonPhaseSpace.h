@@ -79,7 +79,7 @@ private:
  
 
 
-  ClassDef(ATTPCIonPhaseSpace,1)
+  ClassDef(ATTPCIonPhaseSpace,2)
 
 }; 
 

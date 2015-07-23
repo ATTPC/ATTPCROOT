@@ -170,6 +170,8 @@ add_subdirectory (AtMap)
 add_subdirectory (reco)
 add_subdirectory (par)
 add_subdirectory (eventdisplayAT)
+add_subdirectory (digi)
+
 
 
 WRITE_CONFIG_FILE(config.sh)
