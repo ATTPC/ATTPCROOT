@@ -131,6 +131,7 @@ class AtTpc: public FairDetector
     TClonesArray* fTraCollection;   //!  The hit collection
     Bool_t kGeoSaved;               //!
     TList* flGeoPar;                //!
+    Double32_t fELossAcc;
 
     /** container for data points */
 

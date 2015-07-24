@@ -48,7 +48,9 @@ AtTpc::AtTpc()
     fTime(-1.),
     fLength(-1.),
     fELoss(-1),
-    fAtTpcPointCollection(new TClonesArray("AtTpcPoint"))
+    fPosIndex(-1),
+    fAtTpcPointCollection(new TClonesArray("AtTpcPoint")),
+    fELossAcc(-1)
 {
 }
 
@@ -61,7 +63,9 @@ AtTpc::AtTpc(const char* name, Bool_t active)
     fTime(-1.),
     fLength(-1.),
     fELoss(-1),
-    fAtTpcPointCollection(new TClonesArray("AtTpcPoint"))
+    fPosIndex(-1),
+    fAtTpcPointCollection(new TClonesArray("AtTpcPoint")),
+    fELossAcc(-1)
 {
 }
 
@@ -160,6 +164,8 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 
 	AtStack* stack = (AtStack*) gMC->GetStack();
 
+        
+
         //std::cout<<" Current Event : "<<gMC->CurrentEvent()<<std::endl;        
 
        /* std::cout<<" Current Track Number : "<<stack->GetCurrentTrackNumber()<<std::endl;
@@ -169,6 +175,7 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
    if (gMC->IsTrackEntering())
     {
          fELoss = 0.;
+         fELossAcc = 0.;
          fTime = gMC->TrackTime() * 1.0e09;
          fLength = gMC->TrackLength();
          gMC->TrackPosition(fPosIn);
@@ -179,8 +186,9 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
         
     }
 
-    // Sum energy loss for all steps in the active volume
-    fELoss += gMC->Edep();
+    // 
+    fELoss = gMC->Edep();
+    fELossAcc+= fELoss;
     fTime = gMC->TrackTime() * 1.0e09;
     fLength = gMC->TrackLength();
     gMC->TrackPosition(fPosIn);
@@ -202,7 +210,7 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 
       if (gMC->IsTrackExiting())
         {
-		//LOG(INFO) << "ATTPC: Position of the first hit" << FairLogger::endl;
+		
             const Double_t* oldpos;
             const Double_t* olddirection;
             Double_t newpos[3];
@@ -283,8 +291,8 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 		
 
 
-	if(fELoss*1000>gATVP->GetRndELoss()  &&   (gATVP->GetBeamEvtCnt()%2!=0 && fTrackID==0)){
-		 std::cout<<" Energy Loss : "<<fELoss*1000<<std::endl;
+	if(fELossAcc*1000>gATVP->GetRndELoss()  &&   (gATVP->GetBeamEvtCnt()%2!=0 && fTrackID==0)){
+		 std::cout<<" Energy Loss : "<<fELossAcc*1000<<std::endl;
 		 gMC->StopTrack();
                  gATVP->ResetVertex();
                  TLorentzVector StopPos;

@@ -9,10 +9,13 @@
 #pragma once
 
 #include "FairTask.h"
+#include "FairMCPoint.h"
 
 #include "TClonesArray.h"
 #include "ATDigiPar.hh"
 #include "ATGas.hh"
+#include "AtTpcPoint.h"
+
 
 
 class ATAvalancheTask : public FairTask 
@@ -30,13 +33,18 @@ class ATAvalancheTask : public FairTask
     Int_t fEventID; //!< EventID
 
     TClonesArray* fMCPointArray;     
-    //STMCPoint* fMCPoint;            
+    AtTpcPoint* fMCPoint;            
 
     //TClonesArray* fElectronArray;    
 
     ATDigiPar* fPar; //!< Base parameter container.
     ATGas*     fGas; //!< Gas parameter container.
  
+    Double_t fEIonize;  //!< Effective ionization energy of gas. [eV]
+    Double_t fVelDrift; //!< Drift velocity of electron in gas. [mm/ns]
+    Double_t fCoefT;    //!< Transversal diffusion coefficient. [mm^(-1/2)]
+    Double_t fCoefL;    //!< Longitudinal diffusion coefficient. [mm^(-1/2)]
+    Double_t fGain;     //!< Gain.
 
 
      ClassDef(ATAvalancheTask,1);
