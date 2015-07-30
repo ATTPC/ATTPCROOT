@@ -24,6 +24,7 @@ ATDecoderTask::ATDecoderTask()
   fUseFPNPedestal = kFALSE;
   fIsPositive = kFALSE;
   fDebug = kFALSE;
+  fFPNPedestalRMS = 5;
 
   fNumTbs = 512;
 
@@ -49,7 +50,7 @@ void ATDecoderTask::AddData(TString filename)                              { fDa
 void ATDecoderTask::SetData(Int_t value)                                   { fDataNum = value; }
 Bool_t ATDecoderTask::SetMap(Char_t *map)                                  { fMap = map; }
 void ATDecoderTask::SetInternalPedestal(Int_t startTb, Int_t averageTbs)   { fUseInternalPedestal = kTRUE; fStartTb = startTb; fAverageTbs = averageTbs; } 
-void ATDecoderTask::SetFPNPedestal()                                       { fUseFPNPedestal = kTRUE; fUseInternalPedestal = kFALSE; fPedestalFile = ""; }
+void ATDecoderTask::SetFPNPedestal(Double_t pedestalRMS)                       { fUseFPNPedestal = kTRUE; fUseInternalPedestal = kFALSE; fPedestalFile = ""; fFPNPedestalRMS = pedestalRMS;}
 void ATDecoderTask::SetPositivePolarity(Bool_t value)                      { fIsPositive = value; }
 void ATDecoderTask::SetGeo(TString geofile)				   { fGeoFile = geofile; }
 void ATDecoderTask::SetProtoMap(TString mapfile)	                   { fProtoMapFile = mapfile;}                      

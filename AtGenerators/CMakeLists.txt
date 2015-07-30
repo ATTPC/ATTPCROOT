@@ -31,6 +31,7 @@ set(SRCS
 ATTPCIonGenerator.cxx
 ATTPCIonPhaseSpace.cxx
 ATVertexPropagator.cxx
+ATTPC2Body.cxx
 )
 
 set(LINKDEF  GenLinkDef.h)

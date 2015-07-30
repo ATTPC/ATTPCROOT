@@ -50,7 +50,7 @@ class ATDecoderTask : public FairTask {
   
  //   void SetPedestalData(TString filename, Double_t rmsFactor = 0);
    
-    void SetFPNPedestal();
+    void SetFPNPedestal(Double_t rms = 5);
     
     void SetPersistence(Bool_t value = kTRUE);
 
@@ -82,7 +82,8 @@ class ATDecoderTask : public FairTask {
   //  Double_t fPedestalRMSFactor; 
       Bool_t fUseFPNPedestal;
       Bool_t fIsPositive; 
-      Bool_t fDebug;      
+      Bool_t fDebug;
+      Double_t fFPNPedestalRMS;     /// RMS cut of baseline matching part selection      
 
    // TString fGainCalibrationFile; 
   //  Double_t fGainConstant;       

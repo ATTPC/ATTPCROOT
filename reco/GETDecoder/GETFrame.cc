@@ -142,7 +142,7 @@ void GETFrame::SetFPNPedestal(Double_t sigmaThreshold) {
       for (Int_t iTb = fFPNStartTb; iTb < fFPNStartTb + fFPNAverageTbs; iTb++)
         fMath -> Add(fRawAdc[fpnIndex + iTb]);
 
-      fFPNPedestalMean[iAget*4 + iFPN] = fMath -> GetMean();;
+      fFPNPedestalMean[iAget*4 + iFPN] = fMath -> GetMean();
     }
   }
 
@@ -182,11 +182,17 @@ Bool_t GETFrame::SubtractPedestal(Int_t agetIdx, Int_t chIdx, Double_t rmsFactor
       fMath -> Reset();
       for (Int_t iTb = startTb; iTb < startTb + fFPNAverageTbs; iTb++)
         fMath -> Add(fRawAdc[index + iTb]);
+	
+	//std::cout<<" RMS: "<<fMath->GetRMS()<<std::endl;
 
       if (fMath -> GetRMS() < fFPNSigmaThreshold)
         break;
 
       startTb += fFPNAverageTbs;
+
+    //  std::cout<<" StartTb : "<<startTb<<std::endl;
+     // std::cout<<" fNumTbs : "<<fNumTbs<<std::endl;
+    // std::cout<<" fFPNAverageTbs : "<<fFPNAverageTbs<<std::endl;
 
       if (startTb > fNumTbs - fFPNAverageTbs - 3) {
         std::cout << "There's no part satisfying sigma threshold " << fFPNSigmaThreshold << "!" << std::endl;

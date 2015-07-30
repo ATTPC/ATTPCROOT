@@ -22,6 +22,8 @@ void makeDummy(const Int_t nEvents = 20000)
 
   FairRuntimeDb* rtdb = run->GetRuntimeDb();
 
+  ATVertexPropagator* vertex_prop = new ATVertexPropagator();
+
   // ------------------------------------------------------------------------
     
   // -----   Create geometry   ----------------------------------------------

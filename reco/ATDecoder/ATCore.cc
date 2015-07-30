@@ -256,7 +256,7 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
 			  
                             //fAtMapPtr->Dump();
     
-			                      std::vector<int> PadRef={iCobo,iAsad,iAget,iCh};
+			    std::vector<int> PadRef={iCobo,iAsad,iAget,iCh};
                             Int_t PadRefNum = fAtMapPtr->GetPadNum(PadRef);
                             std::vector<Float_t> PadCenterCoord;
                             PadCenterCoord.reserve(2);
@@ -327,7 +327,7 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
          				        } else if (fPedestalMode == kPedestalFPN)
            					    frame -> SetFPNPedestal(fFPNSigmaThreshold);
 
-         			            Bool_t good = frame -> SubtractPedestal(iAget, iCh, fPedestalRMSFactor);//TODO
+         			                Bool_t good = frame -> SubtractPedestal(iAget, iCh, fPedestalRMSFactor);//TODO
           				        fRawEventPtr -> SetIsGood(good);
 				                
          			           if (!good) {

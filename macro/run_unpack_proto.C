@@ -45,12 +45,15 @@ void run_unpack_proto(){
    //decoderTask -> AddData("/Users/yassidayyad/Desktop/ATTPC/Data/Notre_Dame_data/CoBo_AsAd0_2015-01-27T15_19_34.962_0000.graw");
    //decoderTask ->AddData("/home/ayyadlim/Desktop/Yassid/ATTPC/Data/Notre_Dame_data/CoBo_AsAd0_2015-01-26T19_33_23.451_0003.graw"); //12N
    //decoderTask -> AddData("/home/ayyadlim/Desktop/Yassid/ATTPC/Data/Notre_Dame_data/CoBo_AsAd0_2015-01-28T07:02:50.291_0000.graw");//12B High Pressure
-   decoderTask -> AddData("/home/ayyadlim/Desktop/Yassid/ATTPC/Data/Notre_Dame_data/CoBo_AsAd0_2015-01-28T16:56:24.135_0000.graw");//12B Low Pressure
+   //decoderTask -> AddData("/home/ayyadlim/Desktop/Yassid/ATTPC/Data/Notre_Dame_data/CoBo_AsAd0_2015-01-28T16:56:24.135_0000.graw");//12B Low Pressure
+   //decoderTask -> AddData("/home/daq/Desktop/Data/run_0014/CoBo_AsAd0_2015-07-29T15_45_17.971_0000.graw");
+   decoderTask->AddData("/home/daq/Desktop/Data/run_0028/CoBo_AsAd0_2015-07-29T19_02_32.783_0000.graw");
    decoderTask ->SetGeo(geo.Data());
    decoderTask ->SetProtoMap(protomapdir.Data());
    decoderTask ->SetMap(scriptdir.Data());
    decoderTask -> SetPositivePolarity(kTRUE);
-   decoderTask -> SetFPNPedestal();
+   decoderTask -> SetFPNPedestal(6);
+   //decoderTask->SetInternalPedestal();
    decoderTask -> SetNumTbs(512);
    decoderTask -> SetPersistence();
    run -> AddTask(decoderTask);
@@ -58,7 +61,7 @@ void run_unpack_proto(){
    ATPSATask *psaTask = new ATPSATask();
    psaTask -> SetPersistence();
    psaTask -> SetBackGroundPeakFinder(kFALSE); // Suppress background of each pad for noisy data (Larger computing Time)
-   psaTask -> SetThreshold(30);
+   psaTask -> SetThreshold(20);
    run -> AddTask(psaTask);
 
    run->Init();
