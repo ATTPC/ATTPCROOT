@@ -41,7 +41,7 @@ class ATTPC2Body : public FairGenerator
    **@param vx,vy,vz  Vertex coordinates [cm]
    **/
   ATTPC2Body(const char* name,std::vector<Int_t> *z,std::vector<Int_t> *a,std::vector<Int_t> *q, Int_t mult, std::vector<Double_t> *px, 
-          std::vector<Double_t>* py,std::vector<Double_t> *pz, std::vector<Double_t> *mass , Double_t ResEner, Int_t ZB, Int_t AB, Double_t PxB, Double_t PyB, Double_t PzB, Double_t BMass, Double_t TMass);
+          std::vector<Double_t>* py,std::vector<Double_t> *pz, std::vector<Double_t> *mass , std::vector<Double_t> *Ex, Double_t ResEner, Int_t ZB, Int_t AB, Double_t PxB, Double_t PyB, Double_t PzB, Double_t BMass, Double_t TMass);
 
 
   ATTPC2Body(const ATTPC2Body&);
@@ -61,6 +61,7 @@ private:
   Int_t    fMult;                           // Multiplicity per event
   std::vector<Double_t> fPx, fPy, fPz;      // Momentum components [GeV] per nucleon
   std::vector<Double_t> Masses;             // Masses of the N products
+  std::vector<Double_t> fExEnergy;           // Excitation energies of the products
   Double_t fVx, fVy, fVz;                   // Vertex coordinates [cm]
   std::vector<FairIon*>  fIon;              // Pointer to the FairIon to be generated
   std::vector<Int_t>   fQ;		    // Electric charge [e]
@@ -76,6 +77,7 @@ private:
   Bool_t fIsDecay;
   Double_t fBeamMass;
   Double_t fTargetMass;
+  Bool_t fNoSolution;
  
 
 

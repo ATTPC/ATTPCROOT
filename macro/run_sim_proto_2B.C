@@ -137,7 +137,7 @@ void run_sim_proto_2B(Int_t nEvents = 100, TString mcEngine = "TGeant4")
 		 
 		 
                   
-        ATTPCIonPhaseSpace* ReacDecay = new ATTPCIonPhaseSpace("Phase",&Zp,&Ap,&Qp,mult,&Pxp,&Pyp,&Pzp,&Mass,ResEner,z,a,px,py,pz,Bmass,TargetMass); 
+      //  ATTPCIonPhaseSpace* ReacDecay = new ATTPCIonPhaseSpace("Phase",&Zp,&Ap,&Qp,mult,&Pxp,&Pyp,&Pzp,&Mass,ResEner,z,a,px,py,pz,Bmass,TargetMass); 
       //  primGen->AddGenerator(ReacDecay);
 
     

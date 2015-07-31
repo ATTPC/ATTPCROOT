@@ -1,7 +1,8 @@
 # Create a library called "libATDigi" which includes the source files given in the array .
 
 set(INCLUDE_DIRECTORIES
-${ROOT_INCLUDE_DIR} 
+${ROOT_INCLUDE_DIR}
+${Boost_INCLUDE_DIRS}
 ${BASE_INCLUDE_DIRECTORIES}
 ${CMAKE_SOURCE_DIR}/fairtools
 ${CMAKE_SOURCE_DIR}/parbase

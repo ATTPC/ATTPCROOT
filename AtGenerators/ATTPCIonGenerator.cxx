@@ -115,7 +115,7 @@ ATTPCIonGenerator::ATTPCIonGenerator(const char* name,Int_t z, Int_t a, Int_t q,
   //fVz   = vz; 
   char buffer[20];
   sprintf(buffer, "FairIon%d", fgNIon);
-  fIon= new FairIon(buffer, z, a, q,Ex,m);
+  fIon= new FairIon(buffer, z, a, q,Ex,m); 
   cout <<" Beam Ion mass : "<<fIon->GetMass()<<endl;
   gATVP->SetBeamMass(fIon->GetMass());
   gATVP->SetBeamNomE(ener);
@@ -201,7 +201,7 @@ Bool_t ATTPCIonGenerator::ReadEvent(FairPrimaryGenerator* primGen) {
       fVz=0.0;
     }
 
-  cout << "-I- FairIonGenerator: Generating " << fMult << " ions of type "
+  cout << "-I- FairIonGenerator: Generating " << fMult <<" with mass "<<thisPart->Mass() << " ions of type "
        << fIon->GetName() << " (PDG code " << pdgType << ")" << endl;
   cout << "    Momentum (" << fPx << ", " << fPy << ", " << fPz 
        << ") Gev from vertex (" << fVx << ", " << fVy

@@ -47,18 +47,22 @@ ATTPC2Body::ATTPC2Body()
 
 // -----   Default constructor   ------------------------------------------
 ATTPC2Body::ATTPC2Body(const char* name,std::vector<Int_t> *z,std::vector<Int_t> *a,std::vector<Int_t> *q, Int_t mult, std::vector<Double_t> *px, 
-	std::vector<Double_t>* py,std::vector<Double_t> *pz, std::vector<Double_t> *mass,Double_t ResEner,Int_t ZB, Int_t AB, Double_t PxB, Double_t PyB, Double_t PzB, Double_t BMass, Double_t TMass)
+	std::vector<Double_t>* py,std::vector<Double_t> *pz, std::vector<Double_t> *mass, std::vector<Double_t> *Ex,Double_t ResEner,Int_t ZB, Int_t AB, Double_t PxB, Double_t PyB, Double_t PzB, Double_t BMass, Double_t TMass)
   : fMult(0),          
     fPx(0.), fPy(0.), fPz(0.),
     fVx(0.), fVy(0.), fVz(0.),
     fIon(0),  fQ(0)
 {
 
+  Double_t thetacmsInput = 12.3456789;
+  const Double_t U = 931.49401;
+  
+
   fgNIon++;
   fMult = mult;
   fIon.reserve(fMult);
   
-
+  fNoSolution = kFALSE;
 
   char buffer[20];
   
@@ -79,6 +83,7 @@ ATTPC2Body::ATTPC2Body(const char* name,std::vector<Int_t> *z,std::vector<Int_t>
 	fPy.push_back( Double_t(a->at(i)) * py->at(i) );
 	fPz.push_back( Double_t(a->at(i)) * pz->at(i) );
 	Masses.push_back(mass->at(i));
+        fExEnergy.push_back(Ex->at(i));
          
         
         sprintf(buffer, "Product_Ion%d", i); 
@@ -120,7 +125,7 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
   
 
    // === Phase Space Calculation
-   TLorentzVector fEnergyImpulsionLab_beam;
+  /* TLorentzVector fEnergyImpulsionLab_beam;
    TLorentzVector fEnergyImpulsionLab_target;
    TLorentzVector fEnergyImpulsionLab_Total;
    TLorentzVector fEnergyImpulsionFinal;
@@ -130,7 +135,7 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
    TLorentzVector *p2;
    TLorentzVector *p3;
    std::vector<TLorentzVector*> p_vector;
-   TGenPhaseSpace event1;
+   TGenPhaseSpace event1;*/
    
    AtStack* stack = (AtStack*) gMC->GetStack();
 
@@ -144,17 +149,18 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
    fPyBeam = gATVP->GetPy();
    fPzBeam = gATVP->GetPz();
 
-   Double_t beta;
+  /* Double_t beta;
    Double_t s=0.0;
    Double_t mass_1[10]={0.0};
    Double_t* pMass;
 
-   Double_t M_tot=0;
+   Double_t M_tot=0;*/
 
 
 
    //std::cout<<" Beam Z momentum : "<<fABeam*fPzBeam<<std::endl;
 
+ /*
    //fImpulsionLab_beam = TVector3(fABeam*fPxBeam,fABeam*fPyBeam,fABeam*fPzBeam);
    fImpulsionLab_beam = TVector3(fPxBeam,fPyBeam,fPzBeam);
   // fEnergyImpulsionLab_beam = TLorentzVector(fImpulsionLab_beam,9327.55/1000.0+fBeamEnergy);
@@ -167,13 +173,13 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
    s = fEnergyImpulsionLab_Total.M2();
    beta = fEnergyImpulsionLab_Total.Beta();
 
-   std::cout<<" fABeam : "<<fABeam<<" fPzBeam : "<<fPzBeam<<" fBeamEnergy : "<<fBeamEnergy<<std::endl;
+   std::cout<<" fABeam : "<<fABeam<<" fPzBeam : "<<fPzBeam<<" fBeamEnergy : "<<fBeamEnergy<<std::endl;*/
 
-   for(Int_t i=0;i<fMult;i++){
+  /* for(Int_t i=0;i<fMult;i++){
 
         M_tot+=Masses.at(i)/1000.0;     
         mass_1[i] = Masses.at(i)/1000.0;
-    }
+    }*/
 
     
 
@@ -188,18 +194,18 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
 	
 
   // std::cout<<" S : "<<s<<" Pow(M) "<<pow(mass_1[0]+mass_1[1]+mass_1[2],2)<<std::endl;
-    std::cout<<" S : "<<s<<" Pow(M) "<<pow(M_tot,2)<<std::endl;
+   // std::cout<<" S : "<<s<<" Pow(M) "<<pow(M_tot,2)<<std::endl;
 
-         if(s>pow(M_tot,2)){
+     /*    if(s>pow(M_tot,2)){
             
                fIsDecay=kTRUE;            
 
                event1.SetDecay(fEnergyImpulsionLab_Total,fMult, mass_1);
                Double_t weight1 = event1.Generate();
             
-              /* p1  = event1.GetDecay(0);
-               p2  = event1.GetDecay(1);
-	       p3  = event1.GetDecay(2);*/
+             //  p1  = event1.GetDecay(0);
+             //  p2  = event1.GetDecay(1);
+	     //  p3  = event1.GetDecay(2);
 
 		std::vector<Double_t> KineticEnergy;
                 std::vector<Double_t> ThetaLab;
@@ -217,8 +223,7 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
 		      std::cout<<" Particle "<<i<<" - TKE (MeV) : "<<KineticEnergy.at(i)<<" - Lab Angle (deg) : "<<ThetaLab.at(i)<<std::endl;
                       
 
-              }
-
+              }*/
               
 		
 
@@ -252,13 +257,13 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
 
 
         
-       }// if kinematics condition
+  //     }// if kinematics condition
 
 	
          
 	
           
-     for(Int_t i=0; i<fMult; i++){
+/*     for(Int_t i=0; i<fMult; i++){
 
 
  TParticlePDG* thisPart = 
@@ -295,7 +300,7 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
   }       
         
 
-  gATVP->IncDecayEvtCnt();  
+  gATVP->IncDecayEvtCnt();  */
 
   
   return kTRUE;

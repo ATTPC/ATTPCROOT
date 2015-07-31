@@ -82,9 +82,11 @@ ATTPCIonPhaseSpace::ATTPCIonPhaseSpace(const char* name,std::vector<Int_t> *z,st
          
         
         sprintf(buffer, "Product_Ion%d", i); 
-        FairIon *IonBuff = new FairIon(buffer, z->at(i), a->at(i), q->at(i));
+        FairIon *IonBuff = new FairIon(buffer, z->at(i), a->at(i), q->at(i),0.0,mass->at(i));
+       // FairIon *IonBuff = new FairIon(buffer, z->at(i), a->at(i), q->at(i));
 	//std::cout<<" Z "<<z->at(i)<<" A "<<a->at(i)<<std::endl;
 	//std::cout<<buffer<<std::endl;
+        std::cout<<" Particle "<<fMult<<" mass "<<IonBuff->GetMass()<<std::endl;
         fIon.push_back(IonBuff);
 
         
@@ -345,8 +347,8 @@ Bool_t ATTPCIonPhaseSpace::ReadEvent(FairPrimaryGenerator* primGen) {
          fVz = gATVP->GetVz();
  
 
-  std::cout << "-I- FairIonGenerator: Generating " << fMult << " ions of type "
-       << fIon.at(i)->GetName() << " (PDG code " << pdgType << ")" << std::endl;
+  std::cout << "-I- FairIonGenerator: Generating " << fMult 
+       <<" with mass "<<thisPart->Mass()<<" ions of type "<< fIon.at(i)->GetName() << " (PDG code " << pdgType << ")" << std::endl;
   std::cout << "    Momentum (" << fPx.at(i) << ", " << fPy.at(i) << ", " << fPz.at(i) 
        << ") Gev from vertex (" << fVx << ", " << fVy
        << ", " << fVz << ") cm" << std::endl; 
