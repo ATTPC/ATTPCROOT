@@ -1,4 +1,4 @@
-void run_sim_proto_2B(Int_t nEvents = 100, TString mcEngine = "TGeant4")
+void run_sim_proto_2B(Int_t nEvents = 10, TString mcEngine = "TGeant4")
 {
     
   TString dir = getenv("VMCWORKDIR");
@@ -110,7 +110,7 @@ void run_sim_proto_2B(Int_t nEvents = 100, TString mcEngine = "TGeant4")
 		  // Note: Momentum will be calculated from the phase Space according to the residual energy of the beam
 
                   
-	          mult = 2; //Number of PRODUCTS (Should be always 2) THIS DEFINITION IS MANDATORY (and the number of particles must be the same)
+	          mult = 4; //Number of Nuclei involved in the reaction (Should be always 4) THIS DEFINITION IS MANDATORY (and the number of particles must be the same)
                   ResEner = 35.0;// Value to generate a random number between 0 and ResEner for which beam reacts...
 
                   // ---- Beam ----
@@ -120,7 +120,7 @@ void run_sim_proto_2B(Int_t nEvents = 100, TString mcEngine = "TGeant4")
 		  Pxp.push_back(px);
 		  Pyp.push_back(py);
 		  Pzp.push_back(pz);
-		  Mass.push_back(Bmass*1000.0);
+		  Mass.push_back(Bmass);
 		  ExE.push_back(BExcEner);
 
                   // ---- Target ----
@@ -130,38 +130,37 @@ void run_sim_proto_2B(Int_t nEvents = 100, TString mcEngine = "TGeant4")
 		  Pxp.push_back(0.0);
 	          Pyp.push_back(0.0);
 		  Pzp.push_back(0.0);
-                  Mass.push_back(3728.40); //In MeV
+                  Mass.push_back(3.72840); 
 		  ExE.push_back(0.0);//In MeV
 
-
-                  // ---- Recoil -----
-		  Zp.push_back(4); // 10Be 
+                  //--- Scattered -----
+                  Zp.push_back(4); // 10Be 
 		  Ap.push_back(10); // 
 		  Qp.push_back(0); 
 		  Pxp.push_back(0.0);
 		  Pyp.push_back(0.0);
 		  Pzp.push_back(0.0);
-		  Mass.push_back(9327.55);
+		  Mass.push_back(9.32755);
 		  ExE.push_back(0.0);
 
-                   //--- Scattered -----
+
+                  // ---- Recoil -----
 		  Zp.push_back(2); // 4He 
 		  Ap.push_back(4); // 		  
 		  Qp.push_back(0); // 
 		  Pxp.push_back(0.0);
 	          Pyp.push_back(0.0);
 		  Pzp.push_back(0.0);
-                  Mass.push_back(3728.40); //In MeV
+                  Mass.push_back(3.72840); //In MeV
 		  ExE.push_back(0.0);//In MeV
-		 
-	
 
+              
 
 		 
 		 
                   
-      //  ATTPCIonPhaseSpace* ReacDecay = new ATTPCIonPhaseSpace("Phase",&Zp,&Ap,&Qp,mult,&Pxp,&Pyp,&Pzp,&Mass,ResEner,z,a,px,py,pz,Bmass,TargetMass); 
-      //  primGen->AddGenerator(ReacDecay);
+        ATTPC2Body* TwoBody = new ATTPC2Body("TwoBody",&Zp,&Ap,&Qp,mult,&Pxp,&Pyp,&Pzp,&Mass,&ExE,ResEner); 
+        primGen->AddGenerator(TwoBody);
 
     
 	run->SetGenerator(primGen);

@@ -32,6 +32,7 @@ ATTPCIonGenerator.cxx
 ATTPCIonPhaseSpace.cxx
 ATVertexPropagator.cxx
 ATTPC2Body.cxx
+ATEulerTransformation.cxx
 )
 
 set(LINKDEF  GenLinkDef.h)

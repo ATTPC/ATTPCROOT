@@ -24,6 +24,7 @@
 #pragma link C++ class  ATTPCIonPhaseSpace+;
 #pragma link C++ class  ATVertexPropagator+;
 #pragma link C++ class  ATTPC2Body+;
+#pragma link C++ class  ATEulerTransformation+;
 
 
 

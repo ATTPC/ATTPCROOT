@@ -58,6 +58,8 @@ ATTPC2Body::ATTPC2Body(const char* name,std::vector<Int_t> *z,std::vector<Int_t>
   fgNIon++;
   fMult = mult;
   fIon.reserve(fMult);
+  fThetaCmsMax = 45;
+  fThetaCmsMin = 0;
   
   fNoSolution = kFALSE;
 
@@ -79,13 +81,13 @@ ATTPC2Body::ATTPC2Body(const char* name,std::vector<Int_t> *z,std::vector<Int_t>
   	fPx.push_back( Double_t(a->at(i)) * px->at(i) );
 	fPy.push_back( Double_t(a->at(i)) * py->at(i) );
 	fPz.push_back( Double_t(a->at(i)) * pz->at(i) );
-	Masses.push_back(mass->at(i));
+	Masses.push_back(mass->at(i)*1000.0);
         fExEnergy.push_back(Ex->at(i));
-        fWm.push_back( mass->at(i) + Ex->at(i));
+        fWm.push_back( mass->at(i)*1000.0 + Ex->at(i));
          
         
         sprintf(buffer, "Product_Ion%d", i); 
-        FairIon *IonBuff = new FairIon(buffer, z->at(i), a->at(i), q->at(i));
+        FairIon *IonBuff = new FairIon(buffer, z->at(i), a->at(i), q->at(i),0.0,mass->at(i));
 	//std::cout<<" Z "<<z->at(i)<<" A "<<a->at(i)<<std::endl;
 	//std::cout<<buffer<<std::endl;
         fIon.push_back(IonBuff);
@@ -122,18 +124,23 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
     std::vector<Double_t> Ang;				     // Lab Angle of the products
     std::vector<Double_t> Ene;                                // Lab Energy of the products
     Ang.reserve(2);
-    Ang.reserve(2);  
+    Ang.reserve(2); 
+ 
+    Double_t ANGAs[2]={0};
+    Double_t ANGAr[2]={0};
 
-   Double_t thetacmsInput = 12.3456789;
+   
+   Double_t thetacmsInput = fThetaCmsMin + ((fThetaCmsMax-fThetaCmsMin)*gRandom->Uniform());
+   std::cout<<" Random CMS Theta angle in degrees : "<<thetacmsInput<<std::endl;
    const Double_t rad2deg = 0.0174532925;
    
    AtStack* stack = (AtStack*) gMC->GetStack();
 
-    fIsDecay = kFALSE;
+   fIsDecay = kFALSE;
    
 
-   fBeamEnergy = gATVP->GetEnergy()/1000.0;
-   std::cout<<" Residual energy in ATTPCIonPhaseSpace : "<<gATVP->GetEnergy()<<std::endl;
+   fBeamEnergy = gATVP->GetEnergy(); 
+   std::cout<<" Residual energy in ATTPC2Body : "<<gATVP->GetEnergy()<<std::endl;
    
    fPxBeam = gATVP->GetPx();
    fPyBeam = gATVP->GetPy();
@@ -141,21 +148,26 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
 
    Double_t eb=fBeamEnergy+fWm.at(0);
    Double_t pb2=fBeamEnergy*fBeamEnergy+2.0*fBeamEnergy*fWm.at(0);
-   Double_t pb=sqrt(pb2);
+   Double_t pb=TMath::Sqrt(pb2);
    Double_t beta=pb/(eb+fWm.at(1));
    Double_t gamma=1.0/sqrt(1.0-beta*beta);
+ 
 
+   
    Double_t thetacms=thetacmsInput*rad2deg;  // degree to radian
+
+  
    Double_t thetacmr=TMath::Pi()-thetacms;
    Double_t e=fBeamEnergy+fWm.at(0)+fWm.at(1);
    Double_t e_cm2 = e*e-pb2;
    Double_t e_cm  = TMath::Sqrt(e_cm2);
    Double_t t_cm  = e_cm-fWm.at(2)-fWm.at(3);
 
+
   if(t_cm<0.0){
-    std::cout << "Kine No solution!"<<std::endl;
+    std::cout << "-I- ATTPC2Body : No solution!"<<std::endl;
     fNoSolution=kTRUE;
-    return kFALSE;
+   // return kFALSE;
   }
 
    Double_t t_cm2=t_cm*t_cm;
@@ -177,6 +189,7 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
   Double_t p4_cm2=t4_cm*t4_cm+2.*t4_cm*fWm.at(3);
   Double_t p4_cm =TMath::Sqrt(p4_cm2);
   Double_t tg_thetalabr=p4_cm*TMath::Sin(thetacmr)/(gamma*(p4_cm*TMath::Cos(thetacmr)+beta*TMath::Sqrt(p4_cm*p4_cm+fWm.at(3)*fWm.at(3))));
+  //std::cout<<" tg_thetalabr : "<<tg_thetalabr<<std::endl;
 
   if(tg_thetalabr>1.0e6){
     Ang.push_back(TMath::Pi()/2.0);
@@ -186,6 +199,7 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
   }
 
   if(Ang.at(1)<0.0) Ang.at(1)=TMath::Pi()+Ang.at(1);
+  
 
 // Lorentz transformations to lab -----
 
@@ -203,50 +217,12 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
   Double_t p4_lab = TMath::Sqrt(p4_labx*p4_labx+p4_labz*p4_labz);
   Ene.push_back(TMath::Sqrt(p4_lab*p4_lab+fWm.at(3)*fWm.at(3))-fWm.at(3));
 
-
+        std::cout << " Recoil energy:" << Ene.at(1) << " MeV" << std::endl;
+        std::cout << " Scattered energy:" << Ene.at(0)  << " MeV" << std::endl;
+        std::cout << " Recoiled angle:"  << Ang.at(1)*180.0/TMath::Pi() << " deg" << std::endl;
+        std::cout << " Scattered  angle:"  << Ang.at(0)*180/TMath::Pi() << " deg" << std::endl;
     
 
-        
-       /* mass_1[1] = Masses.at(1)/1000.0;
-        mass_1[2] = Masses.at(2)/1000.0;*/
-
-
-
-	//std::cout<<" Mass 1 : "<<mass_1[0]<<" Mass 2 : "<<mass_1[1]<<"  Mass 3 : "<<mass_1[2]<<std::endl;
-
-	
-
-  // std::cout<<" S : "<<s<<" Pow(M) "<<pow(mass_1[0]+mass_1[1]+mass_1[2],2)<<std::endl;
-   // std::cout<<" S : "<<s<<" Pow(M) "<<pow(M_tot,2)<<std::endl;
-
-     /*    if(s>pow(M_tot,2)){
-            
-               fIsDecay=kTRUE;            
-
-               event1.SetDecay(fEnergyImpulsionLab_Total,fMult, mass_1);
-               Double_t weight1 = event1.Generate();
-            
-             //  p1  = event1.GetDecay(0);
-             //  p2  = event1.GetDecay(1);
-	     //  p3  = event1.GetDecay(2);
-
-		std::vector<Double_t> KineticEnergy;
-                std::vector<Double_t> ThetaLab;
-
-             std::cout<<"  ==== Phase Space Information ==== "<<std::endl;
-	      for(Int_t i=0;i<fMult;i++){
-
-
-		      p_vector.push_back(event1.GetDecay(i));
-	              fPx.at(i) = p_vector.at(i)->Px();
- 	              fPy.at(i) = p_vector.at(i)->Py();
- 	              fPz.at(i) = p_vector.at(i)->Pz();
-		      KineticEnergy.push_back((p_vector.at(i)->E() - mass_1[i])*1000);
-		      ThetaLab.push_back(p_vector.at(i)->Theta()*180./TMath::Pi());
-		      std::cout<<" Particle "<<i<<" - TKE (MeV) : "<<KineticEnergy.at(i)<<" - Lab Angle (deg) : "<<ThetaLab.at(i)<<std::endl;
-                      
-
-              }*/
               
 		
 
@@ -320,10 +296,10 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
       }
 
 
-  }       
+  }  */     
         
 
-  gATVP->IncDecayEvtCnt();  */
+  gATVP->IncDecayEvtCnt();  //TODO: Okay someone should put a more suitable name but we are on a hurry...
 
   
   return kTRUE;

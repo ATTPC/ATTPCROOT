@@ -61,6 +61,8 @@ private:
   Double_t fPxBeam;
   Double_t fPyBeam;
   Double_t fPzBeam;
+  Double_t fThetaCmsMax;
+  Double_t fThetaCmsMin;
   Bool_t fIsDecay;
  // Double_t fBeamMass;
  // Double_t fTargetMass;
