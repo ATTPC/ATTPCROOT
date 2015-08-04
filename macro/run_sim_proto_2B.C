@@ -76,13 +76,13 @@ void run_sim_proto_2B(Int_t nEvents = 100, TString mcEngine = "TGeant4")
 	          Double_t px = 0.001/a;  // X-Momentum / per nucleon!!!!!!
 	          Double_t py = 0.001/a;  // Y-Momentum / per nucleon!!!!!!
 	          Double_t pz = 0.809/a;  // Z-Momentum / per nucleon!!!!!!
-  		  Double_t ExcEner = 0.0;
+  		  Double_t BExcEner = 0.0;
                   Double_t Bmass = 9.32755; //Mass in GeV
                   Double_t NomEnergy = 35.0; //Nominal Energy of the beam: Only used for cross section calculation (Tracking energy is determined with momentum). Must be consistent with pz
                   Double_t TargetMass = 3.72840;//Mass in GeV
 
 
-	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator("Ion",z,a,q,m,px,py,pz,ExcEner,Bmass,NomEnergy);
+	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator("Ion",z,a,q,m,px,py,pz,BExcEner,Bmass,NomEnergy);
 	          ionGen->SetSpotRadius(1,-20,0);
 	          // add the ion generator
 		 
@@ -95,43 +95,66 @@ void run_sim_proto_2B(Int_t nEvents = 100, TString mcEngine = "TGeant4")
 
 
 		 // Variables for 2-Body kinematics reaction
-                  std::vector<Int_t> Zp; // Zp of the reaction products      
-		  std::vector<Int_t> Ap; // Ap of the reaction products
-                  std::vector<Int_t> Qp;//Electric charge of the reaction products
-                  Int_t mult;  //Number of decaying particles        
+                  std::vector<Int_t> Zp; // Zp       
+		  std::vector<Int_t> Ap; // Ap 
+                  std::vector<Int_t> Qp;//Electric charge 
+                  Int_t mult;  //Number of particles        
  		  std::vector<Double_t> Pxp; //Px momentum X
 		  std::vector<Double_t> Pyp; //Py momentum Y
 		  std::vector<Double_t> Pzp; //Pz momentum Z
-                  std::vector<Double_t> Mass; // Masses of the reaction products
-		  std::vector<Double_t> ExE; // Excitation energy of the products
- 		  Double_t ResEner; // Energy of the beam 
+                  std::vector<Double_t> Mass; // Masses 
+		  std::vector<Double_t> ExE; // Excitation energy 
+ 		  Double_t ResEner; // Energy of the beam (Useless for the moment)
 	          
 
 		  // Note: Momentum will be calculated from the phase Space according to the residual energy of the beam
 
                   
-	          mult = 2; //THIS DEFINITION IS MANDATORY (and the number of particles must be the same)
-                  ResEner = 35.0;
+	          mult = 2; //Number of PRODUCTS (Should be always 2) THIS DEFINITION IS MANDATORY (and the number of particles must be the same)
+                  ResEner = 35.0;// Value to generate a random number between 0 and ResEner for which beam reacts...
 
-                   //--- Particle 1 -----
-		  Zp.push_back(2); // 6He 
-		  Ap.push_back(6); // 		  
+                  // ---- Beam ----
+                  Zp.push_back(z); // 10Be 
+		  Ap.push_back(a); // 
+		  Qp.push_back(q); 
+		  Pxp.push_back(px);
+		  Pyp.push_back(py);
+		  Pzp.push_back(pz);
+		  Mass.push_back(Bmass*1000.0);
+		  ExE.push_back(BExcEner);
+
+                  // ---- Target ----
+     		  Zp.push_back(2); // 4He 
+		  Ap.push_back(4); // 		  
 		  Qp.push_back(0); // 
 		  Pxp.push_back(0.0);
 	          Pyp.push_back(0.0);
 		  Pzp.push_back(0.0);
-                  Mass.push_back(5606.56); //In MeV
+                  Mass.push_back(3728.40); //In MeV
 		  ExE.push_back(0.0);//In MeV
-		 
-		  // ---- Particle 2 -----
-		  Zp.push_back(2); // 4He 
-		  Ap.push_back(4); // 
+
+
+                  // ---- Recoil -----
+		  Zp.push_back(4); // 10Be 
+		  Ap.push_back(10); // 
 		  Qp.push_back(0); 
 		  Pxp.push_back(0.0);
 		  Pyp.push_back(0.0);
 		  Pzp.push_back(0.0);
-		  Mass.push_back(3728.40);
+		  Mass.push_back(9327.55);
 		  ExE.push_back(0.0);
+
+                   //--- Scattered -----
+		  Zp.push_back(2); // 4He 
+		  Ap.push_back(4); // 		  
+		  Qp.push_back(0); // 
+		  Pxp.push_back(0.0);
+	          Pyp.push_back(0.0);
+		  Pzp.push_back(0.0);
+                  Mass.push_back(3728.40); //In MeV
+		  ExE.push_back(0.0);//In MeV
+		 
+	
 
 
 		 

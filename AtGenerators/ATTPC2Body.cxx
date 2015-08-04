@@ -47,17 +47,14 @@ ATTPC2Body::ATTPC2Body()
 
 // -----   Default constructor   ------------------------------------------
 ATTPC2Body::ATTPC2Body(const char* name,std::vector<Int_t> *z,std::vector<Int_t> *a,std::vector<Int_t> *q, Int_t mult, std::vector<Double_t> *px, 
-	std::vector<Double_t>* py,std::vector<Double_t> *pz, std::vector<Double_t> *mass, std::vector<Double_t> *Ex,Double_t ResEner,Int_t ZB, Int_t AB, Double_t PxB, Double_t PyB, Double_t PzB, Double_t BMass, Double_t TMass)
+	std::vector<Double_t>* py,std::vector<Double_t> *pz, std::vector<Double_t> *mass, std::vector<Double_t> *Ex,Double_t ResEner)
   : fMult(0),          
     fPx(0.), fPy(0.), fPz(0.),
     fVx(0.), fVy(0.), fVz(0.),
     fIon(0),  fQ(0)
 {
 
-  Double_t thetacmsInput = 12.3456789;
-  const Double_t U = 931.49401;
-  
-
+   
   fgNIon++;
   fMult = mult;
   fIon.reserve(fMult);
@@ -66,14 +63,14 @@ ATTPC2Body::ATTPC2Body(const char* name,std::vector<Int_t> *z,std::vector<Int_t>
 
   char buffer[20];
   
-  fBeamEnergy_buff = ResEner;
+ /* fBeamEnergy_buff = ResEner;
   fBeamMass = BMass;
   fTargetMass = TMass;
   fZBeam = ZB;
   fABeam = AB;
   fPxBeam = PxB;
   fPyBeam = PyB;
-  fPzBeam = PzB;
+  fPzBeam = PzB;*/
   
   
       for(Int_t i=0;i<fMult;i++){
@@ -84,6 +81,7 @@ ATTPC2Body::ATTPC2Body(const char* name,std::vector<Int_t> *z,std::vector<Int_t>
 	fPz.push_back( Double_t(a->at(i)) * pz->at(i) );
 	Masses.push_back(mass->at(i));
         fExEnergy.push_back(Ex->at(i));
+        fWm.push_back( mass->at(i) + Ex->at(i));
          
         
         sprintf(buffer, "Product_Ion%d", i); 
@@ -121,21 +119,13 @@ ATTPC2Body::~ATTPC2Body()
 Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
 
 
+    std::vector<Double_t> Ang;				     // Lab Angle of the products
+    std::vector<Double_t> Ene;                                // Lab Energy of the products
+    Ang.reserve(2);
+    Ang.reserve(2);  
 
-  
-
-   // === Phase Space Calculation
-  /* TLorentzVector fEnergyImpulsionLab_beam;
-   TLorentzVector fEnergyImpulsionLab_target;
-   TLorentzVector fEnergyImpulsionLab_Total;
-   TLorentzVector fEnergyImpulsionFinal;
-   TVector3 fImpulsionLab_beam;
-   TVector3 fImpulsionLab_target;
-   TLorentzVector *p1;
-   TLorentzVector *p2;
-   TLorentzVector *p3;
-   std::vector<TLorentzVector*> p_vector;
-   TGenPhaseSpace event1;*/
+   Double_t thetacmsInput = 12.3456789;
+   const Double_t rad2deg = 0.0174532925;
    
    AtStack* stack = (AtStack*) gMC->GetStack();
 
@@ -149,37 +139,70 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
    fPyBeam = gATVP->GetPy();
    fPzBeam = gATVP->GetPz();
 
-  /* Double_t beta;
-   Double_t s=0.0;
-   Double_t mass_1[10]={0.0};
-   Double_t* pMass;
+   Double_t eb=fBeamEnergy+fWm.at(0);
+   Double_t pb2=fBeamEnergy*fBeamEnergy+2.0*fBeamEnergy*fWm.at(0);
+   Double_t pb=sqrt(pb2);
+   Double_t beta=pb/(eb+fWm.at(1));
+   Double_t gamma=1.0/sqrt(1.0-beta*beta);
 
-   Double_t M_tot=0;*/
+   Double_t thetacms=thetacmsInput*rad2deg;  // degree to radian
+   Double_t thetacmr=TMath::Pi()-thetacms;
+   Double_t e=fBeamEnergy+fWm.at(0)+fWm.at(1);
+   Double_t e_cm2 = e*e-pb2;
+   Double_t e_cm  = TMath::Sqrt(e_cm2);
+   Double_t t_cm  = e_cm-fWm.at(2)-fWm.at(3);
 
+  if(t_cm<0.0){
+    std::cout << "Kine No solution!"<<std::endl;
+    fNoSolution=kTRUE;
+    return kFALSE;
+  }
 
+   Double_t t_cm2=t_cm*t_cm;
+   Double_t t3_cm=(t_cm2+2.*fWm.at(3)*t_cm)/(t_cm+fWm.at(2)+fWm.at(3))/2.0; 
+   Double_t t4_cm=(t_cm2+2.*fWm.at(2)*t_cm)/(t_cm+fWm.at(2)+fWm.at(3))/2.0;
+   Double_t p3_cm2=t3_cm*t3_cm+2.0*t3_cm*fWm.at(2);
+   Double_t p3_cm =TMath::Sqrt(p3_cm2);
+   Double_t tg_thetalabs=p3_cm*TMath::Sin(thetacms)/(gamma*(p3_cm*TMath::Cos(thetacms)+beta*TMath::Sqrt(p3_cm*p3_cm+fWm.at(2)*fWm.at(2))));
 
-   //std::cout<<" Beam Z momentum : "<<fABeam*fPzBeam<<std::endl;
+  if(tg_thetalabs>=1.0e6){
+    Ang.push_back(TMath::Pi()/2.0);
+  }
+  else{
+    Ang.push_back(TMath::ATan(tg_thetalabs));
+  }
 
- /*
-   //fImpulsionLab_beam = TVector3(fABeam*fPxBeam,fABeam*fPyBeam,fABeam*fPzBeam);
-   fImpulsionLab_beam = TVector3(fPxBeam,fPyBeam,fPzBeam);
-  // fEnergyImpulsionLab_beam = TLorentzVector(fImpulsionLab_beam,9327.55/1000.0+fBeamEnergy);
-    fEnergyImpulsionLab_beam = TLorentzVector(fImpulsionLab_beam,fBeamMass+fBeamEnergy);
-  
-   //fEnergyImpulsionLab_target = TLorentzVector(TVector3(0,0,0),3728.40/1000.0);
-   fEnergyImpulsionLab_target = TLorentzVector(TVector3(0,0,0),fTargetMass);
+  if(Ang.at(0)<0.0) Ang.at(0)=TMath::Pi()+Ang.at(0);
 
-   fEnergyImpulsionLab_Total = fEnergyImpulsionLab_beam + fEnergyImpulsionLab_target;
-   s = fEnergyImpulsionLab_Total.M2();
-   beta = fEnergyImpulsionLab_Total.Beta();
+  Double_t p4_cm2=t4_cm*t4_cm+2.*t4_cm*fWm.at(3);
+  Double_t p4_cm =TMath::Sqrt(p4_cm2);
+  Double_t tg_thetalabr=p4_cm*TMath::Sin(thetacmr)/(gamma*(p4_cm*TMath::Cos(thetacmr)+beta*TMath::Sqrt(p4_cm*p4_cm+fWm.at(3)*fWm.at(3))));
 
-   std::cout<<" fABeam : "<<fABeam<<" fPzBeam : "<<fPzBeam<<" fBeamEnergy : "<<fBeamEnergy<<std::endl;*/
+  if(tg_thetalabr>1.0e6){
+    Ang.push_back(TMath::Pi()/2.0);
+  }
+  else{
+    Ang.push_back(TMath::ATan(tg_thetalabr));
+  }
 
-  /* for(Int_t i=0;i<fMult;i++){
+  if(Ang.at(1)<0.0) Ang.at(1)=TMath::Pi()+Ang.at(1);
 
-        M_tot+=Masses.at(i)/1000.0;     
-        mass_1[i] = Masses.at(i)/1000.0;
-    }*/
+// Lorentz transformations to lab -----
+
+  Double_t p3_cmx = p3_cm*sin(thetacms);
+  Double_t p3_cmz = p3_cm*cos(thetacms);
+  Double_t p3_labx = p3_cmx;
+  Double_t p3_labz = gamma*(p3_cmz+beta*(t3_cm+fWm.at(2)));
+  Double_t p3_lab = TMath::Sqrt(p3_labx*p3_labx+p3_labz*p3_labz);
+  Ene.push_back(TMath::Sqrt(p3_lab*p3_lab+fWm.at(2)*fWm.at(2))-fWm.at(2));
+
+  Double_t p4_cmx = p4_cm*sin(thetacmr);
+  Double_t p4_cmz = p4_cm*cos(thetacmr);
+  Double_t p4_labx = p4_cmx;
+  Double_t p4_labz = gamma*(p4_cmz+beta*(t4_cm+fWm.at(3)));
+  Double_t p4_lab = TMath::Sqrt(p4_labx*p4_labx+p4_labz*p4_labz);
+  Ene.push_back(TMath::Sqrt(p4_lab*p4_lab+fWm.at(3)*fWm.at(3))-fWm.at(3));
+
 
     
 
