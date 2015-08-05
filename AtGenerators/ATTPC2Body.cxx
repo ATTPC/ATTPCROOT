@@ -102,9 +102,11 @@ ATTPC2Body::ATTPC2Body(const char* name,std::vector<Int_t> *z,std::vector<Int_t>
   }
 
    for(Int_t i=0;i<fMult;i++){
+       
   	run->AddNewIon(fIon.at(i));
 	std::cout<<" Z "<<z->at(i)<<" A "<<a->at(i)<<std::endl;
 	std::cout<<fIon.at(i)->GetName()<<std::endl;
+       
     }
 
   
@@ -125,9 +127,14 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
     std::vector<Double_t> Ene;                                // Lab Energy of the products
     Ang.reserve(2);
     Ang.reserve(2); 
- 
-    Double_t ANGAs[2]={0};
-    Double_t ANGAr[2]={0};
+    fPx.clear();
+    fPy.clear();
+    fPx.clear();
+   
+    fPx.resize(fMult);
+    fPy.resize(fMult);
+    fPx.resize(fMult);
+  
 
    
    Double_t thetacmsInput = fThetaCmsMin + ((fThetaCmsMax-fThetaCmsMin)*gRandom->Uniform());
@@ -223,46 +230,35 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
         std::cout << " Scattered  angle:"  << Ang.at(0)*180/TMath::Pi() << " deg" << std::endl;
     
 
-              
-		
+		fPx.at(0) = 0.0;
+                fPy.at(0) = 0.0; 
+	        fPz.at(0) = 0.0;
+
+                fPx.at(1) = 0.0;
+                fPy.at(1) = 0.0; 
+	        fPz.at(1) = 0.0;
+
+
+           
+	        fPx.at(2) = p3_labx/1000.0;
+                fPy.at(2) = 0.0; 
+	        fPz.at(2) = p3_labz/1000.0;
+
+                fPx.at(3) = p4_labx/1000.0;
+                fPy.at(3) = 0.0; 
+	        fPz.at(3) = p4_labz/1000.0;
+
+	      
 
 
 
-	      /*  fPx.at(0) = p1->Px();
-                fPy.at(0) = p1->Py(); 
-	        fPz.at(0) = p1->Pz(); 
-
-                fPx.at(1) = p2->Px();
-                fPy.at(1) = p2->Py(); 
-	        fPz.at(1) = p2->Pz(); 
-
-	        fPx.at(2) = p3->Px();
-                fPy.at(2) = p3->Py(); 
-	        fPz.at(2) = p3->Pz(); 
-
-		 Double_t  KineticEnergy_P1  = (p1->E() - mass_1[0])*1000; //MeV
-		  Double_t  ThetaLab_P1     = p1->Theta()*180./TMath::Pi();
-
-		  Double_t  KineticEnergy_P2  = (p2->E() - mass_1[1])*1000; //MeV
-		  Double_t  ThetaLab_P2     = p2->Theta()*180./TMath::Pi();
-
-		  Double_t  KineticEnergy_P3  = (p3->E() - mass_1[2])*1000; //MeV
-		  Double_t  ThetaLab_P3     = p3->Theta()*180./TMath::Pi();
-
-		   std::cout<<"  ==== Phase Space Information ==== "<<std::endl;
-            std::cout<<" Particle 1 - TKE : "<<KineticEnergy_P1<<"  Angle (Lab) : "<<ThetaLab_P1<<std::endl;
-	    std::cout<<" Particle 2 - TKE : "<<KineticEnergy_P2<<"  Angle (Lab) : "<<ThetaLab_P2<<std::endl;
-	    std::cout<<" Particle 3 - TKE : "<<KineticEnergy_P3<<"  Angle (Lab) : "<<ThetaLab_P3<<std::endl;*/
-
-
-        
-  //     }// if kinematics condition
+  
 
 	
          
 	
           
-/*     for(Int_t i=0; i<fMult; i++){
+    for(Int_t i=0; i<fMult; i++){
 
 
  TParticlePDG* thisPart = 
@@ -282,21 +278,22 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
          fVx = gATVP->GetVx();
          fVy = gATVP->GetVy();
          fVz = gATVP->GetVz();
- 
 
-  std::cout << "-I- FairIonGenerator: Generating " << fMult << " ions of type "
-       << fIon.at(i)->GetName() << " (PDG code " << pdgType << ")" << std::endl;
-  std::cout << "    Momentum (" << fPx.at(i) << ", " << fPy.at(i) << ", " << fPz.at(i) 
-       << ") Gev from vertex (" << fVx << ", " << fVy
-       << ", " << fVz << ") cm" << std::endl; 
+       
 
    
-      if(fIsDecay){
+      if(i>1 && gATVP->GetDecayEvtCnt()){
+
+	 std::cout << "-I- FairIonGenerator: Generating " << fMult << " ions of type "
+       << fIon.at(i)->GetName() << " (PDG code " << pdgType << ")" << std::endl;
+        std::cout << "    Momentum (" << fPx.at(i) << ", " << fPy.at(i) << ", " << fPz.at(i) 
+       << ") Gev from vertex (" << fVx << ", " << fVy
+       << ", " << fVz << ") cm" << std::endl; 
         primGen->AddTrack(pdgType, fPx.at(i), fPy.at(i), fPz.at(i), fVx, fVy, fVz);
       }
 
 
-  }  */     
+  }      
         
 
   gATVP->IncDecayEvtCnt();  //TODO: Okay someone should put a more suitable name but we are on a hurry...

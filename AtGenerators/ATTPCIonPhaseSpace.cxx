@@ -57,7 +57,6 @@ ATTPCIonPhaseSpace::ATTPCIonPhaseSpace(const char* name,std::vector<Int_t> *z,st
   fgNIon++;
   fMult = mult;
   fIon.reserve(fMult);
-  
 
 
   char buffer[20];
@@ -158,6 +157,14 @@ Bool_t ATTPCIonPhaseSpace::ReadEvent(FairPrimaryGenerator* primGen) {
    TLorentzVector *p3;
    std::vector<TLorentzVector*> p_vector;
    TGenPhaseSpace event1;
+
+    fPx.clear();
+    fPy.clear();
+    fPx.clear();
+   
+    fPx.resize(fMult);
+    fPy.resize(fMult);
+    fPx.resize(fMult);
    
    AtStack* stack = (AtStack*) gMC->GetStack();
 
