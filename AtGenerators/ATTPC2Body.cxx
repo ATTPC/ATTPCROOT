@@ -31,6 +31,9 @@
 #include "AtStack.h"
 #include "AtTpcPoint.h"
 #include "ATVertexPropagator.h"
+#include "ATEulerTransformation.h"
+
+#include "TVector3.h"
 
 Int_t ATTPC2Body::fgNIon = 0;
 
@@ -224,38 +227,81 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
   Double_t p4_lab = TMath::Sqrt(p4_labx*p4_labx+p4_labz*p4_labz);
   Ene.push_back(TMath::Sqrt(p4_lab*p4_lab+fWm.at(3)*fWm.at(3))-fWm.at(3));
 
-        std::cout << " Recoil energy:" << Ene.at(1) << " MeV" << std::endl;
-        std::cout << " Scattered energy:" << Ene.at(0)  << " MeV" << std::endl;
-        std::cout << " Recoiled angle:"  << Ang.at(1)*180.0/TMath::Pi() << " deg" << std::endl;
-        std::cout << " Scattered  angle:"  << Ang.at(0)*180/TMath::Pi() << " deg" << std::endl;
+  std::cout << " Recoil energy:" << Ene.at(1) << " MeV" << std::endl;
+  std::cout << " Recoiled angle:"  << Ang.at(1)*180.0/TMath::Pi() << " deg" << std::endl;
+  std::cout << " Scattered energy:" << Ene.at(0)  << " MeV" << std::endl;
+  std::cout << " Scattered  angle:"  << Ang.at(0)*180/TMath::Pi() << " deg" << std::endl;
     
 
-		fPx.at(0) = 0.0;
-                fPy.at(0) = 0.0; 
-	        fPz.at(0) = 0.0;
+	fPx.at(0) = 0.0;
+        fPy.at(0) = 0.0; 
+	fPz.at(0) = 0.0;
 
-                fPx.at(1) = 0.0;
-                fPy.at(1) = 0.0; 
-	        fPz.at(1) = 0.0;
+        fPx.at(1) = 0.0;
+        fPy.at(1) = 0.0; 
+	fPz.at(1) = 0.0;
 
 
            
-	        fPx.at(2) = p3_labx/1000.0;
-                fPy.at(2) = 0.0; 
-	        fPz.at(2) = p3_labz/1000.0;
+	fPx.at(2) = p3_labx/1000.0; // To GeV for FairRoot
+        fPy.at(2) = 0.0; 
+	fPz.at(2) = p3_labz/1000.0;
 
-                fPx.at(3) = p4_labx/1000.0;
-                fPy.at(3) = 0.0; 
-	        fPz.at(3) = p4_labz/1000.0;
+        fPx.at(3) = p4_labx/1000.0;
+        fPy.at(3) = 0.0; 
+	fPz.at(3) = p4_labz/1000.0;
 
 	      
+       Double_t phiBeam1=0., phiBeam2=0.;
+
+       phiBeam1 = 2*TMath::Pi() * gRandom->Uniform();         //flat probability in phi
+       phiBeam2 = phiBeam1 + TMath::Pi();
+
+       TVector3 BeamMom(gATVP->GetPx()*1000,gATVP->GetPy()*1000,gATVP->GetPz()*1000); //To MeV for Euler Transformation
+       std::cout << " Beam Theta : "<<BeamMom.Theta()*180.0/TMath::Pi()<<std::endl;
+       std::cout << " Beam Phi : "<<BeamMom.Phi()*180.0/TMath::Pi()<<std::endl;
+      
+       Double_t thetaLab1, phiLab1, thetaLab2, phiLab2;
+       ATEulerTransformation* EulerTransformer = new ATEulerTransformation();
 
 
-
+       EulerTransformer->SetThetaInBeamSystem(Ang.at(0));
+       EulerTransformer->SetPhiInBeamSystem(phiBeam1);
+       EulerTransformer->SetBeamDirectionAtVertexTheta(BeamMom.Theta());
+       EulerTransformer->SetBeamDirectionAtVertexPhi(BeamMom.Phi());
+       EulerTransformer->DoTheEulerTransformationBeam2Lab();   // Euler transformation for particle 1
   
+       thetaLab1 = EulerTransformer->GetThetaInLabSystem();
+       phiLab1   = EulerTransformer->GetPhiInLabSystem();
+       std::cout << " Scattered  angle Phi :"  << phiBeam1*180.0/TMath::Pi()  << " deg" << std::endl; 
+       std::cout << " Scattered  angle Theta (Euler) :"  << thetaLab1*180.0/TMath::Pi()  << " deg" << std::endl; 
+       std::cout << " Scattered  angle Phi (Euler) :"  << phiLab1*180.0/TMath::Pi()  << " deg" << std::endl; 
+
+       TVector3 direction1 = TVector3(sin(thetaLab1)*cos(phiLab1),
+                                             sin(thetaLab1)*sin(phiLab1),
+                                             cos(thetaLab1));
+
+       EulerTransformer->SetThetaInBeamSystem(Ang.at(1));
+       EulerTransformer->SetPhiInBeamSystem(phiBeam2);
+       EulerTransformer->DoTheEulerTransformationBeam2Lab();   // Euler transformation for particle 2
+
+       thetaLab2 = EulerTransformer->GetThetaInLabSystem();
+       phiLab2   = EulerTransformer->GetPhiInLabSystem();
+
+       TVector3 direction2 = TVector3(sin(thetaLab2)*cos(phiLab2),
+					     sin(thetaLab2)*sin(phiLab2),
+					     cos(thetaLab2));
+       std::cout << " Recoiled  angle Phi :"  << phiBeam2*180.0/TMath::Pi()  << " deg" << std::endl; 
+       std::cout << " Recoiled  angle Theta (Euler) :"  << thetaLab2*180.0/TMath::Pi()  << " deg" << std::endl; 
+       std::cout << " Recoiled  angle Phi (Euler) :"  << phiLab2*180.0/TMath::Pi()  << " deg" << std::endl; 
+
+
+ 
+
+       delete EulerTransformer;
 
 	
-         
+// Particle transport begins here         
 	
           
     for(Int_t i=0; i<fMult; i++){
@@ -282,7 +328,7 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
        
 
    
-      if(i>1 && gATVP->GetDecayEvtCnt()){
+      if(i>1 && gATVP->GetDecayEvtCnt()){// TODO: Dirty way to propagate only the products (0 and 1 are beam and target respectively)
 
 	 std::cout << "-I- FairIonGenerator: Generating " << fMult << " ions of type "
        << fIon.at(i)->GetName() << " (PDG code " << pdgType << ")" << std::endl;
