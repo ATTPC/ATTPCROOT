@@ -53,7 +53,7 @@ void run_sim_proto_2B(Int_t nEvents = 20, TString mcEngine = "TGeant4")
 
     // -----   Magnetic field   -------------------------------------------
     // Constant Field
-   /* AtConstField  *fMagField = new AtConstField();
+    /*AtConstField  *fMagField = new AtConstField();
     fMagField->SetField(0., 0. ,20. ); // values are in kG
     fMagField->SetFieldRegion(-50, 50,-50, 50, -10,230); // values are in cm
                           //  (xmin,xmax,ymin,ymax,zmin,zmax)
@@ -73,8 +73,8 @@ void run_sim_proto_2B(Int_t nEvents = 20, TString mcEngine = "TGeant4")
 	          Int_t a = 10; // Mass number
 	          Int_t q = 0;   // Charge State
 	          Int_t m = 1;   // Multiplicity  NOTE: Due the limitation of the TGenPhaseSpace accepting only pointers/arrays the maximum multiplicity has been set to 10 particles.
-	          Double_t px = 0.001/a;  // X-Momentum / per nucleon!!!!!!
-	          Double_t py = 0.001/a;  // Y-Momentum / per nucleon!!!!!!
+	          Double_t px = 0.000/a;  // X-Momentum / per nucleon!!!!!!
+	          Double_t py = 0.000/a;  // Y-Momentum / per nucleon!!!!!!
 	          Double_t pz = 0.809/a;  // Z-Momentum / per nucleon!!!!!!
   		  Double_t BExcEner = 0.0;
                   Double_t Bmass = 9.32755; //Mass in GeV
@@ -83,7 +83,7 @@ void run_sim_proto_2B(Int_t nEvents = 20, TString mcEngine = "TGeant4")
 
 
 	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator("Ion",z,a,q,m,px,py,pz,BExcEner,Bmass,NomEnergy);
-	          ionGen->SetSpotRadius(1,-20,0);
+	          ionGen->SetSpotRadius(0,-20,0);
 	          // add the ion generator
 		 
 	          primGen->AddGenerator(ionGen);
