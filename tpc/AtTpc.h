@@ -132,6 +132,7 @@ class AtTpc: public FairDetector
     Bool_t kGeoSaved;               //!
     TList* flGeoPar;                //!
     Double32_t fELossAcc;
+    TLorentzVector InPos;
 
     /** container for data points */
 

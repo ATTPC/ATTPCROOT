@@ -82,6 +82,7 @@ void AtTpc::Initialize()
   FairDetector::Initialize();
   FairRuntimeDb* rtdb= FairRun::Instance()->GetRuntimeDb();
   AtTpcGeoPar* par=(AtTpcGeoPar*)(rtdb->getContainer("AtTpcGeoPar"));
+
 }
 
 Bool_t  AtTpc::ProcessHits(FairVolume* vol)
@@ -163,7 +164,7 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 
 
 	AtStack* stack = (AtStack*) gMC->GetStack();
-
+        
         
 
         //std::cout<<" Current Event : "<<gMC->CurrentEvent()<<std::endl;        
@@ -180,6 +181,13 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
          fLength = gMC->TrackLength();
          gMC->TrackPosition(fPosIn);
          gMC->TrackMomentum(fMomIn);
+         //LOG(INFO) << "ATTPC: Position of the first hit" << FairLogger::endl;
+         fTrackID  = gMC->GetStack()->GetCurrentTrackNumber();
+         if(gATVP->GetBeamEvtCnt()%2!=0 && fTrackID==0 ){
+		 InPos = fPosIn;
+		// std::cout<<" Entrance Position 1 - X : "<<InPos.X()<<" - Y : "<<InPos.Y()<<" - Z : "<<InPos.Z()<<std::endl;
+                       
+		}
          //LOG(INFO) << "ATTPC: Position of the first hit" << FairLogger::endl;
          //LOG(INFO)<<" Mass of the Tracked particle : "<<gMC->TrackMass()<<std::endl;
 	// LOG(INFO)<<" Total energy of the current track : "<<((gMC->Etot() - gATVP->GetBeamMass()) * 1000.)<<FairLogger::endl;// Relativistic Mass
@@ -304,7 +312,10 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 		// LOG(INFO)<<" Total energy of the current track : "<<((gMC->Etot() - gMC->TrackMass()) * 1000.)<<FairLogger::endl;// Relativistic Mass
                  Double_t StopEnergy = ((gMC->Etot() - gATVP->GetBeamMass()) * 1000.);
 		 LOG(INFO)<<" Total energy of the current track : "<<StopEnergy<<FairLogger::endl;// Relativistic Mass
-                 gATVP->SetVertex(StopPos.X(),StopPos.Y(),StopPos.Z(),StopMom.Px(),StopMom.Py(),StopMom.Pz(),StopEnergy);
+                 gATVP->SetVertex(StopPos.X(),StopPos.Y(),StopPos.Z(),InPos.X(),InPos.Y(),InPos.Z(),StopMom.Px(),StopMom.Py(),StopMom.Pz(),StopEnergy);
+		// std::cout<<" Entrance Position 2 - X : "<<InPos.X()<<" - Y : "<<InPos.Y()<<" - Z : "<<InPos.Z()<<std::endl;
+               //  std::cout<<" Stop Position - X : "<<StopPos.X()<<" - Y : "<<StopPos.Y()<<" - Z : "<<StopPos.Z()<<std::endl;
+                 
 	}
 		// Increment number of AtTpc det points in TParticle
 	    	
