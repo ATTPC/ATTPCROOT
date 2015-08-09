@@ -52,6 +52,7 @@ private:
   std::vector<Double_t> fExEnergy;           // Excitation energies of the products
   Double_t fVx, fVy, fVz;                   // Vertex coordinates [cm]
   std::vector<FairIon*>  fIon;              // Pointer to the FairIon to be generated
+  std::vector<TString> fPType;           
   std::vector<FairParticle*>  fParticle; 
   std::vector<Int_t>   fQ;		    // Electric charge [e]
   //std::vector<Int_t> fA;
@@ -66,7 +67,6 @@ private:
   Double_t fThetaCmsMax;
   Double_t fThetaCmsMin;
   Bool_t fIsDecay;
-  std::vector<TString> fPType;
  // Double_t fBeamMass;
  // Double_t fTargetMass;
   Bool_t fNoSolution;
