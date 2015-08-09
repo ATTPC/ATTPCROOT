@@ -6,12 +6,14 @@
 #include "FairMCEventHeader.h"
 
 #include "FairIon.h"
+#include "FairParticle.h"
 #include "FairRunSim.h"
 #include "FairRunAna.h"
 
 #include "TDatabasePDG.h"
 #include "TParticlePDG.h"
 #include "TObjArray.h"
+
                     
 #include "TRandom.h"
 #include "TMath.h"
@@ -61,13 +63,19 @@ ATTPC2Body::ATTPC2Body(const char* name,std::vector<Int_t> *z,std::vector<Int_t>
   fgNIon++;
   fMult = mult;
   fIon.reserve(fMult);
-  fThetaCmsMax = 40.0;
-  fThetaCmsMin = 30.1;
+  fThetaCmsMax = 30.0;
+  fThetaCmsMin = 20.1;
   
   fNoSolution = kFALSE;
 
   char buffer[20];
-  
+  TDatabasePDG* pdgDB = TDatabasePDG::Instance();
+  TParticlePDG* kProtonPDG = pdgDB->GetParticle(2212);
+   std::cout<<" ++++++++++++++++++++++++++++++++++ Proton PDG Charge : "<<kProtonPDG->Charge()<<std::endl;
+  TParticle* kProton = new TParticle(); 
+  kProton->SetPdgCode(2212);
+  std::cout<<" ++++++++++++++++++++++++++++++++++ Proton Charge : "<<kProton->GetPDG()->Charge()<<std::endl;
+
  /* fBeamEnergy_buff = ResEner;
   fBeamMass = BMass;
   fTargetMass = TMass;
@@ -87,14 +95,22 @@ ATTPC2Body::ATTPC2Body(const char* name,std::vector<Int_t> *z,std::vector<Int_t>
 	Masses.push_back(mass->at(i)*1000.0);
         fExEnergy.push_back(Ex->at(i));
         fWm.push_back( mass->at(i)*1000.0 + Ex->at(i));
-         
-        
+        FairIon *IonBuff;
+        FairParticle *ParticleBuff;
         sprintf(buffer, "Product_Ion%d", i); 
-        FairIon *IonBuff = new FairIon(buffer, z->at(i), a->at(i), q->at(i),0.0,mass->at(i));
+        if( a->at(i)!=1 && z->at(i)!=1  ){
+	  IonBuff = new FairIon(buffer, z->at(i), a->at(i), q->at(i),0.0,mass->at(i));
+          ParticleBuff = new FairParticle("dummyPart",1,1,1.0,0,0.0,0.0);
+        }else if( a->at(i)==1 && z->at(i)==1  ){
+	  IonBuff = new FairIon("dummyIon",50,50,0,0.0,100); // We fill the std::vector with a dummy ion
+         // ParticleBuff = new FairParticle("ATProton", z->at(i),a->at(i),mass->at(i),0,kTRUE,1E32);//Not working as expected
+            ParticleBuff = new FairParticle(2212,kProton);
+	}
+
 	//std::cout<<" Z "<<z->at(i)<<" A "<<a->at(i)<<std::endl;
 	//std::cout<<buffer<<std::endl;
         fIon.push_back(IonBuff);
-
+        fParticle.push_back(ParticleBuff);
         
        }
  
@@ -107,6 +123,7 @@ ATTPC2Body::ATTPC2Body(const char* name,std::vector<Int_t> *z,std::vector<Int_t>
    for(Int_t i=0;i<fMult;i++){
        
   	run->AddNewIon(fIon.at(i));
+        run->AddNewParticle(fParticle.at(i));
 	std::cout<<" Z "<<z->at(i)<<" A "<<a->at(i)<<std::endl;
 	std::cout<<fIon.at(i)->GetName()<<std::endl;
        
@@ -352,8 +369,8 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
     for(Int_t i=0; i<fMult; i++){
 
 
- TParticlePDG* thisPart = 
-     TDatabasePDG::Instance()->GetParticle(fIon.at(i)->GetName());
+     TParticlePDG* thisPart = 
+       TDatabasePDG::Instance()->GetParticle(fIon.at(i)->GetName());
 
 
   if ( ! thisPart ) {
@@ -362,7 +379,9 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
     return kFALSE;
   }
 
-     int pdgType = thisPart->PdgCode(); 
+     int pdgType = thisPart->PdgCode();
+   //  int pdgTypeProton = thisProton->PdgCode();  
+    // std::cout<<" Proton PDG check : "<<pdgTypeProton<<std::endl;
 
      // Propagate the vertex of the previous event
 
@@ -373,15 +392,26 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
        
 
    
-      if(i>1 && gATVP->GetDecayEvtCnt()){// TODO: Dirty way to propagate only the products (0 and 1 are beam and target respectively)
+      if(i>1 && gATVP->GetDecayEvtCnt() && pdgType!=1000500500  ){// TODO: Dirty way to propagate only the products (0 and 1 are beam and target respectively)
 
+        
 	 std::cout << "-I- FairIonGenerator: Generating " << fMult << " ions of type "
        << fIon.at(i)->GetName() << " (PDG code " << pdgType << ")" << std::endl;
         std::cout << "    Momentum (" << fPx.at(i) << ", " << fPy.at(i) << ", " << fPz.at(i) 
        << ") Gev from vertex (" << fVx << ", " << fVy
        << ", " << fVz << ") cm" << std::endl; 
         primGen->AddTrack(pdgType, fPx.at(i), fPy.at(i), fPz.at(i), fVx, fVy, fVz);
-      }
+ 
+      }else if(i>1 && gATVP->GetDecayEvtCnt() && pdgType==1000500500 ){
+             
+	 std::cout << "-I- FairIonGenerator: Generating " << fMult << " ions of type "
+       << fIon.at(i)->GetName() << " (PDG code " << pdgType << ")" << std::endl;
+        std::cout << "    Momentum (" << fPx.at(i) << ", " << fPy.at(i) << ", " << fPz.at(i) 
+       << ") Gev from vertex (" << fVx << ", " << fVy
+       << ", " << fVz << ") cm" << std::endl; 
+        primGen->AddTrack(2212, fPx.at(i), fPy.at(i), fPz.at(i), fVx, fVy, fVz);
+
+	} 
 
 
   }      

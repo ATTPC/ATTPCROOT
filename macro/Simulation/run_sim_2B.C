@@ -1,13 +1,13 @@
-void run_sim_proto_2B(Int_t nEvents = 20, TString mcEngine = "TGeant4")
+void run_sim_2B(Int_t nEvents = 10, TString mcEngine = "TGeant4")
 {
     
   TString dir = getenv("VMCWORKDIR");
 
   // Output file name
-  TString outFile ="attpcsim_proto.root";
+  TString outFile ="./data/attpcsim.root";
     
   // Parameter file name
-  TString parFile="attpcpar_proto.root";
+  TString parFile="./data/attpcpar.root";
   
   // -----   Timer   --------------------------------------------------------
   TStopwatch timer;
@@ -37,14 +37,14 @@ void run_sim_proto_2B(Int_t nEvents = 20, TString mcEngine = "TGeant4")
   cave->SetGeometryFileName("cave.geo");
   run->AddModule(cave);
 
-  /*FairModule* magnet = new AtMagnet("Magnet");
-  run->AddModule(magnet);*/
+  FairModule* magnet = new AtMagnet("Magnet");
+  run->AddModule(magnet);
 
   FairModule* pipe = new AtPipe("Pipe");
   run->AddModule(pipe);
     
-  FairDetector* ATTPC = new AtTpc("ATTPC_Proto", kTRUE);
-  ATTPC->SetGeometryFileName("ATTPC_Proto_v1.0.root");
+  FairDetector* ATTPC = new AtTpc("ATTPC", kTRUE);
+  ATTPC->SetGeometryFileName("ATTPC_v1.1.root"); 
   //ATTPC->SetModifyGeometry(kTRUE);
   run->AddModule(ATTPC);
 
@@ -69,17 +69,17 @@ void run_sim_proto_2B(Int_t nEvents = 20, TString mcEngine = "TGeant4")
    
 		 
                   // Beam Information
-                  Int_t z = 4;  // Atomic number
-	          Int_t a = 10; // Mass number
+                  Int_t z = 18;  // Atomic number
+	          Int_t a = 40; // Mass number
 	          Int_t q = 0;   // Charge State
 	          Int_t m = 1;   // Multiplicity  NOTE: Due the limitation of the TGenPhaseSpace accepting only pointers/arrays the maximum multiplicity has been set to 10 particles.
 	          Double_t px = 0.000/a;  // X-Momentum / per nucleon!!!!!!
 	          Double_t py = 0.000/a;  // Y-Momentum / per nucleon!!!!!!
-	          Double_t pz = 0.809/a;  // Z-Momentum / per nucleon!!!!!!
+	          Double_t pz = 3.663/a;  // Z-Momentum / per nucleon!!!!!!
   		  Double_t BExcEner = 0.0;
-                  Double_t Bmass = 9.32755; //Mass in GeV
-                  Double_t NomEnergy = 35.0; //Nominal Energy of the beam: Only used for cross section calculation (Tracking energy is determined with momentum). Must be consistent with pz
-                  Double_t TargetMass = 3.72840;//Mass in GeV
+                  Double_t Bmass = 37.22472; //Mass in GeV
+                  Double_t NomEnergy = 179.83; //Nominal Energy of the beam: Only used for cross section calculation (Tracking energy is determined with momentum). Must be consistent with pz
+                  Double_t TargetMass = 0.938272;//Mass in GeV
 
 
 	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator("Ion",z,a,q,m,px,py,pz,BExcEner,Bmass,NomEnergy);
@@ -111,10 +111,10 @@ void run_sim_proto_2B(Int_t nEvents = 20, TString mcEngine = "TGeant4")
 
                   
 	          mult = 4; //Number of Nuclei involved in the reaction (Should be always 4) THIS DEFINITION IS MANDATORY (and the number of particles must be the same)
-                  ResEner = 35.0;// Value to generate a random number between 0 and ResEner for which beam reacts...
+                  ResEner = 179.83;// Value to generate a random number between 0 and ResEner for which beam reacts...
 
                   // ---- Beam ----
-                  Zp.push_back(z); // 10Be 
+                  Zp.push_back(z); // 40Ar 
 		  Ap.push_back(a); // 
 		  Qp.push_back(q); 
 		  Pxp.push_back(px);
@@ -124,34 +124,34 @@ void run_sim_proto_2B(Int_t nEvents = 20, TString mcEngine = "TGeant4")
 		  ExE.push_back(BExcEner);
 
                   // ---- Target ----
-     		  Zp.push_back(2); // 4He 
-		  Ap.push_back(4); // 		  
+     		  Zp.push_back(1); // p 
+		  Ap.push_back(1); // 		  
 		  Qp.push_back(0); // 
 		  Pxp.push_back(0.0);
 	          Pyp.push_back(0.0);
 		  Pzp.push_back(0.0);
-                  Mass.push_back(3.72840); 
+                  Mass.push_back(0.938272); 
 		  ExE.push_back(0.0);//In MeV
 
                   //--- Scattered -----
-                  Zp.push_back(4); // 10Be 
-		  Ap.push_back(10); // 
+                  Zp.push_back(18); // 40Ar 
+		  Ap.push_back(40); // 
 		  Qp.push_back(0); 
 		  Pxp.push_back(0.0);
 		  Pyp.push_back(0.0);
 		  Pzp.push_back(0.0);
-		  Mass.push_back(9.32755);
+		  Mass.push_back(37.22472);
 		  ExE.push_back(0.0);
 
 
                   // ---- Recoil -----
-		  Zp.push_back(2); // 4He 
-		  Ap.push_back(4); // 		  
+		  Zp.push_back(1); // p 
+		  Ap.push_back(1); // 		  
 		  Qp.push_back(0); // 
 		  Pxp.push_back(0.0);
 	          Pyp.push_back(0.0);
 		  Pzp.push_back(0.0);
-                  Mass.push_back(3.72840); //In MeV
+                  Mass.push_back(0.938272); 
 		  ExE.push_back(0.0);//In MeV
 
               
@@ -191,7 +191,7 @@ void run_sim_proto_2B(Int_t nEvents = 20, TString mcEngine = "TGeant4")
    run->Run(nEvents);
     
   //You can export your ROOT geometry ot a separate file
-  run->CreateGeometryFile("geofile_proto_full.root");
+  run->CreateGeometryFile("./data/geofile_proto_full.root");
   // ------------------------------------------------------------------------
   
   // -----   Finish   -------------------------------------------------------
