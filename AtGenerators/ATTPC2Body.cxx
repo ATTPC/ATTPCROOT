@@ -63,8 +63,9 @@ ATTPC2Body::ATTPC2Body(const char* name,std::vector<Int_t> *z,std::vector<Int_t>
   fgNIon++;
   fMult = mult;
   fIon.reserve(fMult);
-  fThetaCmsMax = 45.0;
-  fThetaCmsMin = 90.1;
+  fThetaCmsMin = 30.1;
+  fThetaCmsMax = 40.0;
+  
   
   fNoSolution = kFALSE;
 

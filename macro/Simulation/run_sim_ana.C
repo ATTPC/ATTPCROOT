@@ -9,14 +9,18 @@
 void run_sim_ana()
 {
     
-    TH2D *Eloss_vs_Range_Sca = new TH2D("Eloss_vs_Range_Sca","ELoss_vs_Range_Sca",100,0.,1000.,100,0.,300.);
+    TH2D *Eloss_vs_Range_Sca = new TH2D("Eloss_vs_Range_Sca","ELoss_vs_Range_Sca",100,0,1000,300,0,300);
     Eloss_vs_Range_Sca->SetMarkerStyle(20);
     Eloss_vs_Range_Sca->SetMarkerSize(0.5);
     
-    TH2D *Eloss_vs_Range_Rec = new TH2D("Eloss_vs_Range_Rec","ELoss_vs_Range_Rec",100,0.,1000.,100,0.,300.);
-    Eloss_vs_Range_Rec->SetMarkerStyle(21);
+    TH2D *Eloss_vs_Range_Rec = new TH2D("Eloss_vs_Range_Rec","ELoss_vs_Range_Rec",1000,0,1000,1000,0,10);
+    Eloss_vs_Range_Rec->SetMarkerStyle(20);
     Eloss_vs_Range_Rec->SetMarkerSize(0.5);
     Eloss_vs_Range_Rec->SetMarkerColor(2);
+    
+    TCanvas *c1 = new TCanvas();
+    c1->Divide(1,2);
+    c1->Draw();
     
     
     TString mcFileNameHead = "data/attpcsim";
@@ -54,26 +58,41 @@ void run_sim_ana()
             if(trackID==2){
                 range_rec = point -> GetLength()*10; //mm
                 energyLoss_rec+=( point -> GetEnergyLoss() )*1000;//MeV
-                std::cout<<" Track ID : "<<trackID<<std::endl;
-                std::cout<<" Range_rec : "<<range_rec<<std::endl;
-                std::cout<<" energyLoss_rec : "<<energyLoss_rec<<std::endl;
+               // std::cout<<" Track ID : "<<trackID<<std::endl;
+               // std::cout<<" Range_rec : "<<range_rec<<std::endl;
+               // std::cout<<" energyLoss_rec : "<<energyLoss_rec<<std::endl;
                 
             }//TrackID == 2
                 if(trackID==1){
                     range_sca = point -> GetLength()*10; //mm
                     energyLoss_sca+=( point -> GetEnergyLoss() )*1000;//MeV
+                   // std::cout<<" Track ID : "<<trackID<<std::endl;
+                   // std::cout<<" Range_sca : "<<range_sca<<std::endl;
+                   // std::cout<<" energyLoss_sca : "<<energyLoss_sca<<std::endl;
                 }//TrackID == 1
             
             
         }//n number of points
         
-        Eloss_vs_Range_Sca->Fill(range_sca,energyLoss_sca);
-        Eloss_vs_Range_Rec->Fill(range_rec,energyLoss_rec);
+        
+        if(iEvent%2!=0){
+            //std::cout<<" Range_rec : "<<range_rec<<std::endl;
+            //std::cout<<" energyLoss_rec : "<<energyLoss_rec<<std::endl;
+            Eloss_vs_Range_Rec->Fill(range_rec,energyLoss_rec);
+            
+
+            //std::cout<<" Range_sca : "<<range_sca<<std::endl;
+            //std::cout<<" energyLoss_sca : "<<energyLoss_sca<<std::endl;
+            Eloss_vs_Range_Sca->Fill(range_sca,energyLoss_sca);
+            
+        }
         
     }// Events
     
+    c1->cd(1);
     Eloss_vs_Range_Sca->Draw("scat");
-    Eloss_vs_Range_Rec->Draw("scatSAMES");
+    c1->cd(2);
+    Eloss_vs_Range_Rec->Draw("scat");
     
     
 }
