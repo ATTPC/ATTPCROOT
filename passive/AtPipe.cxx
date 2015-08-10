@@ -48,10 +48,11 @@ void AtPipe::ConstructGeometry()
     // define some media
      TGeoMedium *Carbon     = new TGeoMedium("C",50, matCarbon);
      TGeoMedium *Vacuum     = new TGeoMedium("Vacuum", 60, matVacuum);
+
    
     
     Int_t nSects=2;
-    Double_t z[] = { -110, 0};    // in cm
+    Double_t z[] = { -50, 0};    // in cm
     Double_t r[] = { 2.5, 2.5};    // in cm
     Double_t Thickness = 0.05;     // thickness of beam pipe [cm]
     TGeoPcon* shape = new TGeoPcon(0., 360., nSects);
@@ -71,9 +72,16 @@ void AtPipe::ConstructGeometry()
     // ---> Volume
     TGeoVolume* Vpipe = new TGeoVolume("AtPipe", Vshape, Vacuum);
     
+    
+   // TGeoVolume *TPipe=gGeoManager->MakeTubs("TPipe",Vacuum,0,2.5,3.0,10,0);
+    
+    
+    
     top->AddNode(pipe, 1);
     top->AddNode(Vpipe, 1);
-
+    //top->AddNode(TPipe,1);
+    //top->AddNodeOverlap(TPipe,1,new TGeoCombiTrans(0,0,0,new TGeoRotation("TPipe",0,-7,0)));
+    
 
 }
 // ----------------------------------------------------------------------------

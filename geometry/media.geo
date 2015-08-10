@@ -1,3 +1,54 @@
+// Source: http://fairroot.gsi.de/?q=node/34
+//
+// The following parameters are needed:
+//
+// * int ncomp       - number of components in the material (ncomp= 1 for a basic material and <1 or >1 for a mixture
+//                     If ncomp > 0 the array wm contains the proportion by weight of each material in the mixture.
+//                     If ncomp < 0 the array wm contains the proportion by number of atoms of each kind.
+//                     For more detailed information see NLMAT in Geant3 routine GSMIXT
+// * float aw[ncomp] - atomic weights A for the components
+// * float an[ncomp] - atomic numbers Z for the components
+// * float dens      - density DENS in g cm(**-3)
+// * float wm[ncomp] - weights WMAT of each component in a mixture (only for a mixture)
+// * int   sensflag  - sensitivity flag ISVOL
+// * int   fldflag   - fieldflag IFIELD
+// * float fld       - maximum field value FIELDM in kilogauss
+// * float epsil     - boundary crossing precision EPSIL
+// * int   npckov    - number of values used to define the optical properties of the medium.
+//
+// The variable npckov is 0 for all media except some special media used for the
+// Rich where the tracking of the Cerenkov photons is necessary. These media have
+// additinal parameters
+//
+// * float ppckov[npckov] - photon momentum in eV
+// * float absco[npckov]  - absorption length in case of dielectric and of absorption  probabilities in case of a metal
+// * float effic[npckov]  - detection efficiency
+// * float rindex[npckov] - refraction index for a dielectric, rindex[0]=0 for a metal
+//
+// Remark: In the present program version a mixture may contain a maximum of 5
+// components. If this is not sufficient one has to change MAXCOMP in
+// hgeomedium.h.
+//
+// The following parameters are normally not read. The default values are -1 and
+// the real values are automatically calculated by Geant. If you want to set these
+// values by yourself, you must type the keyword AUTONULL in your media file.
+// After this keyword all media must contain these additional 4 parameters before
+// the Cerenkov (int npckov).
+//
+// * float madfld  - maximum angular deviation TMAXFD due to field
+// * float maxstep - maximum step permitted STEMAX
+// * float maxde   - maximum fractional energy loss DEEMAX
+// * float minstep - minimum value for step STMIN
+//
+//
+// example)
+//
+// air 3 14.01 16. 39.95.  7.  9.  18. 1.205e-3  .755  .231  .014
+// 0 1 3.  .001
+// 0
+//
+//----------------------------------------------------------
+
 //----------------------------------------------------------
 air                3  14.01  16.  39.95  7.  8.  18.  1.205e-3  .755  .231  .014
                    0  1  30.  .001
@@ -2229,15 +2280,21 @@ STTelectronics     -2  28.0855  15.9994  14.  8.  2.20  1  2
 
 AUTONULL
 
-vacuum2 1 1.e-16 1.e-16 1.e-16
-		0 1 30. .001
-		0.1 0.05 0.0001 0.00001
-		0
+vacuum2             1 1.e-16 1.e-16 1.e-16
+                    0 1 30. .001
+                    0.1 0.05 0.0001 0.00001
+                    0
 
-heco2              3  4.0026  12.01  15.999  2.  6.  8.  3.2716e-4  0.9 0.0333 0.0667
-                   1  1  20.  .001
-		   99. 0.001    0.0001  0.0000001
-	           0
+heco2               3  4.0026  12.01  15.999  2.  6.  8.  3.2716e-4  0.9 0.0333 0.0667
+                    1  1  20.  .001
+                    99. 0.001    0.0001  0.0000001
+                    0
+
+ATTPCIsoButane      -2  12.01 1.008  6.  1.  9.548e-5  4  10
+                    1  1  20.  .001
+                    99. 0.001    0.0001  0.0000001
+                    0
+
 
 // ---- end of Panda media ----
 //----------------------------------------------------------

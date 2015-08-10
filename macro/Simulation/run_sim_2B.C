@@ -40,11 +40,11 @@ void run_sim_2B(Int_t nEvents = 10, TString mcEngine = "TGeant4")
   FairModule* magnet = new AtMagnet("Magnet");
   run->AddModule(magnet);
 
-  FairModule* pipe = new AtPipe("Pipe");
-  run->AddModule(pipe);
+  /*FairModule* pipe = new AtPipe("Pipe");
+  run->AddModule(pipe);*/
     
   FairDetector* ATTPC = new AtTpc("ATTPC", kTRUE);
-  ATTPC->SetGeometryFileName("ATTPC_v1.1.root"); 
+  ATTPC->SetGeometryFileName("ATTPC_v1.2.root"); 
   //ATTPC->SetModifyGeometry(kTRUE);
   run->AddModule(ATTPC);
 
