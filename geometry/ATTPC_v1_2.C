@@ -31,8 +31,12 @@ const TString FileName1 = geoVersion + "_geomanager.root";
 // The materials are defined in the global media.geo file 
 //const TString MediumGas     = "heco2";
 const TString MediumGas     = "ATTPCIsoButane";
-const TString CylinderVolumeMedium         = "steel";
+const TString ICMediumGas     = "ICIsoButane";
+const TString CylinderVolumeMedium  = "steel";
 const TString MediumVacuum = "vacuum4";
+const TString WindowMedium = "aramid";
+const TString ICWindowMedium = "ICpolypropylene";
+const TString ICAlWindowMedium = "Aluminum";
 
 // Distance of the center of the first detector layer [cm];
 const Float_t First_Z_Position = 10; 
@@ -119,17 +123,25 @@ void create_materials_from_media_file()
   FairGeoMedia* geoMedia = geoFace->getMedia();
   FairGeoBuilder* geoBuild = geoLoad->getGeoBuilder();
 
-  FairGeoMedium* ATTPCIsoButane   = geoMedia->getMedium("ATTPCIsoButane");
-  FairGeoMedium* steel            = geoMedia->getMedium("steel");
-  FairGeoMedium* heco2            = geoMedia->getMedium("heco2");
-  FairGeoMedium* vacuum4          = geoMedia->getMedium("vacuum4");
+  FairGeoMedium* ATTPCIsoButane    = geoMedia->getMedium("ATTPCIsoButane");
+  FairGeoMedium* ICIsoButane       = geoMedia->getMedium("ICIsoButane");
+  FairGeoMedium* steel             = geoMedia->getMedium("steel");
+  FairGeoMedium* heco2             = geoMedia->getMedium("heco2");
+  FairGeoMedium* vacuum4           = geoMedia->getMedium("vacuum4");
+  FairGeoMedium* aramid            = geoMedia->getMedium("aramid");
+  FairGeoMedium* ICpolypropylene   = geoMedia->getMedium("ICpolypropylene");
+  FairGeoMedium* Aluminium         = geoMedia->getMedium("Aluminum");
 
   // include check if all media are found
 
   geoBuild->createMedium(ATTPCIsoButane);
+  geoBuild->createMedium(ICIsoButane);
   geoBuild->createMedium(steel);
   geoBuild->createMedium(heco2);
   geoBuild->createMedium(vacuum4);
+  geoBuild->createMedium(aramid);
+  geoBuild->createMedium(ICpolypropylene);
+  geoBuild->createMedium(Aluminium);
 }
 
 TGeoVolume* create_detector()
@@ -138,23 +150,65 @@ TGeoVolume* create_detector()
   // needed materials
   TGeoMedium* OuterCylinder   = gGeoMan->GetMedium(CylinderVolumeMedium);
   TGeoMedium* gas   = gGeoMan->GetMedium(MediumGas);
+  TGeoMedium* windowmat   = gGeoMan->GetMedium(WindowMedium);
+  TGeoMedium* ICgas   = gGeoMan->GetMedium(ICMediumGas);
+  TGeoMedium* ICwindowmat   = gGeoMan->GetMedium(ICWindowMedium);
+  TGeoMedium* ICAlwindowmat   = gGeoMan->GetMedium(ICAlWindowMedium);
+    
 
   TGeoVolume *drift_volume = gGeoManager->MakeTube("drift_volume", gas,0, tpc_diameter/2, drift_length/2);
   //TGeoVolume *drift_volume = gGeoManager->MakeBox("drift_volume", gas,  100./2, 100./2, 100./2);
   //gGeoMan->GetVolume(geoVersion)->AddNode(drift_volume,1, new TGeoTranslation(0,0,drift_length/2));
   gGeoMan->GetVolume(geoVersion)->AddNode(drift_volume,1,new TGeoCombiTrans(0.0,6.079,drift_length/2.0,new TGeoRotation("drift_volume",0,-7,0)));
   drift_volume->SetTransparency(80);
+    
+ /* TGeoVolume *tpc_window = gGeoManager->MakeTube("tpc_window",windowmat,0,1.00/2.0,0.0000036);//
+  tpc_window->SetLineColor(kBlue);
+  gGeoMan->GetVolume(geoVersion)->AddNode(tpc_window,1,new TGeoCombiTrans(0.0,0.0,0.0,new TGeoRotation("tpc_window",0,-7,0)));
+  tpc_window->SetTransparency(50);*/
+    
+  TGeoVolume *IC_drift_volume = gGeoManager->MakeTube("IC_drift_volume",ICgas,0,3.81/2.0,5.5/2.0);//
+  IC_drift_volume->SetLineColor(kRed);
+  gGeoMan->GetVolume(geoVersion)->AddNode(IC_drift_volume,1,new TGeoCombiTrans(0.0,0.0,-50.0,new TGeoRotation("IC_drift_volume",0,0,0)));
+  IC_drift_volume->SetTransparency(80);
+    
+  /*  TGeoVolume *IC_window_1 = gGeoManager->MakeTube("IC_window_1",ICwindowmat,0,3.81/2.0,0.0000005/2.0);
+    IC_window_1->SetLineColor(kPink);
+    IC_window_1->SetTransparency(80);
+    gGeoMan->GetVolume(geoVersion)->AddNode(IC_window_1,1,new TGeoCombiTrans(0.0,0.0,-50.0,new TGeoRotation("IC_window_1",0,0,0)));
+    
+    TGeoVolume *IC_window_2 = gGeoManager->MakeTube("IC_window_2",ICwindowmat,0,3.81/2.0,0.0000005/2.0);
+    IC_window_2->SetLineColor(kPink);
+    IC_window_2->SetTransparency(80);
+    gGeoMan->GetVolume(geoVersion)->AddNode(IC_window_2,1,new TGeoCombiTrans(0.0,0.0,-50.0+5.5/2.0,new TGeoRotation("IC_window_2",0,0,0)));
+    
+    TGeoVolume *IC_window_3 = gGeoManager->MakeTube("IC_window_3",ICwindowmat,0,3.81/2.0,0.0000005/2.0);
+    IC_window_3->SetLineColor(kPink);
+    IC_window_3->SetTransparency(80);
+    gGeoMan->GetVolume(geoVersion)->AddNode(IC_window_3,1,new TGeoCombiTrans(0.0,0.0,-50.0-5.5/2.0,new TGeoRotation("IC_window_3",0,0,0)));
+    
+    
+    TGeoVolume *IC_Al_window_1 = gGeoManager->MakeTube("IC_Al_window_1",ICAlwindowmat,0,3.81/2.0,0.00000005/2.0);
+    IC_Al_window_1->SetLineColor(kBlue+3);
+    IC_Al_window_1->SetTransparency(50);
+    gGeoMan->GetVolume(geoVersion)->AddNode(IC_Al_window_1,1,new TGeoCombiTrans(0.0,0.0,-50.0+0.00000005,new TGeoRotation("IC_Al_window_1",0,0,0)));
+    
+    TGeoVolume *IC_Al_window_2 = gGeoManager->MakeTube("IC_Al_window_2",ICAlwindowmat,0,3.81/2.0,0.00000005/2.0);
+    IC_Al_window_2->SetLineColor(kBlue+3);
+    IC_Al_window_2->SetTransparency(50);
+    gGeoMan->GetVolume(geoVersion)->AddNode(IC_Al_window_2,1,new TGeoCombiTrans(0.0,0.0,-50.0-0.00000005,new TGeoRotation("IC_Al_window_2",0,0,0)));
+    
+    TGeoVolume *IC_Al_window_3 = gGeoManager->MakeTube("IC_Al_window_3",ICAlwindowmat,0,3.81/2.0,0.00000005/2.0);
+    IC_Al_window_3->SetLineColor(kBlue+3);
+    IC_Al_window_3->SetTransparency(50);
+    gGeoMan->GetVolume(geoVersion)->AddNode(IC_Al_window_3,1,new TGeoCombiTrans(0.0,0.0,-50.0-0.00000005+5.5/2.0,new TGeoRotation("IC_Al_window_3",0,0,0)));
+    
+    TGeoVolume *IC_Al_window_4 = gGeoManager->MakeTube("IC_Al_window_4",ICAlwindowmat,0,3.81/2.0,0.00000005/2.0);
+    IC_Al_window_4->SetLineColor(kBlue+3);
+    IC_Al_window_4->SetTransparency(50);
+    gGeoMan->GetVolume(geoVersion)->AddNode(IC_Al_window_4,1,new TGeoCombiTrans(0.0,0.0,-50.0+0.00000005-5.5/2.0,new TGeoRotation("IC_Al_window_4",0,0,0)));*/
 
-  // Single detector_layer
- /* TGeoBBox* det_plane = new TGeoBBox("", Module_Size_X/2., Module_Size_Y/2., Module_Size_Z/2.);
-  TGeoVolume* det_plane_vol = 
-    new TGeoVolume("tut4_det", det_plane, SiliconVolMed);
-  det_plane_vol->SetLineColor(kBlue); // set line color 
-  det_plane_vol->SetTransparency(70); // set transparency 
-  TGeoTranslation* det_plane_trans 
-    = new TGeoTranslation("", 0., 0., 0.);
-
-  return det_plane_vol;*/
+  
 
   return drift_volume;
 

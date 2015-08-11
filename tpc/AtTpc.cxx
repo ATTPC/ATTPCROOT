@@ -164,7 +164,7 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 
 
 	AtStack* stack = (AtStack*) gMC->GetStack();
-        
+    TString VolName = gMC->CurrentVolName();
         
 
         //std::cout<<" Current Event : "<<gMC->CurrentEvent()<<std::endl;        
@@ -181,17 +181,18 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
          fLength = gMC->TrackLength();
          gMC->TrackPosition(fPosIn);
          gMC->TrackMomentum(fMomIn);
-         LOG(INFO) << "ATTPC: Position of the first hit" << FairLogger::endl;
-        
          fTrackID  = gMC->GetStack()->GetCurrentTrackNumber();
-         if(gATVP->GetBeamEvtCnt()%2!=0 && fTrackID==0 ){
-		 InPos = fPosIn;
-		// std::cout<<" Entrance Position 1 - X : "<<InPos.X()<<" - Y : "<<InPos.Y()<<" - Z : "<<InPos.Z()<<std::endl;
-        
-             
-		}
+            if(gATVP->GetBeamEvtCnt()%2!=0 && fTrackID==0 ){
+                InPos = fPosIn;
+                // std::cout<<" Entrance Position 1 - X : "<<InPos.X()<<" - Y : "<<InPos.Y()<<" - Z : "<<InPos.Z()<<std::endl;
+            }
+         Int_t VolumeID;
          LOG(INFO) << "ATTPC: Position of the first hit" << FairLogger::endl;
-         LOG(INFO)<<" Mass of the Tracked particle : "<<gMC->TrackMass()<<std::endl;
+         LOG(INFO)<<" Volume ID "<<gMC->CurrentVolID(VolumeID)<<FairLogger::endl;
+         LOG(INFO)<<" Volume Name "<<VolName<<FairLogger::endl;
+         LOG(INFO)<<" Total relativistic energy " <<gMC->Etot()<< FairLogger::endl;
+         LOG(INFO)<<" Mass of the Tracked particle (gAVTP) : "<<gATVP->GetBeamMass()<<std::endl;
+         LOG(INFO)<<" Mass of the Tracked particle (gMC) : "<<gMC->TrackMass()<<std::endl;
          LOG(INFO)<<" Total energy of the current track (gAVTP) : "<<((gMC->Etot() - gATVP->GetBeamMass()) * 1000.)<<FairLogger::endl;// Relativistic Mass
          LOG(INFO)<<" Total energy of the current track (gMC) : "<<((gMC->Etot() - gMC->TrackMass()) * 1000.)<<FairLogger::endl;// Relativistic Mass
        
@@ -302,7 +303,7 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 		
 
 
-	if(fELossAcc*1000>gATVP->GetRndELoss()  &&   (gATVP->GetBeamEvtCnt()%2!=0 && fTrackID==0)){
+	if(fELossAcc*1000>gATVP->GetRndELoss()  &&   (gATVP->GetBeamEvtCnt()%2!=0 && fTrackID==0) && VolName=="drift_volume"){
 		 std::cout<<" Energy Loss : "<<fELossAcc*1000<<std::endl;
 		 gMC->StopTrack();
          gATVP->ResetVertex();

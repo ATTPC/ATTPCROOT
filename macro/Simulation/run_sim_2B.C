@@ -1,4 +1,4 @@
-void run_sim_2B(Int_t nEvents = 1000, TString mcEngine = "TGeant4")
+void run_sim_2B(Int_t nEvents = 2, TString mcEngine = "TGeant4")
 {
     
   TString dir = getenv("VMCWORKDIR");
@@ -69,7 +69,7 @@ void run_sim_2B(Int_t nEvents = 1000, TString mcEngine = "TGeant4")
    
 		 
                   // Beam Information
-                  Int_t z = 18;  // Atomic number
+              Int_t z = 18;  // Atomic number
 	          Int_t a = 40; // Mass number
 	          Int_t q = 0;   // Charge State
 	          Int_t m = 1;   // Multiplicity  NOTE: Due the limitation of the TGenPhaseSpace accepting only pointers/arrays the maximum multiplicity has been set to 10 particles.
@@ -83,7 +83,7 @@ void run_sim_2B(Int_t nEvents = 1000, TString mcEngine = "TGeant4")
 
 
 	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator("Ion",z,a,q,m,px,py,pz,BExcEner,Bmass,NomEnergy);
-	          ionGen->SetSpotRadius(0,-20,0);
+	          ionGen->SetSpotRadius(0,-100,0);
 	          // add the ion generator
 		 
 	          primGen->AddGenerator(ionGen);
