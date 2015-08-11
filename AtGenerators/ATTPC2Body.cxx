@@ -262,23 +262,23 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
 
     
 
-	fPx.at(0) = 0.0;
+	    fPx.at(0) = 0.0;
         fPy.at(0) = 0.0; 
-	fPz.at(0) = 0.0;
+	    fPz.at(0) = 0.0;
 
         fPx.at(1) = 0.0;
         fPy.at(1) = 0.0; 
-	fPz.at(1) = 0.0;
+	    fPz.at(1) = 0.0;
 
 
            
-	fPx.at(2) = p3_labx/1000.0; // To GeV for FairRoot
+	    fPx.at(2) = p3_labx/1000.0; // To GeV for FairRoot
         fPy.at(2) = 0.0; 
-	fPz.at(2) = p3_labz/1000.0;
+	    fPz.at(2) = p3_labz/1000.0;
 
         fPx.at(3) = p4_labx/1000.0;
         fPy.at(3) = 0.0; 
-	fPz.at(3) = p4_labz/1000.0;
+	    fPz.at(3) = p4_labz/1000.0;
 
 	      
        Double_t phiBeam1=0., phiBeam2=0.;
@@ -354,11 +354,11 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
 
         fPx.at(2) = p3_lab*direction1.X()/1000.0; // To GeV for FairRoot
         fPy.at(2) = p3_lab*direction1.Y()/1000.0;
-	fPz.at(2) = p3_lab*direction1.Z()/1000.0;
+	    fPz.at(2) = p3_lab*direction1.Z()/1000.0;
 
         fPx.at(3) = p4_lab*direction2.X()/1000.0;
         fPy.at(3) = p4_lab*direction2.Y()/1000.0; 
-	fPz.at(3) = p4_lab*direction2.Z()/1000.0;
+	    fPz.at(3) = p4_lab*direction2.Z()/1000.0;
 
    // Debugging purposes 
 

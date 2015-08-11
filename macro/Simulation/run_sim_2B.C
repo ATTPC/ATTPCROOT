@@ -1,4 +1,4 @@
-void run_sim_2B(Int_t nEvents = 5000, TString mcEngine = "TGeant4")
+void run_sim_2B(Int_t nEvents = 1000, TString mcEngine = "TGeant4")
 {
     
   TString dir = getenv("VMCWORKDIR");
@@ -76,10 +76,10 @@ void run_sim_2B(Int_t nEvents = 5000, TString mcEngine = "TGeant4")
 	          Double_t px = 0.000/a;  // X-Momentum / per nucleon!!!!!!
 	          Double_t py = 0.000/a;  // Y-Momentum / per nucleon!!!!!!
 	          Double_t pz = 3.663/a;  // Z-Momentum / per nucleon!!!!!!
-  		  Double_t BExcEner = 0.0;
-                  Double_t Bmass = 37.22472; //Mass in GeV
-                  Double_t NomEnergy = 179.83; //Nominal Energy of the beam: Only used for cross section calculation (Tracking energy is determined with momentum). Must be consistent with pz
-                  Double_t TargetMass = 0.938272;//Mass in GeV
+  		      Double_t BExcEner = 0.0;
+              Double_t Bmass = 37.22472; //Mass in GeV
+              Double_t NomEnergy = 179.83; //Nominal Energy of the beam: Only used for cross section calculation (Tracking energy is determined with momentum). Must be consistent with pz
+              Double_t TargetMass = 0.938272;//Mass in GeV
 
 
 	          ATTPCIonGenerator* ionGen = new ATTPCIonGenerator("Ion",z,a,q,m,px,py,pz,BExcEner,Bmass,NomEnergy);
@@ -95,14 +95,14 @@ void run_sim_2B(Int_t nEvents = 5000, TString mcEngine = "TGeant4")
 
 
 		 // Variables for 2-Body kinematics reaction
-                  std::vector<Int_t> Zp; // Zp       
+          std::vector<Int_t> Zp; // Zp
 		  std::vector<Int_t> Ap; // Ap 
-                  std::vector<Int_t> Qp;//Electric charge 
-                  Int_t mult;  //Number of particles        
+          std::vector<Int_t> Qp;//Electric charge
+          Int_t mult;  //Number of particles
  		  std::vector<Double_t> Pxp; //Px momentum X
 		  std::vector<Double_t> Pyp; //Py momentum Y
 		  std::vector<Double_t> Pzp; //Pz momentum Z
-                  std::vector<Double_t> Mass; // Masses 
+          std::vector<Double_t> Mass; // Masses
 		  std::vector<Double_t> ExE; // Excitation energy 
  		  Double_t ResEner; // Energy of the beam (Useless for the moment)
 	          
@@ -124,17 +124,17 @@ void run_sim_2B(Int_t nEvents = 5000, TString mcEngine = "TGeant4")
 		  ExE.push_back(BExcEner);
 
                   // ---- Target ----
-     		  Zp.push_back(1); // p 
+          Zp.push_back(1); // p
 		  Ap.push_back(1); // 		  
 		  Qp.push_back(0); // 
 		  Pxp.push_back(0.0);
-	          Pyp.push_back(0.0);
+          Pyp.push_back(0.0);
 		  Pzp.push_back(0.0);
-                  Mass.push_back(0.938272); 
+          Mass.push_back(0.938272);
 		  ExE.push_back(0.0);//In MeV
 
                   //--- Scattered -----
-                  Zp.push_back(18); // 40Ar 
+          Zp.push_back(18); // 40Ar
 		  Ap.push_back(40); // 
 		  Qp.push_back(0); 
 		  Pxp.push_back(0.0);
@@ -149,9 +149,9 @@ void run_sim_2B(Int_t nEvents = 5000, TString mcEngine = "TGeant4")
 		  Ap.push_back(1); // 		  
 		  Qp.push_back(0); // 
 		  Pxp.push_back(0.0);
-	          Pyp.push_back(0.0);
+          Pyp.push_back(0.0);
 		  Pzp.push_back(0.0);
-                  Mass.push_back(0.938272); 
+          Mass.push_back(0.938272);
 		  ExE.push_back(0.0);//In MeV
 
               
