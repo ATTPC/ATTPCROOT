@@ -75,6 +75,7 @@ class AtTpc: public FairDetector
     
      AtTpcPoint* AddHit(Int_t trackID,
                         Int_t detID,
+                        TString VolName,
                         Int_t detCopyID, 
                         TVector3 posIn,
                         TVector3 pos_out,
@@ -131,6 +132,7 @@ class AtTpc: public FairDetector
     TClonesArray* fTraCollection;   //!  The hit collection
     Bool_t kGeoSaved;               //!
     TList* flGeoPar;                //!
+    TString fVolName;
     Double32_t fELossAcc;
     TLorentzVector InPos;
 

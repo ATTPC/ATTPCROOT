@@ -1,4 +1,4 @@
-void run_sim_2B(Int_t nEvents = 2, TString mcEngine = "TGeant4")
+void run_sim_2B(Int_t nEvents = 500, TString mcEngine = "TGeant4")
 {
     
   TString dir = getenv("VMCWORKDIR");
@@ -155,11 +155,11 @@ void run_sim_2B(Int_t nEvents = 2, TString mcEngine = "TGeant4")
 		  ExE.push_back(0.0);//In MeV
 
               
-
-		 
+    Double_t ThetaMinCMS = 30.1;
+    Double_t ThetaMaxCMS = 40.0;
 		 
                   
-        ATTPC2Body* TwoBody = new ATTPC2Body("TwoBody",&Zp,&Ap,&Qp,mult,&Pxp,&Pyp,&Pzp,&Mass,&ExE,ResEner); 
+        ATTPC2Body* TwoBody = new ATTPC2Body("TwoBody",&Zp,&Ap,&Qp,mult,&Pxp,&Pyp,&Pzp,&Mass,&ExE,ResEner, ThetaMinCMS,ThetaMaxCMS);
         primGen->AddGenerator(TwoBody);
 
     

@@ -47,12 +47,15 @@ void run_sim_ana()
         Double_t range_sca=0.0;
         Double_t energyLoss_rec=0.0;
         Double_t range_rec=0.0;
+        TString VolName;
         tree -> GetEntry(iEvent);
         Int_t n = pointArray -> GetEntries();
         std::cout<<" Event Number : "<<iEvent<<std::endl;
         for(Int_t i=0; i<n; i++) {
             
             point = (AtTpcPoint*) pointArray -> At(i);
+            VolName=point->GetVolName();
+            std::cout<<" Volume Name : "<<VolName<<std::endl;
             Int_t trackID = point -> GetTrackID();
 
              //std::cout<<" Track ID : "<<trackID<<std::endl;
