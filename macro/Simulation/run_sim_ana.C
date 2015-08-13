@@ -20,6 +20,9 @@ void run_sim_ana()
     
     TH1D *ELossRatio = new TH1D("ElossRatio","ELossRatio",1000,0,1000);
     
+    TH1D *ICELoss = new TH1D("ICELoss","ICELoss",1000,0,100);
+    
+    
     
     TCanvas *c1 = new TCanvas();
     c1->Divide(2,2);
@@ -47,6 +50,7 @@ void run_sim_ana()
         Double_t range_sca=0.0;
         Double_t energyLoss_rec=0.0;
         Double_t range_rec=0.0;
+        Double_t BeamEnergyLoss_IC=0.0;
         TString VolName;
         tree -> GetEntry(iEvent);
         Int_t n = pointArray -> GetEntries();
@@ -55,14 +59,18 @@ void run_sim_ana()
             
             point = (AtTpcPoint*) pointArray -> At(i);
             VolName=point->GetVolName();
-            std::cout<<" Volume Name : "<<VolName<<std::endl;
+            //std::cout<<" Volume Name : "<<VolName<<std::endl;
             Int_t trackID = point -> GetTrackID();
 
              //std::cout<<" Track ID : "<<trackID<<std::endl;
              //std::cout<<" Point number : "<<i<<std::endl;
+            if(trackID==0 && VolName=="IC_drift_volume"){
+                
+                BeamEnergyLoss_IC+=( point -> GetEnergyLoss() )*1000;//MeV
+                
+            }
             
-        
-            if(trackID==2){
+            if(trackID==2 && VolName=="drift_volume"){
                 range_rec = point -> GetLength()*10; //mm
                 energyLoss_rec+=( point -> GetEnergyLoss() )*1000;//MeV
                 //std::cout<<" Track ID : "<<trackID<<std::endl;
@@ -73,7 +81,7 @@ void run_sim_ana()
                 //std::cout<<" energyLoss_rec : "<<energyLoss_rec<<std::endl;
                 
             }//TrackID == 2
-                if(trackID==1){
+                if(trackID==1 && VolName=="drift_volume"){
                     range_sca = point -> GetLength()*10; //mm
                     energyLoss_sca+=( point -> GetEnergyLoss() )*1000;//MeV
                    // std::cout<<" Track ID : "<<trackID<<std::endl;
@@ -96,7 +104,7 @@ void run_sim_ana()
             Eloss_vs_Range_Sca->Fill(range_sca,energyLoss_sca);
             ELossRatio->Fill(energyLoss_sca/energyLoss_rec);
             
-        }
+        }else if(iEvent%2==0) ICELoss->Fill(BeamEnergyLoss_IC);
         
     }// Events
     
@@ -106,6 +114,8 @@ void run_sim_ana()
     Eloss_vs_Range_Rec->Draw("scat");
     c1->cd(3);
     ELossRatio->Draw();
+    c1->cd(4);
+    ICELoss->Draw();
     
     
 }

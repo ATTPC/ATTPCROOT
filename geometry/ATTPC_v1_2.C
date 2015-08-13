@@ -172,12 +172,12 @@ TGeoVolume* create_detector()
   gGeoMan->GetVolume(geoVersion)->AddNode(IC_drift_volume,1,new TGeoCombiTrans(0.0,0.0,-50.0,new TGeoRotation("IC_drift_volume",0,0,0)));
   IC_drift_volume->SetTransparency(80);
     
-  /*  TGeoVolume *IC_window_1 = gGeoManager->MakeTube("IC_window_1",ICwindowmat,0,3.81/2.0,0.0000005/2.0);
+    TGeoVolume *IC_window_1 = gGeoManager->MakeTube("IC_window_1",ICwindowmat,0,3.81/2.0,0.0000005/2.0);
     IC_window_1->SetLineColor(kPink);
     IC_window_1->SetTransparency(80);
     gGeoMan->GetVolume(geoVersion)->AddNode(IC_window_1,1,new TGeoCombiTrans(0.0,0.0,-50.0,new TGeoRotation("IC_window_1",0,0,0)));
     
-    TGeoVolume *IC_window_2 = gGeoManager->MakeTube("IC_window_2",ICwindowmat,0,3.81/2.0,0.0000005/2.0);
+   /* TGeoVolume *IC_window_2 = gGeoManager->MakeTube("IC_window_2",ICwindowmat,0,3.81/2.0,0.0000005/2.0);
     IC_window_2->SetLineColor(kPink);
     IC_window_2->SetTransparency(80);
     gGeoMan->GetVolume(geoVersion)->AddNode(IC_window_2,1,new TGeoCombiTrans(0.0,0.0,-50.0+5.5/2.0,new TGeoRotation("IC_window_2",0,0,0)));

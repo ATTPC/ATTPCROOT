@@ -476,7 +476,7 @@ Bool_t AtTpc::CheckIfSensitive(std::string name)
 {
   
   TString tsname = name;
-  if (tsname.Contains("drift_volume")) {
+  if (tsname.Contains("drift_volume") || tsname.Contains("window")) {
     LOG(INFO)<<" ATTPC geometry: Sensitive volume found: "<<tsname<<FairLogger::endl;
     return kTRUE;
   }
