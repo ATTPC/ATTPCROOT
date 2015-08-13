@@ -7,7 +7,7 @@ void run_unpack(){
 
    gSystem->Load("libXMLParser.so");
 
-   TString scriptfile = "Lookup20141208.xml";
+   TString scriptfile = "Lookup20150611.xml";
    TString dir = getenv("VMCWORKDIR");
    TString scriptdir = dir + "/scripts/"+ scriptfile;
 
@@ -47,12 +47,14 @@ void run_unpack(){
  // decoderTask ->SetMap("/home/daq/fair_install_2015/ATTPCROOT_09032015/scripts/Lookup20141208.xml");
   //decoderTask -> AddData("/home/daq/Desktop/Yassid/ATTPC/run_0225/test");
   //decoderTask ->SetMap("/Users/yassidayyad/fair_install/ATTPCROOT_Apr/scripts/Lookup20141208.xml");
-  decoderTask -> AddData("/Users/yassidayyad/Desktop/ATTPC/Data/run_0225/test");
-  decoderTask -> AddData("/home/ayyadlim/Desktop/Yassid/ATTPC/Data/run_0141/run_0141.graw");
+  //decoderTask -> AddData("/Users/yassidayyad/Desktop/ATTPC/Data/run_0225/test");
+ // decoderTask -> AddData("/home/ayyadlim/Desktop/Yassid/ATTPC/Data/run_0141/run_0141.graw");
+  decoderTask -> AddData("/home/ayyadlim/Desktop/Yassid/ATTPC/Data/ar40/run_0089/run_0089.graw");
   decoderTask -> SetPositivePolarity(kTRUE);
   
   //decoderTask -> SetData(0);
   //decoderTask -> SetInternalPedestal(5, 20);
+  decoderTask -> SetFPNPedestal(10);
   decoderTask -> SetFPNPedestal();
   decoderTask -> SetNumTbs(512);
   decoderTask -> SetPersistence();
@@ -91,7 +93,7 @@ void run_unpack(){
 
   run->Init();
 
-  run->Run(0, 10); // Number must be lower than the number of events in dummy
+  run->Run(0, 100); // Number must be lower than the number of events in dummy
 
   // -----   Finish   -------------------------------------------------------
 	timer.Stop();
