@@ -60,40 +60,17 @@ void run_unpack(){
   decoderTask -> SetPersistence();
   run -> AddTask(decoderTask);
 
-  
-  //AtTpcMap *newmap = new AtTpcMap();
- // ATCore *unpacker = new ATCore();
-  //unpacker->SetDebugMode(kTRUE);
-  //unpacker->SetATTPCMap("/Users/yassidayyad/fair_install/ATTPCROOT_Mar/scripts/Lookup20141208.xml");
- // unpacker->SetATTPCMap("/home/daq/fair_install_2015/ATTPCROOT_09032015/scripts/Lookup20141208.xml");
- 
-  //newmap->SetGUIMode();
-  //newmap->SetDebugMode();
-  //newmap->GenerateATTPC();
- // newmap->GetATTPCPlane();
-  //newmap->ParseXMLMap("/home/daq/fair_install_2015/ATTPCROOT_Feb/scripts/Lookup20141208.xml");
-  //Int_t padnum = newmap->GetPadNum(PadRef);
-  //cout<<padnum<<endl;
-  //newmap->DumpATTPCMap();
-  //newmap->Dump();
-
-  // GETDecoder *decoder = new GETDecoder("/home/daq/Desktop/Yassid/ATTPC/run_0225/test");
-  //unpacker->AddData("/Users/yassidayyad/Desktop/ATTPC/Data/run_0225/test");
-  
-  /*unpacker->AddData("/home/daq/Desktop/Yassid/ATTPC/run_0225/test");
-  unpacker->SetData(0);
-  unpacker->GetRawEvent();
-  unpacker->GetRawEvent();*/
 
 
   ATPSATask *psaTask = new ATPSATask();
   psaTask -> SetPersistence();
   psaTask -> SetThreshold(20);
+  psaTask -> SetPSAMode(1); //NB: 1 is ATTPC - 2 is pATTPC
   run -> AddTask(psaTask);
 
   run->Init();
 
-  run->Run(0, 100); // Number must be lower than the number of events in dummy
+  run->Run(0,4000); // Number must be lower than the number of events in dummy
 
   // -----   Finish   -------------------------------------------------------
 	timer.Stop();

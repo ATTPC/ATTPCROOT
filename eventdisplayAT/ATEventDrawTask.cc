@@ -83,7 +83,8 @@ ATEventDrawTask::ATEventDrawTask()
   fMaxZ(1344),
   fMinX(432),
   fMaxX(-432),
-  f3DHitStyle(0)
+  f3DHitStyle(0),
+  fMultiHit(0)
 {
 
   //fAtMapPtr = new AtTpcMap(); 
@@ -91,6 +92,7 @@ ATEventDrawTask::ATEventDrawTask()
   
     
     Char_t padhistname[256];
+    fMultiHit=10;
     
     
     for(Int_t i=0;i<300;i++){ // TODO: Full-scale must be accomodated
@@ -239,6 +241,11 @@ ATEventDrawTask::DrawHitPoints()
   Float_t *MeshArray;
   fMesh->Reset(0);
   TRandom r(0);
+
+  std::ofstream dumpEvent;
+  dumpEvent.open ("event.dat");
+  TString TSevt =" ";
+  
   
   fQEventHist_H->Reset(0);
   ATEvent* event = (ATEvent*) fHitArray->At(0); // TODO: Why this confusing name? It should be fEventArray
@@ -294,11 +301,13 @@ ATEventDrawTask::DrawHitPoints()
     //std::cout<<" Hit : "<<iHit<<" ATHit Pad Number :  "<<PadNumHit<<" Pad Hit Mult : "<<PadMultHit<<std::endl;
     //std::cout<<"  Hit number : "<<iHit<<" - ATHit Pad Number :  "<<PadNumHit<<" - Hit Charge : "<<hit.GetCharge()<<std::endl;
     if(hit.GetCharge()<fThreshold) continue;
+    if(PadMultHit>fMultiHit) continue;
     TVector3 position = hit.GetPosition();
     
     fHitSet->SetNextPoint(position.X()/10.,position.Y()/10.,position.Z()/10.); // Convert into cm
     fHitSet->SetPointId(new TNamed(Form("Hit %d",iHit),""));
     Int_t Atbin = fPadPlane->Fill(position.X(), position.Y(), hit.GetCharge());
+    //dumpEvent<<position.X()<<" "<<position.Y()<<" "<<position.Z()<<" "<<hit.GetCharge()<<std::endl;
     //std::cout<<"  Hit number : "<<iHit<<" - Position X : "<<position.X()<<" - Position Y : "<<position.Y()<<" - Position Z : "<<position.Z()<<" - ATHit Pad Number :  "<<PadNumHit<<" - Pad bin :"<<Atbin<<" - Hit Charge : "<<hit.GetCharge()<<std::endl;
       
    
@@ -406,12 +415,12 @@ ATEventDrawTask::DrawHitPoints()
    
    //for(Int_t i=0;i<hitSphereArray.size();i++) gEve->AddElement(hitSphereArray[i]);
     
-     std::ofstream dumpEvent;
-     dumpEvent.open ("event.dat");
+   //  std::ofstream dumpEvent;
+   //  dumpEvent.open ("event.dat");
      Int_t eventID=event->GetEventID();
-     TString TSevt =" Event ID : ";
-     TString TSpad =" Pad ID : ";
-     dumpEvent<<TSevt<<eventID<<std::endl;
+   //  TString TSevt =" Event ID : ";
+   //  TString TSpad =" Pad ID : ";
+     //dumpEvent<<TSevt<<eventID<<std::endl;
     
     Int_t nPads = fRawevent->GetNumPads();
     std::cout<<"Num of pads : "<<nPads<<std::endl;
@@ -507,6 +516,8 @@ ATEventDrawTask::DrawMeshSpace()
    
 
 }
+
+
 
 
 /*void 
@@ -1021,3 +1032,6 @@ ATEventDrawTask::Set3DHitStyleBar() {f3DHitStyle=0;}
 
 void
 ATEventDrawTask::Set3DHitStyleBox() {f3DHitStyle=1;}
+
+void
+ATEventDrawTask::SetMultiHit(Int_t hitMax) {fMultiHit = hitMax;}

@@ -19,7 +19,7 @@ EField:Double_t                  0
 NumTbs:Int_t                   512
 SamplingRate:Int_t             100   # MHz
 DriftVelocity:Double_t        5.00   # cm/ns
-DriftLength:Double_t           500   # mm //ATTPC : 980 - Prototype : 500 
+DriftLength:Double_t          1000   # mm //ATTPC : 1000 - Prototype : 500 
 YDivider:Int_t                 500   # Full drift length will be divided by this number when finding cluster
 UAMapFile:Int_t                  0
 AGETMapFile:Int_t                1

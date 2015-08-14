@@ -69,6 +69,7 @@ class ATEventDrawTask : public FairTask
 
     void SetProtoMap(TString map) {fMap = map;}
     
+    void SetMultiHit(Int_t hitMax);
 
   protected :
     virtual void DrawPadPlane();
@@ -89,6 +90,8 @@ class ATEventDrawTask : public FairTask
     void UpdateCvsHoughSpace();
     void UpdateCvsPhi();
     void UpdateCvsMesh();
+
+    
     
     void ResetPadAll();
     void ResetPhiDistr();
@@ -171,6 +174,7 @@ class ATEventDrawTask : public FairTask
     Int_t fMaxX;
     
     Int_t f3DHitStyle;
+    Int_t fMultiHit;
 
     ClassDef(ATEventDrawTask,1);
 };

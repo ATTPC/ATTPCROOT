@@ -17,6 +17,8 @@ void run_eve()
 
   ATEventManager *eveMan = new ATEventManager();
   ATEventDrawTask* eve = new ATEventDrawTask();
+  eve->Set3DHitStyleBox();
+  eve->SetMultiHit(2);
 
   eveMan->AddTask(eve);
   eveMan->Init();                    
