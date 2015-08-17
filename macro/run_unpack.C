@@ -54,7 +54,7 @@ void run_unpack(){
   
   //decoderTask -> SetData(0);
   //decoderTask -> SetInternalPedestal(5, 20);
-  decoderTask -> SetFPNPedestal(10);
+  decoderTask -> SetFPNPedestal(100);
   decoderTask -> SetFPNPedestal();
   decoderTask -> SetNumTbs(512);
   decoderTask -> SetPersistence();
@@ -65,7 +65,7 @@ void run_unpack(){
   ATPSATask *psaTask = new ATPSATask();
   psaTask -> SetPersistence();
   psaTask -> SetThreshold(20);
-  psaTask -> SetPSAMode(1); //NB: 1 is ATTPC - 2 is pATTPC
+  psaTask -> SetPSAMode(2); //NB: 1 is ATTPC - 2 is pATTPC
   run -> AddTask(psaTask);
 
   run->Init();
