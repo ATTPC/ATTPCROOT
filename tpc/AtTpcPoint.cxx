@@ -29,7 +29,7 @@ AtTpcPoint::AtTpcPoint(Int_t trackID, Int_t detID,
 }
 
 // -----   Standard constructor   ------------------------------------------
-AtTpcPoint::AtTpcPoint(Int_t trackID, Int_t detID, Int_t detCopyID,
+AtTpcPoint::AtTpcPoint(Int_t trackID, Int_t detID, TString VolName, Int_t detCopyID,
 			 TVector3 posIn, 
 			 TVector3 posOut, TVector3 momIn, TVector3 momOut,
 			 Double_t tof, Double_t length, Double_t eLoss) 
@@ -41,6 +41,7 @@ AtTpcPoint::AtTpcPoint(Int_t trackID, Int_t detID, Int_t detCopyID,
   fPx_out = momOut.Px();
   fPy_out = momOut.Py();
   fPz_out = momOut.Pz();
+  fVolName = VolName;
 }
 
 

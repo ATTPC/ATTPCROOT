@@ -29,7 +29,7 @@ class ATTPC2Body : public FairGenerator
 
 
   ATTPC2Body(const char* name,std::vector<Int_t> *z,std::vector<Int_t> *a,std::vector<Int_t> *q, Int_t mult, std::vector<Double_t> *px, 
-          std::vector<Double_t>* py,std::vector<Double_t> *pz, std::vector<Double_t> *mass , std::vector<Double_t> *Ex, Double_t ResEner);
+          std::vector<Double_t>* py,std::vector<Double_t> *pz, std::vector<Double_t> *mass , std::vector<Double_t> *Ex, Double_t ResEner, Double_t MinCMSAng,Double_t MaxCMSAng);
 
 
   ATTPC2Body(const ATTPC2Body&);

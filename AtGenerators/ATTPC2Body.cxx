@@ -52,7 +52,7 @@ ATTPC2Body::ATTPC2Body()
 
 // -----   Default constructor   ------------------------------------------
 ATTPC2Body::ATTPC2Body(const char* name,std::vector<Int_t> *z,std::vector<Int_t> *a,std::vector<Int_t> *q, Int_t mult, std::vector<Double_t> *px, 
-	std::vector<Double_t>* py,std::vector<Double_t> *pz, std::vector<Double_t> *mass, std::vector<Double_t> *Ex,Double_t ResEner)
+	std::vector<Double_t>* py,std::vector<Double_t> *pz, std::vector<Double_t> *mass, std::vector<Double_t> *Ex,Double_t ResEner,Double_t MinCMSAng,Double_t MaxCMSAng)
   : fMult(0),          
     fPx(0.), fPy(0.), fPz(0.),
     fVx(0.), fVy(0.), fVz(0.),
@@ -63,8 +63,8 @@ ATTPC2Body::ATTPC2Body(const char* name,std::vector<Int_t> *z,std::vector<Int_t>
   fgNIon++;
   fMult = mult;
   fIon.reserve(fMult);
-  fThetaCmsMin = 30.1;
-  fThetaCmsMax = 40.0;
+  fThetaCmsMin = MinCMSAng;
+  fThetaCmsMax = MaxCMSAng;
   
   
   fNoSolution = kFALSE;
@@ -169,7 +169,7 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
 
    
    Double_t thetacmsInput = fThetaCmsMin + ((fThetaCmsMax-fThetaCmsMin)*gRandom->Uniform());
-   std::cout<<" Random CMS Theta angle in degrees : "<<thetacmsInput<<std::endl;
+   std::cout<<" -I- ATTPC2Body : Random CMS Theta angle in degrees : "<<thetacmsInput<<std::endl;
    const Double_t rad2deg = 0.0174532925;
    
    AtStack* stack = (AtStack*) gMC->GetStack();
@@ -178,7 +178,7 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
    
 
    fBeamEnergy = gATVP->GetEnergy(); 
-   std::cout<<" Residual energy in ATTPC2Body : "<<gATVP->GetEnergy()<<std::endl;
+   std::cout<<" -I_ ATTPC2Body Residual energy  : "<<gATVP->GetEnergy()<<std::endl;
    
    fPxBeam = gATVP->GetPx();
    fPyBeam = gATVP->GetPy();
@@ -255,6 +255,7 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
   Double_t p4_lab = TMath::Sqrt(p4_labx*p4_labx+p4_labz*p4_labz);
   Ene.push_back(TMath::Sqrt(p4_lab*p4_lab+fWm.at(3)*fWm.at(3))-fWm.at(3));
 
+  std::cout << " -I- ===== ATTPC2Body - Kinematics ====== "<<std::endl;
   std::cout << " Scattered energy:" << Ene.at(0)  << " MeV" << std::endl;
   std::cout << " Scattered  angle:"  << Ang.at(0)*180/TMath::Pi() << " deg" << std::endl;
   std::cout << " Recoil energy:" << Ene.at(1) << " MeV" << std::endl;
@@ -295,8 +296,8 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
 
        TVector3 BeamPos(gATVP->GetPx()*1000,gATVP->GetPy()*1000,gATVP->GetPz()*1000); //To MeV for Euler Transformation
        //TVector3 BeamPos(1.0,1.0,0.0);
-       std::cout << " Beam Theta (Mom) : "<<BeamPos.Theta()*180.0/TMath::Pi()<<std::endl;
-       std::cout << " Beam Phi (Mom) : "<<BeamPos.Phi()*180.0/TMath::Pi()<<std::endl;
+       LOG(DEBUG) << " Beam Theta (Mom) : "<<BeamPos.Theta()*180.0/TMath::Pi()<<FairLogger::endl;
+       LOG(DEBUG) << " Beam Phi (Mom) : "<<BeamPos.Phi()*180.0/TMath::Pi()<<FairLogger::endl;
        
       
        Double_t thetaLab1, phiLab1, thetaLab2, phiLab2;
@@ -312,9 +313,9 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
   
        thetaLab1 = EulerTransformer->GetThetaInLabSystem();
        phiLab1   = EulerTransformer->GetPhiInLabSystem();
-       std::cout << " Scattered  angle Phi :"  << phiBeam1*180.0/TMath::Pi()  << " deg" << std::endl; 
-       std::cout << " Scattered  angle Theta (Euler) :"  << thetaLab1*180.0/TMath::Pi()  << " deg" << std::endl; 
-       std::cout << " Scattered  angle Phi (Euler) :"  << phiLab1*180.0/TMath::Pi()  << " deg" << std::endl; 
+       LOG(DEBUG) << " Scattered  angle Phi :"  << phiBeam1*180.0/TMath::Pi()  << " deg" << FairLogger::endl;
+       LOG(DEBUG) << " Scattered  angle Theta (Euler) :"  << thetaLab1*180.0/TMath::Pi()  << " deg" << FairLogger::endl;
+       LOG(DEBUG) << " Scattered  angle Phi (Euler) :"  << phiLab1*180.0/TMath::Pi()  << " deg" << FairLogger::endl;
        
 
        /*TVector3 direction1 = TVector3(sin(thetaLab1)*cos(phiLab1),
@@ -338,19 +339,19 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
 					     sin(thetaLab2)*sin(phiLab2),
 					     cos(thetaLab2));
 
-       std::cout << " Recoiled  angle Phi :"  << phiBeam2*180.0/TMath::Pi()  << " deg" << std::endl; 
-       std::cout << " Recoiled  angle Theta (Euler) :"  << thetaLab2*180.0/TMath::Pi()  << " deg" << std::endl; 
-       std::cout << " Recoiled  angle Phi (Euler) :"  << phiLab2*180.0/TMath::Pi()  << " deg" << std::endl; 
+       LOG(DEBUG) << " Recoiled  angle Phi :"  << phiBeam2*180.0/TMath::Pi()  << " deg" << FairLogger::endl;
+       LOG(DEBUG) << " Recoiled  angle Theta (Euler) :"  << thetaLab2*180.0/TMath::Pi()  << " deg" << FairLogger::endl;
+       LOG(DEBUG) << " Recoiled  angle Phi (Euler) :"  << phiLab2*180.0/TMath::Pi()  << " deg" << FairLogger::endl;
 
-       std::cout << "  Phi Diference :"  << (phiBeam1*180.0/TMath::Pi()) -  (phiBeam2*180.0/TMath::Pi())  << " deg" << std::endl;
-       std::cout << "  Phi Diference (Euler) :"  << (phiLab1*180.0/TMath::Pi()) -  (phiLab2*180.0/TMath::Pi())  << " deg" << std::endl;
+       LOG(DEBUG) << "  Phi Diference :"  << (phiBeam1*180.0/TMath::Pi()) -  (phiBeam2*180.0/TMath::Pi())  << " deg" << FairLogger::endl;
+       LOG(DEBUG) << "  Phi Diference (Euler) :"  << (phiLab1*180.0/TMath::Pi()) -  (phiLab2*180.0/TMath::Pi())  << " deg" << FairLogger::endl;
 
        delete EulerTransformer;
 
-        std::cout<<" Direction 1 Theta : "<<direction1.Theta()*180.0/TMath::Pi()<<std::endl;
-        std::cout<<" Direction 1 Phi : "<<direction1.Phi()*180.0/TMath::Pi()<<std::endl;
-        std::cout<<" Direction 2 Theta : "<<direction2.Theta()*180.0/TMath::Pi()<<std::endl;
-        std::cout<<" Direction 2 Phi : "<<direction2.Phi()*180.0/TMath::Pi()<<std::endl;
+        LOG(DEBUG)<<" Direction 1 Theta : "<<direction1.Theta()*180.0/TMath::Pi()<<FairLogger::endl;
+        LOG(DEBUG)<<" Direction 1 Phi : "<<direction1.Phi()*180.0/TMath::Pi()<<FairLogger::endl;
+        LOG(DEBUG)<<" Direction 2 Theta : "<<direction2.Theta()*180.0/TMath::Pi()<<FairLogger::endl;
+        LOG(DEBUG)<<" Direction 2 Phi : "<<direction2.Phi()*180.0/TMath::Pi()<<FairLogger::endl;
 
         fPx.at(2) = p3_lab*direction1.X()/1000.0; // To GeV for FairRoot
         fPy.at(2) = p3_lab*direction1.Y()/1000.0;
@@ -362,7 +363,7 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
 
    // Debugging purposes 
 
-        TVector3 debug(fPx.at(2),fPy.at(2),fPz.at(2));
+        /*TVector3 debug(fPx.at(2),fPy.at(2),fPz.at(2));
         std::cout<<" p3_lab         : "<<p3_lab<<std::endl;
         std::cout<<" Debug momentum : "<<debug.Mag()<<std::endl;
         std::cout<<" Debug Phi : "<<debug.Phi()*180.0/TMath::Pi()<<std::endl;
@@ -371,7 +372,7 @@ Bool_t ATTPC2Body::ReadEvent(FairPrimaryGenerator* primGen) {
         std::cout<<" p4_lab         : "<<p4_lab<<std::endl;
         std::cout<<" Debug momentum 2 : "<<debug2.Mag()<<std::endl;
         std::cout<<" Debug Phi 2 : "<<debug2.Phi()*180.0/TMath::Pi()<<std::endl;
-        std::cout<<" Debug Theta 2 : "<<debug2.Theta()*180.0/TMath::Pi()<<std::endl;
+        std::cout<<" Debug Theta 2 : "<<debug2.Theta()*180.0/TMath::Pi()<<std::endl;*/
 
 	
 // Particle transport begins here         

@@ -164,7 +164,7 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 
 
 	AtStack* stack = (AtStack*) gMC->GetStack();
-    TString VolName = gMC->CurrentVolName();
+    fVolName = gMC->CurrentVolName();
         
 
         //std::cout<<" Current Event : "<<gMC->CurrentEvent()<<std::endl;        
@@ -182,19 +182,18 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
          gMC->TrackPosition(fPosIn);
          gMC->TrackMomentum(fMomIn);
          fTrackID  = gMC->GetStack()->GetCurrentTrackNumber();
-            if(gATVP->GetBeamEvtCnt()%2!=0 && fTrackID==0 ){
-                InPos = fPosIn;
-                // std::cout<<" Entrance Position 1 - X : "<<InPos.X()<<" - Y : "<<InPos.Y()<<" - Z : "<<InPos.Z()<<std::endl;
-            }
+         if(gATVP->GetBeamEvtCnt()%2!=0 && fTrackID==0 && fVolName=="drift_volume" )InPos = fPosIn; // Position of the first hit of the beam in the TPC volume ( For tracking purposes in the TPC)
          Int_t VolumeID;
-         LOG(INFO) << "ATTPC: Position of the first hit" << FairLogger::endl;
+         if(gATVP->GetBeamEvtCnt()%2!=0) LOG(INFO) << " ATTPC: Beam Event " <<FairLogger::endl;
+         else if(gATVP->GetDecayEvtCnt()%2==0) LOG(INFO) << " ATTPC: Reaction/Decay Event " <<FairLogger::endl;
+         LOG(INFO) << " ATTPC: First hit in Volume " <<fVolName<< FairLogger::endl;
+         LOG(INFO) << " Particle : "<<gMC->ParticleName(gMC->TrackPid())<<FairLogger::endl;
          LOG(INFO)<<" Volume ID "<<gMC->CurrentVolID(VolumeID)<<FairLogger::endl;
-         LOG(INFO)<<" Volume Name "<<VolName<<FairLogger::endl;
          LOG(INFO)<<" Total relativistic energy " <<gMC->Etot()<< FairLogger::endl;
          LOG(INFO)<<" Mass of the Tracked particle (gAVTP) : "<<gATVP->GetBeamMass()<<std::endl;
          LOG(INFO)<<" Mass of the Tracked particle (gMC) : "<<gMC->TrackMass()<<std::endl;
-         LOG(INFO)<<" Total energy of the current track (gAVTP) : "<<((gMC->Etot() - gATVP->GetBeamMass()) * 1000.)<<FairLogger::endl;// Relativistic Mass
-         LOG(INFO)<<" Total energy of the current track (gMC) : "<<((gMC->Etot() - gMC->TrackMass()) * 1000.)<<FairLogger::endl;// Relativistic Mass
+         LOG(INFO)<<" Initial energy of the current particle in this volume : "<<((gMC->Etot() - gATVP->GetBeamMass()) * 1000.)<<FairLogger::endl;// Relativistic Mass
+         //LOG(INFO)<<" Total energy of the current track (gMC) : "<<((gMC->Etot() - gMC->TrackMass()) * 1000.)<<FairLogger::endl;// Relativistic Mass
        
     }
 
@@ -265,6 +264,7 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 
 		AddHit(fTrackID,
 		       fVolumeID,
+               fVolName,
 		       fDetCopyID, 
 		       TVector3(fPosIn.X(), fPosIn.Y(), fPosIn.Z()),
 		       TVector3(fPosOut.X(), fPosOut.Y(), fPosOut.Z()),
@@ -303,8 +303,8 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 		
 
 
-	if(fELossAcc*1000>gATVP->GetRndELoss()  &&   (gATVP->GetBeamEvtCnt()%2!=0 && fTrackID==0) && VolName=="drift_volume"){
-		 std::cout<<" Energy Loss : "<<fELossAcc*1000<<std::endl;
+	if(fELossAcc*1000>gATVP->GetRndELoss()  &&   (gATVP->GetBeamEvtCnt()%2!=0 && fTrackID==0) && fVolName=="drift_volume"){
+		 LOG(INFO)<<" Beam energy loss before reaction : "<<fELossAcc*1000<<FairLogger::endl;
 		 gMC->StopTrack();
          gATVP->ResetVertex();
          TLorentzVector StopPos;
@@ -315,7 +315,7 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
          LOG(INFO)<<" Mass of the Beam from global vertex pointer : "<<gATVP->GetBeamMass()<<std::endl;
 		// LOG(INFO)<<" Total energy of the current track : "<<((gMC->Etot() - gMC->TrackMass()) * 1000.)<<FairLogger::endl;// Relativistic Mass
          Double_t StopEnergy = ((gMC->Etot() - gATVP->GetBeamMass()) * 1000.);
-		 LOG(INFO)<<" Total energy of the current track : "<<StopEnergy<<FairLogger::endl;// Relativistic Mass
+		 LOG(INFO)<<" Total energy of the Beam particle before reaction : "<<StopEnergy<<FairLogger::endl;// Relativistic Mass
          gATVP->SetVertex(StopPos.X(),StopPos.Y(),StopPos.Z(),InPos.X(),InPos.Y(),InPos.Z(),StopMom.Px(),StopMom.Py(),StopMom.Pz(),StopEnergy);
 		// std::cout<<" Entrance Position 2 - X : "<<InPos.X()<<" - Y : "<<InPos.Y()<<" - Z : "<<InPos.Z()<<std::endl;
                //  std::cout<<" Stop Position - X : "<<StopPos.X()<<" - Y : "<<StopPos.Y()<<" - Z : "<<StopPos.Z()<<std::endl;
@@ -476,7 +476,7 @@ Bool_t AtTpc::CheckIfSensitive(std::string name)
 {
   
   TString tsname = name;
-  if (tsname.Contains("drift_volume")) {
+  if (tsname.Contains("drift_volume") || tsname.Contains("window")) {
     LOG(INFO)<<" ATTPC geometry: Sensitive volume found: "<<tsname<<FairLogger::endl;
     return kTRUE;
   }
@@ -497,7 +497,8 @@ AtTpcPoint* AtTpc::AddHit(Int_t trackID, Int_t detID,
 // -----   Private method AddHit   --------------------------------------------
 AtTpcPoint* AtTpc::AddHit(Int_t trackID,
                             Int_t detID,
-                            Int_t detCopyID, 
+                            TString VolName,
+                            Int_t detCopyID,
                             TVector3 posIn,
                             TVector3 posOut,
                             TVector3 momIn,
@@ -517,6 +518,7 @@ AtTpcPoint* AtTpc::AddHit(Int_t trackID,
 
     return new (clref[size]) AtTpcPoint(trackID,
                                          detID,
+                                         VolName,
                                          detCopyID,
                                          posIn,
                                          posOut, 

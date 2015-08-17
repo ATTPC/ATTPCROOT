@@ -38,7 +38,7 @@ class AtTpcPoint : public FairMCPoint
     AtTpcPoint(Int_t trackID, Int_t detID, TVector3 pos, TVector3 mom,
                      Double_t tof, Double_t length, Double_t eLoss);
 
-    AtTpcPoint(Int_t trackID, Int_t detID, Int_t detCopyID, 
+    AtTpcPoint(Int_t trackID, Int_t detID, TString VolName, Int_t detCopyID,
 	      TVector3 posIn, 
 	      TVector3 posOut, TVector3 momIn, TVector3 momOut,
 	      Double_t tof, Double_t length, Double_t eLoss);
@@ -58,8 +58,9 @@ class AtTpcPoint : public FairMCPoint
  	 Double_t GetPxOut() const { return fPx_out; }
   	 Double_t GetPyOut() const { return fPy_out; }
   	 Double_t GetPzOut() const { return fPz_out; }
+     TString GetVolName() const { return fVolName; }
 
-         void PositionIn(TVector3& pos)  { pos.SetXYZ(fX, fY, fZ); }
+     void PositionIn(TVector3& pos)  { pos.SetXYZ(fX, fY, fZ); }
   	 void PositionOut(TVector3& pos) { pos.SetXYZ(fX_out,fY_out,fZ_out); }
   	 void MomentumOut(TVector3& mom) { mom.SetXYZ(fPx_out,fPy_out,fPz_out); }
 
@@ -85,7 +86,8 @@ class AtTpcPoint : public FairMCPoint
 
   Double32_t fX_out,  fY_out,  fZ_out;
   Double32_t fPx_out, fPy_out, fPz_out;
-  Int_t fDetCopyID; 
+    Int_t fDetCopyID;
+  TString fVolName;
 
 
     ClassDef(AtTpcPoint,1)
