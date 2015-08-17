@@ -307,7 +307,7 @@ ATEventDrawTask::DrawHitPoints()
     fHitSet->SetNextPoint(position.X()/10.,position.Y()/10.,position.Z()/10.); // Convert into cm
     fHitSet->SetPointId(new TNamed(Form("Hit %d",iHit),""));
     Int_t Atbin = fPadPlane->Fill(position.X(), position.Y(), hit.GetCharge());
-    //dumpEvent<<position.X()<<" "<<position.Y()<<" "<<position.Z()<<" "<<hit.GetCharge()<<std::endl;
+    //dumpEvent<<position.X()<<" "<<position.Y()<<" "<<position.Z()<<" "<<hit.GetTimeStamp()<<" "<<hit.GetCharge()<<std::endl;
     //std::cout<<"  Hit number : "<<iHit<<" - Position X : "<<position.X()<<" - Position Y : "<<position.Y()<<" - Position Z : "<<position.Z()<<" - ATHit Pad Number :  "<<PadNumHit<<" - Pad bin :"<<Atbin<<" - Hit Charge : "<<hit.GetCharge()<<std::endl;
       
    
