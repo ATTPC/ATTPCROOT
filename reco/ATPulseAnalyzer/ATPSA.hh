@@ -1,5 +1,5 @@
-#ifndef ATPSASIMPLE_H
-#define ATPSASIMPLE_H
+#ifndef ATPSA_H
+#define ATPSA_H
 
 #include "ATRawEvent.hh"
 #include "ATPad.hh"

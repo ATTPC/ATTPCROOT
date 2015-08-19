@@ -42,6 +42,8 @@ ATGas *ATDigiPar::GetGas()
 
 Int_t ATDigiPar::GetTBTime() {
   switch (fSamplingRate) {
+    case 12:
+      return 80; //port_to_root6
     case 25:
       return 40;
     case 50:

@@ -14,6 +14,9 @@
 #include "GETDecoder.hh"
 #include "GETFrame.hh"
 
+
+
+
 ClassImp(ATCore);
 
 ATCore::ATCore():AtPadCoordArr(boost::extents[10240][3][2]),kOpt(0)
@@ -197,6 +200,7 @@ ATRawEvent *ATCore::GetRawEvent(Int_t eventID){
         GETFrame *frame = NULL;
 
 		
+       
 	while ((frame = fGETDecoderPtr -> GetFrame(fCurrFrameNo))) {
             if (fPrevEventNo == -1)
                 fPrevEventNo = frame -> GetEventID();
