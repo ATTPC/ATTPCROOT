@@ -21,6 +21,7 @@
 #include "TCanvas.h"
 #include "TH2.h"
 #include "TH1.h"
+#include "TH3.h"
 #include "TGraph.h"
 #include "TH2Poly.h"
 
@@ -80,6 +81,7 @@ class ATEventDrawTask : public FairTask
     virtual void DrawHoughSpace();
     virtual void DrawPhiReco();
     virtual void DrawMesh();
+    virtual void Draw3DHist();
     
     AtTpcMap *fAtMapPtr;
     void UpdateCvsPadPlane();
@@ -90,6 +92,7 @@ class ATEventDrawTask : public FairTask
     void UpdateCvsHoughSpace();
     void UpdateCvsPhi();
     void UpdateCvsMesh();
+    void UpdateCvs3DHist();
 
     
     
@@ -164,6 +167,10 @@ class ATEventDrawTask : public FairTask
     TH1D* fPhiDistr[5];
     TCanvas* fCvsMesh;
     TH1F* fMesh;
+    TCanvas* fCvs3DHist;
+    TH3F* f3DHist;
+    
+    
 
     Int_t fNQuads;
     

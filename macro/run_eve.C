@@ -16,6 +16,8 @@ void run_eve()
   FairRootManager* ioman = FairRootManager::Instance();
 
   ATEventManager *eveMan = new ATEventManager();
+  //eveMan->Draw3DGeo();
+  //eveMan->Draw3DHist();
   ATEventDrawTask* eve = new ATEventDrawTask();
   eve->Set3DHitStyleBox();
   eve->SetMultiHit(100);

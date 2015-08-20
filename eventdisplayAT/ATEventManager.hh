@@ -32,6 +32,8 @@ class ATEventManager : public TEveEventManager
     void ChangeDrawAllPads();
     void EnableDrawHoughSpace();
     void EraseQEvent();
+    void Draw3DGeo();
+    void Draw3DHist();
 
     void AddTask(FairTask* task) { fRunAna->AddTask(task); }
     //virtual void InitRiemann(Int_t option=1, Int_t level=3, Int_t nNodes=10000);
@@ -46,6 +48,7 @@ class ATEventManager : public TEveEventManager
     TCanvas* GetCvsHoughSpace() { return fCvsHough; }
     TCanvas* GetCvsPhi() { return fCvsPhi; }
     TCanvas* GetCvsMesh() { return fCvsMesh; }
+    TCanvas* GetCvs3DHist() { return fCvs3DHist; }
     Bool_t GetDrawAllPad() { return kDrawAllOn; }
     Bool_t GetDrawHoughSpace() { return kDrawHoughOn; }
     Bool_t GetEraseQEvent() {Bool_t EraseBuff = kEraseQ; kEraseQ=kFALSE; return EraseBuff; }
@@ -68,6 +71,7 @@ class ATEventManager : public TEveEventManager
     TCanvas* fCvsHough;
     TCanvas* fCvsPhi;
     TCanvas* fCvsMesh;
+    TCanvas* fCvs3DHist;
 
     TGTextButton *drawallpad;
     TGTextButton *eraseQevent;
@@ -76,6 +80,8 @@ class ATEventManager : public TEveEventManager
     Bool_t kDrawAllOff;
     Bool_t kEraseQ;
     Bool_t kDrawHoughOn;
+    Bool_t kDraw3DGeo;
+    Bool_t kDraw3DHist;
 
     static ATEventManager* fInstance;
 

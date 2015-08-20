@@ -72,11 +72,13 @@ ATEventManager::ATEventManager()
   kDrawAllOn(0),
   kDrawAllOff(0),
   kEraseQ(0),
-  kDrawHoughOn(0)
+  kDrawHoughOn(0),
+  kDraw3DGeo(0),
+  kDraw3DHist(0)
 
 {
   fInstance=this;
-   kEraseQ = kFALSE;
+  kEraseQ = kFALSE;
 }
 
 ATEventManager::~ATEventManager()
@@ -95,7 +97,10 @@ void
 ATEventManager::Init(Int_t option, Int_t level, Int_t nNodes)
 {
 
+
+
   gStyle->SetOptTitle(0);
+  gStyle->SetCanvasPreferGL(kTRUE);
   TEveManager::Create();
     
   Int_t  dummy;
@@ -122,9 +127,12 @@ ATEventManager::Init(Int_t option, Int_t level, Int_t nNodes)
   pack->SetShowTitleBar(kFALSE);
 
   pack->NewSlot()->MakeCurrent();
+ // if(kDraw3DGeo){
   TEveViewer* view3D = gEve->SpawnNewViewer("3D View", "");
   view3D->AddScene(gEve->GetGlobalScene());
   view3D->AddScene(gEve->GetEventScene());
+ // }
+
  
   
 
@@ -173,7 +181,20 @@ ATEventManager::Init(Int_t option, Int_t level, Int_t nNodes)
     frame2->SetElementName("ATTPC Pad Plane All");
     fPadAll = ecvs2->GetCanvas();*/
     
+         //Sixth tab 3D Histogram
+    TEveWindowSlot* slot5 =
+    TEveWindow::CreateWindowInTab(gEve->GetBrowser()->GetTabRight());
+    TEveWindowPack* pack6 = slot5->MakePack();
+    pack6->SetShowTitleBar(kFALSE);
+    pack6->SetElementName("3D Histogram View");
+    slot5 = pack6->NewSlotWithWeight(1.5);
+    TRootEmbeddedCanvas* ecvs6 = new TRootEmbeddedCanvas();
+    TEveWindowFrame* frame6 = slot5->MakeFrame(ecvs6);
+    frame6->SetElementName("3D Histogram View");
+    fCvs3DHist = ecvs6->GetCanvas();    
     
+
+
     //Third tab
     TEveWindowSlot* slot2 =
     TEveWindow::CreateWindowInTab(gEve->GetBrowser()->GetTabRight());
@@ -236,6 +257,8 @@ ATEventManager::Init(Int_t option, Int_t level, Int_t nNodes)
     TEveWindowFrame* frame5 = slot4->MakeFrame(ecvs5);
     frame5->SetElementName("Phi Reconstruction");
     fCvsPhi = ecvs5->GetCanvas();
+
+
    
  
   /**************************************************************************/
@@ -534,6 +557,12 @@ ATEventManager::EraseQEvent()
     kEraseQ=kTRUE;
 
 }
+
+void
+ATEventManager::Draw3DGeo() {kDraw3DGeo = kTRUE;}
+
+void
+ATEventManager::Draw3DHist() {kDraw3DHist = kTRUE;}
 
 
 

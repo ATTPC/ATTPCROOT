@@ -79,6 +79,8 @@ ATEventDrawTask::ATEventDrawTask()
   fCvsPhi(0),
   fCvsMesh(0),
   fMesh(0),
+  fCvs3DHist(0),
+  f3DHist(0),
   fAtMapPtr(0),
   fMinZ(0),
   fMaxZ(1344),
@@ -89,6 +91,7 @@ ATEventDrawTask::ATEventDrawTask()
 {
 
   //fAtMapPtr = new AtTpcMap(); 
+  
   fGeoOption="ATTPC";
   
     
@@ -200,6 +203,9 @@ ATEventDrawTask::Init()
   DrawPhiReco();
   fCvsMesh = fEventManager->GetCvsMesh();
   DrawMesh();
+  fCvs3DHist = fEventManager->GetCvs3DHist();
+  Draw3DHist();
+  
   //******* NO CALLS TO TCANVAS BELOW HOUGHSPACE ONE
   fCvsHoughSpace = fEventManager->GetCvsHoughSpace();
   DrawHoughSpace();
@@ -232,6 +238,7 @@ ATEventDrawTask::Exec(Option_t* option)
   UpdateCvsRhoVariance();
   UpdateCvsPhi();
   UpdateCvsMesh();
+  UpdateCvs3DHist();
   if(fUnpackHough && fEventManager->GetDrawHoughSpace() ) UpdateCvsHoughSpace();
 }
 
@@ -241,7 +248,9 @@ ATEventDrawTask::DrawHitPoints()
   
   Float_t *MeshArray;
   fMesh->Reset(0);
+  f3DHist->Reset(0);
   TRandom r(0);
+
 
   std::ofstream dumpEvent;
   dumpEvent.open ("event.dat");
@@ -275,7 +284,8 @@ ATEventDrawTask::DrawHitPoints()
   fRawevent->SetName("fRawEvent");
   gROOT->GetListOfSpecials()->Add(fRawevent);
  
-  
+   
+
   
     //std::cout<<std::endl;
     //std::cout<<" ATHit Event ID : "<<event->GetEventID()<<std::endl;
@@ -298,16 +308,31 @@ ATEventDrawTask::DrawHitPoints()
     ATHit hit = event->GetHitArray()->at(iHit);
     Int_t PadNumHit = hit.GetHitPadNum();
     Int_t PadMultHit = event->GetHitPadMult(PadNumHit);
+
+
+    Bool_t fValidPad; 
+    ATPad *RawPad = fRawevent->GetPad(PadNumHit,fValidPad);
+    Double_t *adc = RawPad->GetADC(); 
+ 
     
     //std::cout<<" Hit : "<<iHit<<" ATHit Pad Number :  "<<PadNumHit<<" Pad Hit Mult : "<<PadMultHit<<std::endl;
     //std::cout<<"  Hit number : "<<iHit<<" - ATHit Pad Number :  "<<PadNumHit<<" - Hit Charge : "<<hit.GetCharge()<<std::endl;
     if(hit.GetCharge()<fThreshold) continue;
     if(PadMultHit>fMultiHit) continue;
     TVector3 position = hit.GetPosition();
+   
     
     fHitSet->SetNextPoint(position.X()/10.,position.Y()/10.,position.Z()/10.); // Convert into cm
     fHitSet->SetPointId(new TNamed(Form("Hit %d",iHit),""));
     Int_t Atbin = fPadPlane->Fill(position.X(), position.Y(), hit.GetCharge());
+
+
+             for(Int_t i=0;i<512;i++){
+					     
+                  if(adc[i]>50.0) f3DHist->Fill(position.X()/10.,position.Y()/10.,i,adc[i]);
+
+	      }
+
     //dumpEvent<<position.X()<<" "<<position.Y()<<" "<<position.Z()<<" "<<hit.GetTimeStamp()<<" "<<hit.GetCharge()<<std::endl;
     //std::cout<<"  Hit number : "<<iHit<<" - Position X : "<<position.X()<<" - Position Y : "<<position.Y()<<" - Position Z : "<<position.Z()<<" - ATHit Pad Number :  "<<PadNumHit<<" - Pad bin :"<<Atbin<<" - Hit Charge : "<<hit.GetCharge()<<std::endl;
       
@@ -781,6 +806,17 @@ ATEventDrawTask::DrawMesh()
 }
 
 void
+ATEventDrawTask::Draw3DHist()
+{
+    
+    fCvs3DHist->cd();
+    f3DHist = new TH3F("gl3DHist","gl3DHist",100,-25.0,25.0,100,-25.0,25.0,100,0,512);
+    // f3DHist -> Draw("LEGO2Z");
+    f3DHist -> Draw("BOX");
+}
+
+
+void
 ATEventDrawTask::UpdateCvsPadPlane()
 {
   fHoughSpace->Draw("contz");
@@ -874,6 +910,16 @@ ATEventDrawTask::UpdateCvsMesh()
     
     fCvsMesh -> Modified();
     fCvsMesh -> Update();
+ 
+    
+}
+
+void
+ATEventDrawTask::UpdateCvs3DHist()
+{
+    
+    fCvs3DHist -> Modified();
+    fCvs3DHist -> Update();
  
     
 }
