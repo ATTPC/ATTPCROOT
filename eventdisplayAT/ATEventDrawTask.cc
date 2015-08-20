@@ -87,7 +87,8 @@ ATEventDrawTask::ATEventDrawTask()
   fMinX(432),
   fMaxX(-432),
   f3DHitStyle(0),
-  fMultiHit(0)
+  fMultiHit(0),
+  f3DThreshold(0)
 {
 
   //fAtMapPtr = new AtTpcMap(); 
@@ -203,6 +204,7 @@ ATEventDrawTask::Init()
   DrawPhiReco();
   fCvsMesh = fEventManager->GetCvsMesh();
   DrawMesh();
+  fCvs3DHist = new TCanvas("glcvs3dhist");
   fCvs3DHist = fEventManager->GetCvs3DHist();
   Draw3DHist();
   
@@ -328,8 +330,9 @@ ATEventDrawTask::DrawHitPoints()
 
 
              for(Int_t i=0;i<512;i++){
-					     
-                  if(adc[i]>50.0) f3DHist->Fill(position.X()/10.,position.Y()/10.,i,adc[i]);
+					
+                  f3DThreshold = fEventManager->Get3DThreshold();     
+                  if(adc[i]>f3DThreshold) f3DHist->Fill(position.X()/10.,position.Y()/10.,i,adc[i]);
 
 	      }
 
@@ -810,9 +813,13 @@ ATEventDrawTask::Draw3DHist()
 {
     
     fCvs3DHist->cd();
-    f3DHist = new TH3F("gl3DHist","gl3DHist",100,-25.0,25.0,100,-25.0,25.0,100,0,512);
-    // f3DHist -> Draw("LEGO2Z");
-    f3DHist -> Draw("BOX");
+    f3DHist = new TH3F("gl3DHist","gl3DHist",50,-25.0,25.0,50,-25.0,25.0,50,0,512);
+    gStyle->SetPalette(55);
+    gStyle->SetCanvasPreferGL(kTRUE);
+    
+    f3DHist->SetFillColor(2);
+    f3DHist -> Draw("glbox3");
+   // f3DHist -> Draw("glcol"); //TODO: Not working, strange behavior
 }
 
 
@@ -918,6 +925,7 @@ void
 ATEventDrawTask::UpdateCvs3DHist()
 {
     
+   
     fCvs3DHist -> Modified();
     fCvs3DHist -> Update();
  

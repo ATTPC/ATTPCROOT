@@ -28,6 +28,8 @@ class ATEventManager : public TEveEventManager
     virtual void PrevEvent();            ///< *MENU*
     virtual void make_gui();
     virtual void SelectEvent();
+    virtual void Select3DThres();  
+
     static void DrawWave();
     void ChangeDrawAllPads();
     void EnableDrawHoughSpace();
@@ -52,6 +54,7 @@ class ATEventManager : public TEveEventManager
     Bool_t GetDrawAllPad() { return kDrawAllOn; }
     Bool_t GetDrawHoughSpace() { return kDrawHoughOn; }
     Bool_t GetEraseQEvent() {Bool_t EraseBuff = kEraseQ; kEraseQ=kFALSE; return EraseBuff; }
+    Float_t Get3DThreshold() {return k3DThreshold;}
 
     void RunEvent();
     
@@ -64,6 +67,7 @@ class ATEventManager : public TEveEventManager
     Int_t fEntry;
     TGListTreeItem* fEvent;
     TGNumberEntry*  fCurrentEvent;
+    TGNumberEntry*  f3DThresDisplay;
     TCanvas* fCvsPadPlane;
     TCanvas* fPadWave;
     TCanvas* fPadAll;
@@ -82,6 +86,7 @@ class ATEventManager : public TEveEventManager
     Bool_t kDrawHoughOn;
     Bool_t kDraw3DGeo;
     Bool_t kDraw3DHist;
+    Float_t k3DThreshold;
 
     static ATEventManager* fInstance;
 

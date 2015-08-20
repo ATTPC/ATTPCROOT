@@ -182,6 +182,7 @@ class ATEventDrawTask : public FairTask
     
     Int_t f3DHitStyle;
     Int_t fMultiHit;
+    Float_t f3DThreshold;
 
     ClassDef(ATEventDrawTask,1);
 };

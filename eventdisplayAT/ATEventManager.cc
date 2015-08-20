@@ -61,6 +61,7 @@ ATEventManager::ATEventManager()
   fEntry(0),
   fEvent(0),
   fCurrentEvent(0),
+  f3DThresDisplay(0),
   fCvsPadPlane(0),
   fPadWave(0),
   fPadAll(0),
@@ -74,7 +75,8 @@ ATEventManager::ATEventManager()
   kEraseQ(0),
   kDrawHoughOn(0),
   kDraw3DGeo(0),
-  kDraw3DHist(0)
+  kDraw3DHist(0),
+  k3DThreshold(0)
 
 {
   fInstance=this;
@@ -101,6 +103,7 @@ ATEventManager::Init(Int_t option, Int_t level, Int_t nNodes)
 
   gStyle->SetOptTitle(0);
   gStyle->SetCanvasPreferGL(kTRUE);
+  gStyle->SetPalette(55);
   TEveManager::Create();
     
   Int_t  dummy;
@@ -181,6 +184,8 @@ ATEventManager::Init(Int_t option, Int_t level, Int_t nNodes)
     frame2->SetElementName("ATTPC Pad Plane All");
     fPadAll = ecvs2->GetCanvas();*/
     
+   
+
          //Sixth tab 3D Histogram
     TEveWindowSlot* slot5 =
     TEveWindow::CreateWindowInTab(gEve->GetBrowser()->GetTabRight());
@@ -501,16 +506,24 @@ ATEventManager::make_gui()
     TGLabel* l = new TGLabel(f, "Current Event:");
     f->AddFrame(l, new TGLayoutHints(kLHintsLeft | kLHintsCenterY, 1, 2, 1, 1));
     
-    
-    
-      fCurrentEvent = new TGNumberEntry(f, 0., 6, -1,
+    fCurrentEvent = new TGNumberEntry(f, 0., 6, -1,
                                       TGNumberFormat::kNESInteger, TGNumberFormat::kNEANonNegative,
                                       TGNumberFormat::kNELLimitMinMax, 0, Entries);
       f->AddFrame(fCurrentEvent, new TGLayoutHints(kLHintsLeft, 1, 1, 1, 1));
       fCurrentEvent->Connect("ValueSet(Long_t)","ATEventManager",fInstance, "SelectEvent()");
       frmMain->AddFrame(f);
 
-    
+
+
+   TGHorizontalFrame* fThres = new TGHorizontalFrame(frmMain);
+   TGLabel* lThres = new TGLabel(fThres, "3D threshold:");
+   fThres->AddFrame(lThres, new TGLayoutHints(kLHintsLeft | kLHintsCenterY, 1, 2, 1, 1));
+   f3DThresDisplay = new TGNumberEntry(fThres, 0., 6, -1,
+                                      TGNumberFormat::kNESInteger, TGNumberFormat::kNEANonNegative,
+                                      TGNumberFormat::kNELLimitMinMax, 0, Entries);  
+   fThres->AddFrame(f3DThresDisplay, new TGLayoutHints(kLHintsLeft, 1, 1, 1, 1));
+   f3DThresDisplay->Connect("ValueSet(Long_t)","ATEventManager",fInstance, "Select3DThres()");
+   frmMain->AddFrame(fThres);
     
     
     frmMain->MapSubwindows();
@@ -519,6 +532,8 @@ ATEventManager::make_gui()
     
     browser->StopEmbedding();
     browser->SetTabTitle("ATTPC Event Control", 0);
+
+    
 }
 
 void
@@ -564,7 +579,12 @@ ATEventManager::Draw3DGeo() {kDraw3DGeo = kTRUE;}
 void
 ATEventManager::Draw3DHist() {kDraw3DHist = kTRUE;}
 
+void ATEventManager::Select3DThres()
+{
+  
+    k3DThreshold = f3DThresDisplay->GetIntNumber();
 
+}
 
 
 
