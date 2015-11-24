@@ -50,7 +50,7 @@ void run_unpack(){
   //decoderTask -> AddData("/Users/yassidayyad/Desktop/ATTPC/Data/run_0225/test");
  // decoderTask -> AddData("/home/ayyadlim/Desktop/Yassid/ATTPC/Data/run_0141/run_0141.graw");
   //decoderTask -> AddData("/home/ayyadlim/Desktop/Yassid/ATTPC/Data/ar40/run_0089/run_0089.graw");
-  decoderTask -> AddData("/data/ar40/run_0128/run_0128.graw");
+  decoderTask -> AddData("/data/ar40/run_0127/run_0127.graw");
   decoderTask -> SetPositivePolarity(kTRUE);
   
   //decoderTask -> SetData(0);
@@ -71,7 +71,7 @@ void run_unpack(){
 
   run->Init();
 
-  run->Run(0,10); // Number must be lower than the number of events in dummy
+  run->Run(0,300); // Number must be lower than the number of events in dummy
 
   // -----   Finish   -------------------------------------------------------
 	timer.Stop();
