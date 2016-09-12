@@ -1,8 +1,8 @@
 /********************************************************************************
  *    Copyright (C) 2014 GSI Helmholtzzentrum fuer Schwerionenforschung GmbH    *
  *                                                                              *
- *              This software is distributed under the terms of the             * 
- *         GNU Lesser General Public Licence version 3 (LGPL) version 3,        *  
+ *              This software is distributed under the terms of the             *
+ *         GNU Lesser General Public Licence version 3 (LGPL) version 3,        *
  *                  copied verbatim in the file "LICENSE"                       *
  ********************************************************************************/
 #include "AtTpc.h"
@@ -157,17 +157,18 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
     AtStack* stack = (AtStack*) gMC->GetStack();
     stack->AddPoint(kAtTpc);
     Print();
-   
+
 
   return kTRUE;*/
 //============================================================================//
 
 
-	AtStack* stack = (AtStack*) gMC->GetStack();
+	      AtStack* stack = (AtStack*) gMC->GetStack();
         fVolName = gMC->CurrentVolName();
-        
+        std::pair<Int_t,Int_t> AZ;
 
-        //std::cout<<" Current Event : "<<gMC->CurrentEvent()<<std::endl;        
+
+        //std::cout<<" Current Event : "<<gMC->CurrentEvent()<<std::endl;
 
        /* std::cout<<" Current Track Number : "<<stack->GetCurrentTrackNumber()<<std::endl;
 	TParticle* beam_part0 = stack->GetParticle(stack->GetCurrentTrackNumber());
@@ -186,8 +187,12 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
          Int_t VolumeID;
          if(gATVP->GetBeamEvtCnt()%2!=0) LOG(INFO) << " ATTPC: Beam Event " <<FairLogger::endl;
          else if(gATVP->GetDecayEvtCnt()%2==0) LOG(INFO) << " ATTPC: Reaction/Decay Event " <<FairLogger::endl;
+         AZ = DecodePdG(gMC->TrackPid());
          LOG(INFO) << " ATTPC: First hit in Volume " <<fVolName<< FairLogger::endl;
          LOG(INFO) << " Particle : "<<gMC->ParticleName(gMC->TrackPid())<<FairLogger::endl;
+         LOG(INFO) << " PID PdG : "<<gMC->TrackPid()<<FairLogger::endl;
+         LOG(INFO) << " Atomic Mass : "<<AZ.first<<FairLogger::endl;
+         LOG(INFO) << " Atomic Number : "<<AZ.second<<FairLogger::endl;
          LOG(INFO)<<" Volume ID "<<gMC->CurrentVolID(VolumeID)<<FairLogger::endl;
          LOG(INFO)<<" Track ID : "<<fTrackID<<FairLogger::endl;
          LOG(INFO)<<" Total relativistic energy " <<gMC->Etot()<< FairLogger::endl;
@@ -203,7 +208,7 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 	 std::cout<<" Scattered Angle : "<<gATVP->GetScatterA()<<std::endl;*/
     }
 
-    // 
+    //
     fELoss = gMC->Edep();
     fELossAcc+= fELoss;
     fTime = gMC->TrackTime() * 1.0e09;
@@ -216,10 +221,10 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
     // Set additional parameters at exit of active volume. Create R3BTraPoint.
     if (gMC->IsTrackExiting() || gMC->IsTrackStop() || gMC->IsTrackDisappeared())
       {
-	
+
         fTrackID = gMC->GetStack()->GetCurrentTrackNumber();
         fVolumeID = vol->getMCid();
-        fDetCopyID = vol->getCopyNo(); 
+        fDetCopyID = vol->getCopyNo();
         gMC->TrackPosition(fPosOut);
         gMC->TrackMomentum(fMomOut);
 //        if (fELoss == 0.)
@@ -227,7 +232,7 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 
       if (gMC->IsTrackExiting())
         {
-		
+
             const Double_t* oldpos;
             const Double_t* olddirection;
             Double_t newpos[3];
@@ -258,19 +263,29 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
             fPosOut.SetY(newpos[1]);
             fPosOut.SetZ(newpos[2]);
 
-             if(fVolName=="drift_volume" && gATVP->GetBeamEvtCnt()%2!=0 && fTrackID==0 ){ 
-		gATVP->ResetVertex();
+             if(fVolName=="drift_volume" && gATVP->GetBeamEvtCnt()%2!=0 && fTrackID==0 ){
+		            gATVP->ResetVertex();
                 LOG(INFO)<<" - AtTpc Warning : Beam punched through the ATTPC. Reseting Vertex! "<<std::endl;
 		}
 
          }
 
-	}// if track 
+	/*
+	//solo por curiosidad
+	 std::cout<<"======================================================================"<<std::endl;
+	 std::cout<<" Current Decay particle count : "<<gATVP->GetDecayEvtCnt()<<std::endl;
+	 std::cout<<" Current Beam particle count :  "<<gATVP->GetBeamEvtCnt()<<std::endl;
+	 std::cout<<"fTrackID : "<<fTrackID<<std::endl;
+	 std::cout<<"======================================================================"<<std::endl;
+	*/
+	}// if track
+
+	
 
 	    if( gATVP->GetBeamEvtCnt()%2!=0 && fTrackID==0) { // We assume that the beam-like particle is fTrackID==0 since it is the first one added
-														//  in the Primary Generator 
+														//  in the Primary Generator
 
-               // std::cout<<" Current Decay particle count : "<<gATVP->GetDecayEvtCnt()<<std::endl; 
+               // std::cout<<" Current Decay particle count : "<<gATVP->GetDecayEvtCnt()<<std::endl;
 		//std::cout<<" Current Beam particle count :  "<<gATVP->GetBeamEvtCnt()<<std::endl;
                // std::cout<<" fTrackID : "<<fTrackID<<std::endl;
 		//std::cout<<" Recoil Energy : "<<gATVP->GetRecoilE()<<std::endl;
@@ -278,7 +293,7 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 		AddHit(fTrackID,
 		       fVolumeID,
                        fVolName,
-		       fDetCopyID, 
+		       fDetCopyID,
 		       TVector3(fPosIn.X(), fPosIn.Y(), fPosIn.Z()),
 		       TVector3(fPosOut.X(), fPosOut.Y(), fPosOut.Z()),
 		       TVector3(fMomIn.Px(), fMomIn.Py(), fMomIn.Pz()),
@@ -287,7 +302,9 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 		       fLength,
 		       fELoss,
 		       0.0,
-		       0.0);
+		       0.0,
+           AZ.first,
+           AZ.second);
 
 	}
 	else if(gATVP->GetDecayEvtCnt()%2==0 && fTrackID==1)
@@ -295,8 +312,8 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 
  		AddHit(fTrackID,
 		       fVolumeID,
-                       fVolName,
-		       fDetCopyID, 
+           fVolName,
+		       fDetCopyID,
 		       TVector3(fPosIn.X(), fPosIn.Y(), fPosIn.Z()),
 		       TVector3(fPosOut.X(), fPosOut.Y(), fPosOut.Z()),
 		       TVector3(fMomIn.Px(), fMomIn.Py(), fMomIn.Pz()),
@@ -305,7 +322,10 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 		       fLength,
 		       fELoss,
 		       gATVP->GetScatterE(),
-		       gATVP->GetScatterA());
+		       gATVP->GetScatterA(),
+           AZ.first,
+           AZ.second);
+
 
 
 
@@ -315,8 +335,8 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 
  		AddHit(fTrackID,
 		       fVolumeID,
-                       fVolName,
-		       fDetCopyID, 
+           fVolName,
+		       fDetCopyID,
 		       TVector3(fPosIn.X(), fPosIn.Y(), fPosIn.Z()),
 		       TVector3(fPosOut.X(), fPosOut.Y(), fPosOut.Z()),
 		       TVector3(fMomIn.Px(), fMomIn.Py(), fMomIn.Pz()),
@@ -324,19 +344,43 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 		       fTime,
 		       fLength,
 		       fELoss,
-		       gATVP->GetRecoilE(),
-		       gATVP->GetRecoilA());
+		       gATVP->GetBURes1E(),
+		       gATVP->GetBURes1A(),
+           AZ.first,
+           AZ.second);
 
 
 
 	}
+  else if(gATVP->GetDecayEvtCnt()%2==0 && fTrackID==3)
+  {
 
-	//std::cout<<" Energy Loss : "<<fELoss*1000<<std::endl;	 
+        AddHit(fTrackID,
+       fVolumeID,
+       fVolName,
+       fDetCopyID,
+       TVector3(fPosIn.X(), fPosIn.Y(), fPosIn.Z()),
+       TVector3(fPosOut.X(), fPosOut.Y(), fPosOut.Z()),
+       TVector3(fMomIn.Px(), fMomIn.Py(), fMomIn.Pz()),
+       TVector3(fMomOut.Px(), fMomOut.Py(), fMomOut.Pz()),
+       fTime,
+       fLength,
+       fELoss,
+       gATVP->GetBURes2E(),
+       gATVP->GetBURes2A(),
+       AZ.first,
+       AZ.second);
+
+
+
+  }
+
+	//std::cout<<" Energy Loss : "<<fELoss*1000<<std::endl;
 
       /*   LOG(INFO)<<" Total Energy of the tracked particle : "<<gMC->Etot()<<std::endl;
          LOG(INFO)<<" Mass of the tracked particle : "<<gMC->TrackMass()<<std::endl;
          LOG(INFO)<<" Mass of the Beam from global vertex pointer : "<<gATVP->GetBeamMass()<<std::endl;
-        // LOG(INFO)<<" Total energy of the current track : "<<((gMC->Etot() - gMC->TrackMass()) * 1000.)<<FairLogger::endl; 
+        // LOG(INFO)<<" Total energy of the current track : "<<((gMC->Etot() - gMC->TrackMass()) * 1000.)<<FairLogger::endl;
          LOG(INFO)<<" Total energy of the current track : "<<((gMC->Etot() - gATVP->GetBeamMass()) * 1000.)<<FairLogger::endl;
          std::cout<<" Track ID : "<<fTrackID<<std::endl;
          std::cout<<" Energy Loss : "<<fELoss*1000<<std::endl;*/
@@ -354,18 +398,18 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 		//Double_t Er = gRandom->Uniform(0.,gATVP->GetBeamNomE());
   		//std::cout<<" Nominal energy of the beam : "<<gATVP->GetBeamNomE()<<std::endl;
                 //std::cout<<" Random Stopping Energy  : "<<Er<<std::endl;
-   
-		
+
+
 
 
 	if(fELossAcc*1000>gATVP->GetRndELoss()  &&   (gATVP->GetBeamEvtCnt()%2!=0 && fTrackID==0) && fVolName=="drift_volume"){
 	 LOG(INFO)<<" Beam energy loss before reaction : "<<fELossAcc*1000<<FairLogger::endl;
-	 gMC->StopTrack();
+	       gMC->StopTrack();
          gATVP->ResetVertex();
          TLorentzVector StopPos;
          TLorentzVector StopMom;
          gMC->TrackPosition(StopPos);
-	 gMC->TrackMomentum(StopMom);
+	       gMC->TrackMomentum(StopMom);
          LOG(INFO)<<" Mass of the Tracked particle : "<<gMC->TrackMass()<<std::endl;
          LOG(INFO)<<" Mass of the Beam from global vertex pointer : "<<gATVP->GetBeamMass()<<std::endl;
 	 // LOG(INFO)<<" Total energy of the current track : "<<((gMC->Etot() - gMC->TrackMass()) * 1000.)<<FairLogger::endl;// Relativistic Mass
@@ -374,15 +418,15 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
          gATVP->SetVertex(StopPos.X(),StopPos.Y(),StopPos.Z(),InPos.X(),InPos.Y(),InPos.Z(),StopMom.Px(),StopMom.Py(),StopMom.Pz(),StopEnergy);
 	 // std::cout<<" Entrance Position 2 - X : "<<InPos.X()<<" - Y : "<<InPos.Y()<<" - Z : "<<InPos.Z()<<std::endl;
          //  std::cout<<" Stop Position - X : "<<StopPos.X()<<" - Y : "<<StopPos.Y()<<" - Z : "<<StopPos.Z()<<std::endl;
-                 
+
 	}
 		// Increment number of AtTpc det points in TParticle
-	    	
-	 
-	
+
+
+
 	    	stack->AddPoint(kAtTpc);
 
-	  
+
 
 
 
@@ -393,19 +437,19 @@ Bool_t  AtTpc::ProcessHits(FairVolume* vol)
 		TParticle* beam_part1 = stack->GetParticle(1);
                 std::cout<<" Beam particle 1 mass  "<<beam_part1->GetMass()<<std::endl;
 		TParticle* beam_part2 = stack->GetParticle(2);
-                std::cout<<" Beam particle 2 mass  "<<beam_part2->GetMass()<<std::endl;	
+                std::cout<<" Beam particle 2 mass  "<<beam_part2->GetMass()<<std::endl;
 		TParticle* beam_part3 = stack->GetParticle(3);
                 std::cout<<" Beam particle 3 mass  "<<beam_part3->GetMass()<<std::endl;*/
-		
+
 
 		//Print();
 
        // ResetParameters();
          // Reset();
-    
-       
-      
-    
+
+
+
+
 
     return kTRUE;
 
@@ -454,11 +498,11 @@ void AtTpc::Print(Option_t* option) const
 
 /*void AtTpc::ConstructGeometry()
 {
-    
+
     TGeoVolume *top=gGeoManager->GetTopVolume();
     TGeoMedium *Si =gGeoManager->GetMedium("Si");
     TGeoMedium *Carbon = gGeoManager->GetMedium("Carbon");
-    
+
     if(Si==0){
         TGeoMaterial *matSi     = new TGeoMaterial("Si", 28.0855, 14, 2.33);
         Si     = new TGeoMedium("Si", 2, matSi);
@@ -468,7 +512,7 @@ void AtTpc::Print(Option_t* option) const
         Carbon     = new TGeoMedium("C", 3, matCarbon);
     }
 
-    
+
     TGeoVolume *det1= gGeoManager->MakeTubs("Det1",Si,5,80,0.1,0,360);
     AddSensitiveVolume(det1);
     TGeoRotation r1;
@@ -478,7 +522,7 @@ void AtTpc::Print(Option_t* option) const
     TGeoHMatrix *h1 = new TGeoHMatrix(c1);
     top->AddNode(det1,1,h1);
     det1->SetLineColor(kGreen);
-    
+
     TGeoVolume *passive1= gGeoManager->MakeTubs("Pass1",Si,5,120,10,0,360);
     TGeoRotation rp1;
     rp1.SetAngles(0,0,0);
@@ -487,9 +531,9 @@ void AtTpc::Print(Option_t* option) const
     TGeoHMatrix *hp1 = new TGeoHMatrix(cp1);
     top->AddNode(passive1,1,hp1);
     passive1->SetLineColor(kBlue);
-    
-    
-    
+
+
+
     TGeoVolume *det2= gGeoManager->MakeTubs("Det2",Si,5,150,0.1,0,360);
     AddSensitiveVolume(det2);
     TGeoRotation r2;
@@ -499,7 +543,7 @@ void AtTpc::Print(Option_t* option) const
     TGeoHMatrix *h2 = new TGeoHMatrix(c2);
     top->AddNode(det2,1,h2);
     det2->SetLineColor(kGreen);
-    
+
     TGeoVolume *det3= gGeoManager->MakeTubs("Det3",Si,5,150,0.1,0,360);
     AddSensitiveVolume(det3);
     TGeoRotation r3;
@@ -509,8 +553,8 @@ void AtTpc::Print(Option_t* option) const
     TGeoHMatrix *h3 = new TGeoHMatrix(c3);
     top->AddNode(det3,1,h3);
     det3->SetLineColor(kGreen);
-    
-    
+
+
 }*/
 
 void AtTpc::ConstructGeometry()
@@ -529,7 +573,7 @@ void AtTpc::ConstructGeometry()
 
 Bool_t AtTpc::CheckIfSensitive(std::string name)
 {
-  
+
   TString tsname = name;
   if (tsname.Contains("drift_volume") || tsname.Contains("window")) {
     LOG(INFO)<<" ATTPC geometry: Sensitive volume found: "<<tsname<<FairLogger::endl;
@@ -561,8 +605,10 @@ AtTpcPoint* AtTpc::AddHit(Int_t trackID,
                             Double_t time,
                             Double_t length,
                             Double_t eLoss,
-			    Double_t EIni,
-			    Double_t AIni)
+			                      Double_t EIni,
+			                      Double_t AIni,
+                            Int_t A,
+                            Int_t Z)
 {
     TClonesArray& clref = *fAtTpcPointCollection;
     Int_t size = clref.GetEntriesFast();
@@ -571,21 +617,35 @@ AtTpcPoint* AtTpc::AddHit(Int_t trackID,
     if (fVerboseLevel > 1)
        LOG(INFO) << "ATTPC: Adding Point at (" << posIn.X() << ", " << posIn.Y() << ", " << posIn.Z() << ") cm,  detector " << detID << ", track " << trackID
                   << ", energy loss " << eLoss * 1e06 << " keV" << FairLogger::endl;
-    
+
 
     return new (clref[size]) AtTpcPoint(trackID,
                                          detID,
                                          VolName,
                                          detCopyID,
                                          posIn,
-                                         posOut, 
+                                         posOut,
                                          momIn,
                                          momOut,
                                          time,
                                          length,
                                          eLoss,
-					 EIni,
-					 AIni);
+					                               EIni,
+					                               AIni,
+                                         A,
+                                         Z);
+}
+
+std::pair<Int_t,Int_t> AtTpc::DecodePdG(Int_t PdG_Code)
+{
+        Int_t A = PdG_Code/10%1000;
+        Int_t Z = PdG_Code/10000%1000;
+
+        std::pair<Int_t,Int_t> nucleus;
+        nucleus.first  = A;
+        nucleus.second = Z;
+        return nucleus;
+
 }
 
 ClassImp(AtTpc)

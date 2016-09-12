@@ -32,9 +32,15 @@ class ATVertexPropagator : public TObject
    void SetRecoilA(Double_t val);
    void SetScatterE(Double_t val);
    void SetScatterA(Double_t val);
+   void SetBURes1E(Double_t val); //Recoil(Scatt) breaks up. Residual 1
+   void SetBURes1A(Double_t val);
+   void SetBURes2E(Double_t val); //Recoil(Scatt) breaks up. Residual 2
+   void SetBURes2A(Double_t val);
    void SetRndELoss(Double_t eloss);
    void SetBeamNomE(Double_t ener);
    void ResetVertex();
+   void SetMassNum(Int_t mnum);
+   void SetAtomicNum(Int_t anum);
 
    Int_t GetGlobalEvtCnt();
    Int_t GetBeamEvtCnt();
@@ -56,6 +62,12 @@ class ATVertexPropagator : public TObject
    Double_t GetRecoilA();
    Double_t GetScatterE();
    Double_t GetScatterA();
+   Double_t GetBURes1E(); //Recoil(Scatt) breaks up. Residual 1
+   Double_t GetBURes1A();
+   Double_t GetBURes2E(); //Recoil(Scatt) breaks up. Residual 2
+   Double_t GetBURes2A();
+   Int_t GetMassNum();
+   Int_t GetAtomicNum();
 
 
 
@@ -85,7 +97,13 @@ class ATVertexPropagator : public TObject
    Double_t fRecoilA;
    Double_t fScatterE;
    Double_t fScatterA;
+   Double_t fBURes1E;
+   Double_t fBURes1A;
+   Double_t fBURes2E;
+   Double_t fBURes2A;
    Bool_t fIsValidKine;
+   Int_t fAiso;
+   Int_t fZiso;
 
 };
 
